@@ -131,44 +131,6 @@ Arduinon styr dem i mjukvara.
 -->
 
 ---
-layout: center
-class: text-center
----
-
-<div class="mb-6 text-xs font-mono tracking-widest uppercase opacity-60">
-  Inför träff 1 · Klassrumsverktyget
-</div>
-
-<h1 class="mb-16">Klassrummets viktigaste verktyg</h1>
-
-<div class="flex justify-center gap-16 items-center">
-  <div class="flex flex-col items-center">
-    <div class="w-40 h-40 bg-emerald-400 rounded-sm shadow-2xl transform -rotate-6"></div>
-    <div class="mt-6 font-bold text-emerald-400 text-xl">GRÖN</div>
-    <div class="text-sm opacity-70 mt-1">Allt flyter på</div>
-  </div>
-  <div class="text-4xl opacity-40">+</div>
-  <div class="flex flex-col items-center">
-    <div class="w-40 h-40 bg-rose-500 rounded-sm shadow-2xl transform rotate-3"></div>
-    <div class="mt-6 font-bold text-rose-500 text-xl">RÖD</div>
-    <div class="text-sm opacity-70 mt-1">Jag behöver hjälp</div>
-  </div>
-</div>
-
-<!--
-INSTRUKTION TILL KLASSEN:
-Dela ut en röd och en grön Post-it till varje par/deltagare.
-
-SÄG: 
-"Innan vi börjar vill jag visa vårt kommunikationssystem. När ni kodar:
-- Sätt den GRÖNA lappen på skärmen om allt flyter på.
-- Får ni ett fel ni inte förstår, sätt upp den RÖDA lappen. Då kommer jag.
-- Sitter ingen lapp uppe antar jag att ni tänker så det knakar!"
-
-Detta system skalar. En ensam lärare kan handleda 20 elever utan att drunkna.
--->
-
----
 layout: section
 class: section text-center
 ---
@@ -315,13 +277,13 @@ class: pl-4
 
 # Mikrokontrollern.
 
-<div class="text-xl opacity-75 mt-8 leading-relaxed">
+<div class="text-xl opacity-75 mt-8">
   En <span class="cyan">mikrokontroller</span> — processor, minne<br/>
   och in-/utgångar på ett chip.<br/>
   Kör ett enda program, helt förutsägbart.
 </div>
 
-<div class="mt-10 text-xs opacity-50 font-mono leading-relaxed">
+<div class="mt-10 text-xs opacity-50 font-mono">
   Arduino UNO R3 · ATmega328P<br/>
   16 MHz · 32 KB flash · 2 KB SRAM
 </div>
@@ -450,7 +412,7 @@ class: px-14 pt-12
     <div class="text-sm opacity-60 mt-4 mono">täck variabeln ni söker</div>
   </div>
 
-  <div class="text-2xl opacity-80 max-w-sm leading-relaxed">
+  <div class="text-2xl opacity-80 max-w-sm">
     Räkneexempel och framspänningsfall: <br/>
     <span class="cyan">→ Bilaga F i kompendiet</span>
   </div>
@@ -491,7 +453,7 @@ layout: two-cols-header
 
 ::left::
 
-<div class="mt-4 text-lg leading-relaxed">
+<div class="mt-4 text-lg">
 
 Strömmen går ut från en <span class="cyan">utgångspinne</span> (t.ex. pin 13 när den är HIGH), genom komponenterna, och tillbaka till <span class="cyan">GND</span>.
 
@@ -558,7 +520,7 @@ class: px-14 pt-12
 
 ### LED:en
 
-<div class="space-y-2 text-base opacity-85 mt-4 leading-relaxed">
+<div class="space-y-2 text-base opacity-85 mt-4">
 
 - **Har polaritet.** Kör du den baklänges lyser den inte.
 - **Långt ben = anod (+)** → till signalpinnen (pin 13).
@@ -579,7 +541,7 @@ class: px-14 pt-12
 
 ### Resistorn
 
-<div class="space-y-2 text-base opacity-85 mt-4 leading-relaxed">
+<div class="space-y-2 text-base opacity-85 mt-4">
 
 - **Passiv komponent.** Ingen polaritet — koppla hur du vill.
 - Värdet läses på **färgringarna**.
@@ -698,7 +660,7 @@ class: px-14 text-center
 
 # Kontrollera raden först.
 
-<div class="mt-16 text-4xl leading-relaxed max-w-4xl mx-auto">
+<div class="mt-16 text-4xl max-w-4xl mx-auto">
   <strong>90 %</strong> av alla nybörjarfel <br/>
   är ett hål fel.
 </div>
@@ -832,7 +794,7 @@ class: px-14 pt-12
 
 ::left::
 
-<div class="mt-6 space-y-5 text-base leading-relaxed">
+<div class="mt-6 space-y-5 text-base">
 
 <div>
   <div class="text-lg font-bold cyan">void setup()</div>
@@ -905,21 +867,21 @@ class: px-14
 
 <div class="grid grid-cols-[280px_1fr] gap-8 items-start">
   <code class="text-lg">pinMode(13, OUTPUT);</code>
-  <div class="opacity-85 text-base leading-relaxed">
+  <div class="opacity-85 text-base">
     "Pin 13 är en <span class="cyan">utgång</span>." Säger åt Arduinon att den ska skicka ut ström på den pinnen. Körs i <span class="mono">setup()</span>.
   </div>
 </div>
 
 <div class="grid grid-cols-[280px_1fr] gap-8 items-start">
   <code class="text-lg">digitalWrite(13, HIGH);</code>
-  <div class="opacity-85 text-base leading-relaxed">
+  <div class="opacity-85 text-base">
     "Sätt pin 13 till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
   </div>
 </div>
 
 <div class="grid grid-cols-[280px_1fr] gap-8 items-start">
   <code class="text-lg">delay(1000);</code>
-  <div class="opacity-85 text-base leading-relaxed">
+  <div class="opacity-85 text-base">
     "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
   </div>
 </div>
@@ -970,7 +932,7 @@ class: px-14
 
 # Din egen rytm.
 
-<div class="mt-10 text-3xl leading-relaxed max-w-4xl">
+<div class="mt-10 text-3xl max-w-4xl">
 
 Ändra `Blink` till ett mönster du själv väljer.
 
@@ -1203,7 +1165,7 @@ class: text-center
 
 <div class="warn-box mt-3 inline-block text-left">
   <div class="warn-title">Viktigt — RGB-LED:en</div>
-  <div class="leading-relaxed">
+  <div>
     <strong>Common Cathode.</strong> 4 ben i rad.<br/>
     Ordning från platta sidan: <span class="mono">Röd · <span class="danger">Katod</span> · Grön · Blå</span><br/>
     Katoden är <strong>längst</strong>, sitter <strong>andra från platta sidan</strong>, och går till <span class="danger">GND</span>.
@@ -1287,7 +1249,7 @@ class: px-14 pt-12
 
 # `analogWrite`.
 
-<div class="mt-6 text-2xl leading-relaxed max-w-5xl space-y-4">
+<div class="mt-6 text-2xl max-w-5xl space-y-4">
 
 `digitalWrite` kunde bara två saker: <span class="mono cyan">HIGH</span> eller <span class="mono">LOW</span>.
 
@@ -1345,7 +1307,7 @@ class: px-14
 
 <div class="grid grid-cols-[1fr_auto] gap-12 mt-6 items-center">
 
-<div class="text-2xl space-y-4 leading-relaxed">
+<div class="text-2xl space-y-4">
   <div><span class="mono cyan">0</span> → alltid LOW → släckt</div>
   <div><span class="mono cyan">128</span> → 50 % PÅ-tid → halvstyrka</div>
   <div><span class="mono cyan">255</span> → alltid HIGH → full</div>
@@ -1375,7 +1337,7 @@ class: px-14
 
 <div class="mt-8 grid grid-cols-[1.2fr_1fr] gap-10">
 
-<div class="text-lg leading-relaxed space-y-4">
+<div class="text-lg space-y-4">
 
 Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal. Ladda upp, titta, justera.
 
@@ -1448,7 +1410,7 @@ class: px-14 pt-14 text-center
   <div class="rgb-circle rgb-blue"></div>
 </div>
 
-<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto leading-relaxed">
+<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
   Ni kan blanda <span class="cyan">alla färger</span> ur tre kanaler, och ni har lärt Arduinon att leverera något <em>mellan</em> helt av och helt på.
 </div>
 
@@ -1515,7 +1477,7 @@ class: px-14 pt-10
 
 <div class="grid grid-cols-2 gap-10 mt-6">
 
-<div class="text-base leading-relaxed space-y-4">
+<div class="text-base space-y-4">
 
 I morse har ni redan använt `const int` — för pin-nummer.
 
@@ -1636,7 +1598,7 @@ class: px-12
 
 ::left::
 
-<div class="mt-4 text-base leading-relaxed space-y-4">
+<div class="mt-4 text-base space-y-4">
 
 Läs ett värde → jämför → agera olika beroende på resultatet.
 
@@ -1732,7 +1694,7 @@ class: px-12 pt-10
 
 ::left::
 
-<div class="mt-4 text-base leading-relaxed space-y-3">
+<div class="mt-4 text-base space-y-3">
 
 En knapp som **hålls nere** skulle toggla 50 gånger per sekund. Resultat: larmet blinkar mellan av/på som ett stroboskop.
 
@@ -1917,7 +1879,7 @@ class: px-14 text-center
 
 # Läs knapp. Styr buzzer.
 
-<div class="mt-16 text-3xl leading-relaxed max-w-3xl mx-auto">
+<div class="mt-16 text-3xl max-w-3xl mx-auto">
   Knappen ner → buzzern tjuter.<br/>
   Släpp → tyst.
 </div>
@@ -2003,7 +1965,7 @@ class: px-14 text-center
 
 # Arduinon lyssnar.
 
-<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto leading-relaxed">
+<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
   Ni har byggt Arduinons första <span class="cyan">sinnesorgan</span> — en knapp — och gett den en <span class="cyan">röst</span> — buzzern.<br/>
   En läser, den andra reagerar.
 </div>
@@ -2351,7 +2313,7 @@ class: px-14
 
 # Serial Monitor.
 
-<div class="text-lg opacity-85 mt-6 leading-relaxed">
+<div class="text-lg opacity-85 mt-6">
 
 Hur ser vi vilka värden Arduinon <span class="cyan">läser</span>?
 
@@ -2508,7 +2470,7 @@ class: px-14 text-center
 
 # Arduinon känner världen.
 
-<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto leading-relaxed">
+<div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
   Ni kan läsa <span class="cyan">ljus</span> med en fotocell, <span class="cyan">lutning</span> med en tilt-sensor, och <span class="cyan">titta in</span> i Arduinons hjärna via Serial Monitor.
 </div>
 
@@ -2737,7 +2699,7 @@ class: end text-center
   Tack.
 </h1>
 
-<div class="text-4xl opacity-90 max-w-4xl mx-auto leading-relaxed">
+<div class="text-4xl opacity-90 max-w-4xl mx-auto">
   Ni har byggt ett system som <span class="cyan">läser av omvärlden</span><br/>
   och <span class="cyan">reagerar på den</span>.<br/>
   Det är grunden i inbyggda system.
