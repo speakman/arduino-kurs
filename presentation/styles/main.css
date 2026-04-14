@@ -242,7 +242,7 @@
 .rgb-blue   { background: #2979ff; box-shadow: 0 0 60px rgba(41, 121, 255, 0.7); }
 .rgb-white  { background: #ffffff; box-shadow: 0 0 80px rgba(255, 255, 255, 0.7); }
 
-.big-code pre { font-size: 1.25em !important; line-height: 1.5 !important; }
+.big-code pre { font-size: 2em !important; line-height: 1.5 !important; padding: 1.5rem !important; }
 
 .dots-bg {
   background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);

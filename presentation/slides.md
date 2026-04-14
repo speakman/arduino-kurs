@@ -1257,7 +1257,7 @@ class: px-14 pt-12
 
 </div>
 
-<div class="mt-6 [&_pre]:!text-3xl [&_pre]:!leading-relaxed [&_pre]:!p-6">
+<div class="big-code mt-6">
 
 ```cpp
 analogWrite(ledR, 200);  // röd hög
@@ -1928,7 +1928,7 @@ class: px-14 pt-12
 
 # Kärnan i `loop()`.
 
-<div class="mt-6 [&_pre]:!text-3xl [&_pre]:!leading-relaxed [&_pre]:!p-8">
+<div class="big-code mt-6">
 
 ```cpp
 if (digitalRead(knappPin) == LOW) {
@@ -2431,7 +2431,7 @@ class: px-14 pt-12
 
 # Koden att köra.
 
-<div class="mt-4 [&_pre]:!text-2xl [&_pre]:!leading-relaxed [&_pre]:!p-6">
+<div class="big-code mt-4">
 
 ```cpp
 void loop() {
