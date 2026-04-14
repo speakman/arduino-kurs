@@ -650,8 +650,7 @@ som spelar roll idag.
 -->
 
 ---
-layout: default
-class: px-14 text-center
+layout: center
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-6">
@@ -1394,8 +1393,7 @@ hemma-övning 3 ("Långsam övergång").
 -->
 
 ---
-layout: default
-class: px-14 pt-14 text-center
+layout: center
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-4">
@@ -1869,8 +1867,7 @@ tyst. Det är hela grejen."
 -->
 
 ---
-layout: default
-class: px-14 text-center
+layout: center
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
@@ -1955,8 +1952,7 @@ parallellt. Ladda upp. Tryck. Det piper.
 -->
 
 ---
-layout: default
-class: px-14 text-center
+layout: center
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-4">
@@ -2460,8 +2456,7 @@ kompendiets fullsketch.
 -->
 
 ---
-layout: default
-class: px-14 text-center
+layout: center
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-4">
