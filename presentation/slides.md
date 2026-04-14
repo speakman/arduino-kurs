@@ -139,7 +139,7 @@ class: section text-center
   Träff 1 av 5
 </div>
 
-<div style="text-align: center"><h1 style="display: inline-block">LED & krets</h1></div>
+# LED & krets
 
 <div class="text-2xl mt-6 opacity-80 font-light">
   Modul 1: <span class="cyan font-bold">Digital output, Ohms lag</span>
@@ -1125,7 +1125,7 @@ class: section text-center
   Träff 2 av 5
 </div>
 
-<div style="text-align: center"><h1 style="display: inline-block">PWM & RGB</h1></div>
+# PWM & RGB
 
 <div class="text-2xl mt-6 opacity-80 font-light">
   Modul 2: <span class="cyan font-bold">analogWrite &amp; färgblandning</span>
@@ -1448,7 +1448,7 @@ class: section text-center
   Träff 3 av 5
 </div>
 
-<div style="text-align: center"><h1 style="display: inline-block">Digital input</h1></div>
+# Digital input
 
 <div class="text-2xl mt-6 opacity-80 font-light">
   Modul 3: <span class="cyan font-bold">Knapp, buzzer, logik</span>
@@ -1996,7 +1996,7 @@ class: section text-center
   Träff 4 av 5
 </div>
 
-<div style="text-align: center"><h1 style="display: inline-block">Analog input</h1></div>
+# Analog input
 
 <div class="text-2xl mt-6 opacity-80 font-light">
   Modul 4: <span class="cyan font-bold">Sensorer &amp; Serial Monitor</span>
@@ -2498,7 +2498,7 @@ class: section text-center
   Träff 5 av 5
 </div>
 
-<div style="text-align: center"><h1 style="display: inline-block">Integration</h1></div>
+# Integration
 
 <div class="text-2xl mt-6 opacity-80 font-light">
   Modul 5: <span class="cyan font-bold">Hackathon — bygg larmet</span>
