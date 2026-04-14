@@ -47,12 +47,40 @@
   line-height: 1.5;
   margin: 0.8em 0;
 }
+.slidev-layout ul,
+.slidev-layout ol {
+  font-size: inherit;
+  margin: 0.8em 0;
+  padding-left: 1.5em;
+}
+.slidev-layout li {
+  margin: 0.5em 0;
+  line-height: 1.5;
+}
 
 /* 3. Vertical centering (uniform standard) --------------------------------- */
 .slidev-layout.default {
   display: flex;
   flex-direction: column;
   justify-content: safe center;
+}
+.slidev-layout.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  align-items: center;
+  text-align: center;
+}
+.slidev-layout.center h1 {
+  font-size: 5rem;
+  margin: 0 0 1.5rem 0;
+}
+.slidev-layout.center > p {
+  font-size: 2.2rem;
+  opacity: 0.8;
+  max-width: 48rem;
+  margin: 0.5rem auto;
+  line-height: 1.5;
 }
 .slidev-layout.two-cols-header {
   grid-template-rows: auto auto auto !important;
@@ -166,7 +194,9 @@
 .slidev-layout.section h1 {
   font-size: 5.5rem;
   color: var(--ak-accent);
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
+  display: block;
+  text-align: center;
 }
 
 .slidev-layout.cover {
@@ -212,7 +242,7 @@
 .rgb-blue   { background: #2979ff; box-shadow: 0 0 60px rgba(41, 121, 255, 0.7); }
 .rgb-white  { background: #ffffff; box-shadow: 0 0 80px rgba(255, 255, 255, 0.7); }
 
-.big-code pre { font-size: 0.85em !important; line-height: 1.45 !important; }
+.big-code pre { font-size: 1.25em !important; line-height: 1.5 !important; }
 
 .dots-bg {
   background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);
