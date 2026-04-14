@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Slidev build artifacts
+presentation/dist/
+presentation/slides-export.pdf
+presentation/presentation-backup.pdf
+
+# Baseline PDFs (local verification artifacts)
+tasks/baseline-*.pdf
+
+# Research assets (large binaries)
+research/elegoo-pdf-images/
+research/*.pdf
