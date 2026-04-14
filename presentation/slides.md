@@ -2145,51 +2145,9 @@ Tänk dig ett **vattenrör som höjdskala**: `+5 V` är uppe, `GND` är nere. Tv
 
 ::right::
 
-<div class="h-full flex flex-col items-center justify-center pt-2">
+<div style="display: flex; justify-content: center">
 
-<div class="flex flex-col items-center font-mono text-sm">
-
-  <div class="text-cyan-400 font-bold">+5 V</div>
-  <div class="w-0.5 h-3 bg-cyan-400"></div>
-
-  <div class="flex items-center gap-3">
-    <div class="text-yellow-400 text-lg">☀</div>
-    <div class="w-24 h-12 border-2 border-[var(--ak-text)] rounded flex flex-col justify-center items-center opacity-90">
-      <div class="text-[0.7rem] opacity-80">fotocell</div>
-    </div>
-  </div>
-
-  <div class="w-0.5 h-3 bg-[var(--ak-text)] opacity-90"></div>
-
-  <div class="relative flex items-center">
-    <div class="w-2.5 h-2.5 rounded-full bg-cyan-400"></div>
-    <div class="h-0.5 w-14 bg-cyan-400"></div>
-    <div class="text-cyan-400 font-bold text-sm ml-1">A0</div>
-  </div>
-
-  <div class="w-0.5 h-3 bg-[var(--ak-text)] opacity-90"></div>
-
-  <div class="w-24 h-12 border-2 border-[var(--ak-text)] rounded flex justify-center items-center opacity-90">
-    <div class="text-[0.7rem]">1 kΩ</div>
-  </div>
-
-  <div class="w-0.5 h-3 bg-[var(--ak-text)] opacity-90"></div>
-
-  <div class="flex flex-col items-center">
-    <div class="w-8 h-0.5 bg-rose-500"></div>
-    <div class="w-5 h-0.5 bg-rose-500 mt-0.5"></div>
-    <div class="w-2.5 h-0.5 bg-rose-500 mt-0.5"></div>
-    <div class="text-rose-500 text-[0.65rem] font-bold mt-0.5">GND</div>
-  </div>
-
-</div>
-
-<div class="mt-3 text-[0.7rem] opacity-70 text-center leading-snug">
-  <div class="mono uppercase tracking-wider opacity-80">Typiska värden · 1 kΩ</div>
-  <div class="mt-0.5">Hand över → <span class="mono cyan">20–100</span></div>
-  <div>Rumsljus → <span class="mono cyan">150–400</span></div>
-  <div>Lampa nära → <span class="mono cyan">500–700</span></div>
-</div>
+<img src="/images/voltage-divider.svg" style="width: 800px; max-width: 100%" alt="Spänningsdelare-schema: +5V → fotocell → A0 → 1 kΩ → GND med typiska värden" />
 
 </div>
 
