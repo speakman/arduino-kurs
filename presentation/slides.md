@@ -2072,8 +2072,8 @@ senare — först fotocellen.
 -->
 
 ---
-layout: default
-class: px-14
+layout: two-cols-header
+class: px-12 pt-10
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
@@ -2082,13 +2082,28 @@ class: px-14
 
 # `analogRead()` — Arduinons linjal.
 
+::left::
+
 ```cpp
-int ljus = analogRead(A0);  // 0 – 1023
+int ljus = analogRead(A0);
 ```
 
-<div class="tip-box mt-12 text-xl max-w-3xl">
+<div class="mt-8 text-xl space-y-3">
+  <div><span class="mono cyan text-2xl">0</span> &nbsp;→&nbsp; 0 V &nbsp;→&nbsp; helt mörkt</div>
+  <div><span class="mono cyan text-2xl">1023</span> &nbsp;→&nbsp; 5 V &nbsp;→&nbsp; fullt ljus</div>
+  <div class="opacity-70 mt-2">Allt däremellan = mellanting.</div>
+</div>
+
+::right::
+
+<div class="tip-box text-xl">
   <div class="tip-title">Gör detta nu</div>
-  <div class="mt-2">Bygg <strong>spänningsdelaren</strong>: fotocell + 1 kΩ → pin <span class="mono cyan">A0</span></div>
+  <div class="mt-2">Bygg <strong>spänningsdelaren</strong>:<br/>fotocell + 1 kΩ → pin <span class="mono cyan">A0</span></div>
+</div>
+
+<div class="mt-6 text-sm opacity-70 italic">
+Fotocell (LDR): 50 kΩ i mörker · 500 Ω i solljus.<br/>
+Starkt ljus → A0 läser högt värde.
 </div>
 
 <!--

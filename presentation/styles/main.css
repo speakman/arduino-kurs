@@ -111,6 +111,13 @@
   border: 1px solid var(--ak-border);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
+/* Konsistent kod-storlek över alla slides — balans mellan single-col och two-col.
+   Default body är 1.6rem; pre vid 1.25em = 2.0rem ≈ text-xl i rebased scale.
+   Läsbart både när kodblocket är det enda på sliden och när det delar yta. */
+.slidev-layout pre {
+  font-size: 1.25em !important;
+  line-height: 1.55 !important;
+}
 .slidev-layout :not(pre) > code {
   background: var(--ak-accent-soft);
   color: var(--ak-accent);
@@ -232,7 +239,9 @@
 .rgb-blue   { background: #2979ff; box-shadow: 0 0 60px rgba(41, 121, 255, 0.7); }
 .rgb-white  { background: #ffffff; box-shadow: 0 0 80px rgba(255, 255, 255, 0.7); }
 
-.big-code pre { font-size: 2em !important; line-height: 1.5 !important; padding: 1.5rem !important; }
+/* .big-code — extra-framträdande kodblock för "kärnrader"-slides (if/else, analogWrite).
+   1.55em av den nya baselinen (1.25em × 1.55 ≈ 1.94em ≈ text-2xl). */
+.big-code pre { font-size: 1.55em !important; line-height: 1.55 !important; padding: 1.5rem !important; }
 
 .dots-bg {
   background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);
