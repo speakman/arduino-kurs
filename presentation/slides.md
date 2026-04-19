@@ -400,26 +400,32 @@ class: px-14 pt-12
 
 # `U = R · I`
 
-<div class="mt-10 flex items-center justify-center gap-20">
+<div class="mt-6 flex items-center justify-center gap-16">
 
   <div class="flex flex-col items-center">
-    <div class="relative" style="width:34rem;height:29.5rem">
+    <img src="/images/ohms-law-cartoon.jpg" class="rounded-xl" style="width:28rem" />
+    <div class="text-sm opacity-60 mt-4">
+      <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
+    </div>
+  </div>
+
+  <div class="flex flex-col items-center">
+    <div class="relative" style="width:22rem;height:19rem">
       <svg viewBox="0 0 150 130" class="absolute inset-0" style="width:100%;height:100%">
         <polygon points="75,10 10,120 140,120" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.85"/>
         <line x1="40" y1="75" x2="110" y2="75" stroke="#00ffd1" stroke-width="1.5" opacity="0.6"/>
       </svg>
-      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00ffd1;font-size:6.5rem;line-height:1">U</div>
-      <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:5.5rem;line-height:1">R</div>
-      <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:5.5rem;line-height:1">I</div>
+      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00ffd1;font-size:4.5rem;line-height:1">U</div>
+      <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">R</div>
+      <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">I</div>
     </div>
     <div class="text-sm opacity-60 mt-4 mono">täck variabeln ni söker</div>
   </div>
 
-  <div class="text-2xl opacity-80 max-w-sm">
-    Räkneexempel och framspänningsfall: <br/>
-    <span class="cyan">→ Bilaga F i kompendiet</span>
-  </div>
+</div>
 
+<div class="mt-10 text-center text-lg opacity-70">
+  Räkneexempel och framspänningsfall: <span class="cyan">→ Bilaga F i kompendiet</span>
 </div>
 
 <!--
@@ -445,7 +451,8 @@ varför just 220 Ω.
 -->
 
 ---
-layout: two-cols-header
+layout: default
+class: px-14
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
@@ -454,9 +461,7 @@ layout: two-cols-header
 
 # Kretsen — som ett vattensystem.
 
-::left::
-
-<div class="mt-4 text-lg">
+<div class="mt-6 text-lg max-w-4xl">
 
 Strömmen går ut från en <span class="cyan">utgångspinne</span> (t.ex. pin 13 när den är HIGH), genom komponenterna, och tillbaka till <span class="cyan">GND</span>.
 
@@ -466,19 +471,9 @@ Lösningen: en **strypventil** — en resistor på 220 Ω i serie.
 
 </div>
 
-<div class="tip-box mt-6">
+<div class="tip-box mt-8 max-w-4xl">
   <div class="tip-title">Minnesregel</div>
   <div>Ingen krets utan väg tillbaka till GND. Strömmen måste kunna fullborda varvet — annars händer ingenting.</div>
-</div>
-
-::right::
-
-<div class="flex flex-col items-center justify-center h-full">
-  <div class="text-sm opacity-60 mono text-center leading-loose">
-    <span class="cyan">pin 13</span> &nbsp;──▶&nbsp; LED&nbsp;(+)<br/>
-    LED&nbsp;(−) &nbsp;──▶&nbsp; 220&nbsp;Ω<br/>
-    220&nbsp;Ω &nbsp;──▶&nbsp; <span class="danger">GND</span>
-  </div>
 </div>
 
 <!--
