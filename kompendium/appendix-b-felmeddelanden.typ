@@ -25,8 +25,8 @@ Arduino-IDE:n använder en riktig C++-kompilator under huven (`avr-g++`). Den ä
 Det vanligaste felet. Du har glömt ett semikolon.
 
 ```cpp
-digitalWrite(13, HIGH)    // saknar ;
-delay(1000);              // kompilatorn klagar HÄR
+digitalWrite(LED_BUILTIN, HIGH)    // saknar ;
+delay(1000);                       // kompilatorn klagar HÄR
 ```
 
 Kompilatorn läste rad 1, förväntade sig `;` men hittade `delay` istället. Felet pekas ut på rad 2, men fixa rad 1.
@@ -108,13 +108,13 @@ Arduino är strikt med typer. Du kan inte addera ett tal till en textsträng rak
 Du har skickat in fler argument än funktionen förväntar:
 
 ```cpp
-digitalWrite(13, HIGH, 100);   // FEL: digitalWrite tar bara 2 argument
+digitalWrite(LED_BUILTIN, HIGH, 100);   // FEL: digitalWrite tar bara 2 argument
 ```
 
 Kolla funktionens signatur. Oftast är det `delay` du egentligen ville ha på slutet:
 
 ```cpp
-digitalWrite(13, HIGH);
+digitalWrite(LED_BUILTIN, HIGH);
 delay(100);
 ```
 

@@ -54,7 +54,7 @@ Bryts ringen händer ingenting. En lös kabel, ett ben som sitter i fel hål, en
 
 === Breadboarden
 
-Plastbiten du byggde på är ihålig med små metallklämmor invändigt. *Fem hål i rad, vågrätt, är samma elektriska nod.* Raden bredvid är en helt annan nod. Gapet i mitten av brädan bryter förbindelsen mellan övre och nedre halvan.
+Plastbiten du byggde på är ihålig med små metallklämmor invändigt. *Fem hål i rad är samma elektriska nod.* Raden bredvid är en helt annan nod. Gapet i mitten av brädan bryter förbindelsen mellan övre och nedre halvan.
 
 Längs sidorna löper två par långa rälar: + och −. Dessa *power rails* kommer bli viktiga först i Modul 2, men tänk på dem som "ett långt hål vardera" redan nu.
 
@@ -95,11 +95,13 @@ En vanlig röd LED har ett *framspänningsfall* på ungefär 2 V. Det betyder at
   width: 60%,
 )
 
-=== `digitalWrite` och `pinMode`
+=== `digitalWrite`, `pinMode` och `LED_BUILTIN`
 
-`pinMode(pin, OUTPUT)` talar om för Arduinon: "pin 13 är en utgång, jag ska styra den". `digitalWrite(pin, HIGH)` sätter pinnen till ~5 V. `digitalWrite(pin, LOW)` sätter den till 0 V. `delay(ms)` är en paus i antal millisekunder. Allt `Blink` gör är att växla mellan HIGH och LOW med pauser emellan.
+`pinMode(LED_BUILTIN, OUTPUT)` talar om för Arduinon: "den här pinnen är en utgång, jag ska styra den". `digitalWrite(LED_BUILTIN, HIGH)` sätter pinnen till ~5 V. `digitalWrite(LED_BUILTIN, LOW)` sätter den till 0 V. `delay(ms)` är en paus i antal millisekunder. Allt `Blink` gör är att växla mellan HIGH och LOW med pauser emellan.
 
-Arduinon har också en liten LED inbyggd på kortet (märkt "L"), permanent kopplad till pin 13 via sin egen resistor fabriksvägen. När ni blinkar pin 13 blinkar både er externa LED och den inbyggda. Vi kopplade en extern för att ni skulle se en krets ni själva byggt. I senare moduler räcker namnet `LED_BUILTIN` (Arduinos egna namn på pin 13) för snabba "skriv ut status"-hack utan breadboard.
+`LED_BUILTIN` är Arduinons eget *alias* för pin 13 — exakt samma pinne, bara ett annat namn. När du skriver `digitalWrite(LED_BUILTIN, HIGH)` går samma ström ut genom pin 13-hålet som när du skriver `digitalWrite(13, HIGH)`. Varför två namn? Pin 13 är fysiskt kopplad till en liten ytmonterad LED på kortet (märkt "L") — permanent, via sitt eget motstånd fabriksvägen. Arduinons example-sketchar använder `LED_BUILTIN` så att samma kod fungerar på alla deras kort, även de där inbyggda LED:en inte sitter på pin 13. Vi använder samma namn i kursen för att matcha Arduino IDE:s exempel.
+
+När ni blinkar `LED_BUILTIN` blinkar alltså både den lilla inbyggda LED:en på kortet *och* er externa LED på breadboarden — båda är kopplade till samma pin. Den externa LED:en bygger ni för att se en krets ni själva monterat.
 
 #tip(title: "Om Upload inte går igenom")[
   - Tools → Port → välj den port som dyker upp när ni stoppar in USB-kabeln (`/dev/cu.usbmodem*` på Mac, `COM*` på Windows).
@@ -151,7 +153,7 @@ Detta kluster-av-blink är faktiskt morse-S — och byggstenen i nästa övning.
 Slå upp morsealfabetet och få lampan att blinka dina initialer. `·` = en kort blinkning, `–` = en lång blinkning (tre gånger så lång som en kort). Mellan två bokstäver: en kort paus. I slutet av hela meddelandet: en längre paus innan det börjar om.
 
 #tip(title: "Börja enkelt")[
-  Du behöver bara `digitalWrite` och `delay` — ingen ny syntax. Skriv ut varje dit och dah som ett par: `digitalWrite(13, HIGH)`, sedan `delay(...)`, sedan `digitalWrite(13, LOW)`, sedan `delay(...)`. Bokstaven "S" blir tre korta blink i följd. Det blir många rader kod — det är OK, du lär dig att upprepa. Om du senare vill rensa upp det, introducerar vi *funktioner* i Bilaga A — en funktion är ett namngivet kodblock man kan anropa om och om igen.
+  Du behöver bara `digitalWrite` och `delay` — ingen ny syntax. Skriv ut varje dit och dah som ett par: `digitalWrite(LED_BUILTIN, HIGH)`, sedan `delay(...)`, sedan `digitalWrite(LED_BUILTIN, LOW)`, sedan `delay(...)`. Bokstaven "S" blir tre korta blink i följd. Det blir många rader kod — det är OK, du lär dig att upprepa. Om du senare vill rensa upp det, introducerar vi *funktioner* i Bilaga A — en funktion är ett namngivet kodblock man kan anropa om och om igen.
 ]
 
 == Vanliga fel och snabblösningar

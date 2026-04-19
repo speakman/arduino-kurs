@@ -217,7 +217,7 @@ Allt ni behöver är redan i kittet:
 - *Dimning i stället för hopp*. När stämningsljuset tänds — tona upp det över en sekund i stället för att bara slå på. `for`-loop med stegvis ökande `analogWrite`.
 - *Hysteres*. Dela tröskeln i två: en "tänd vid 300, släck vid 400". Det hindrar LED:en från att blinka av och på när ljuset ligger precis på tröskeln.
 - *Förvarning*. När larmet varit på i 30 sekunder, blinka buzzerN i ett mönster som varning om att du glömde stänga av den.
-- *Eget morse-meddelande* från pin 13 varje gång tilten triggar.
+- *Eget morse-meddelande* via `LED_BUILTIN` varje gång tilten triggar.
 
 Vilken som helst av dessa är 15–30 rader extra kod. Prova.
 

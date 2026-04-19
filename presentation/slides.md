@@ -196,14 +196,14 @@ class: px-14
   <div class="flex gap-4 items-start">
     <div>
       <div class="text-xs mono opacity-50 tracking-widest">00:35 — 01:05</div>
-      <div class="text-lg font-bold mt-1">Bygg kretsen & ladda upp Blink</div>
+      <div class="text-lg font-bold mt-1">Bygg kretsen & ladda upp första programmet</div>
       <div class="opacity-70 text-sm mt-1">Praktiskt: LED + resistor på breadboarden, första uppladdningen från IDE:n.</div>
     </div>
   </div>
 
   <div class="flex gap-4 items-start opacity-70">
     <div>
-      <div class="text-xs mono opacity-60 tracking-widest cyan">01:05 — 01:10</div>
+      <div class="text-xs mono opacity-60 tracking-widest">01:05 — 01:10</div>
       <div class="text-lg font-bold mt-1">Paus</div>
       <div class="opacity-70 text-sm mt-1">Vatten, WC, sträck. Tillbaka fem minuter senare.</div>
     </div>
@@ -622,7 +622,7 @@ den är helt platt invändigt — bara en massa klämmor.
 
 SÄG (sakta, peka på bilden):
 "Titta på en breadboard. Ovanifrån ser det ut som en massa hål. Under 
-plasten finns små metallklämmor. FEM HÅL I RAD, vågrätt, är fysiskt 
+plasten finns små metallklämmor. FEM HÅL I RAD är fysiskt 
 sammankopplade. De är samma elektriska punkt — en 'nod'. 
 
 Raden bredvid är en HELT ANNAN nod, inte kopplad. Och det finns ett 
@@ -806,15 +806,13 @@ class: px-14 pt-12
 
 ```cpp
 void setup() {
-  // Körs en gång vid uppstart.
-  pinMode(13, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);  // körs en gång vid uppstart
 }
 
 void loop() {
-  // Körs om och om igen.
-  digitalWrite(13, HIGH);
+  digitalWrite(LED_BUILTIN, HIGH);  // körs om och om igen
   delay(1000);
-  digitalWrite(13, LOW);
+  digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }
 ```
@@ -855,21 +853,21 @@ class: px-14
 
 <div class="space-y-7 mt-12">
 
-<div class="grid grid-cols-[280px_1fr] gap-8 items-start">
-  <code class="text-lg">pinMode(13, OUTPUT);</code>
+<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
+  <code class="text-lg">pinMode(LED_BUILTIN, OUTPUT);</code>
   <div class="opacity-85 text-base">
-    "Pin 13 är en <span class="cyan">utgång</span>." Säger åt Arduinon att den ska skicka ut ström på den pinnen. Körs i <span class="mono">setup()</span>.
+    "<span class="mono">LED_BUILTIN</span> är en <span class="cyan">utgång</span>." Arduinons alias för <span class="mono">pin 13</span> — där den inbyggda LED:en sitter. Körs i <span class="mono">setup()</span>.
   </div>
 </div>
 
-<div class="grid grid-cols-[280px_1fr] gap-8 items-start">
-  <code class="text-lg">digitalWrite(13, HIGH);</code>
+<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
+  <code class="text-lg">digitalWrite(LED_BUILTIN, HIGH);</code>
   <div class="opacity-85 text-base">
-    "Sätt pin 13 till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
+    "Sätt pinnen till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
   </div>
 </div>
 
-<div class="grid grid-cols-[280px_1fr] gap-8 items-start">
+<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
   <code class="text-lg">delay(1000);</code>
   <div class="opacity-85 text-base">
     "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
@@ -1026,7 +1024,7 @@ class: text-center
 
   <div class="flex flex-col items-center">
     <div class="font-bold">Er första kod</div>
-    <div class="text-sm opacity-70 mt-1">setup · loop · tre kommandon</div>
+    <div class="text-sm opacity-70 mt-1">setup · loop · tre rader</div>
   </div>
 
   <div class="flex flex-col items-center">
@@ -1162,7 +1160,7 @@ class: text-center
   <div class="warn-title">Viktigt — RGB-LED:en</div>
   <div>
     <strong>Common Cathode.</strong> 4 ben i rad.<br/>
-    Ordning från platta sidan: <span class="mono">Röd · <span class="danger">Katod</span> · Grön · Blå</span><br/>
+    Ordning från platta sidan: <span class="mono">Röd · <span class="cyan">Katod</span> · Grön · Blå</span><br/>
     Katoden är <strong>längst</strong>, sitter <strong>andra från platta sidan</strong>, och går till <span class="danger">GND</span>.
   </div>
 </div>
@@ -1306,10 +1304,10 @@ class: px-14
 <div class="text-2xl space-y-4">
   <div><span class="mono cyan">0</span> → alltid LOW → släckt</div>
   <div><span class="mono cyan">128</span> → 50 % PÅ-tid → halvstyrka</div>
-  <div><span class="mono cyan">255</span> → alltid HIGH → full</div>
+  <div><span class="mono cyan">255</span> → alltid HIGH → full styrka</div>
 </div>
 
-<img src="/images/pwm-waveform.png" class="h-96 bg-white rounded p-3" />
+<img src="/images/pwm-waveform.png" class="h-96 rounded p-3" style="filter: invert(1) hue-rotate(180deg);" />
 
 </div>
 
@@ -1338,8 +1336,8 @@ class: px-14
 Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal. Ladda upp, titta, justera.
 
 <div class="space-y-2 text-base">
-<div>· <span class="font-bold" style="color:#ff00c8">Lila</span> — röd + blå, ingen grön</div>
-<div>· <span class="font-bold" style="color:#ff9cc8">Gammelrosa</span> — mycket röd, lite blå, knapp grön</div>
+<div>· <span class="font-bold" style="color:#b400dc">Lila</span> — röd + blå, ingen grön</div>
+<div>· <span class="font-bold" style="color:#ff8cb4">Gammelrosa</span> — mycket röd, lagom blå, lite grön</div>
 <div>· <span class="font-bold" style="color:#ffd400">Skolgul</span> — full röd, lagom grön, ingen blå</div>
 <div>· <span class="font-bold" style="color:#00e0ff">Cyan</span> — ingen röd, full grön + blå</div>
 </div>
@@ -1353,8 +1351,8 @@ Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal
 
 <div class="flex items-center justify-center">
   <div class="grid grid-cols-2 gap-3">
-    <div class="w-28 h-28 rounded-2xl" style="background:#ff00c8"></div>
-    <div class="w-28 h-28 rounded-2xl" style="background:#ff9cc8"></div>
+    <div class="w-28 h-28 rounded-2xl" style="background:#b400dc"></div>
+    <div class="w-28 h-28 rounded-2xl" style="background:#ff8cb4"></div>
     <div class="w-28 h-28 rounded-2xl" style="background:#ffd400"></div>
     <div class="w-28 h-28 rounded-2xl" style="background:#00e0ff"></div>
   </div>
@@ -1410,7 +1408,7 @@ layout: center
 </div>
 
 <div class="mt-12 text-base opacity-60 italic">
-  Nästa gång: vi <span class="cyan">lyssnar</span>. Knapp + buzzer.
+  Nästa gång: vi <span class="cyan">läser av världen och svarar</span>. Knapp + buzzer.
 </div>
 
 <!--
@@ -1697,7 +1695,7 @@ class: px-12 pt-10
 
 <div class="mt-4 text-base space-y-3">
 
-En knapp som **hålls nere** skulle toggla 50 gånger per sekund. Resultat: larmet blinkar mellan av/på som ett stroboskop.
+En knapp som **hålls nere** skulle toggla hundratals gånger per sekund. Resultat: larmet blinkar mellan av/på som ett stroboskop.
 
 Lösningen: agera inte på att knappen *är* nere. Agera på att den **just nu gick från HIGH till LOW** — flanken.
 
@@ -1738,8 +1736,8 @@ om larmet — av eller på. Så ni skriver:
     larmPaslaget = !larmPaslaget;
   }
 
-Ser bra ut. Men: Arduinon kör loopen 10 000 gånger i sekunden. Så 
-länge ni håller knappen nere togglar den 10 000 gånger. Ni släpper — 
+Ser bra ut. Men: med `delay(10)` kör loopen ca hundra varv per sekund, 
+och en knapptryckning varar flera tiotals loop-varv. Ni släpper — 
 men var larmet av eller på? Slumpmässigt.
 
 Lösningen: spara förra värdet. Jämför. Agera bara i det ÖGONBLICK 
@@ -1963,7 +1961,7 @@ layout: center
 
 <div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
   Ni har byggt Arduinons första <span class="cyan">sensor</span> — en knapp — och gett den en <span class="cyan">röst</span> — buzzern.<br/>
-  En läser, den andra reagerar.
+  Arduinon läser den ena — och styr den andra.
 </div>
 
 <div class="mt-12 text-base opacity-60 italic">
@@ -2022,12 +2020,12 @@ class: px-14 pt-12
 
 <div style="margin-top:48px;display:flex;gap:64px;align-items:center">
 
-  <img src="/images/photoresistors-three.jpg" style="width:720px;height:720px;object-fit:cover;flex-shrink:0;border-radius:20px" />
+  <img src="/images/photoresistors-three.jpg" style="width:720px;height:540px;object-fit:contain;flex-shrink:0;border-radius:20px" />
 
   <div style="font-size:48px;line-height:1.5">
     <div style="margin-bottom:24px">Knappen: <strong>PÅ eller AV.</strong></div>
     <div>Ljuset: <strong>halvmörkt, starkt, svagt.</strong></div>
-    <div style="opacity:0.7;font-size:28px;margin-top:32px">Fotocell (LDR) mäter ljus: <span class="mono cyan">0–1023</span></div>
+    <div style="opacity:0.7;font-size:28px;margin-top:32px"><span class="mono cyan">analogRead(A0)</span> ger 0–1023</div>
   </div>
 
 </div>
@@ -2057,12 +2055,9 @@ Koppling:
 Starkt ljus → fotocellens motstånd är LÅGT (~500 Ω) → A0 läser HÖGT värde.
 Mörker → fotocellens motstånd är HÖGT (~50 kΩ) → A0 läser LÅGT värde."
 
-VISA också Tilt-sensorn:
-"Det här lilla cylindriska pryllet är en tilt-switch — tekniskt en 
-ball-tilt switch, en kula i en hylsa. Inuti ligger en liten metallkula. 
-När ni lutar den, rullar kulan mot två stift och kortsluter dem. 
-Perfekt för att upptäcka rörelse. Det är vårt anti-stöld-skydd i det 
-slutliga larmet.
+TILT-SENSORN kommer senare i modulen (egen wiring-slide). Nämn bara 
+kort att det finns en andra sensor att kolla in — detaljerna tas då.
+"Vi har också en tilt-switch i kittet, men den tittar vi på senare.
 
 Tips: tilt-sensorn 'studsar' — kulan bouncar inuti plåthylsan. För att få 
 stabila avläsningar: `delay(50);` efter varje `digitalRead()`."
@@ -2587,7 +2582,7 @@ class: px-14 pt-10
 
 <div class="mt-8 text-2xl font-mono space-y-2">
   <div><span class="opacity-60">bool</span> larmPaslaget <span class="opacity-60">=</span> false;</div>
-  <div><span class="opacity-60">int</span> morkTroskel <span class="opacity-60">=</span> 300; <span class="opacity-50 text-lg">// kalibrerat i Modul 4</span></div>
+  <div><span class="opacity-60">const int</span> morkTroskel <span class="opacity-60">=</span> 300; <span class="opacity-50 text-lg">// startvärde — kalibrera själv</span></div>
 </div>
 
 <div class="mt-8 text-lg opacity-70">
