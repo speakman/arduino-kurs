@@ -1663,13 +1663,9 @@ class: "!p-0"
 />
 
 <!--
-OBS: källbilden visar en tvåknapps-variant med extern LED. Vi 
-förenklar i kursen:
-- Bara EN knapp (knapp A, som sitter på D9 i kursens exempel).
-- Vi använder Arduinons inbyggda LED på pin 13 som output — slipper 
-  koppla en egen.
-- Inga pulldown-resistorer — pinMode(knappPin, INPUT_PULLUP) gör jobbet 
-  internt.
+Enkel koppling: knapp A → D9 + GND. Inga pulldown-resistorer — 
+pinMode(knappPin, INPUT_PULLUP) gör jobbet internt. Som output 
+använder vi Arduinons inbyggda LED (LED_BUILTIN på pin 13).
 
 Peka på knappen i bilden och säg:
 "Titta på mitten av brädan. Knappen är bara två ben som kortsluter när 
