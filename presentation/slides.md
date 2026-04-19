@@ -1781,7 +1781,7 @@ class: px-14
 
 </div>
 
-<img src="/images/active-buzzer-sticker.jpg" class="max-h-[32rem] rounded-xl ring-2 ring-rose-500/50" />
+<img src="/images/active-buzzer-sticker.jpg" class="max-h-[32rem] rounded-xl ring-2 ring-rose-500/50 shadow-2xl" />
 
 </div>
 

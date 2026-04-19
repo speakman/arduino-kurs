@@ -109,6 +109,7 @@
 .slidev-layout .slidev-code-wrapper {
   border-radius: 12px;
   border: 1px solid var(--ak-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 /* Konsistent kod-storlek över alla slides — balans mellan single-col och two-col.
    Default body är 1.6rem; pre vid 1.25em = 2.0rem ≈ text-xl i rebased scale.
@@ -141,10 +142,12 @@
 .sp.unlocked {
   border-color: var(--ak-accent);
   background: linear-gradient(180deg, var(--ak-bg-raised), rgba(0, 255, 209, 0.04));
+  box-shadow: var(--ak-glow-cyan);
 }
 .sp.current {
   border-color: var(--ak-accent);
   background: linear-gradient(180deg, var(--ak-accent-soft), var(--ak-bg-raised));
+  box-shadow: var(--ak-glow-cyan);
   transform: scale(1.05);
 }
 .sp-icon   { font-size: 3.25rem; color: var(--ak-accent); margin-bottom: 0.75rem; }
@@ -157,6 +160,7 @@
   background: rgba(255, 51, 102, 0.08);
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
+  box-shadow: var(--ak-glow-red);
 }
 .warn-box .warn-title {
   color: var(--ak-danger); font-weight: 700; text-transform: uppercase;
@@ -194,12 +198,19 @@
 
 .slidev-layout.cover {
   background-color: var(--ak-bg) !important;
+  background-image:
+    linear-gradient(180deg, rgba(10, 14, 20, 0.35) 0%, rgba(10, 14, 20, 0.55) 55%, rgba(10, 14, 20, 0.95) 100%),
+    url('/images/cover-arduino-hero.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
 }
 .slidev-layout.cover h1 {
   font-size: 4.2rem;
   line-height: 1.05;
   max-width: 100%;
   color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
 }
 
 .slidev-layout.end {
@@ -237,3 +248,23 @@
   background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* 10. PDF-export-overrides -------------------------------------------------- */
+/* Slidev lägger klassen `print` på <html> när ?print=1 körs (se
+   @slidev/client/pages/print.vue). Chromium-rasteriseringen gör stora
+   box-shadow-blurs till hårda bandar — vi behåller dem på webben men
+   nollar dem i export. Cover-hero-fotot tas också bort eftersom
+   gradienten ovanpå blir en skarp ram runt texten i PDF. */
+html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }
+html.print .sp.unlocked,
+html.print .sp.current { box-shadow: none; }
+html.print .warn-box { box-shadow: none; }
+html.print .slidev-layout.cover {
+  background-image: none !important;
+}
+html.print .slidev-layout.cover h1 {
+  text-shadow: none;
+}
+html.print .shadow-2xl,
+html.print .shadow-xl,
+html.print .shadow-lg { box-shadow: none !important; }
