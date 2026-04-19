@@ -20,9 +20,11 @@ Kvällens nyheter:
 - *`Serial.begin(9600)`* och *`Serial.println(värde)`* låter Arduinon skicka text tillbaka till datorn över USB. Du ser det i *Serial Monitor* — förstoringsglas-ikonen uppe till höger i IDE:n.
 - *Spänningsdelaren* är tekniken som gör det möjligt att läsa av ett motstånd med en pinne som bara kan mäta spänning. Två resistorer i serie, mellanpunkten går till A0.
 - *Fotocellen* (LDR) är en resistor som ändrar värde med ljus: ca 50 kΩ i mörker, ca 500 Ω i starkt ljus. I serie med en fast 1 kΩ-resistor bildar den en spänningsdelare du kan läsa av.
-- *Tilt-sensorn* är *digital*, trots att den är en sensor. Den läses med `digitalRead`, inte `analogRead`. En kula i en plåthylsa som kortsluter två ben när den lutas — exakt som en knapp, fast styrd av gravitation.
+- *Tilt-sensorn* (tekniskt en *ball-tilt switch* — en kula i en hylsa, inte en accelerometer) är *digital*, trots att den ofta kallas "sensor". Läses med `digitalRead`, inte `analogRead`. En knapp som gravitationen trycker.
 
 Ni byggde spänningsdelaren med fotocellen, öppnade Serial Monitor för första gången, och såg siffrorna ändra sig i realtid när ni höll handen över cellen. Det var Arduinons första riktiga mätinstrument.
+
+Idag fullbordades er *sense-katalog*: en knapp (digital), en tilt-switch (digital), en fotocell (analog), plus Serial-kanalen tillbaka till datorn. Modul 5 är att sätta ihop *sense* och *act* till en riktig reaktiv maskin.
 
 #fig-row(
   "images/elegoo-079-093.png",
@@ -91,6 +93,22 @@ Beror på ditt rum, ditt exemplar, och mängden ljus som faller in. Men som rikt
 
 Kalibrera själv: öppna Serial Monitor, lek med ljuset, och notera vilka värden ni ser. Den tröskel ni väljer för "det är mörkt nu" ska ligga någonstans mellan era rumsljus- och mörker-värden.
 
+#fact(title: "Varför just 1 kΩ?")[
+  Fotocellen går från ~50 kΩ (mörker) till ~500 Ω (ljust). Med *1 kΩ* som motvikt hamnar mätvärdet mitt i A0:s 0–1023-skala för *rumsljus* — det är där ni jobbar. 10 kΩ skulle pressa det mesta mot toppen av skalan, 220 Ω skulle pressa allt mot botten. 1 kΩ är storleksordningen som ger bäst läsbarhet för ljusnivåerna i ett klassrum.
+]
+
+=== Skala om värden med `map()`
+
+Ibland vill ni använda A0:s 0–1023 för att styra något som tar 0–255 (PWM) eller 0–100 (procent). Arduino har en inbyggd funktion för just detta — `map()`:
+
+```cpp
+int pwmVarde = map(ljus, 0, 1023, 0, 255);
+```
+
+Läs det som: "Ta `ljus` som ligger i intervallet 0–1023, skala om det linjärt till 0–255, och spara i `pwmVarde`." Fungerar lika bra med inverterade intervall — `map(ljus, 0, 1023, 255, 0)` ger 0 vid 1023 och 255 vid 0 (användbart när mörkare ska ge starkare ljusstyrka).
+
+Signaturen: `map(värde, frånMin, frånMax, tillMin, tillMax)`. Ni kommer se den igen i hemma-övning 2 och senare i hackathonen.
+
 #fig(
   "images/elegoo-083-098.png",
   caption: [Fotocell-kretsen byggd på breadboard med RGB-LED:er som lyser i bakgrunden. Den här bilden är från en hackathon-variant där fotocellen styr LED:erna.],
@@ -99,7 +117,7 @@ Kalibrera själv: öppna Serial Monitor, lek med ljuset, och notera vilka värde
 
 === Tilt-sensorn
 
-Tilt-sensorn är en liten metallcylinder med en lös kula inuti. I upprätt läge rör kulan bara ett av benen — kretsen är bruten. Lutas sensorn rullar kulan åt sidan och kortsluter båda benen — kretsen sluts.
+Tilt-sensorn är en liten metallcylinder med en lös kula inuti — tekniskt en *ball-tilt switch*, inte en accelerometer. I upprätt läge rör kulan bara ett av benen — kretsen är bruten. Lutas sensorn rullar kulan åt sidan och kortsluter båda benen — kretsen sluts.
 
 Elektriskt är det alltså *identiskt med en knapp*. Kopplas som knappen: ena benet till `D2` (i kursen), andra benet till GND, och pinnen sätts upp som `INPUT_PULLUP`. Läses med `digitalRead`. (Du kan använda en annan digital pinne, men då måste du ändra pin-variabeln i koden.)
 
@@ -212,4 +230,4 @@ För extra credit: lägg till att buzzern piper i ett mönster istället för ko
 
 Nästa vecka är *hackathon*. Inga nya begrepp — allt ni behöver kan ni redan. I stället sätter vi ihop alla fyra moduler till ett fungerande tjuvlarm: knappen togglar larmläget, tilt-sensorn triggar tjut + rött blink, fotocellen styr stämningsljus i mörker.
 
-Glöm inte dator eller Elegoo-kitet hemma! Hackathon brukar bli längre än man tror.
+Glöm inte dator eller kitet hemma! Hackathon brukar bli längre än man tror.

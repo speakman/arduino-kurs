@@ -300,6 +300,46 @@ Några värden Arduino-biblioteket definierar åt dig och som ni redan sett:
 
 Dessa är `#define`-s i `Arduino.h` — samma historiska arv som diskuterades tidigare. Du kan inte ändra dem, bara använda dem.
 
+== Användbara Arduino-funktioner
+
+Utöver de ni redan använt rakt av finns några hjälpfunktioner i Arduino-biblioteket som sparar mental ansträngning:
+
+=== `map()` — skala om ett värde
+
+```cpp
+map(värde, frånMin, frånMax, tillMin, tillMax)
+```
+
+Skalar om ett tal linjärt från ett intervall till ett annat. Exempel — gör om fotocellens 0–1023 till PWM:s 0–255:
+
+```cpp
+int pwmVarde = map(ljus, 0, 1023, 0, 255);
+```
+
+Eller *inverterat* — mörkt ger starkt ljus:
+
+```cpp
+int pwmVarde = map(ljus, 0, 1023, 255, 0);
+```
+
+Mycket användbar i hackathonen när sensor-värden ska styra PWM-utgångar.
+
+=== `constrain()` — klipp till ett intervall
+
+```cpp
+int sakert = constrain(värde, minsta, största);
+```
+
+Om `värde` är under `minsta` → returnera `minsta`. Om över `största` → returnera `största`. Annars oförändrat. Användbart tillsammans med `map()` för att vara säker på att resultatet aldrig går utanför ett önskat intervall.
+
+=== `millis()` — tid sedan uppstart
+
+```cpp
+unsigned long nu = millis();
+```
+
+Returnerar antal millisekunder sedan Arduinon fick ström. Till skillnad från `delay()` blockerar `millis()` inte loopen — den är grunden för "non-blocking" kod som kan göra flera saker samtidigt. Används sällan i kursen men är nästa steg för den som vill djupare.
+
 == Vanliga kompilatorsfel
 
 #quickref(

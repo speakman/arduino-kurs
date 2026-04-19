@@ -195,13 +195,21 @@ class: px-14
 
   <div class="flex gap-4 items-start">
     <div>
-      <div class="text-xs mono opacity-50 tracking-widest">00:35 — 01:10</div>
+      <div class="text-xs mono opacity-50 tracking-widest">00:35 — 01:05</div>
       <div class="text-lg font-bold mt-1">Bygg kretsen & ladda upp Blink</div>
       <div class="opacity-70 text-sm mt-1">Praktiskt: LED + resistor på breadboarden, första uppladdningen från IDE:n.</div>
     </div>
   </div>
 
-  <div class="flex gap-4 items-start">
+  <div class="flex gap-4 items-start opacity-70">
+    <div>
+      <div class="text-xs mono opacity-60 tracking-widest cyan">01:05 — 01:10</div>
+      <div class="text-lg font-bold mt-1">Paus</div>
+      <div class="opacity-70 text-sm mt-1">Vatten, WC, sträck. Tillbaka fem minuter senare.</div>
+    </div>
+  </div>
+
+  <div class="flex gap-4 items-start col-span-2">
     <div>
       <div class="text-xs mono opacity-50 tracking-widest">01:10 — 02:00</div>
       <div class="text-lg font-bold mt-1">Din egen rytm & delresultat</div>
@@ -238,7 +246,7 @@ class: relative
       Slutmålet
     </div>
     <h1 class="text-7xl mb-8">Det här ska vi bygga.</h1>
-    <div class="text-xl max-w-2xl mx-auto opacity-75">
+    <div class="text-xl max-w-3xl mx-auto opacity-75">
       Ett larm som känner av mörker, lyser upp som stämningsljus och tjuter när någon rör det.
     </div>
   </div>
@@ -306,36 +314,31 @@ TEKNISKT:
 - 14 digitala pinnar + 6 analoga ingångar
 - Strömförsörjs via USB eller extern 7–12 V
 
-Kortet är en ELEGOO UNO R3 — en Arduino-kompatibel variant som följer 
-Arduinos öppna referensdesign. Pin-, kod- och USB-kompatibelt med 
-original-Arduino. Viktigt: Elegoos Basic Starter Kit (2024+) använder 
-olika USB-bryggor beroende på batch (t.ex. ATmega16U2 eller CH340). På 
-många datorer fungerar det direkt, men om kortet inte dyker upp i 
-Port-menyn kan CH340-varianten kräva drivrutin. Kortet kan då dyka upp 
-som en annan serieport än "Arduino Uno".
+Kortet är en ELEGOO UNO R3 — en Arduino-kompatibel klon med öppen 
+referensdesign. Pin-, kod- och USB-kompatibelt med original-Arduino. 
+Till skillnad från billigare clones använder ELEGOO den äkta 
+ATmega16U2 USB-chippen, samma som genuine Arduino. Drivrutiner är 
+inte ett problem: kortet dyker upp direkt i IDE:ns Port-meny som 
+"Arduino Uno" på macOS, Linux och moderna Windows.
 
 [GÖR DETTA NU — bara förberedelse, själva uppladdningen sker efter 
  att kretsen är byggd]:
 1. Alla öppnar Arduino IDE på sin laptop.
 2. USB-kabel från laptop → Arduinons USB-B-port.
 3. Tools → Board → "Arduino Uno".
-4. Tools → Port → välj rätt port (Mac: /dev/cu.usbmodem* eller /dev/cu.wchusbserial* · Windows: COM*).
+4. Tools → Port → välj rätt port (Mac: /dev/cu.usbmodem* · Windows: COM*).
 5. File → Examples → 01.Basics → Blink (öppna exemplet så det är redo).
 
 Vi laddar upp först efter att den fysiska kretsen är byggd (slide 
 "Bygg kretsen"). Detta för att deltagarna ska se sin egen LED blinka, 
 inte bara den inbyggda "L"-lampan.
 
-[FELSÖKNING — port & drivrutin]:
+[FELSÖKNING — port]:
 - "Port not found" → pröva en annan USB-kabel. Vissa är bara 
   strömkablar och saknar data-ledare.
-- Kortet visas inte alls i Port-menyn → CH340-variant är möjlig. 
-  Drivrutin finns på elegoo.com/downloads.
 - Kortet blinkar redan när ni kopplar in → det körde Blink från 
   fabrik. Normalt. Vi laddar upp en egen version senare för att se 
   att det är vår kod som styr.
-
-REFERENS: kittets manual.
 -->
 
 ---
@@ -402,10 +405,10 @@ class: px-14 pt-12
   <div class="flex flex-col items-center">
     <div class="relative" style="width:34rem;height:29.5rem">
       <svg viewBox="0 0 150 130" class="absolute inset-0" style="width:100%;height:100%">
-        <polygon points="75,10 10,120 140,120" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.85"/>
-        <line x1="40" y1="75" x2="110" y2="75" stroke="#00d9ff" stroke-width="1.5" opacity="0.6"/>
+        <polygon points="75,10 10,120 140,120" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.85"/>
+        <line x1="40" y1="75" x2="110" y2="75" stroke="#00ffd1" stroke-width="1.5" opacity="0.6"/>
       </svg>
-      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00d9ff;font-size:6.5rem;line-height:1">U</div>
+      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00ffd1;font-size:6.5rem;line-height:1">U</div>
       <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:5.5rem;line-height:1">R</div>
       <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:5.5rem;line-height:1">I</div>
     </div>
@@ -499,8 +502,6 @@ om du är osäker.
 Den tekniska poängen är att ström är seriellt: samma mängd ström går 
 genom LED:en OCH resistorn. Så genom att välja resistorns värde väljer 
 vi också strömmen (via Ohms lag från förra sliden).
-
-REFERENS: kittets manual.
 -->
 
 ---
@@ -643,10 +644,8 @@ fel hål, eller att man trott att raden fortsätter över gapet. Plantera
 mönstret "kontrollera raden" redan nu, så slipper ni skilja tio 
 händer senare.
 
-REFERENS: Breadboardens anatomi beskrivs ofta i kittets manuals 
-introduktionsavsnitt. Vi visar vår egen schematiska topp-vy eftersom 
-de tre koncepten (rad = nod, gap bryter, power rails) är det enda 
-som spelar roll idag.
+DIDAKTISK POÄNG: de tre koncepten (rad = nod, gap bryter, power rails) 
+är det enda som spelar roll idag. Håll det enkelt.
 -->
 
 ---
@@ -727,8 +726,8 @@ till nästa steg."
 Resistorn kan sitta på endera sidan av LED:en. I en seriekrets är 
 strömmen densamma överallt, så det spelar ingen roll om det är 
 pin13 → resistor → LED → GND eller pin13 → LED → resistor → GND. 
-Vissa manualer sätter resistorn på kortsidan (efter LED:en), 
-så det gör vi också för att matcha manualen rakt av.
+Vi kör resistorn på kortsidan (efter LED:en) för konsistens — men 
+båda varianterna fungerar identiskt.
 
 [FELSÖKNING]
 - LED lyser inte alls → polariteten fel, vänd LED:en.
@@ -742,8 +741,6 @@ så det gör vi också för att matcha manualen rakt av.
 När alla har en blinkande LED: detta är passande plats för pausen som 
 agendan hänvisar till. Vatten, WC, prat. Efter pausen dyker vi ner i 
 koden.
-
-REFERENS: kittets manual.
 -->
 
 ---
@@ -760,8 +757,7 @@ class: "!p-0"
 
 <!--
 Lägg upp denna bild när deltagarna börjar koppla i föregående slide.
-Detta är en standard- Fritzing-illustration — samma bild de har i 
-manualen framför sig på sid 42.
+Standard Fritzing-illustration av Blink-kretsen.
 
 Peka på brädan och gå igenom pin för pin:
 1. Pin 13 på Arduinon → hopptråd → samma rad som LED:ens LÅNGA ben.
@@ -771,8 +767,8 @@ Peka på brädan och gå igenom pin för pin:
 4. Hopptråd från resistorn → GND på Arduinon.
 
 Säg:
-"Det här är samma bild som står på sid 42 i er manual. Följ 
-den. Om det inte ser ut EXAKT så här: felsök. Byt kabel. Byt rad."
+"Följ bilden. Om det inte ser ut EXAKT så här: felsök. Byt kabel. 
+Byt rad."
 
 [FELSÖKNING vid bilden]:
 - LED lyser inte → vänd LED:en (polaritet).
@@ -806,7 +802,7 @@ class: px-14 pt-12
 </div>
 
 <div class="mt-4 text-xs opacity-60">
-  Regel: exakt en <span class="mono">setup()</span> och en <span class="mono">loop()</span> per Arduino-program ("sketch"). Aldrig fler.
+  Regel: exakt en <span class="mono">setup()</span> och en <span class="mono">loop()</span> per Arduino-kod. Aldrig fler.
 </div>
 
 </div>
@@ -887,7 +883,7 @@ class: px-14
 
 </div>
 
-<div class="mt-10 text-sm opacity-60 font-mono max-w-3xl">
+<div class="mt-10 text-sm opacity-60 max-w-3xl">
   Med bara dessa tre kan ni få en lysdiod att blinka i vilken rytm som helst.
 </div>
 
@@ -931,17 +927,22 @@ class: px-14
 
 # Din egen rytm.
 
-<div class="mt-10 text-3xl max-w-4xl">
+<div class="mt-8 text-3xl max-w-6xl">
 
 Ändra `Blink` till ett mönster du själv väljer.
 
 </div>
 
-<ul class="mt-10 text-2xl space-y-3 max-w-5xl">
+<ul class="mt-8 text-2xl space-y-3 max-w-6xl">
 <li><strong>SOS-rytm:</strong> · · · — — — · · ·</li>
-<li><strong>Ditt eget tempo</strong> — snabb, långsam, oregelbunden</li>
+<li><strong>Ditt eget tempo</strong> — snabb eller långsam, ojämn</li>
 <li><strong>Hjärtslag</strong> — två snabba, sen paus</li>
 </ul>
+
+<div class="tip-box mt-8 max-w-4xl text-left">
+  <div class="tip-title">Så här jobbar vi</div>
+  <div>Lägg en <span style="color:#00ffd1;font-weight:700">grön lapp</span> på bordet när det fungerar och du vill visa. <span style="color:#ff3366;font-weight:700">Röd lapp</span> om du fastnat — jag kommer förbi. Samma system resten av kursen.</div>
+</div>
 
 <!--
 Kvällens huvuduppgift. Låt dem jobba 15–25 minuter beroende på tempo. 
@@ -950,7 +951,7 @@ i kompendiet, Hemma-övning 2–3.
 
 TIPS (säg muntligt): lägg tider i const int-variabler så slipper 
 man ändra många siffror varje gång. Förklaringen och alternativet 
-#define finns i Appendix A.
+#define finns i Bilaga A.
 
 SÄG:
 "Nu är det er tur. Ändra Blink så att lampan blinkar i en rytm ni 
@@ -972,7 +973,7 @@ PEDAGOGISKA POÄNGER:
   kompileringen, `const int` är modern typ-säker C++. Vi använder 
   `const int` i kursen för att det är tydligare — Arduino-biblioteket 
   självt använder `#define` av historiska skäl. Hela förklaringen 
-  finns i kompendiets Appendix A.
+  finns i kompendiets Bilaga A.
 - Uppmuntra många uppladdningar — ju fler gånger de trycker Upload 
   desto tryggare blir flödet.
 
@@ -1029,13 +1030,13 @@ class: text-center
   </div>
 
   <div class="flex flex-col items-center">
-    <div class="font-bold">Er första sketch</div>
-    <div class="text-sm opacity-70 mt-1">setup, loop, tre kommandon</div>
+    <div class="font-bold">Er första kod</div>
+    <div class="text-sm opacity-70 mt-1">setup · loop · tre kommandon</div>
   </div>
 
   <div class="flex flex-col items-center">
     <div class="font-bold">Er egen rytm</div>
-    <div class="text-sm opacity-70 mt-1">kod som styr fysiska världen</div>
+    <div class="text-sm opacity-70 mt-1">kod som styr världen</div>
   </div>
 
 </div>
@@ -1086,7 +1087,7 @@ class: text-center
 
 # Nästa gång...
 
-<div class="text-2xl mt-8 opacity-75 max-w-2xl mx-auto">
+<div class="text-2xl mt-8 opacity-75 max-w-5xl mx-auto">
   Ni kan tända en lampa i en egen rytm.<br/>
   Nästa steg: blanda <span class="cyan">färg</span> ur rött, grönt och blått.
 </div>
@@ -1193,8 +1194,7 @@ Detta kallas "Common Cathode" — motsatsen till common anode-RGB, där
 PLUS är gemensamt istället. Om du kopplar den som en common anode 
 funkar den inte.
 
-REFERENS: kittets manual (Modul 2). 
-Pin-ordningen och katodens position är tydligt illustrerad på sid 45.
+REFERENS: kompendiet Modul 2, sektion "RGB-LED:ens pinout".
 -->
 
 ---
@@ -1206,12 +1206,12 @@ class: "!p-0"
   eyebrow="Modul 2 · Koppling · RGB LED"
   title="Koppla RGB-LED:en."
   img="/images/wiring/rgb-fritzing.png"
-  caption='<span class="text-red-400">R → D6</span> · <span class="text-green-400">G → D5</span> · <span class="text-blue-400">B → D3</span> · katod → GND · varje färg via egen <span class="mono cyan">220 Ω</span>. <br/><span class="opacity-70">Gör detta först: dra en kabel från Arduinons GND till <span class="mono">−</span>-skenan på breadboarden. Då har alla komponenter en minus-väg.</span>'
+  caption='<span class="text-red-400">R → D6</span> · <span class="text-green-400">G → D5</span> · <span class="text-blue-400">B → D3</span> · katod → GND · varje färg via egen <span class="mono cyan">220 Ω</span>. <br/><span class="opacity-70">Gör detta först: dra en kabel från Arduinons GND till <span class="mono cyan">minus-skenan</span> på breadboarden. Då har alla komponenter en minus-väg.</span>'
 />
 
 <!--
-Stanna på denna bild medan deltagarna kopplar. kittets manuals 
-Fritzing-vy från Modul 2.
+Stanna på denna bild medan deltagarna kopplar. Fritzing-vy av 
+RGB-kopplingen.
 
 [GÖR DETTA FÖRST — repetition från Modul 1 breadboard-anatomin]:
 Dra EN kabel från Arduinons GND till minus-skenan (blå linje) på 
@@ -1248,20 +1248,22 @@ class: px-14 pt-12
 
 # `analogWrite`.
 
-<div class="mt-6 text-2xl max-w-5xl space-y-4">
+<div class="mt-6 text-2xl space-y-4">
 
-`digitalWrite` kunde bara två saker: <span class="mono cyan">HIGH</span> eller <span class="mono">LOW</span>.
+`digitalWrite` kunde bara två saker: <span class="mono cyan">HIGH</span> eller <span class="mono cyan">LOW</span>.
 
-`analogWrite` tar ett tal från <span class="mono cyan">0</span> till <span class="mono cyan">255</span> — allt däremellan är <span class="cyan">PWM</span>.
+`analogWrite` tar ett tal från <span class="mono cyan">0</span> till <span class="mono cyan">255</span>. Allt däremellan = <span class="cyan">PWM</span>.
 
 </div>
 
 <div class="big-code mt-6">
 
 ```cpp
-analogWrite(ledR, 200);  // röd hög
+const int ledR = 6, ledG = 5, ledB = 3;
+
+analogWrite(ledR, 200);  // röd  hög
 analogWrite(ledG,   0);  // grön av
-analogWrite(ledB, 200);  // blå hög  → lila
+analogWrite(ledB, 200);  // blå  hög  → lila
 ```
 
 </div>
@@ -1426,15 +1428,15 @@ MYCKET ström en pinne ger ifrån sig, inte bara OM. Det är ett stort
 kliv.
 
 Nästa gång ska vi göra det motsatta: lyssna på världen. Ni får en 
-knapp — Arduinons första sinnesorgan. Och en buzzer, så att den kan 
+knapp — Arduinons första sensor. Och en buzzer, så att den kan 
 säga ifrån. Vi ses."
 
 PRAKTISKT INNAN DE GÅR:
 - Be dem experimentera hemma om de vill — RGB-LED:en och tre 
   motstånd kan sitta i breadboarden till nästa gång.
 - Påminn att kittet är deras.
-- Tipsa om hemma-övning 3 ("Långsam övergång") i kompendiets 
-  kapitel 2 för dem som vill mer.
+- Tipsa om hemma-övning 3 ("Långsam övergång") i kompendiet 
+  (Modul 2) för dem som vill mer.
 -->
 
 ---
@@ -1477,7 +1479,7 @@ class: px-14 pt-10
 
 <div class="text-base space-y-4">
 
-I morse har ni redan använt `const int` — för pin-nummer.
+Ni har redan använt `const int` — för pin-nummer.
 
 Nu behöver ni också `int` (utan <span class="mono">const</span>) — för värden som **ska kunna ändras under tiden programmet kör**: räknare, tillstånd, sensormätningar.
 
@@ -1492,12 +1494,12 @@ Nu behöver ni också `int` (utan <span class="mono">const</span>) — för vär
 
 ```cpp
 const int knappPin = 9;    // ändras aldrig
-int tryckCount = 0;        // kan öka
+int lastState = HIGH;      // kan ändras
 bool larmPaslaget = false; // kan togglas
 ```
 
 <div class="mt-4 text-xs opacity-55 italic">
-  Full förklaring av datatyper, scope och operatorer i kompendiets Appendix A.
+  Full förklaring av datatyper, scope och operatorer i kompendiets Bilaga A.
 </div>
 
 </div>
@@ -1510,15 +1512,20 @@ all logik vi ska skriva resten av kursen.
 
 SÄG:
 "Hittills har ni använt const int för pin-nummer. De ändras aldrig — 
-pin 13 förblir pin 13. Men idag kommer ni behöva värden som KAN 
-ändras. Till exempel: är larmet på? Hur många gånger har jag 
-tryckt? Det är vanliga int (utan const). Och för ja/nej-värden 
-finns bool — sant eller falskt."
+pin 6 är pin 6 hela tiden. Men idag kommer ni behöva värden som KAN 
+ändras. Till exempel: är larmet på? Vad var knappens förra läge? 
+Det är vanliga int (utan const). Och för ja/nej-värden finns bool — 
+sant eller falskt."
 
 EXEMPEL live i IDE:n:
   int count = 0;
   count = count + 1;  // eller count++;
 Visa att värdet faktiskt ändras mellan loop-varven.
+
+OM NÅGON FRÅGAR om knappPin = 9 och PWM-pinnarna (3, 5, 6, 9, 10, 11):
+Pin 9 stöder PWM, men vi använder den här digitalt för knappen. Det är 
+helt OK — pin-val för digitala inputs är fritt. PWM-stödet ligger bara 
+där oanvänt när vi digitalRead på den.
 
 VIKTIG SUBTILITET (för den som frågar):
 Global variabel vs lokal variabel. Det tar vi i kompendiet. På sliden 
@@ -1542,11 +1549,12 @@ class: text-center
   Nu läser den av ett tillstånd <span class="cyan">in</span> (INPUT).
 </div>
 
-<div class="max-w-2xl mx-auto text-left mt-6">
+<div class="max-w-3xl mx-auto text-left mt-6">
 
 ```cpp {all}
-pinMode(knappPin, INPUT_PULLUP);    // intern pullup-resistor
-int niva = digitalRead(knappPin);   // LOW = tryckt, HIGH = släppt
+pinMode(knappPin, INPUT_PULLUP);
+// digitalRead(knappPin):
+//   LOW = tryckt, HIGH = släppt
 ```
 
 </div>
@@ -1559,11 +1567,11 @@ int niva = digitalRead(knappPin);   // LOW = tryckt, HIGH = släppt
 <!--
 TEORI:
 "Fram till nu har Arduinon bara SKICKAT ström — OUTPUT. Nu ska den 
-LYSSNA — INPUT. Och det första sinnet vi ger den: en knapp."
+LYSSNA — INPUT. Och den första sensorn vi kopplar in: en knapp."
 
 Visa `pinMode(pin, INPUT_PULLUP);` live i IDE:n.
 
-Förklara magin med INPUT_PULLUP:
+Förklara hur INPUT_PULLUP fungerar:
 "Normalt när ni ansluter en knapp behöver ni en 'pullup-resistor' 
 (eller en pulldown, beroende på koppling) för att knappen ska fungera 
 stabilt. INPUT_PULLUP gör att Arduinon bygger in en pullup inuti sig 
@@ -1623,7 +1631,7 @@ if (digitalRead(knappPin) == LOW) {
 
 <div class="mt-4 text-xs opacity-55 italic">
   Fler operatorer (<span class="mono">&&</span>, <span class="mono">||</span>, <span class="mono">!</span>) <br/>
-  och kedjade if/else i kompendiets Appendix A.
+  och kedjade if/else i kompendiets Bilaga A.
 </div>
 
 <!--
@@ -1662,8 +1670,8 @@ class: "!p-0"
 />
 
 <!--
-OBS: Bilden i manualen visar tvåknapps-
-versionen med extern LED. Vi förenklar i kursen:
+OBS: källbilden visar en tvåknapps-variant med extern LED. Vi 
+förenklar i kursen:
 - Bara EN knapp (knapp A, som sitter på D9 i kursens exempel).
 - Vi använder Arduinons inbyggda LED på pin 13 som output — slipper 
   koppla en egen.
@@ -1772,7 +1780,7 @@ class: px-14
   <div class="warn-title" style="font-size:26px"><span class="i-carbon-warning inline-block align-[-0.15em] mr-1"></span>Extremt viktigt</div>
   <div style="font-size:30px;line-height:1.5;margin-top:16px">
     <strong>Dra absolut inte av</strong> den lilla klisterlappen<br/>
-    <span class="mono opacity-80">"Remove after washing"</span><br/>
+    <span class="mono opacity-80">"REMOVE SEAL AFTER WASHING"</span><br/>
     på er buzzer.
   </div>
 </div>
@@ -1809,11 +1817,11 @@ Du behöver INTE `tone()`. Faktum är att `tone()` fungerar på en active
 buzzer men är onödigt komplicerat. Håll det enkelt.
 
 UPPGIFT:
-Koppla in buzzern enligt manualen (Modul 3).
+Koppla in buzzern enligt kompendiets Modul 3.
   - Buzzerns lång ben / + (markerat med +) → pin 12
   - Buzzerns kort ben → GND
 (Använd F-M DuPont-kablarna — buzzern pluggas direkt i Arduino-headers, 
-inte breadboarden. Manualen har också detta på sid 60.)
+inte breadboarden.)
 
 Kod: en If/Else-sats.
   const int buzzerPin = 12;   // buzzer
@@ -1835,9 +1843,6 @@ Kod: en If/Else-sats.
 TEASER:
 "Nu kan Arduinon läsa digital input. Nästa träff lägger vi till 
 analoga sensorer och Serial Monitor för felsökning."
-
-REFERENS: manualen (active buzzer). 
-Sid 58 = sticker-fotot. Sid 60 = kopplingsdiagram.
 -->
 
 ---
@@ -1853,7 +1858,7 @@ class: "!p-0"
 />
 
 <!--
-Koppling enligt manualen (Modul 3).
+Buzzer-kopplingen.
 
 Active buzzer är plug-and-play: plusbenet (långt, markerat +) till 
 pin 12, minusbenet till GND. Ingen resistor behövs — buzzern har 
@@ -1962,7 +1967,7 @@ layout: center
 # Arduinon lyssnar.
 
 <div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
-  Ni har byggt Arduinons första <span class="cyan">sinnesorgan</span> — en knapp — och gett den en <span class="cyan">röst</span> — buzzern.<br/>
+  Ni har byggt Arduinons första <span class="cyan">sensor</span> — en knapp — och gett den en <span class="cyan">röst</span> — buzzern.<br/>
   En läser, den andra reagerar.
 </div>
 
@@ -1974,7 +1979,7 @@ layout: center
 Avsluta Modul 3 här.
 
 SÄG:
-"Ni har Arduinons första sinnesorgan — en knapp som läser världen — 
+"Ni har Arduinons första sensor — en knapp som läser världen — 
 och en röst — en buzzer som svarar. Läsa och reagera. Det är 
 grunden för allt inbyggt.
 
@@ -2006,7 +2011,7 @@ Hittills har allt input varit DIGITALT — PÅ eller AV, 1 eller 0.
 Idag: ANALOGT input. Ett värde mellan 0 och 1023 som berättar 
 *hur mycket* ljus, *hur mycket* lutning, *hur mycket* av något.
 
-Och ett nytt verktyg: Serial Monitor — vår röntgen in i Arduinons hjärna.
+Och ett nytt verktyg: Serial Monitor — vårt fönster in i Arduinons minne.
 -->
 
 ---
@@ -2045,7 +2050,7 @@ Det är det `analogRead()` gör. Den ger oss ett tal mellan 0 och 1023.
 - 1023 = full 5 V
 - Allt däremellan = mellanting"
 
-BYGG SPÄNNINGSDELAREN — manualen (Modul 4, spänningsdelare):
+BYGG SPÄNNINGSDELAREN:
 "Fotocellen är en resistor som ändrar sitt motstånd baserat på ljus. 
 För att läsa det måste vi bygga en 'spänningsdelare' — den delar upp 
 5 V mellan fotocellen och en fast 1 kΩ-resistor. Arduinon mäter spänningen 
@@ -2058,10 +2063,11 @@ Starkt ljus → fotocellens motstånd är LÅGT (~500 Ω) → A0 läser HÖGT v�
 Mörker → fotocellens motstånd är HÖGT (~50 kΩ) → A0 läser LÅGT värde."
 
 VISA också Tilt-sensorn:
-"Det här lilla cylindriska pryllet är en tilt-switch (Modul 4). 
-Inuti ligger en liten metallkula. När ni lutar den, rullar kulan mot två 
-stift och kortsluter dem. Perfekt för att upptäcka rörelse. Det är vårt 
-anti-stöld-skydd i det slutliga larmet.
+"Det här lilla cylindriska pryllet är en tilt-switch — tekniskt en 
+ball-tilt switch, en kula i en hylsa. Inuti ligger en liten metallkula. 
+När ni lutar den, rullar kulan mot två stift och kortsluter dem. 
+Perfekt för att upptäcka rörelse. Det är vårt anti-stöld-skydd i det 
+slutliga larmet.
 
 Tips: tilt-sensorn 'studsar' — kulan bouncar inuti plåthylsan. För att få 
 stabila avläsningar: `delay(50);` efter varje `digitalRead()`."
@@ -2210,16 +2216,14 @@ HIGH när knappen är släppt. Skillnaden: där handlar det om två digitala
 lägen (HIGH/LOW). Här bygger vi en riktig spänningsdelare som kan ge en 
 mellanspänning vi kan mäta med `analogRead`."
 
-HYSTERES-TEASER (spara till hackathonen):
-"Om ljuset ligger precis på tröskeln (säg 400) — vad händer när 
-värdet darrar 399, 401, 399, 401? Larmet kommer ticka av och på. 
-Lösningen kallas hysteres: olika trösklar för av/på. Det tar vi 
-som bonus i Modul 5 om någon fastnar där."
+HYSTERES-REFERENS (om någon frågar):
+"Om ljuset ligger precis på tröskeln (säg 300) — vad händer när 
+värdet darrar 299, 301, 299, 301? Larmet kommer ticka av och på. 
+Lösningen kallas hysteres: olika trösklar för av/på. Full 
+beskrivning finns i kompendiets Modul 5 och Bilaga D."
 
-REFERENS: 
-manualen (Modul 4).
-Full härledning i kompendiets Appendix F (framspänningsfall + 
-spänningsdelare).
+REFERENS: kompendiet Modul 4 + Bilaga F (framspänningsfall + 
+spänningsdelare, full härledning).
 -->
 
 ---
@@ -2240,8 +2244,8 @@ Peka på spänningsdelaren: "två resistorer i serie från 5 V till GND,
 och vi mäter mitten med A0". Fotocellen är den övre resistorn, 
 1 kΩ den undre.
 
-Bild från startkit-manualen (Modul 4) 
-(sid 80), så deltagarna kan korsreferera mot sin egen manual.
+Fullständig härledning av spänningsdelar-formeln i kompendiet 
+Bilaga F.
 -->
 
 ---
@@ -2267,8 +2271,6 @@ två benen — precis som en knapp, fast styrd av gravitation."
 
 INPUT_PULLUP så får ni LOW = lutad, HIGH = upprätt. Debounce med 
 delay(50) efter läsning för att undvika studs.
-
-Bild från startkit-manualen (Modul 4).
 -->
 
 ---
@@ -2335,7 +2337,7 @@ Serial Monitor är det enda sättet att förstå vad en Arduino 'tänker'
 när något går fel. Det är deras viktigaste verktyg framöver.
 
 TEASER:
-"Ni har nu alla fem superkrafter. Nästa vecka... HACKATHON. 
+"Ni har nu alla byggstenar. Nästa vecka... HACKATHON. 
 Vi sätter ihop allt till tjuvlarmet. Kom hungriga."
 -->
 
@@ -2359,7 +2361,7 @@ Printa **både** ljus och tilt till Serial Monitor. Jämför siffrorna mot omgiv
 <ul class="mt-8 text-2xl space-y-4 max-w-5xl">
 <li>Täck fotocellen — vilket värde?</li>
 <li>Lys på den — vilket värde?</li>
-<li>Håll tilt-sensorn upprätt, sen lutad — HIGH → LOW?</li>
+<li>Luta tilt-sensorn — ser du <span class="mono">HIGH → LOW</span>?</li>
 </ul>
 
 <!--
@@ -2368,8 +2370,9 @@ fotocellen i olika belysning, luta tilten, och titta på siffrorna
 som ramlar ner i Serial Monitor.
 
 TIPS att säga muntligt (finns i kompendiet § Typiska A0-värden):
-  "Testa olika tröskel-värden (300? 400? 500?) tills larmet 
-  reagerar lagom i rumsmörker. Det numret används i Modul 5."
+  "Börja vid 300 som riktvärde och testa — höj eller sänk tills 
+  larmet reagerar lagom i rumsmörker. Det numret används som 
+  morkTroskel i Modul 5."
 
 SÄG:
 "Innan vi bygger larmet nästa vecka: lär känna era egna siffror. 
@@ -2380,7 +2383,7 @@ på siffran. Lyft undan, titta igen. Notera siffran där ni tycker
 
 POÄNG:
 Detta etablerar att sensor-trösklar är en kalibrering man gör på 
-plats, inte ett magiskt tal från tillverkaren. Grunden för all 
+plats, inte ett förinställt tal från tillverkaren. Grunden för all 
 embedded-utveckling.
 
 OM NÅGON FRÅGAR om tilt-sensorns siffror: 
@@ -2439,7 +2442,7 @@ layout: center
 # Arduinon känner världen.
 
 <div class="mt-10 text-xl opacity-80 max-w-3xl mx-auto">
-  Ni kan läsa <span class="cyan">ljus</span> med en fotocell, <span class="cyan">lutning</span> med en tilt-sensor, och <span class="cyan">titta in</span> i Arduinons hjärna via Serial Monitor.
+  Ni kan läsa <span class="cyan">ljus</span> med en fotocell, <span class="cyan">lutning</span> med en tilt-sensor, och <span class="cyan">titta in</span> i Arduinons minne via Serial Monitor.
 </div>
 
 <div class="mt-12 text-base opacity-60 italic">
@@ -2587,8 +2590,9 @@ class: px-14 pt-10
   <div>ledR / G / B</div><div class="cyan">6 / 5 / 3</div><div class="opacity-60 text-xl">Modul 2</div>
 </div>
 
-<div class="mt-8 text-2xl font-mono">
-  <span class="opacity-60">bool</span> larmPaslaget <span class="opacity-60">=</span> false;
+<div class="mt-8 text-2xl font-mono space-y-2">
+  <div><span class="opacity-60">bool</span> larmPaslaget <span class="opacity-60">=</span> false;</div>
+  <div><span class="opacity-60">int</span> morkTroskel <span class="opacity-60">=</span> 300; <span class="opacity-50 text-lg">// kalibrerat i Modul 4</span></div>
 </div>
 
 <div class="mt-8 text-lg opacity-70">
@@ -2643,7 +2647,8 @@ FELSÖKNINGSTIPS (säg när folk trasslar):
 - "Buzzern: använd `digitalWrite(buzzerPin, HIGH);` — den är ACTIVE buzzer, 
   ni behöver inte `tone()`."
 - "Fotocellen: mörker (hand över) = A0 ≈ 20–100. Rumsljus ≈ 150–400. Lampa nära ≈ 500–700. 
-  Sätt tröskeln på t.ex. 400 för 'det är mörkt'."
+  Sätt tröskeln på 300 som startvärde för 'det är mörkt' och 
+  justera efter kalibrering i Modul 4."
 - "RGB-LED:en: kom ihåg att KATODEN (andra benet från platta sidan, det 
   längsta) ska till GND. De tre andra benen till PWM-pinnarna via 220 Ω."
 
@@ -2667,10 +2672,10 @@ class: end text-center
   Tack.
 </h1>
 
-<div class="text-4xl opacity-90 max-w-4xl mx-auto">
+<div class="text-4xl opacity-90 max-w-5xl mx-auto">
   Ni har byggt ett system som <span class="cyan">läser av omvärlden</span><br/>
   och <span class="cyan">reagerar på den</span>.<br/>
-  Det är grunden i inbyggda system.
+  Grunden i inbyggda system.
 </div>
 
 <div class="mt-24 text-xl opacity-70 font-mono">

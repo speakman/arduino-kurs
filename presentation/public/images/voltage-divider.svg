@@ -109,7 +109,7 @@
     <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.5"/>
     <text x="525" y="6" text-anchor="middle" font-size="20">◗</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#eaeaea">Hand över</text>
-    <text x="800" y="7" text-anchor="end" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">20–100</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">20–100</text>
   </g>
 
   <!-- Row 2 -->
@@ -117,7 +117,7 @@
     <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.7"/>
     <text x="525" y="7" text-anchor="middle" font-size="20">◐</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#eaeaea">Rumsljus</text>
-    <text x="800" y="7" text-anchor="end" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">150–400</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">150–400</text>
   </g>
 
   <!-- Row 3 -->
@@ -125,7 +125,7 @@
     <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2.5"/>
     <text x="525" y="7" text-anchor="middle" font-size="20">☀</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#eaeaea">Lampa nära</text>
-    <text x="800" y="7" text-anchor="end" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">500–700</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">500–700</text>
   </g>
 
   <!-- Bottom note -->

@@ -31,12 +31,12 @@ Ni kopplade blink-kretsen på breadboarden, laddade upp IDE:ns färdiga `Blink`-
 == Repetition av de viktigaste begreppen
 
 #warning(title: "Räkna banden först")[
-  Elegoo skeppar två sorters resistorer: *4-bands* (digit-digit-multiplikator-tolerans) och *5-bands* (digit-digit-digit-multiplikator-tolerans, 1 % precision). Titta på *din* resistor och räkna bandens antal innan du börjar dekoda. 220 Ω är *röd-röd-brun-guld* (4-band) eller *röd-röd-svart-svart-brun* (5-band). Osäker? Mät med multimeter.
+  Kittet innehåller två sorters resistorer: *4-bands* (digit-digit-multiplikator-tolerans) och *5-bands* (digit-digit-digit-multiplikator-tolerans, 1 % precision). Titta på *din* resistor och räkna bandens antal innan du börjar dekoda. 220 Ω är *röd-röd-brun-guld* (4-band) eller *röd-röd-svart-svart-brun* (5-band). Osäker? Mät med multimeter.
 ]
 
 #fig(
   "images/elegoo-040-057.png",
-  caption: [Färgkodschart. Överst: 4-band (första två siffror, multiplikator, tolerans). Underst: 5-band (tre siffror, multiplikator, tolerans). Denna sida sitter också inuti locket på ditt kitt.],
+  caption: [Färgkodschart. Överst: 4-band (första två siffror, multiplikator, tolerans). Underst: 5-band (tre siffror, multiplikator, tolerans). Samma tabell sitter inuti locket på ditt kit.],
   width: 60%,
 )
 
@@ -83,7 +83,7 @@ Omformulerat: $I = U slash R$, $R = U slash I$. Håll för den storhet du vill r
 
 === Varför 220 Ω?
 
-En vanlig röd LED har ett *framspänningsfall* på ungefär 2 V. Det betyder att när du skickar 5 V över kombinationen LED + resistor, så "äter LED:en upp" 2 V och resistorn måste ta hand om resten:
+En vanlig röd LED har ett *framspänningsfall* på ungefär 2 V. Det betyder att när du skickar 5 V över kombinationen LED + resistor, så "äter LED:en upp" 2 V och resistorn måste ta hand om resten. Vi siktar på en ström runt 15 mA genom LED:en — ett säkert riktvärde långt under datablads-maxvärdet på 20 mA, men tillräckligt för att lysa synligt:
 
 #formula[$R = (5 "V" - 2 "V") slash 15 "mA" = 200 Omega$]
 
@@ -98,6 +98,16 @@ En vanlig röd LED har ett *framspänningsfall* på ungefär 2 V. Det betyder at
 === `digitalWrite` och `pinMode`
 
 `pinMode(pin, OUTPUT)` talar om för Arduinon: "pin 13 är en utgång, jag ska styra den". `digitalWrite(pin, HIGH)` sätter pinnen till ~5 V. `digitalWrite(pin, LOW)` sätter den till 0 V. `delay(ms)` är en paus i antal millisekunder. Allt `Blink` gör är att växla mellan HIGH och LOW med pauser emellan.
+
+Arduinon har också en liten LED inbyggd på kortet (märkt "L"), permanent kopplad till pin 13 via sin egen resistor fabriksvägen. När ni blinkar pin 13 blinkar både er externa LED och den inbyggda. Vi kopplade en extern för att ni skulle se en krets ni själva byggt. I senare moduler räcker namnet `LED_BUILTIN` (Arduinos egna namn på pin 13) för snabba "skriv ut status"-hack utan breadboard.
+
+#tip(title: "Om Upload inte går igenom")[
+  - Tools → Port → välj den port som dyker upp när ni stoppar in USB-kabeln (`/dev/cu.usbmodem*` på Mac, `COM*` på Windows).
+  - Tools → Board → "Arduino Uno".
+  - Byt USB-kabel om porten inte dyker upp alls — vissa billiga kablar saknar dataledare.
+
+  Fullständig felsökning i Bilaga B, avsnitt "Upload-fel".
+]
 
 == Bygg från minnet
 
@@ -129,6 +139,12 @@ Skriv om din hjärtslags-kod så att alla tidsvärden ligger i `const int`-varia
 #tip(title: "Exempel")[
   `const int kort = 80;` `const int lang = 200;` `const int paus = 1000;` — och sedan använda variabelnamnen i stället för siffror inne i `loop()`.
 ]
+
+=== Övning 2½ — Mamma-igenkänning
+
+Innan morse — bygg en övergång. Skriv ett mönster som är tydligt igenkännbart från vanlig Blink: *tre snabba blink* (100 ms på, 100 ms av) följt av en *lång paus* (1500 ms). Använd de `const int`-variabler du skapat i övning 2.
+
+Detta kluster-av-blink är faktiskt morse-S — och byggstenen i nästa övning. Om du kan kluster-av-tre kan du morsa vilken bokstav som helst.
 
 === Övning 3 — Dina initialer i morse
 
@@ -162,8 +178,10 @@ Slå upp morsealfabetet och få lampan att blinka dina initialer. `·` = en kort
 
 == Inför nästa träff
 
-Nästa vecka släpper vi `digitalWrite` i två minuter och lär oss `analogWrite`: ett kommando som inte bara kan sätta pinnen PÅ eller AV, utan kan ställa den någonstans *däremellan*. Det är det som gör det möjligt att blanda färg på en RGB-LED.
+Idag har Arduinon bara *pratat* till omvärlden — skickat ström ut genom en pinne. Det kallas *act* i embedded-världen. Från och med Modul 3 lär vi den också *lyssna* — läsa tillstånd in från knappar och sensorer. Mönstret *sense → act* — "läs av → agera" — är grunden för allt ni kommer att bygga. Tänk på det hädanefter.
+
+Men innan sense: en ny utgångs-teknik. Nästa vecka släpper vi `digitalWrite` i två minuter och lär oss `analogWrite` — ett kommando som inte bara kan sätta pinnen PÅ eller AV, utan kan ställa den någonstans *däremellan*. Det är det som gör det möjligt att blanda färg på en RGB-LED.
 
 Ingen ny matematik, men en ny idé: Arduinon kan inte göra analog ström på riktigt — den *fuskar*, genom att blinka pinnen jättesnabbt. Hur snabbt? Det ska vi titta på.
 
-Glöm inte dator eller Elegoo-kitet hemma!
+Glöm inte dator eller kitet hemma!

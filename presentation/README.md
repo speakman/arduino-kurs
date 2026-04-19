@@ -1,7 +1,7 @@
 # Arduino-kurs — Presentation
 
 Slidev-baserad presentation för 5-veckors Arduino/elektronikkurs.
-Mörkt tema, stor typografi, "5 superkrafter"-metafor som röd tråd.
+Mörkt tema, stor typografi, fem moduler som bygger vidare på varandra.
 
 ## Snabbstart (för klassrummet)
 

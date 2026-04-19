@@ -53,14 +53,11 @@ Eller med den klassiska *triangeln*. Rita en pyramid med U på toppen och I och 
 
 Håll för U → ser du $I dot R$. Håll för I → ser du $U / R$. Håll för R → ser du $U / I$. Fungerar *varje gång*.
 
-=== Historisk bakgrund — varför heter de U och I?
+=== Varför bokstäverna U och I?
 
-En fråga alla åtta deltagarna ställde under första träffen. Kort svar:
+*U* kommer från tyskans "Spannung" (spänning). *I* från franskans "intensité du courant" (strömintensitet, Ampères terminologi).
 
-- *U kommer från tyskans "Spannung"* (spänning), eller möjligen latinets *urgere* (att pressa). Central-europeisk vetenskapstradition sedan 1800-talet.
-- *I kommer från franskans "intensité du courant"* (strömintensitet). Det var Ampères egen terminologi när han formulerade sina lagar.
-
-Anglosaxiska böcker använder ibland $V$ för spänning (efter "volt" eller "voltage") istället för $U$. Det är samma sak — olika lokala traditioner. I Sverige och Tyskland: $U$. I Storbritannien och USA: $V$.
+Anglosaxiska böcker använder ibland $V$ för spänning istället för $U$ — samma sak, olika lokala traditioner. I Sverige och Tyskland: $U$. I Storbritannien och USA: $V$.
 
 === Första räkneexemplet
 

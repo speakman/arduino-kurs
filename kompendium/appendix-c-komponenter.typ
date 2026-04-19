@@ -45,7 +45,7 @@ Passiv komponent som "bromsar" ström. Inget att lysa, inget att blinka — men 
 #quickref(
   ([*Polaritet*], [Ingen. Kopplas hur som helst.]),
   ([*Värden i kittet*], [220 Ω, 1 kΩ, 10 kΩ (och några varianter däremellan)]),
-  ([*Avläsning*], [Färgband. Räkna först *hur många band* din resistor har — Elegoo skeppar både 4-bands (normal precision) och 5-bands (1 % precision).]),
+  ([*Avläsning*], [Färgband. Räkna först *hur många band* din resistor har — kittet innehåller både 4-bands (normal precision) och 5-bands (1 % precision).]),
   ([*4-band*], [första två siffror · multiplikator · tolerans. 220 Ω = röd-röd-*brun*-guld.]),
   ([*5-band*], [tre siffror · multiplikator · tolerans. 220 Ω = röd-röd-svart-*svart*-brun.]),
   ([*1 kΩ (4-band)*], [brun · svart · röd · guld]),
@@ -61,7 +61,7 @@ Passiv komponent som "bromsar" ström. Inget att lysa, inget att blinka — men 
   width: 70%,
 )
 
-*Tabellen för färgkoder* sitter inuti locket på Elegoo-kittet. Du är välkommen att använda den eller mäta med multimeter. Med tiden lär man sig de vanligaste värdena utan att tänka.
+*Tabellen för färgkoder* sitter också inuti locket på kittet. Du är välkommen att använda den eller mäta med multimeter. Med tiden lär man sig de vanligaste värdena utan att tänka.
 
 == RGB-LED (common cathode)
 
@@ -207,19 +207,20 @@ De färgade trådarna du använder för att koppla mellan breadboard och Arduino
   ([*Typisk längd*], [10–20 cm. Inte kritiskt men kortare är snyggare.]),
 )
 
-== Det ni inte använder i kursen
+== 74HC595 skiftregister — den komponenten vi inte använder
 
-Elegoo-kittet innehåller fler saker än vi hinner med på fem träffar. Här är vad som finns kvar för fortsatt utforskning:
+Kittet innehåller *en* komponent som kursen inte rör: ett 74HC595-skiftregister. Det är en 16-bens IC (integrerad krets) som låter Arduinon styra 8 LED-utgångar med bara 3 pinnar.
 
 #quickref(
-  ([*74HC595 skiftregister*], [Låter Arduinon styra 8 LED:ar med bara 3 pinnar. Ofta med i startkit och online-tutorials.]),
-  ([*Passive buzzer*], [Kan spela olika tonhöjder med `tone(pin, hz)`. Bra för att göra melodier.]),
-  ([*LCD-display*], [16x2 teckendisplay. Kräver ett bibliotek men är väldigt användbar.]),
-  ([*Termometer (DHT11 eller LM35)*], [Läser temperatur.]),
-  ([*IR-mottagare*], [Tar emot signaler från fjärrkontroll.]),
-  ([*Servomotor*], [En motor som kan vridas till en specifik vinkel. Styr med `Servo.h`.]),
-  ([*Potentiometer*], [Justerbar resistor. Läs med `analogRead` för att få ett kontinuerligt 0–1023-värde från en ratt.]),
-  ([*Piezo-element*], [En kristall som vibrerar när ström läggs på. Kan användas som buzzer eller sensor (knacka på den, läs ström).]),
+  ([*74HC595 skiftregister*], [16-bens DIP-IC. Tre styrpinnar (`data`, `clock`, `latch`) kan styra 8 utgångar. Principen: skiftregistret "kommer ihåg" en 8-bits sekvens du matar in en bit i taget, och håller dem alla samtidigt på sina utgångar.]),
 )
 
-Vill du gå vidare — ge dig själv en kväll med en av dessa, slå upp en online-tutorial, och prova bygga något som använder den.
+Det är en utmärkt första fördjupning efter kursen — prova att blinka åtta LED:ar i ett löpande mönster. Sök efter "74HC595 shift register Arduino" för exempel.
+
+== Vill du ha fler komponenter?
+
+Kittet är medvetet minimalt — de komponenter ni byggt med under fem träffar är i princip precis de som ryms. Om ni vill gå vidare:
+
+- *Utökningskit* (Super Starter Kit, Most Complete Kit) innehåller saker som servomotor, LCD-display, potentiometer, IR-mottagare, temperatursensor, ultraljudsavståndsmätare, m.fl.
+- *Lösa komponenter* från Kjell & Company, Electrokit eller liknande när ni har ett specifikt projekt i åtanke. Ofta mer prisvärt än att köpa ett nytt kit.
+- *Online-tutorials* — Hackster.io och Instructables förklarar nästan alltid vad de använder och var man får tag på det.

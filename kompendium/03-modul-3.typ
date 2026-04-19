@@ -66,6 +66,15 @@ Lösningen är en *pullup-resistor*: en resistor som kopplar pinnen till +5 V. N
 
 Konsekvensen är den inverterade logiken. *Tryckt knapp = LOW*, *släppt knapp = HIGH*. Svårt att vänja sig vid. Varje gång ni läser koden, tänk högt: "LOW betyder tryckt, LOW betyder tryckt".
 
+#tip(title: "Översättningsregel")[
+  När du läser en `INPUT_PULLUP`-pinne:
+
+  - `LOW` → tänk *"tryckt"*
+  - `HIGH` → tänk *"släppt"*
+
+  Gör den substitutionen *innan* du läser resten av raden. Med tiden sker den automatiskt; i början är den medveten.
+]
+
 #fig(
   "images/elegoo-057-073.png",
   caption: [Knappkretsen på breadboard — två tactile switches och en LED som output. I kursen använder vi bara *en* knapp (A → D9) och Arduinons inbyggda LED på pin 13.],
@@ -123,6 +132,8 @@ void loop() {
 }
 ```
 
+Uttrycket `state == LOW && lastState == HIGH` fångar *fallande flanken* — ögonblicket då pinnen går från HIGH (släppt) till LOW (tryckt). Samma tekniker används i all digital elektronik: man reagerar på *flanken*, inte på nivån.
+
 `!larmPaslaget` är *logisk inversion* — utropstecknet betyder "det motsatta". Om `larmPaslaget` var `false`, blir det `true`. Om det var `true`, blir det `false`. Det är så vi *togglar* ett tillstånd med en knapp.
 
 `delay(10)` är en enkel *debounce*. Knappens metallblad studsar fysiskt några millisekunder när de möts, vilket ger flera falska flanker i rad. Tio millisekunder räcker för att släta över det i den här kursen. I produktion används fler tekniker — se Bilaga A.
@@ -133,16 +144,18 @@ void loop() {
   width: 65%,
 )
 
-=== Active buzzer — inte passive
+=== Active buzzer
 
-I Elegoo-kittet finns *två* buzzrar: en *passive* (oftast blå och låg) och en *active* (svart, hög, med klisterlapp på ovansidan). Kursen använder den *aktiva*.
+Buzzern i kittet är *active* — svart cylinder med inbyggd oscillator och en liten klisterlapp på ovansidan. Det betyder att `digitalWrite(pin, HIGH)` räcker för att få ljud; ingen `tone()`, ingen frekvens, ingen resistor.
 
 #quickref(
-  ([*Active buzzer*], [Inbyggd oscillator. `digitalWrite(pin, HIGH)` → pip. `LOW` → tyst. En fast frekvens.]),
-  ([*Passive buzzer*], [Ingen oscillator. Kräver `tone(pin, hz)` för att ge ljud. Kan spela olika tonhöjder.]),
+  ([*Active buzzer* (vår)], [Inbyggd oscillator. `digitalWrite(pin, HIGH)` → pip. `LOW` → tyst. Fast frekvens.]),
+  ([*Passive buzzer* (saknas i kittet)], [Ingen oscillator. Kräver `tone(pin, hz)` för att ge ljud. Kan spela olika tonhöjder — bra för melodier.]),
 )
 
-Vi använder den aktiva för dess enkelhet. Men: *dra inte av klisterlappen*. Den är en fabriksdämpare från tillverkningsprocessen. Tekniskt fungerar buzzern utan, men den blir obehagligt hög. Lappen sitter på.
+Vi använder den aktiva för dess enkelhet. Om ni skulle köpa en lös buzzer i elektronikbutik kan det alltså vara motsatsen — fråga alltid vilken typ.
+
+*Dra inte av klisterlappen.* Den är en fabriksdämpare från tillverkningsprocessen. Tekniskt fungerar buzzern utan, men den blir obehagligt hög. Lappen sitter på.
 
 == Bygg från minnet
 
@@ -221,4 +234,4 @@ Modul 4 är den sista innan hackathonen. Tre nyheter står på schemat: *analogR
 
 Ni får också två nya komponenter: en *fotocell* (en resistor vars motstånd sjunker i ljus) och en *tilt-sensor* (en metallkula som kortsluter två ben när den lutas). Den sista är vår anti-stöld-trigger i det slutliga larmet.
 
-Glöm inte dator eller Elegoo-kitet hemma!
+Glöm inte dator eller kitet hemma!

@@ -22,13 +22,17 @@ Kvällens nyheter i punktform:
 - *RGB-LED:en blandar färg ur tre kanaler*: röd, grön, blå. Precis som en pixel på skärmen ni sitter framför. Alla färger ni ser är kombinationer av dessa tre — det finns ingen egen gul lysdiod inblandad.
 - *Kittets RGB-LED är en common cathode*. Det betyder att det längsta benet — katoden — går till GND, och de tre andra till PWM-pinnar via varsin 220 Ω-resistor.
 
-Ni kopplade RGB-LED:en, upptäckte att pin-ordningen för kittets LED är rött/katod/grönt/blå (inte intuitivt — katoden är *andra* benet, inte i mitten), och experimenterade med att blanda fram lila, gammelrosa, cyan, skolgul.
+Ni kopplade RGB-LED:en, upptäckte att pin-ordningen är rött/katod/grönt/blå (inte intuitivt — katoden är *andra* benet, inte i mitten), och experimenterade med att blanda fram lila, gammelrosa, cyan, skolgul.
 
 #fig(
   "images/elegoo-047-063.png",
   caption: [Additiv färgblandning — tre färgkanaler (rött, grönt, blått) som överlappar ger gult, cyan, magenta och (alla tre) vit. Samma princip som för skärmens pixlar.],
   width: 50%,
 )
+
+#fact(title: "Tänk skärm, inte färgburk")[
+  RGB-LED:ens blandning är *additiv* — du lägger till ljus och närmar dig vitt. Målarens färglära är *subtraktiv* — du lägger till pigment och närmar dig svart. Därför: röd + grön = *gul* på er LED, men *brun-mudd* i akvarell. Den som bygger intuition åt fel håll här kommer att fastna senare i kursen.
+]
 
 == Repetition av de viktigaste begreppen
 
@@ -38,7 +42,7 @@ Ditt första möte med en komponent som INTE tål att kopplas baklänges utan at
 
 #fig(
   "images/elegoo-045-061.png",
-  caption: [RGB-LED:ens fyra ben: BLUE, GREEN, CATHODE (katod — det längsta), RED. Notera att katoden är det *andra* benet från platta sidan, inte i mitten.],
+  caption: [RGB-LED:ens fyra ben, ordning från *platta sidan*: *röd · katod · grön · blå*. Katoden är det *andra* benet från platta sidan och längst av de fyra.],
   width: 55%,
 )
 
@@ -150,7 +154,14 @@ Skriv en sketch som långsamt *tonar* över från röd till blå under 5 sekunde
     delay(20);                    // total tid: 255 × 20 ms ≈ 5 s
   }
   ```
-  `for (int i = 0; i <= 255; i++)` betyder: "kör blocket med i = 0, 1, 2, ... upp till 255". Fullständig förklaring av `for` finns i Bilaga A.
+
+  `for (int i = 0; i <= 255; i++)` — tre delar separerade med semikolon:
+
+  - `int i = 0` → *start:* skapa räknaren `i` och sätt till 0.
+  - `i <= 255` → *villkor:* kör så länge detta är sant.
+  - `i++` → *steg:* efter varje varv, öka `i` med 1.
+
+  Fullständig förklaring av `for` finns i Bilaga A.
 ]
 
 == Vanliga fel och snabblösningar
@@ -160,7 +171,7 @@ Skriv en sketch som långsamt *tonar* över från röd till blå under 5 sekunde
   ([*LED:en blinkar märkligt*], [Du har råkat koppla den som common anode — du har dragit katoden till +5 V istället för GND. Vänd på kopplingen.]),
   ([*`analogWrite(ledR, 200)` gör inget*], [Du har använt en pinne som inte stödjer PWM. Kolla att det finns ett `~` framför pin-numret på Arduinon. Giltiga: 3, 5, 6, 9, 10, 11.]),
   ([*Fel färg kommer ut*], [Du har blandat ihop vilket ben som är röd, grön, blå. Kom ihåg: från platta sidan är ordningen röd, katod, grön, blå.]),
-  ([*Färgerna är inverterade* (0 = full, 255 = av)], [Du har en *common anode*-RGB istället för common cathode. Elegoos kit är common cathode, men om du köpt en lös LED i elektronikbutik kan det vara motsatsen. Koppla längsta benet till `+5 V` istället för GND — då fungerar den, men du måste också invertera logiken i koden: `analogWrite(ledR, 255 - värde)`.]),
+  ([*Färgerna är inverterade* (0 = full, 255 = av)], [Du har en *common anode*-RGB istället för common cathode. Kittets LED är common cathode, men om du köpt en lös LED i elektronikbutik kan det vara motsatsen. Koppla längsta benet till `+5 V` istället för GND — då fungerar den, men du måste också invertera logiken i koden: `analogWrite(ledR, 255 - värde)`.]),
   ([*LED:en blinkar inte alls, men är ansluten*], [Glömt `pinMode(ledR, OUTPUT)` för en eller flera kanaler. Alla tre måste upp som OUTPUT i `setup()`.]),
   ([*Programmet fungerade, nu gör det inget*], [Du har glömt att ladda upp den nya versionen efter en ändring. Klicka på pilen uppe till vänster i IDE:n.]),
 )
@@ -177,8 +188,8 @@ Skriv en sketch som långsamt *tonar* över från röd till blå under 5 sekunde
 
 == Inför nästa träff
 
-Tredje modulen handlar om att *lyssna*. Hittills har Arduinon bara OUTPUT:at — skickat ström utåt till LED-ar. Nästa gång ska den läsa *in* ett tillstånd från omvärlden: en knapp.
+Modul 1 och 2 har varit rent *act* — Arduinon har bara skickat ström ut till LED-ar. Modul 3 lägger till den andra halvan: *sense*. Arduinon får sitt första öra.
 
 Vi introducerar `digitalRead` och `INPUT_PULLUP`, bygger en första sketch som reagerar på knapptryck, lägger till en buzzer (den med den viktiga klisterlappen), och slutligen bakar in *edge-detection* — den tekniska detalj som gör det möjligt att toggla ett tillstånd på och av utan att knappen skriver över sig själv 50 gånger per sekund.
 
-Glöm inte dator eller Elegoo-kitet hemma!
+Glöm inte dator eller kitet hemma!

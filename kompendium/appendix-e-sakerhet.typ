@@ -52,15 +52,7 @@ Om du direkt kopplar `+5 V` till `GND` med en ren kabel, börjar Arduinon dra he
 
 Om du märker att Arduinon blir varm — *koppla ur USB:n direkt*. Kolla vart du senast drog en kabel.
 
-== 4. Buzzer-klisterlappen (det är seriöst)
-
-*Dra inte av klisterlappen* på den aktiva buzzern i kittet. Etiketten säger "REMOVE AFTER WASHING". Den är *inte* en skyddsfilm att ta bort för användning. Det är en *fabriksdämpare* från tillverkningsprocessen.
-
-Tekniskt fungerar buzzern utan den, men den blir *mycket* högre. Tillräckligt för att ge dig ringningar i öronen under en hackathon.
-
-*Lös rätt:* låt lappen sitta kvar. Det är ingen del av "korrekt montering". Det är bara en tillverknings-detalj som råkade hamna i slutprodukten.
-
-== 5. Statisk elektricitet är en verklig sak
+== 4. Statisk elektricitet är en verklig sak
 
 Torr vinterluft + nyfallen snö + syntetiska tröjor → du bygger upp några tusen volt statisk elektricitet på kroppen. När du rör Arduino-chippets pinnar med ett finger kan det ladda ur sig genom chippet och permanent skada det.
 
