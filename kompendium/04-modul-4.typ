@@ -22,7 +22,7 @@ Kvällens nyheter:
 - *Fotocellen* (LDR) är en resistor som ändrar värde med ljus: ca 50 kΩ i mörker, ca 500 Ω i starkt ljus. I serie med en fast 1 kΩ-resistor bildar den en spänningsdelare du kan läsa av.
 - *Tilt-sensorn* (tekniskt en *ball-tilt switch* — en kula i en hylsa, inte en accelerometer) är *digital*, trots att den ofta kallas "sensor". Läses med `digitalRead`, inte `analogRead`. En knapp som gravitationen trycker.
 
-Ni byggde spänningsdelaren med fotocellen, öppnade Serial Monitor för första gången, och såg siffrorna ändra sig i realtid när ni höll handen över cellen. Det var Arduinons första riktiga mätinstrument.
+Ni byggde spänningsdelaren med fotocellen, öppnade Serial Monitor tillsammans för första gången i klassrummet, och såg siffrorna ändra sig i realtid när ni höll handen över cellen. Det var Arduinons första riktiga mätinstrument.
 
 Idag fullbordades er *sense-katalog*: en knapp (digital), en tilt-switch (digital), en fotocell (analog), plus Serial-kanalen tillbaka till datorn. Modul 5 är att sätta ihop *sense* och *act* till en riktig reaktiv maskin.
 

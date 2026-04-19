@@ -2332,7 +2332,7 @@ NYCKELMOMENT:
 "Håll handen över fotocellen och titta på siffrorna — de ändras i realtid. 
 Detta är ert fönster in i vad Arduinon faktiskt mäter."
 
-Detta är första gången kursen verkligen öppnar dörren för felsökning. 
+Detta är första gången i klassrummet som kursen verkligen öppnar dörren för felsökning. 
 Serial Monitor är det enda sättet att förstå vad en Arduino 'tänker' 
 när något går fel. Det är deras viktigaste verktyg framöver.
 

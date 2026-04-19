@@ -159,7 +159,7 @@ Slå upp morsealfabetet och få lampan att blinka dina initialer. `·` = en kort
 #quickref(
   ([*LED lyser inte*], [Vänd LED:en — långt ben mot pin 13, kort mot resistorn.]),
   ([*LED lyser väldigt svagt*], [Kontrollera resistor-värdet. 220 Ω = röd-röd-brun-guld (4-band) eller röd-röd-svart-svart-brun (5-band). Om du dekodat fel kan du fått 2,2 kΩ (10× för hög) — dubbla multiplikatorn. Mät med multimeter vid tvivel.]),
-  ([*`Blink` kompilerar men inget händer*], [Kabeln till pin 13 sitter i pin 12 eller pin 14. Räkna hålen.]),
+  ([*`Blink` kompilerar men inget händer*], [Kabeln till pin 13 sitter i pin 12 eller GND (hålet precis bredvid pin 13). Räkna hålen.]),
   ([*`expected ';' before...`*], [Glömt semikolon på föregående rad. Arduino-IDE:ns felpanel pekar på nästa rad, felet är på raden ovanför.]),
   ([*`'digitalWrit' was not declared in this scope`*], [Stavfel — funktionen heter `digitalWrite`, du missar `e` på slutet. Arduino är också skiftlägeskänsligt, så `digitalwrite` (litet w) är också fel.]),
   ([*Upload misslyckas med `avrdude: stk500_getsync()`*], [Välj rätt port under Verktyg → Port. USB-kabeln (Uno använder Type B, den kvadratiska kontakten) måste vara en *datakabel*, inte en ren laddkabel.]),

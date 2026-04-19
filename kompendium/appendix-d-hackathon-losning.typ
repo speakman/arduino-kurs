@@ -71,6 +71,7 @@ void loop() {
   // 1. LÄS INPUTS
   int  knappState = digitalRead(knappPin);
   bool tiltLutad  = (digitalRead(tiltPin) == LOW);
+  delay(50);  // debounce tilt — kulan bouncar i hylsan
   int  ljus        = analogRead(ldrPin);
 
   // 2. EDGE-DETECTION för knappen (toggla larmläget)
@@ -125,19 +126,19 @@ Att skriva `analogWrite(ledR, ...)` + `analogWrite(ledG, ...)` + `analogWrite(le
 
 Det är det första "egenskrivna" verktyget i koden. Du kunde klarat dig utan, men det *gör koden läsbar*. Det är i princip vad programmering i större skala handlar om — att skapa små, tydliga verb för vad du vill göra.
 
-=== Edge-detection (rad 45–50)
+=== Edge-detection (rad 46–51)
 
 Samma mönster som i Modul 3: *agera bara när knappen just nu övergår från HIGH till LOW*. Utan detta skulle larmet toggla 100+ gånger per tryckning, och värdet skulle vara slumpmässigt vid släpp.
 
 `larmPaslaget ? "PÅ" : "AV"` är en kort ternär if — "om larmPaslaget, använd 'PÅ', annars 'AV'". En rad istället för fyra.
 
-=== Tre grenar av if/else (rad 54–72)
+=== Tre grenar av if/else (rad 55–73)
 
 Den första grenen har en liten detalj värd att notera: den alternerar mellan rött och svart med `delay(100)` — det är hur blink skapas inne i ett `loop`-varv. Varje gång loopen kommer tillbaka till den här grenen, kör det ett fullt blink-cykel på 200 ms.
 
 Det betyder att knapptrycket inte reagerar förrän *efter* en blink-cykel. 200 ms är knappt märkbart för en människa, men om du vill att larmet ska svara snabbare på knappen kan du göra blinkningen med `millis()` istället för `delay()`. Det är en ren utökning — ingår inte i kursen men finns i alla online-tutorials under sökordet "non-blocking Arduino".
 
-=== `delay(10)` sist (rad 76)
+=== `delay(10)` sist (rad 77)
 
 En liten paus mellan loop-varv. Gör att Arduinon inte snurrar CPU:n på tomgång. Tio millisekunder är kort nog att interaktionen känns omedelbar men tillräckligt för att knappens studs lägger sig innan nästa läsning.
 
