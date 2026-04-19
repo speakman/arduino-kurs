@@ -2646,6 +2646,71 @@ AVSLUTNING (sista 10 min):
 -->
 
 ---
+layout: default
+class: px-14 pt-12
+---
+
+<div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
+  Efter kursen
+</div>
+
+# Vart härifrån?
+
+<div class="mt-8 space-y-6 max-w-5xl">
+
+<div class="p-6 rounded-xl border border-[var(--ak-border)] bg-[var(--ak-bg-raised)]">
+  <div class="flex items-baseline gap-4 mb-2">
+    <div class="text-2xl font-bold cyan">TinkerCAD Circuits</div>
+    <div class="mono text-sm opacity-60">tinkercad.com/circuits</div>
+  </div>
+  <div class="opacity-85 text-lg leading-relaxed">
+    Gratis online-simulator för Arduino. Bygg kretsen i browsern, skriv samma kod som i IDE:n, tryck play — <strong>hela kretsen simuleras</strong>, inklusive LED:ar, sensorer och Serial Monitor. Perfekt för att prova idéer utan att ha kittet framför sig.
+  </div>
+</div>
+
+<div class="grid grid-cols-2 gap-6">
+  <div class="p-5 rounded-xl border border-[var(--ak-border)]">
+    <div class="text-xl font-bold mb-2">Online-projekt</div>
+    <div class="opacity-80 text-base">
+      Hackster.io · Instructables · Make: — recept från väderstationer till MIDI-instrument. Kopiera något enkelt, förstå vad du kopierade.
+    </div>
+  </div>
+
+  <div class="p-5 rounded-xl border border-[var(--ak-border)]">
+    <div class="text-xl font-bold mb-2">Ert eget hem</div>
+    <div class="opacity-80 text-base">
+      Vad skulle ni vilja automatisera? Lampa i hallen. Brevlåde-notis. Kaffebryggar-timer. Ett litet verkligt problem slår varje tutorial.
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="mt-8 text-sm opacity-60 italic">
+  Fullständig lista i kompendiets Modul 5-avslutning.
+</div>
+
+<!--
+TinkerCAD är det enskilt bästa verktyget för att fortsätta labba efter
+kursen. Ingen hårdvara behövs — allt simuleras i browsern. Några
+praktiska poänger:
+
+- Fungerar på Mac, Windows, Linux, iPad — vilken browser som helst.
+- Gratis, men kräver ett Autodesk-konto (gratis det också).
+- Man kan dela länkar till sina kretsar — bra för att hjälpa varandra.
+- Simulatorn är inte 100% verklighetstrogen (timing, brus), men
+  räcker gott för att testa logik och koppling.
+
+Säg:
+"Om ni har bussresor till jobbet eller sitter på en flygplats och vill
+labba vidare — TinkerCAD Circuits räcker. Ni kan bygga och testa precis
+det ni gjort i kursen. Kittet ligger kvar där ni lämnat det."
+
+Övriga resurser är i kompendiets Modul 5. Peka dit om någon vill ha
+mer detaljer.
+-->
+
+---
 layout: center
 class: end text-center
 ---

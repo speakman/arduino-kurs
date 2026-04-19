@@ -237,6 +237,7 @@ Fem veckor sedan visste ni inte vad en GND-pinne var. I dag har ni byggt ett sys
 
 Nästa steg — om ni vill fortsätta — är inte ett enda steg utan en skog av dem:
 
+- *TinkerCAD Circuits* (`tinkercad.com/circuits`). Autodesks gratis online-simulator för Arduino och breadboard. Ni bygger kretsen i browsern, skriver samma Arduino-kod som i IDE:n, och trycker play — den simulerar hela kretsen inklusive kod, LED:ar, sensorer, serial monitor, allt. Perfekt när ni vill prova en idé på bussen, när kittet står kvar på kontoret, eller när ni vill testa ett koncept innan ni köper en ny komponent. Fungerar i vilken browser som helst.
 - *Arduino-projekt online*. Sidor som Hackster, Instructables, Make: Magazine är fulla av recept för allt från väderstationer till MIDI-instrument. Börja enkelt. Kopiera något. Förstå vad du kopierade.
 - *Lokala makerspaces*. Det finns ofta ett i närmsta större stad. Gå en kväll. Andras projekt är smittsamt.
 - *Fråga er själva: vad i mitt eget hem skulle jag vilja automatisera?* Ett litet problem i verkligheten är mycket bättre motivation än en abstrakt tutorial. "Lampan vid hallspegeln tänds när jag kommer hem i mörkret." "Brevlådan skickar en notis när posten kommit." "Kaffebryggaren pausar två minuter efter att jag stängt den av." Bygg det lilla. Lär dig det stora på vägen.
