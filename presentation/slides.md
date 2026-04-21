@@ -934,7 +934,7 @@ class: px-14
 
 <div class="tip-box mt-8 max-w-4xl text-left">
   <div class="tip-title">Så här jobbar vi</div>
-  <div>Lägg en <span style="color:#00ffd1;font-weight:700">grön lapp</span> på bordet när det fungerar och du vill visa. <span style="color:#ff3366;font-weight:700">Röd lapp</span> om du fastnat — jag kommer förbi. Samma system resten av kursen.</div>
+  <div>Ropa eller räck upp handen om du fastnar — jag kommer förbi. Säg till när du fått igång något du vill visa.</div>
 </div>
 
 <!--
@@ -949,8 +949,8 @@ man ändra många siffror varje gång. Förklaringen och alternativet
 SÄG:
 "Nu är det er tur. Ändra Blink så att lampan blinkar i en rytm ni 
 själva bestämmer. SOS är en klassiker — tre korta, tre långa, tre 
-korta — men ta gärna något eget. Grön lapp när den gör det ni vill. 
-Röd lapp om ni fastnar."
+korta — men ta gärna något eget. Säg till när den gör det ni vill, 
+ropa eller räck upp handen om ni fastnar."
 
 PEDAGOGISKA POÄNGER:
 - De introduceras försiktigt till att faktorisera ut en funktion 
@@ -1344,7 +1344,7 @@ Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal
 
 <div class="tip-box mt-5">
   <div class="tip-title">Regeln</div>
-  <div>Grön lapp = du hittade en färg du gillar. Röd lapp = du fastnat på något.</div>
+  <div>Säg till när du hittat en färg du gillar. Ropa om du fastnat — jag kommer förbi.</div>
 </div>
 
 </div>
@@ -1367,7 +1367,7 @@ SÄG:
 "Nu är det er tur. Ni har tre kanaler — röd, grön, blå — och varje 
 kanal tar ett tal mellan 0 och 255. Era uppgifter: försök hitta lila, 
 gammelrosa, skolgul, cyan. Och sen — vad för en färg som helst ni 
-gillar. Grön lapp när ni hittat en ni är nöjda med."
+gillar. Säg till när ni hittat en ni är nöjda med."
 
 PEDAGOGISK POÄNG:
 Experimentet lär dem att PWM-värden INTE är linjära mot vad ögat 
@@ -2474,7 +2474,7 @@ AGENDA (runt 2 timmar):
 - 01:15–01:50  Fritt bygge — runda 2 (sista spurten)
 - 01:50–02:00  Demo-runda: varje grupp visar sitt larm i ett mörklagt rum
 
-Röda/gröna lappar funkar som tidigare. Jag går runt vid röda. Lyser 
+Ropa eller räck upp handen om ni fastnar — jag går runt. Lyser 
 taklampan under bygget så det är lätt att koppla — släcks sista 5 min 
 för demos.
 -->
