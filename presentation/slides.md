@@ -417,6 +417,7 @@ class: px-14 pt-12
       </svg>
       <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00ffd1;font-size:4.5rem;line-height:1">U</div>
       <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">R</div>
+      <div class="absolute mono font-bold" style="left:50%;top:80%;transform:translate(-50%,-50%);color:#00ffd1;font-size:3rem;line-height:1;opacity:0.8">·</div>
       <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">I</div>
     </div>
     <div class="text-sm opacity-60 mt-4 mono">täck variabeln ni söker</div>
