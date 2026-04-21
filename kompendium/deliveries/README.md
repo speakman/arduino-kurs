@@ -28,7 +28,19 @@ Lämna dem vid varje plats innan kursen börjar — deltagarna tar hem sin efter
 
 ## Slide-deck backup
 
-`slides-arduino-kurs.pdf` — statiskt PDF-snapshot av Slidev-presentationen. Behövs inte för undervisning (kör hellre `npm run dev` i `presentation/`-katalogen) men fungerar som snapshot att mejla till deltagare som vill ha projektions-varianten.
+`slides-arduino-kurs.pdf` — statiskt PDF-snapshot av hela Slidev-presentationen. Behövs inte för undervisning (kör hellre `npm run dev` i `presentation/`-katalogen) men fungerar som snapshot att mejla till deltagare som vill ha projektions-varianten.
+
+### Per-dag-uppdelning
+
+`slides-per-dag/slides-dag-N.pdf` — decket splittat vid varje *Träff N av 5*-divider. Användbart om en deltagare missat en träff och bara vill ha den dagens slides, eller om du vill maila ut en dag i taget.
+
+| Fil | Sidor | Innehåll |
+|---|---|---|
+| `slides-dag-1.pdf` | 1–19 | Omslag + kursöversikt + Träff 1 (LED & krets) |
+| `slides-dag-2.pdf` | 20–26 | Träff 2 (PWM & RGB) |
+| `slides-dag-3.pdf` | 27–37 | Träff 3 (Digital input) |
+| `slides-dag-4.pdf` | 38–47 | Träff 4 (Analog input) |
+| `slides-dag-5.pdf` | 48–52 | Träff 5 (Hackathon) |
 
 ## Varför inga slide-referenser i kompendiet?
 
