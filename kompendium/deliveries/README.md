@@ -2,6 +2,8 @@
 
 Alla filer i den här mappen är tänkta att distribueras till kursdeltagarna eller skrivas ut på FRO-lokalen.
 
+> **TL;DR för digital distribution:** se `distribution/` — där ligger allt färdiguppdelat per dag (inklusive spoiler-skydd för hackathon-lösningen). Öppna `distribution/README.md`.
+
 ## Per-modul-PDF:er (skriv ut före varje träff)
 
 Varje kapitel är ~10 sidor, svart-vit printervänligt.
@@ -16,11 +18,15 @@ Varje kapitel är ~10 sidor, svart-vit printervänligt.
 
 Lämna dem vid varje plats innan kursen börjar — deltagarna tar hem sin efter träffen.
 
-## Bilagorna (dela ut efter sista träffen)
+## Bilagorna
 
-| Fil | Innehåll |
-|---|---|
-| `bilagor-a-f.pdf` | Bilaga A (syntax), B (felmeddelanden), C (komponenter med foton), D (hackathon-lösning), E (säkerhet), F (Ohms lag + framspänningsfall) |
+Tre varianter finns:
+
+| Fil | När | Innehåll |
+|---|---|---|
+| `bilagor-tidiga.pdf` | Med Dag 1 | Bilaga A (syntax), B (felmeddelanden), C (komponenter), E (säkerhet), F (Ohms lag) — **ingen spoiler** |
+| `bilaga-d-hackathon-losning.pdf` | Efter Dag 5 | Fullständig kommenterad referens-sketch för tjuvlarmet |
+| `bilagor-a-f.pdf` | Efter kursen | Alla sex bilagor samlade (A–F) |
 
 ## Fullständigt kompendium
 

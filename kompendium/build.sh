@@ -24,8 +24,14 @@ typst compile main-modul-4.typ modul-4-analog-input.pdf
 echo "→ Modul 5 (Hackathon)"
 typst compile main-modul-5.typ modul-5-hackathon.pdf
 
-echo "→ Bilagor (A–F)"
+echo "→ Bilagor (A–F, fullständig)"
 typst compile main-bilagor.typ bilagor-a-f.pdf
+
+echo "→ Bilagor tidiga (A, B, C, E, F — utan hackathon-lösning)"
+typst compile main-bilagor-tidiga.typ bilagor-tidiga.pdf
+
+echo "→ Bilaga D (hackathon-lösning — delas ut EFTER dag 5)"
+typst compile main-bilaga-d.typ bilaga-d-hackathon-losning.pdf
 
 echo ""
 echo "✓ Klar. PDF:er:"
