@@ -158,8 +158,8 @@ Serial.print(" tilt=");
 Serial.println(tilt);
 ```
 
-#tip(title: "Kalla det Arduinons tankar")[
-  Serial Monitor är den viktigaste felsökningsvanan i hela kursen. När ett program inte gör vad du väntar, *printa* det du tror är fel. Printa villkorsvariabler. Printa mätvärden. Printa vilken gren av en if/else som körs. Arduinon är inte mystisk — den är bara tyst. Gör den pratig.
+#tip(title: "Serial Monitor är din felsökningsvana")[
+  Serial Monitor är den viktigaste felsökningsvanan i hela kursen. När ett program inte gör vad du väntar, *printa* det du tror är fel. Printa villkorsvariabler. Printa mätvärden. Printa vilken gren av en if/else som körs. Arduinon är inte svår att felsöka — den behöver bara skriva ut vad den ser.
 ]
 
 == Bygg från minnet
@@ -197,7 +197,7 @@ Använd fotocellens värde som direktstyrning av RGB-LED:ens ljusstyrka. När de
 
 === Övning 3 — Tilt-alarm
 
-Skriv en sketch som bara piper buzzern när tilt-sensorn läser `LOW` (lutad). När den är upprätt, tystnad. Detta är en förhandsversion av hackathonens tjuvlarm.
+Skriv en sketch som bara piper buzzern när tilt-sensorn läser `LOW` (lutad). När den är upprätt, tystnad. Det är ett *bekräftelsetest* — visar att tilt-sensorn fungerar och styr buzzern. Hackathonens tjuvlarm bygger sedan vidare med larm-mönstret från Modul 3 (knappens toggle av `larmPaslaget`) och låter `larmPaslaget && tiltLutad` styra buzzern.
 
 För extra credit: lägg till att buzzern piper i ett mönster istället för kontinuerligt — till exempel 200 ms på, 200 ms av, så länge tilten är lutad.
 

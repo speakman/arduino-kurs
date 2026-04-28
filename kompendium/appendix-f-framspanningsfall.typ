@@ -122,7 +122,7 @@ Kolla vad strömmen faktiskt blir med 220 Ω:
 
 Lite lägre än vårt ideal på 15 mA. *Det är helt OK.* LED:en lyser fortfarande starkt och håller sig inom säkra gränser. Skillnaden är ungefär som om en lampa kördes på 85 % av sin fulla styrka — synligt, men marginellt.
 
-Det är *därför* 220 Ω valdes. Inte magi. Matematik.
+Det är *därför* 220 Ω valdes. Inget gissningsval — ren matematik.
 
 == Vad händer om resistorn är för *liten*?
 

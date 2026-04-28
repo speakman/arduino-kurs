@@ -7,7 +7,7 @@
 #module-heading(
   "Modul 3",
   "Digital input",
-  "Knapp, buzzer, logik — och Arduinons första sinnesorgan.",
+  "Knapp, buzzer, logik — och Arduinons första ingång från omvärlden.",
 )
 
 == Vad du lärde dig idag
@@ -21,8 +21,9 @@ Kvällens nyheter:
 - *`if` och `else`* låter programmet välja olika väg beroende på ett villkor. Operatorerna `==`, `!=`, `<`, `>` jämför värden.
 - *Edge-detection* är mönstret för att agera *en gång* på en knapptryckning, även om knappen hålls nere i hundra loop-varv. Nyckeln: spara förra värdet, jämför med nuvarande, agera bara när de skiljer sig åt på rätt sätt.
 - *Active buzzer* är plug-and-play — `digitalWrite(buzzerPin, HIGH)` ger ljud, `LOW` ger tyst. Ingen `tone()`, ingen frekvens, ingen resistor. Men: *klisterlappen stannar på*.
+- *Larm-mönstret* — ert första riktiga sense-act-loop *med minne*. Knappen togglar `larmPaslaget` via en flank, och buzzern speglar tillståndet med `digitalWrite(buzzerPin, larmPaslaget ? HIGH : LOW)`. Det är samma kärna som hackathonens tjuvlarm bygger på.
 
-Ni byggde två kretsar parallellt (knapp + buzzer), kopplade ihop dem i en enda sketch, och såg Arduinons första sense-act-loop: den läser något från omvärlden, bestämmer sig för något, och agerar därefter. Det är i princip allt embedded-programmering handlar om.
+Ni byggde två kretsar parallellt (knapp + buzzer), kopplade ihop dem i en enda sketch, och såg Arduinons första sense-act-loop: den läser något från omvärlden, kommer ihåg ett tillstånd mellan loop-varven, och agerar därefter. Det är i princip allt embedded-programmering handlar om.
 
 #fig-row(
   "images/elegoo-053-070.png",
@@ -56,7 +57,7 @@ Datatyper ni sett hittills:
 
 En djupare genomgång av datatyper, scope och operatorer finns i Bilaga A.
 
-=== `pinMode(pin, INPUT_PULLUP)` — magin förklarad
+=== `pinMode(pin, INPUT_PULLUP)` — tekniken förklarad
 
 En Arduino-pinne som inte är kopplad till någonting *flyter*. Det betyder att dess spänning inte är bestämd — den kan vara något slumpmässigt mellan 0 och 5 V, ibland 2,4 V, ibland 0,1 V, ibland 4,7 V. `digitalRead` på en flytande pinne ger slumpmässiga resultat. Inte bra för en knapp.
 
@@ -159,38 +160,53 @@ Vi använder den aktiva för dess enkelhet. Om ni skulle köpa en lös buzzer i 
 
 == Bygg från minnet
 
-Skriv från scratch en sketch som gör följande: När knappen på pin 9 är tryckt, piper buzzern på pin 12. När den släpps, är det tyst. Ingen edge-detection behövs för det här — en enkel `if/else` räcker.
+Skriv från scratch larm-mönstret från lektionen — utan att titta. Krav: en knapptryckning ska *toggla* larmet (på/av), inte bara pipa medan knappen hålls nere. Det innebär edge-detection på knappen, en `bool larmPaslaget` som globalt tillstånd, och `digitalWrite` av buzzern utifrån det tillståndet.
+
+Tryck en gång → larm på, buzzern tjuter. Tryck igen → tyst. Det här är det mönster ni byggde live på lektionen och som hackathonens tjuvlarm vidareutvecklar.
 
 #tip(title: "Skelett")[
   ```cpp
-  const int knappPin = 9;
+  const int knappPin  = 9;
   const int buzzerPin = 12;
 
+  bool larmPaslaget = false;
+  int  lastState    = HIGH;
+
   void setup() {
-    pinMode(knappPin, INPUT_PULLUP);
+    pinMode(knappPin,  INPUT_PULLUP);
     pinMode(buzzerPin, OUTPUT);
   }
 
   void loop() {
-    if (digitalRead(knappPin) == LOW) {
-      digitalWrite(buzzerPin, HIGH);
-    } else {
-      digitalWrite(buzzerPin, LOW);
+    int state = digitalRead(knappPin);
+    if (state == LOW && lastState == HIGH) {
+      larmPaslaget = !larmPaslaget;          // flank → toggla
     }
+    digitalWrite(buzzerPin, larmPaslaget ? HIGH : LOW);
+    lastState = state;
+    delay(10);  // mot studs
   }
   ```
 ]
 
-Ladda upp. Tryck. Det piper. Du har byggt en "första reaktiva krets" från minnet.
+Ladda upp. Tryck. Det tjuter — och stannar på tills du trycker igen. Du har byggt larm-mönstret från minnet — *kärnan* i hackathonens tjuvlarm.
+
+#tip(title: "Om flank-mönstret krånglar")[
+  Som sista utväg: skala ner till hold-varianten — `if (digitalRead(knappPin) == LOW) digitalWrite(buzzerPin, HIGH); else digitalWrite(buzzerPin, LOW);`. Den tjuter bara medan du håller knappen — det är inget larm, men bekräftar att kopplingen fungerar. Testa, fixa flanken, gå vidare.
+]
 
 == Hemma-övningar
 
-=== Övning 1 — Toggla LED med edge-detection
+=== Övning 1 — Tystare variant: toggle med LED + flank-på-släpp
 
-Använd Arduinons inbyggda LED (pin 13, `LED_BUILTIN`). När du trycker på knappen ska LED:en toggla — tänds om den är släckt, släcks om den är tänd. Detta kräver edge-detection-mönstret från "Reagera på flanken"-sliden.
+Två extensioner till larm-mönstret från "Bygg från minnet". Båda i samma sketch.
+
+*Extension A — byt utgång till LED.* Byt `buzzerPin` mot `LED_BUILTIN` (pin 13). Användbart för sen-natt-övande utan att bli osams med grannarna — och bekräftar att samma flank-mönster funkar på vilken digital utgång som helst.
+
+*Extension B — toggla på *släppet* istället för trycket.* I "Bygg från minnet" agerade du på fallande flanken (`state == LOW && lastState == HIGH`). Skriv om så larmet växlar när du *släpper* knappen (stigande flanken: `state == HIGH && lastState == LOW`). Skillnaden är liten i kod men stor pedagogiskt — du ser direkt att flank-detektion finns i två varianter, och att det är samma mönster med roller bytta.
 
 #tip(title: "Testa dig fram")[
-  Börja med `bool ledPa = false;` och ett `lastState`-värde. I loopen: läs knappen, jämför med lastState. På flanken (`LOW && lastState == HIGH`), toggla `ledPa` och skriv `digitalWrite(LED_BUILTIN, ledPa ? HIGH : LOW)`. Den där sista raden är en kort if/else-syntax, läs den som "om ledPa är true, skriv HIGH, annars LOW".
+  Börja från "Bygg från minnet"-sketchen. Byt `buzzerPin` mot `LED_BUILTIN` och lägg till `pinMode(LED_BUILTIN, OUTPUT);` i setup. Kör — det ska bete sig identiskt med klassens larm, fast tyst. Sedan vänd jämförelsen i if-satsen och se hur det känns att toggla på släppet.
 ]
 
 === Övning 2 — Räkna knapptryck och skriv ut
@@ -226,6 +242,7 @@ För extra credit: lägg till Arduinons inbyggda LED som "visuell bekräftelse" 
   ([`!x`], [Logisk inversion. `!true` = `false`, `!false` = `true`.]),
   ([Active buzzer], [`digitalWrite(pin, HIGH)` = pip. Pin 12 i kursen. Klisterlappen stannar på.]),
   ([Edge-detection-idiom], [Spara `lastState`, jämför med nuvarande, agera bara på övergång.]),
+  ([Larm-mönstret (kärnan)], [Edge-detection togglar `larmPaslaget`; `digitalWrite(buzzerPin, larmPaslaget ? HIGH : LOW)` speglar tillståndet. Full sketch under "Bygg från minnet".]),
 )
 
 == Inför nästa träff

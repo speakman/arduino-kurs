@@ -120,6 +120,10 @@ Alla pin-nummer samlade överst i filen. `const int` så de inte kan råka ändr
 
 Startas på `HIGH` eftersom `INPUT_PULLUP` gör att en *släppt* knapp läses som HIGH. Om du startar på `LOW` kan edge-detection tro att knappen var tryckt första loopen och toggla larmet direkt.
 
+#tip(title: "Naming-skifte mot Modul 3")[
+  I Modul 3:s slides och "Bygg från minnet" hette variablerna `state` och `lastState`. Här i hackathon-koden står det `knappState` och `lastKnappState`. Anledningen är att Bilaga D läser flera tillstånd (knapp, tilt, ljus) i samma loop — då är `state` för otydligt. När du själv skriver hackathon-koden kan du behålla `state`/`lastState` om du bara har en knapp; namnen är bara etiketter, mönstret är detsamma.
+]
+
 === `sattFarg()` hjälpfunktion (rad 19–23)
 
 Att skriva `analogWrite(ledR, ...)` + `analogWrite(ledG, ...)` + `analogWrite(ledB, ...)` på varje rad blir tröttsamt. En funktion som tar tre tal och skriver dem i en svep är både kortare och lättare att läsa. `sattFarg(255, 0, 0)` betyder "helt rött".

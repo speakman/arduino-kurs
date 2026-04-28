@@ -181,7 +181,7 @@ En liten cylinder med en lös metallkula inuti. I upprätt läge rör kulan bara
 
 == Arduino Uno R3
 
-Själva hjärnan. En mikrocontroller i ett "development board"-format med inbyggd USB-kontroller, spänningsreglering och stift-kontakter.
+Själva styrkretsen. En mikrocontroller i ett "development board"-format med inbyggd USB-kontroller, spänningsreglering och stift-kontakter.
 
 #quickref(
   ([*Processor*], [ATmega328P (16 MHz, 8-bit)]),

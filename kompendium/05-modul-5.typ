@@ -67,7 +67,7 @@ Strukturen för hela programmet är densamma som alla embedded-system någonsin 
 + *Paus* — kort `delay` för att inte bränna CPU:n.
 + Börja om.
 
-Nedan bygger vi upp den här loopen *i tre steg*, precis som ni själva ska göra under hackathonen. Den fullständiga sammansatta sketch:en ligger i Bilaga D — titta inte dit förrän ni kämpat själva.
+Nedan bygger vi upp den här loopen *i tre steg*, precis som ni själva ska göra under hackathonen. Den fullständiga sammansatta sketch:en ligger i Bilaga D, som ni får efter hackathonen — kursledaren har den om ni kör fast helt och behöver titta på en referens.
 
 == Bygg inkrementellt
 
@@ -89,13 +89,13 @@ void setup() {
 }
 
 void loop() {
-  int state = digitalRead(knappPin);
-  if (state == LOW && lastKnappState == HIGH) {
+  int knappState = digitalRead(knappPin);
+  if (knappState == LOW && lastKnappState == HIGH) {
     larmPaslaget = !larmPaslaget;
     Serial.print("Larm nu ");
     Serial.println(larmPaslaget ? "PÅ" : "AV");
   }
-  lastKnappState = state;
+  lastKnappState = knappState;
   delay(10);
 }
 ```
@@ -157,7 +157,7 @@ if (larmPaslaget && tiltLutad) {
 
 Ladda upp. Täck fotocellen (larmet av) → LED lyser varmt. Toggla larmet på och luta → tjut + rött. Testa alla kombinationer.
 
-Den färdiga, rensade och kommenterade sammansatta sketch:en med en hjälpfunktion för att sätta färg: *Bilaga D*.
+Den färdiga, rensade och kommenterade sammansatta sketch:en med en hjälpfunktion för att sätta färg: *Bilaga D* (delas ut efter hackathonen).
 
 == Tips för hackathon-formatet
 
@@ -192,7 +192,7 @@ När stegen 1–3 ovan är hopfogade ser loopen typiskt ut så här:
 + *Bestäm utfall* — en if/else if/else med tre grenar (larm-trigg, stämningsljus, tyst).
 + *Kort paus* — `delay(10)`.
 
-Den fullständiga, rensade och kommenterade sammansatta sketch:en ligger i *Bilaga D* — inklusive en `sattFarg(r, g, b)`-hjälpfunktion som gör if/else-grenarna mycket läsligare. Titta inte dit förrän ni brottats själva.
+Den fullständiga, rensade och kommenterade sammansatta sketch:en ligger i *Bilaga D* (som delas ut efter hackathonen) — inklusive en `sattFarg(r, g, b)`-hjälpfunktion som gör if/else-grenarna mycket läsligare. Behöver ni en referens under hackathonen, fråga kursledaren.
 
 Tröskeln 300 är bara en gissning. Kalibrera själv med Serial Monitor innan hackathonen börjar — värdet hör hemma som en `const int` i toppen så du enkelt kan ändra det.
 
@@ -204,7 +204,7 @@ Tröskeln 300 är bara en gissning. Kalibrera själv med Serial Monitor innan ha
   ([*RGB-LED blir aldrig riktigt mörk*], [Glömt att sätta alla tre kanalerna till 0 i "tyst och mörkt"-grenen. Alla tre kanaler ska vara `analogWrite(pin, 0)`.]),
   ([*Stämningsljuset lyser alltid*], [Din tröskel är för hög — `ljus < 300` matchar även rumsljus. Sänk till 150 och testa.]),
   ([*Buzzern vägrar bli tyst*], [En av grenarna sätter `HIGH` men ingen annan återställer till `LOW`. Säkerställ att *varje* gren av if/else skriver både buzzer och LED.]),
-  ([*Kompilerar inte — "variable not in scope"*], [Variabler deklarerade *inne* i setup() är bara synliga där. Flytta `lastState` och `larmPaslaget` upp till global nivå (utanför setup och loop).]),
+  ([*Kompilerar inte — "variable not in scope"*], [Variabler deklarerade *inne* i setup() är bara synliga där. Flytta `lastKnappState` och `larmPaslaget` upp till global nivå (utanför setup och loop).]),
 )
 
 == Bygg vidare
@@ -228,7 +228,7 @@ Vilken som helst av dessa är 15–30 rader extra kod. Prova.
   ([Kod-skelett], [setup: `Serial.begin` + `pinMode` för alla. loop: läs, edge-detect, if/else, styr.]),
   ([Grundläggande debug], [`Serial.print(variabel)` på allt som är mystiskt.]),
   ([`!larmPaslaget`], [Logisk inversion — togglar `true`/`false`.]),
-  ([Full sketch], [Se Bilaga D.]),
+  ([Full sketch], [Bilaga D — delas ut efter hackathonen.]),
 )
 
 == Efter kursen

@@ -1701,6 +1701,8 @@ Lösningen: agera inte på att knappen *är* nere. Agera på att den **just nu g
   <div>Spara förra värdet. Jämför med nuvarande. Om det ändrats åt rätt håll → det är en flank → agera en gång.</div>
 </div>
 
+Inbyggda LED:en (pin 13) speglar `larmPaslaget` — så ni *ser* när larmet växlar.
+
 </div>
 
 ::right::
@@ -1712,9 +1714,9 @@ int lastState = HIGH;
 void loop() {
   int state = digitalRead(knappPin);
   if (state == LOW && lastState == HIGH) {
-    // just nu tryckt — toggla
-    larmPaslaget = !larmPaslaget;
+    larmPaslaget = !larmPaslaget;       // flank → toggla
   }
+  digitalWrite(LED_BUILTIN, larmPaslaget ? HIGH : LOW);
   lastState = state;
   delay(10);  // mot studs
 }
@@ -1748,6 +1750,24 @@ var false blir det true och tvärtom. Koncept: 'det motsatta'.
 millisekunder, delay gör att loopen läser av efter att studsen lagt 
 sig. Ofullständigt men räcker för kursen.
 
+LED_BUILTIN-VISUALISERING:
+Sista raden i loopen — `digitalWrite(LED_BUILTIN, larmPaslaget ? HIGH : LOW);` 
+— gör att Arduinons inbyggda LED (pin 13) lyser när larmet är på och 
+slocknar när det är av. Utan den här raden ser eleverna inte att 
+edge-detection faktiskt fungerar; togglandet sker tyst i en bool. 
+Med den ser de larmet växla i realtid.
+
+`larmPaslaget ? HIGH : LOW` är en kort if/else (ternär): "om 
+larmPaslaget är true, skriv HIGH, annars LOW". Läs den högt så 
+för eleverna första gången.
+
+Setup() behöver två pinModes:
+  pinMode(knappPin, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+
+På sliden "Kärnan i `loop()`" byter vi `LED_BUILTIN` mot `buzzerPin` 
+— då hör de larmet istället för att se det. Samma mönster, ny utgång.
+
 Kort debounce-diskussion i kompendiet, Modul 3 kapitel (avsnitt "Edge-detection").
 -->
 
@@ -1776,8 +1796,8 @@ class: px-14
 </div>
 
 <div style="margin-top:32px;font-size:26px;opacity:0.9">
-  Gör ni det kommer era öron att <span class="danger">blöda</span> 
-  och jag kastar ut er. Den är vår ljuddämpare.
+  Utan lappen är buzzern <span class="danger">obehagligt högljudd</span>. 
+  Lappen är vår ljuddämpare — den stannar på.
 </div>
 
 </div>
@@ -1813,7 +1833,9 @@ Koppla in buzzern enligt kompendiets Modul 3.
 (Använd F-M DuPont-kablarna — buzzern pluggas direkt i Arduino-headers, 
 inte breadboarden.)
 
-Kod: en If/Else-sats.
+Kod: först en kopplingstest med enkel If/Else (NOT larm-mönstret — 
+det kommer på sliden "Kärnan i `loop()`" med flank-detektion). Det 
+här bekräftar bara att buzzern är kopplad rätt.
   const int buzzerPin = 12;   // buzzer
   const int knappPin  = 9;    // knapp A
 
@@ -1829,6 +1851,10 @@ Kod: en If/Else-sats.
       digitalWrite(buzzerPin, LOW);
     }
   }
+Knappen ner = pip, släpp = tyst. När det fungerar, gå vidare till 
+sliden "Kärnan i `loop()`" där vi ersätter den enkla If/Else med 
+flank-mönstret från "Reagera på flanken" så att buzzern *togglar* 
+istället för att hållas nere.
 
 TEASER:
 "Nu kan Arduinon läsa digital input. Nästa träff lägger vi till 
@@ -1872,41 +1898,50 @@ layout: center
 # Läs knapp. Styr buzzer.
 
 <div class="mt-16 text-3xl max-w-3xl mx-auto">
-  Knappen ner → buzzern tjuter.<br/>
-  Släpp → tyst.
+  Tryck → larm på (buzzern tjuter).<br/>
+  Tryck igen → tyst.
 </div>
 
 <div class="mt-16 text-2xl font-mono opacity-80">
-  INPUT  →  <span class="cyan">if / else</span>  →  OUTPUT
+  INPUT  →  <span class="cyan">flank</span>  →  OUTPUT
 </div>
 
 <!--
 REFERENSLISTA (säg muntligt om behov finns):
   · pinMode(knappPin, INPUT_PULLUP) från förra sliden
   · pinMode(buzzerPin, OUTPUT) — nytt idag
-  · if/else från if/else-sliden
+  · flank-mönstret från "Reagera på flanken"-sliden (state, lastState, larmPaslaget)
   · digitalRead läser, digitalWrite styr
 
 Detta är Modul 3:s höjdpunkt på slides. Visa sketchen live i IDE:n 
-efter sliden — men på sliden själv visar vi bara kärnan (loopens if/else).
+efter sliden — men på sliden själv visar vi bara kärnan ("Kärnan i `loop()`"-sliden).
 
 SÄG:
-"Nu sätter vi ihop de två sakerna ni lärt er idag. En knapp, en 
-buzzer, en if/else. Läs knappen. Om den är tryckt — slå på buzzern. 
-Annars — slå av.
+"Nu sätter vi ihop de två sakerna ni lärt er idag. På 'Reagera på 
+flanken'-sliden togglade ni en LED med flank-detektion — tryck en 
+gång, lampan tänds. Tryck igen, släcks. Nu byter vi LED:en mot 
+buzzern. Exakt samma mönster — bara en utgång till. Tryck en gång 
+→ larmet är på och tjuter. Tryck igen → tyst.
 
-Det är det första programmet som faktiskt har en 'sense-act'-loop — 
-Arduinon läser omvärlden och gör något beroende på det. Det är det 
-vi gör resten av kursen."
+Det är det första programmet som faktiskt har en 'sense-act'-loop med 
+*minne* — Arduinon kommer ihåg om larmet är på eller av mellan 
+loop-varven. Det är det vi gör resten av kursen."
 
 UPPGIFT (live):
 Skriv sketchen tillsammans. Jag skriver i IDE:n på projektorn, ni 
-skriver parallellt. Ladda upp. Tryck. Det piper. Vi har byggt vår 
-första reaktiva krets.
+skriver parallellt. Ta loopen från "Reagera på flanken"-sliden, byt 
+`LED_BUILTIN` mot `buzzerPin`. Ladda upp. Tryck. Det tjuter — och 
+stannar på tills ni trycker igen. Vi har byggt vår första reaktiva 
+krets med tillstånd.
 
-Om ni vill testa edge-detection från förra sliden: byt ut if/else 
-mot flank-mönstret och se skillnaden — tryck, och buzzern STANNAR 
-KVAR på tills ni trycker igen. Extra för snabba grupper.
+FALLBACK för grupper som strular med edge-detection:
+Den enklaste varianten — knappen tryckt = pip, släppt = tyst — utan 
+flank, utan minne:
+  if (digitalRead(knappPin) == LOW) digitalWrite(buzzerPin, HIGH);
+  else                              digitalWrite(buzzerPin, LOW);
+Den fungerar men är inget larm — den behöver att man håller knappen 
+nere konstant. Säg det rakt ut: "Det här är inte ett larm, men det 
+är ett bra första steg om flank-mönstret krånglar."
 -->
 
 ---
@@ -1915,7 +1950,7 @@ class: px-14 pt-12
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
-  Sätt ihop allt · kärnan i loop()
+  Sätt ihop allt · larm-mönstret
 </div>
 
 # Kärnan i `loop()`.
@@ -1923,27 +1958,49 @@ class: px-14 pt-12
 <div class="big-code mt-6">
 
 ```cpp
-if (digitalRead(knappPin) == LOW) {
-  digitalWrite(buzzerPin, HIGH);
-} else {
-  digitalWrite(buzzerPin, LOW);
+int state = digitalRead(knappPin);
+if (state == LOW && lastState == HIGH) {
+  larmPaslaget = !larmPaslaget;          // flank → toggla
 }
+digitalWrite(buzzerPin, larmPaslaget ? HIGH : LOW);
+lastState = state;
 ```
 
 </div>
 
 <div class="mt-10 text-2xl opacity-80 italic">
-  Active buzzer: <span class="mono">HIGH</span> = pip,
-  <span class="mono">LOW</span> = tyst. Ingen <span class="mono">tone()</span> behövs.
+  Samma mönster som "Reagera på flanken" — <span class="mono">LED_BUILTIN</span> bytt mot
+  <span class="mono">buzzerPin</span>. Active buzzer: <span class="mono">HIGH</span> = pip,
+  <span class="mono">LOW</span> = tyst.
 </div>
 
 <!--
-Full sketch med setup() + loop() finns i kompendiet, kapitel 3 
-(§ Bygg från minnet). Vi visar här bara kärnan — if/else-raderna 
-som läser knappen och styr buzzern.
+Det HÄR är larm-mönstret som hackathonen i Modul 5 bygger på. 
+Skillnaden mot "Reagera på flanken"-sliden: utgången är buzzerPin 
+istället för LED_BUILTIN. Allt annat är identiskt — flank-detektion, 
+toggle, spegling av tillståndet på en utgång.
 
-UPPGIFT (live): skriv sketchen tillsammans i IDE:n. Eleverna skriver 
-parallellt. Ladda upp. Tryck. Det piper.
+Tre rader är värda att peka på:
+  1. `if (state == LOW && lastState == HIGH)` — fallande flanken.
+     Bara sann i ett enda loop-varv per knapptryck.
+  2. `larmPaslaget = !larmPaslaget;` — toggle. ! inverterar bool.
+  3. `digitalWrite(buzzerPin, larmPaslaget ? HIGH : LOW);` — speglar 
+     tillståndet. ?: är kort if/else: "om larmPaslaget true → HIGH, annars LOW".
+
+UPPGIFT (live): skriv hela sketchen tillsammans i IDE:n. Setup behöver 
+`pinMode(knappPin, INPUT_PULLUP);` och `pinMode(buzzerPin, OUTPUT);`. 
+Globala variabler högst upp: `bool larmPaslaget = false;` och 
+`int lastState = HIGH;`. Ladda upp. Tryck. Det tjuter — och stannar 
+på tills ni trycker igen.
+
+VARNING (förvänta er att det händer): När larmet är på tjuter buzzern 
+*konstant*. Det är inte trevligt i klassrummet. Demonstrera, låt två 
+elever testa, sen toggle av. I hackathonen kombineras larmet med 
+tilt-sensorn så det bara tjuter när någon rör vid larmet — inte 
+konstant. Bilaga D visar den fullständiga lösningen.
+
+Full sketch (med setup + globala variabler) finns i kompendiet, 
+kapitel 3 (§ Edge-detection och § Övning 1) samt Bilaga D.
 -->
 
 ---
@@ -1975,7 +2032,7 @@ grunden för allt inbyggt.
 
 Nästa gång blir världen mer analog. Inte bara tryckt/inte-tryckt, 
 utan hur mycket, hur ljust, hur lutat. Ni får sensorer och Serial 
-Monitor — ett fönster in i Arduinons tankar. Vi ses."
+Monitor — ett fönster mot vad Arduinon läser av just nu. Vi ses."
 -->
 
 ---
@@ -2304,7 +2361,8 @@ void loop() {
 <!--
 TEORI:
 "Hur vet vi vad Arduinon ser? Hur vet vi om 'mörker' är 50 eller 400 
-eller 800 på Arduinons skala? Vi måste be den skicka ett SMS till datorn."
+eller 800 på Arduinons skala? Vi måste få den att skriva ut sina mätvärden 
+till datorn så vi kan läsa dem."
 
 Det verktyget heter SERIAL MONITOR.
 
@@ -2583,7 +2641,7 @@ class: px-14 pt-10
 </div>
 
 <div class="mt-8 text-lg opacity-70">
-  → Komplett startmall med <code>setup()</code> och <code>loop()</code>: <strong>Bilaga D</strong>
+  → Inkrementell uppbyggnad i tre steg: <strong>Modul 5</strong> · komplett referens-sketch (Bilaga D) delas ut efter hackathonen.
 </div>
 
 <!--
@@ -2656,6 +2714,10 @@ class: px-14 pt-12
 </div>
 
 # Vart härifrån?
+
+<div class="mt-6 mb-6 text-2xl opacity-90 max-w-4xl">
+  Ni byggde ett fungerande tjuvlarm. Det var målet. Ni klarade det.
+</div>
 
 <div class="mt-8 space-y-6 max-w-5xl">
 

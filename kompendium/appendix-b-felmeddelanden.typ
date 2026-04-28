@@ -168,7 +168,7 @@ En av grenarna i din if/else skriver `HIGH` men ingen återställer till `LOW`. 
 
 === "Knappen ger flera tryck åt gången"
 
-Knappens metallblad studsar fysiskt några millisekunder. Lägg en `delay(10)` eller `delay(50)` i slutet av loopen — enklaste formen av debounce.
+Knappens metallblad studsar fysiskt några millisekunder. `delay(10)` eller `delay(50)` i slutet av loopen är enklaste formen av debounce och *räcker* för att släta över studsen — men bara om du också har edge-detection på knappen. Utan flank-mönstret (`state == LOW && lastState == HIGH`) toggas larmPaslaget hundratals gånger per tryck, vilket inget delay i världen räddar. Modul 3-sektionen "Reagera på flanken" är icke förhandlingsbar för larmet.
 
 === "Serial Monitor är tom"
 
