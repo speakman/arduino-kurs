@@ -27,15 +27,15 @@
   --ak-text-mute: #8a95a3;
 
   /* Accent — Arduino-teal, AA-justerad */
-  --ak-accent:      #00838c;
-  --ak-accent-soft: rgba(0, 131, 140, 0.10);
+  --ak-accent:      #00747d;
+  --ak-accent-soft: rgba(0, 116, 125, 0.10);
 
   /* Semantik */
   --ak-warn:   #b45309;
   --ak-danger: #be123c;
 
   /* Glow — subtila accenter på framhävda kort */
-  --ak-glow-cyan: 0 0 24px rgba(0, 131, 140, 0.15);
+  --ak-glow-cyan: 0 0 24px rgba(0, 116, 125, 0.15);
   --ak-glow-red:  0 0 24px rgba(190, 18, 60, 0.12);
 
   /* Skuggor och cover-text */

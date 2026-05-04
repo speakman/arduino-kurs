@@ -44,8 +44,8 @@ Innehållets natur är **ljust**. Dark mode var stilistiskt val, inte pedagogisk
   --ak-text-mute: #8a95a3;
 
   /* Accent — Arduino-teal, justerad för WCAG AA på vitt */
-  --ak-accent:      #00838c;
-  --ak-accent-soft: rgba(0, 131, 140, 0.10);
+  --ak-accent:      #00747d;
+  --ak-accent-soft: rgba(0, 116, 125, 0.10);
 
   /* Semantik */
   --ak-warn:   #b45309;   /* amber-700, läsbar på vitt */
@@ -53,7 +53,7 @@ Innehållets natur är **ljust**. Dark mode var stilistiskt val, inte pedagogisk
 
   /* Glow — subtila accenter (verkligheten är att glow inte funkar mot vitt;
      dessa fungerar som "ljusare bakgrund" på framhävda element) */
-  --ak-glow-cyan: 0 0 24px rgba(0, 131, 140, 0.15);
+  --ak-glow-cyan: 0 0 24px rgba(0, 116, 125, 0.15);
   --ak-glow-red:  0 0 24px rgba(190, 18, 60, 0.12);
 
   /* Skuggor och cover-text — tokeniserade för centraliserad styrning */
