@@ -1336,10 +1336,10 @@ class: px-14
 Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal. Ladda upp, titta, justera.
 
 <div class="space-y-2 text-base">
-<div>· <span class="font-bold" style="color:#b400dc">Lila</span> — röd + blå, ingen grön</div>
-<div>· <span class="font-bold" style="color:#ff8cb4">Gammelrosa</span> — mycket röd, lagom blå, lite grön</div>
-<div>· <span class="font-bold" style="color:#ffd400">Skolgul</span> — full röd, lagom grön, ingen blå</div>
-<div>· <span class="font-bold" style="color:#00e0ff">Cyan</span> — ingen röd, full grön + blå</div>
+<div>· <span class="color-chip" style="--bg:#b400dc;--fg:#fff">Lila</span> — röd + blå, ingen grön</div>
+<div>· <span class="color-chip" style="--bg:#ff8cb4;--fg:#000">Gammelrosa</span> — mycket röd, lagom blå, lite grön</div>
+<div>· <span class="color-chip" style="--bg:#ffd400;--fg:#000">Skolgul</span> — full röd, lagom grön, ingen blå</div>
+<div>· <span class="color-chip" style="--bg:#00e0ff;--fg:#000">Cyan</span> — ingen röd, full grön + blå</div>
 </div>
 
 <div class="tip-box mt-5">

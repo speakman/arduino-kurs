@@ -289,6 +289,16 @@
   border: 1px solid var(--ak-border);
 }
 
+.color-chip {
+  display: inline-block;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 0.1em 0.55em;
+  border-radius: 0.4em;
+  font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--bg) 70%, #000 30%);
+}
+
 /* 10. PDF-export-overrides -------------------------------------------------- */
 /* Print-export: Chromium-rastering bandar tunga blur:s. Knocka shadows. */
 html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }
