@@ -123,7 +123,7 @@
 .slidev-layout .slidev-code-wrapper {
   border-radius: 12px;
   border: 1px solid var(--ak-border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--ak-code-shadow);
 }
 /* Konsistent kod-storlek över alla slides — balans mellan single-col och two-col.
    Default body är 1.6rem; pre vid 1.25em = 2.0rem ≈ text-xl i rebased scale.
@@ -255,7 +255,7 @@
 .rgb-red    { background-image: radial-gradient(circle closest-side, #ff1744 55%, rgba(255, 23, 68, 0.3) 70%, rgba(255, 23, 68, 0) 100%); }
 .rgb-green  { background-image: radial-gradient(circle closest-side, #00e676 55%, rgba(0, 230, 118, 0.3) 70%, rgba(0, 230, 118, 0) 100%); }
 .rgb-blue   { background-image: radial-gradient(circle closest-side, #2979ff 55%, rgba(41, 121, 255, 0.3) 70%, rgba(41, 121, 255, 0) 100%); }
-.rgb-white  { background-image: radial-gradient(circle closest-side, #ffffff 55%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0) 100%); }
+.rgb-white  { background-image: radial-gradient(circle closest-side, #d4d6d0 55%, rgba(212, 214, 208, 0.3) 70%, rgba(212, 214, 208, 0) 100%); }
 
 /* .big-code — extra-framträdande kodblock för "kärnrader"-slides (if/else, analogWrite).
    1.55em av den nya baselinen (1.25em × 1.55 ≈ 1.94em ≈ text-2xl). */
@@ -267,20 +267,13 @@
 }
 
 /* 10. PDF-export-overrides -------------------------------------------------- */
-/* Slidev lägger klassen `print` på <html> när ?print=1 körs (se
-   @slidev/client/pages/print.vue). Chromium-rasteriseringen gör stora
-   box-shadow-blurs till hårda bandar — vi behåller dem på webben men
-   nollar dem i export. Cover-hero-fotot tas också bort eftersom
-   gradienten ovanpå blir en skarp ram runt texten i PDF. */
+/* Print-export: Chromium-rastering bandar tunga blur:s. Knocka shadows. */
 html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }
 html.print .sp.unlocked,
 html.print .sp.current { box-shadow: none; }
 html.print .warn-box { box-shadow: none; }
 html.print .slidev-layout.cover {
   background-image: none !important;
-}
-html.print .slidev-layout.cover h1 {
-  text-shadow: none;
 }
 html.print .shadow-2xl,
 html.print .shadow-xl,
