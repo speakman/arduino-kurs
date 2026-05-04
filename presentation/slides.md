@@ -606,7 +606,7 @@ class: px-14
 
 # Fem hål = en nod.
 
-<img src="/images/breadboard-internals.png" style="width:100%;margin-top:12px;border-radius:8px;background:white;padding:10px" />
+<img src="/images/breadboard-internals.png" class="breadboard-diagram" />
 
 <div class="mt-8 grid grid-cols-2 gap-x-12 gap-y-5" style="font-size:32px;line-height:1.5">
 <div>· <strong>Fem hål i rad</strong> = en <span class="cyan">nod</span></div>
