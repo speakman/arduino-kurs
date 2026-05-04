@@ -2,7 +2,7 @@
   <!-- ============================================================
        Spänningsdelare-schema för slide 41 (Spänningsdelaren)
        Horisontell layout: schema vänster, värdetabell höger.
-       Dark theme, cyan signal, red ground.
+       Light theme, teal signal, rose ground, yellow sun (pedagogical).
        ============================================================ -->
 
   <defs>
@@ -35,8 +35,8 @@
        ============================================================ -->
 
   <!-- +5V RAIL -->
-  <text x="220" y="60" text-anchor="middle" font-size="38" font-weight="700" fill="#00ffd1" filter="url(#cyanGlow)">+5 V</text>
-  <line x1="120" y1="90" x2="320" y2="90" stroke="#00ffd1" stroke-width="4"/>
+  <text x="220" y="60" text-anchor="middle" font-size="38" font-weight="700" fill="#00747d" filter="url(#cyanGlow)">+5 V</text>
+  <line x1="120" y1="90" x2="320" y2="90" stroke="#00747d" stroke-width="4"/>
   <line x1="220" y1="90" x2="220" y2="155" stroke="#0a0e14" stroke-width="3"/>
 
   <!-- PHOTORESISTOR -->
@@ -63,10 +63,10 @@
   <line x1="220" y1="305" x2="220" y2="375" stroke="#0a0e14" stroke-width="3"/>
 
   <!-- A0 TAP -->
-  <circle cx="220" cy="375" r="11" fill="#00ffd1" filter="url(#cyanGlow)"/>
-  <line x1="220" y1="375" x2="370" y2="375" stroke="#00ffd1" stroke-width="4" filter="url(#cyanGlow)"/>
-  <rect x="370" y="350" width="90" height="52" rx="13" fill="rgba(0,255,209,0.12)" stroke="#00ffd1" stroke-width="2.5"/>
-  <text x="415" y="386" text-anchor="middle" font-size="30" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">A0</text>
+  <circle cx="220" cy="375" r="11" fill="#00747d" filter="url(#cyanGlow)"/>
+  <line x1="220" y1="375" x2="370" y2="375" stroke="#00747d" stroke-width="4" filter="url(#cyanGlow)"/>
+  <rect x="370" y="350" width="90" height="52" rx="13" fill="rgba(0,116,125,0.12)" stroke="#00747d" stroke-width="2.5"/>
+  <text x="415" y="386" text-anchor="middle" font-size="30" font-weight="700" fill="#00747d" font-family="JetBrains Mono, monospace">A0</text>
 
   <!-- mätpunkt sublabel -->
   <text x="220" y="422" text-anchor="middle" font-size="19" font-style="italic" fill="#4a5568">mätpunkt</text>
@@ -86,12 +86,12 @@
   <line x1="220" y1="635" x2="220" y2="700" stroke="#0a0e14" stroke-width="3"/>
 
   <!-- GND symbol -->
-  <g stroke="#ff3366" stroke-width="5" stroke-linecap="round">
+  <g stroke="#be123c" stroke-width="5" stroke-linecap="round">
     <line x1="175" y1="700" x2="265" y2="700"/>
     <line x1="188" y1="720" x2="252" y2="720"/>
     <line x1="202" y1="740" x2="238" y2="740"/>
   </g>
-  <text x="220" y="775" text-anchor="middle" font-size="26" font-weight="700" fill="#ff3366" font-family="JetBrains Mono, monospace">GND</text>
+  <text x="220" y="775" text-anchor="middle" font-size="26" font-weight="700" fill="#be123c" font-family="JetBrains Mono, monospace">GND</text>
 
   <!-- ============================================================
        RIGHT HALF: VALUES TABLE (x 490 - 820)
@@ -106,32 +106,32 @@
 
   <!-- Row 1 -->
   <g transform="translate(0, 240)">
-    <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.5"/>
+    <circle cx="525" cy="0" r="18" fill="none" stroke="#00747d" stroke-width="2" opacity="0.5"/>
     <text x="525" y="6" text-anchor="middle" font-size="20">◗</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#0a0e14">Hand över</text>
-    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">20–100</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00747d" font-family="JetBrains Mono, monospace">20–100</text>
   </g>
 
   <!-- Row 2 -->
   <g transform="translate(0, 330)">
-    <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.7"/>
+    <circle cx="525" cy="0" r="18" fill="none" stroke="#00747d" stroke-width="2" opacity="0.7"/>
     <text x="525" y="7" text-anchor="middle" font-size="20">◐</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#0a0e14">Rumsljus</text>
-    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">150–400</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00747d" font-family="JetBrains Mono, monospace">150–400</text>
   </g>
 
   <!-- Row 3 -->
   <g transform="translate(0, 420)">
-    <circle cx="525" cy="0" r="18" fill="none" stroke="#00ffd1" stroke-width="2.5"/>
+    <circle cx="525" cy="0" r="18" fill="none" stroke="#00747d" stroke-width="2.5"/>
     <text x="525" y="7" text-anchor="middle" font-size="20">☀</text>
     <text x="570" y="7" font-size="22" font-weight="600" fill="#0a0e14">Lampa nära</text>
-    <text x="710" y="7" font-size="26" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">500–700</text>
+    <text x="710" y="7" font-size="26" font-weight="700" fill="#00747d" font-family="JetBrains Mono, monospace">500–700</text>
   </g>
 
   <!-- Bottom note -->
   <line x1="505" y1="540" x2="800" y2="540" stroke="#d4d6d0" stroke-width="1.5"/>
   <text x="650" y="585" text-anchor="middle" font-size="17" font-style="italic" fill="#4a5568">analogRead(A0) ger</text>
-  <text x="650" y="620" text-anchor="middle" font-size="28" font-weight="700" fill="#00ffd1" font-family="JetBrains Mono, monospace">0 – 1023</text>
+  <text x="650" y="620" text-anchor="middle" font-size="28" font-weight="700" fill="#00747d" font-family="JetBrains Mono, monospace">0 – 1023</text>
   <text x="650" y="655" text-anchor="middle" font-size="15" fill="#8a95a3">(10 bitar · ≈ 5 mV/steg)</text>
 
   <!-- Mörker → högt, ljus → lågt hint -->
