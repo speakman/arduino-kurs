@@ -1307,7 +1307,7 @@ class: px-14
   <div><span class="mono cyan">255</span> → alltid HIGH → full styrka</div>
 </div>
 
-<img src="/images/pwm-waveform.png" class="h-96 rounded p-3" style="filter: invert(1) hue-rotate(180deg);" />
+<img src="/images/pwm-waveform.png" class="h-96 p-3 diagram-img" />
 
 </div>
 

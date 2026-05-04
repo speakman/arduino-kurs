@@ -283,6 +283,12 @@
   padding: 1rem;
 }
 
+.diagram-img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--ak-border);
+}
+
 /* 10. PDF-export-overrides -------------------------------------------------- */
 /* Print-export: Chromium-rastering bandar tunga blur:s. Knocka shadows. */
 html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }
