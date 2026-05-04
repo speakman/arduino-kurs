@@ -16,18 +16,32 @@
 
 /* 1. Design tokens --------------------------------------------------------- */
 :root {
-  --ak-bg: #0a0e14;
-  --ak-bg-raised: #111820;
-  --ak-border: #1f2933;
-  --ak-text: #eaeaea;
-  --ak-text-dim: #9aa5b1;
-  --ak-text-mute: #616e7c;
-  --ak-accent: #00ffd1;
-  --ak-accent-soft: rgba(0, 255, 209, 0.12);
-  --ak-warn: #ffd400;
-  --ak-danger: #ff3366;
-  --ak-glow-cyan: 0 0 24px rgba(0, 255, 209, 0.35);
-  --ak-glow-red: 0 0 24px rgba(255, 51, 102, 0.35);
+  /* Bakgrund och struktur */
+  --ak-bg:        #fafaf7;
+  --ak-bg-raised: #f0f1ed;
+  --ak-border:    #d4d6d0;
+
+  /* Text */
+  --ak-text:      #0a0e14;
+  --ak-text-dim:  #4a5568;
+  --ak-text-mute: #8a95a3;
+
+  /* Accent — Arduino-teal, AA-justerad */
+  --ak-accent:      #00838c;
+  --ak-accent-soft: rgba(0, 131, 140, 0.10);
+
+  /* Semantik */
+  --ak-warn:   #b45309;
+  --ak-danger: #be123c;
+
+  /* Glow — subtila accenter på framhävda kort */
+  --ak-glow-cyan: 0 0 24px rgba(0, 131, 140, 0.15);
+  --ak-glow-red:  0 0 24px rgba(190, 18, 60, 0.12);
+
+  /* Skuggor och cover-text */
+  --ak-code-shadow:  0 4px 14px rgba(15, 23, 42, 0.08);
+  --ak-cover-fg:     #0a0e14;
+  --ak-cover-shadow: none;
 }
 
 /* 2. Body base ------------------------------------------------------------- */

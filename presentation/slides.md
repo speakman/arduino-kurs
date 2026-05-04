@@ -18,11 +18,10 @@ fonts:
   mono: 'JetBrains Mono'
   provider: 'google'
 
-background: '#0a0e14'
 class: cover
 drawings:
   persist: false
-colorSchema: dark
+colorSchema: 'light'
 ---
 
 <div class="h-full flex flex-col items-center justify-center text-center">
