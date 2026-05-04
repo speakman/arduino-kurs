@@ -275,6 +275,14 @@
   border: 1px solid var(--ak-border);
 }
 
+.rgb-demo {
+  width: 26rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #000;
+  padding: 1rem;
+}
+
 /* 10. PDF-export-overrides -------------------------------------------------- */
 /* Print-export: Chromium-rastering bandar tunga blur:s. Knocka shadows. */
 html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }

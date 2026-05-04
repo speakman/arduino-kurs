@@ -1147,7 +1147,7 @@ class: text-center
 # Alla färger, av bara tre.
 
 <div class="mt-4 flex justify-center">
-  <img src="/images/rgb-color-mixing.png" class="h-40 rounded-lg" style="mix-blend-mode: screen;" />
+  <img src="/images/rgb-color-mixing.png" class="rgb-demo" />
 </div>
 
 <div class="mt-4 text-base opacity-75 max-w-2xl mx-auto">
