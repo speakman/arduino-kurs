@@ -663,9 +663,9 @@ layout: center
 </div>
 
 <!--
-Plantera detta som eget mantra — inte fotnot. Varje gång en student 
-ropar "min LED lyser inte" kommer du peka på den här sliden och säga 
-"kontrollera raden". Det sparar tio händer per kväll.
+Plantera detta som eget mantra — inte fotnot. När en LED inte lyser
+är felkällan nästan alltid att kabel och komponentben hamnat på olika
+rader. Den här sliden är referens-mantrat: "kontrollera raden".
 -->
 
 ---
@@ -936,8 +936,8 @@ class: px-14
 </ul>
 
 <div class="tip-box mt-8 max-w-4xl text-left">
-  <div class="tip-title">Så här jobbar vi</div>
-  <div>Ropa eller räck upp handen om du fastnar — jag kommer förbi. Säg till när du fått igång något du vill visa.</div>
+  <div class="tip-title">Tips för bygget</div>
+  <div>Lägg tider i <code>const int</code>-variabler — då slipper du ändra många siffror när du justerar tempot. SOS växlar mellan kort blink (200 ms) och lång blink (600 ms), separerade av paus.</div>
 </div>
 
 <!--
@@ -952,8 +952,7 @@ man ändra många siffror varje gång. Förklaringen och alternativet
 SÄG:
 "Nu är det er tur. Ändra Blink så att lampan blinkar i en rytm ni 
 själva bestämmer. SOS är en klassiker — tre korta, tre långa, tre 
-korta — men ta gärna något eget. Säg till när den gör det ni vill, 
-ropa eller räck upp handen om ni fastnar."
+korta — men ta gärna något eget."
 
 PEDAGOGISKA POÄNGER:
 - De introduceras försiktigt till att faktorisera ut en funktion 
@@ -1055,15 +1054,14 @@ För två timmar sedan var det här okänt territorium för flera av er.
 Nu kan ni det — på riktigt. Vi ska titta på varje deltagares lampa 
 en i taget."
 
-[GÖR DETTA NU]
-Gå runt i rummet. Låt varje deltagare visa sin rytm i 5–10 sekunder. 
-Ge en kort kommentar till var och en ("smart lösning", "fint tempo"). 
-Erkännandet från läraren cementerar självförtroendet de precis byggde upp.
+[VISNINGSRUNDA]
+Visning av allas rytmer — 5–10 sekunder per person. Även den som
+fastnat visar upp sin vanliga Blink. Korta kommentarer ("smart lösning",
+"fint tempo") cementerar självförtroendet de precis byggde upp.
 
-Den som fastnat visar upp sin vanliga Blink. Säg något uppmuntrande. 
-Ingen lämnar träff 1 utan en lampa som blinkar.
+Pedagogisk poäng: ingen lämnar träff 1 utan en lampa som blinkar.
 
-Timing: 5–10 minuter beroende på antal deltagare.
+Timing: 5–10 minuter totalt, beroende på antal deltagare.
 -->
 
 ---
@@ -1346,8 +1344,8 @@ Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal
 </div>
 
 <div class="tip-box mt-5">
-  <div class="tip-title">Regeln</div>
-  <div>Säg till när du hittat en färg du gillar. Ropa om du fastnat — jag kommer förbi.</div>
+  <div class="tip-title">Strategi</div>
+  <div>Prova flera kombinationer — färgerna är ofta överraskande. Skriv ner värdena som gav färgen du gillade.</div>
 </div>
 
 </div>
@@ -1370,7 +1368,7 @@ SÄG:
 "Nu är det er tur. Ni har tre kanaler — röd, grön, blå — och varje 
 kanal tar ett tal mellan 0 och 255. Era uppgifter: försök hitta lila, 
 gammelrosa, skolgul, cyan. Och sen — vad för en färg som helst ni 
-gillar. Säg till när ni hittat en ni är nöjda med."
+gillar."
 
 PEDAGOGISK POÄNG:
 Experimentet lär dem att PWM-värden INTE är linjära mot vad ögat 
@@ -1378,10 +1376,10 @@ uppfattar. 128 är inte "hälften så ljust" — det är mycket ljusare. Och
 färgerna de får är ofta överraskande (lite röd + mycket blå ≠ vad de 
 förväntar). Låt dem upptäcka det.
 
-KAMRATHJÄLP:
-Uppmuntra att man tittar på grannens LED och frågar "hur fick du DEN 
-färgen?". Det är så kunskapen sprider sig utan att du behöver stå 
-framme.
+KAMRATSPRIDNING:
+När någon hittar en spännande färg sprider den sig naturligt — 
+"hur fick du DEN färgen?" är en självgående fråga. Kunskapen flyttar 
+sig från LED till LED utan central styrning.
 
 OM NÅGON ÄR KLAR PÅ 5 MIN:
 Utmaning: "Kan du få den att LÅNGSAMT glida från rött till blått?" 
@@ -2535,9 +2533,8 @@ AGENDA (runt 2 timmar):
 - 01:15–01:50  Fritt bygge — runda 2 (sista spurten)
 - 01:50–02:00  Demo-runda: varje grupp visar sitt larm i ett mörklagt rum
 
-Ropa eller räck upp handen om ni fastnar — jag går runt. Lyser 
-taklampan under bygget så det är lätt att koppla — släcks sista 5 min 
-för demos.
+Lyser taklampan under bygget så det är lätt att koppla — släcks sista 
+5 min för demos.
 -->
 
 ---
@@ -2600,11 +2597,10 @@ Logiken att skriva på whiteboarden INNAN de börjar koda:
 
 Säg:
 "Välkomna till ingenjörslivet. Idag finns det ingen manual att kopiera 
-rakt av. Ni har alla delar. Ni ska sätta ihop dem. 
+rakt av. Ni har alla delar. Ni ska sätta ihop dem.
 
-Jag kommer INTE att ge er svaret. Ni kommer att fastna. Det är POÄNGEN. 
-Varje gång ni fastnar och kommer vidare växer ni. Jag finns här för att 
-knuffa — inte för att lösa."
+Det finns inga färdiga svar. Det blir delar som inte fungerar. Det är
+POÄNGEN. Varje gång ni fastnar och kommer vidare växer ni."
 
 Efter genomgången av logiken: visa kod-skelettet (nästa slide). Låt 
 sliden ligga uppe hela resten av lektionen.
@@ -2700,10 +2696,10 @@ FELSÖKNINGSTIPS (säg när folk trasslar):
   längsta) ska till GND. De tre andra benen till PWM-pinnarna via 220 Ω."
 
 AVSLUTNING (sista 10 min):
-1. Gå runt. Låt VARJE GRUPP dema sitt larm för dig.
+1. Demo-runda: varje grupp visar sitt larm.
 2. Stäng av taklampan i rummet sista 5 min.
 3. Låt alla larm och nattlampor gå loss — det är en liten ljud- och ljusshow.
-4. Ge en stående ovation. De har byggt något från noll.
+4. Stående ovation. Något byggt från noll förtjänar det.
 -->
 
 ---
