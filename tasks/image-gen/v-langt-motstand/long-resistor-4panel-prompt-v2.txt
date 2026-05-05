@@ -1,0 +1,16 @@
+Recreate the same 4-panel educational diagram as the reference image, with one specific correction: the wiper position in Panel 4 (potentiometer) must visually match the voltage label.
+
+Keep ALL of the following IDENTICAL to the reference:
+- 2x2 grid layout, soft off-white background (#fafaf7)
+- Panel 1 (top-left) "kolfilm": ceramic resistor body cross-section showing spiraling carbon-film with red-to-teal gradient, +5V/0V end-cap leads, "spänningen sjunker längs vägen" arrow on top
+- Panel 2 (top-right) "ett motstånd": pill-shaped resistor with red-to-teal gradient, "+5 V" on left, "0 V" on right, "tapp här ger 2,5 V" with downward triangle at the exact middle, voltage scale below "5 V    3,75 V    2,5 V    1,25 V    0 V"
+- Panel 3 (bottom-left) "två motstånd": two separate smaller resistor bodies "R₁" "R₂", color gradient continuing across, A0 wire from gap, "+5 V" left, "GND" right
+- Color palette: red on the +5V side, teal on the GND side, in EVERY panel
+- Same monospace typography, same off-white background, same vector-illustration aesthetic, same panel labels
+
+CHANGE ONLY in Panel 4 (bottom-right) "potentiometer":
+The wiper arm must point to the LEFT-CENTER area of the resistive arc — at approximately the 11 o'clock position (slightly left of vertical, in the upper-LEFT half of the arc). This is closer to the red (+5V) end of the arc, NOT the teal (GND) end.
+
+The label below "A0 ≈ 3,3 V" stays the same — and the new wiper position MUST match it: a wiper at ~33% along the arc from the +5V end gives 5V × (1 - 0.33) = ~3,3 V, so visually the wiper should be in the upper-LEFT quadrant of the housing arc. The wiper must visibly be on the RED side (closer to +5V), past the midpoint going toward GND but still in the upper-left half of the arc.
+
+ABSOLUTE CONSTRAINTS — must NOT include: humans, hands, Arduino, breadboard, decorative elements, photo-realistic textures, brand markings, color bands on the kolfilm cross-section, additional panels, text labels other than those in the reference. Do NOT change any other panel.
