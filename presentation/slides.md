@@ -393,38 +393,22 @@ layout: default
 class: px-14 pt-12
 ---
 
-<div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
+<div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-3 text-center">
   Ohms lag
 </div>
 
-# `U = R · I`
-
-<div class="mt-6 flex items-center justify-center gap-16">
-
-  <div class="flex flex-col items-center">
-    <img src="/images/ohms-law.png" class="rounded-xl" style="width:28rem" />
-    <div class="text-sm opacity-60 mt-4">
-      <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
-    </div>
-  </div>
-
-  <div class="flex flex-col items-center">
-    <div class="relative" style="width:22rem;height:19rem">
-      <svg viewBox="0 0 150 130" class="absolute inset-0" style="width:100%;height:100%">
-        <polygon points="75,10 10,120 140,120" fill="none" stroke="var(--ak-accent)" stroke-width="2" opacity="0.85"/>
-        <line x1="40" y1="75" x2="110" y2="75" stroke="var(--ak-accent)" stroke-width="1.5" opacity="0.6"/>
-      </svg>
-      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:var(--ak-accent);font-size:4.5rem;line-height:1">U</div>
-      <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:var(--ak-text);font-size:3.8rem;line-height:1">R</div>
-      <div class="absolute mono font-bold" style="left:50%;top:80%;transform:translate(-50%,-50%);color:var(--ak-accent);font-size:3rem;line-height:1;opacity:0.8">·</div>
-      <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:var(--ak-text);font-size:3.8rem;line-height:1">I</div>
-    </div>
-    <div class="text-sm opacity-60 mt-4 mono">täck variabeln ni söker</div>
-  </div>
-
+<div class="text-center mono font-bold mb-6" style="font-size:3.2rem;color:var(--ak-accent)">
+  U = R · I
 </div>
 
-<div class="mt-10 text-center text-lg opacity-70">
+<div class="flex flex-col items-center">
+  <img src="/images/ohms-law.png" class="rounded-xl" style="width:34rem" />
+  <div class="text-base opacity-60 mt-4">
+    <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
+  </div>
+</div>
+
+<div class="mt-8 text-center text-lg opacity-70">
   Räkneexempel och framspänningsfall: <span class="cyan">→ Bilaga F i kompendiet</span>
 </div>
 
