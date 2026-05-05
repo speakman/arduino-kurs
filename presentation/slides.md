@@ -2161,6 +2161,100 @@ class: px-12 pt-10
 ---
 
 <div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
+  Brygga · ett motstånd → två
+</div>
+
+# Tänk dig ett <span class="cyan">lååångt</span> motstånd.
+
+::left::
+
+<div style="display:flex;justify-content:center;margin-top:0">
+  <img src="/images/long-resistor.png" style="width:780px;max-width:100%" alt="Fyrpanels-diagram: kolfilm med spänningsgradient, ett långt motstånd med tapp, två motstånd brutet med A0, vridpotentiometer i genomskärning" />
+</div>
+
+::right::
+
+<div class="mt-4 space-y-5 text-lg leading-relaxed">
+
+Inuti motståndet sitter en **kolfilm** kring en keramisk kärna. Strömmen kämpar sig igenom — och spänningen sjunker **linjärt** längs vägen.
+
+<v-click>
+
+**Två motstånd i serie = samma sak, bara delat i två.** Skarven är mätpunkten. `A0` läser spänningen där.
+
+</v-click>
+
+<v-click>
+
+En **vridpotentiometer** är detta i hårdvara: tre ben, och ratten flyttar wipern längs det inre motståndsspåret. Vrid → `A0` sveper jämnt 0–1023.
+
+</v-click>
+
+</div>
+
+<!--
+LIVE-DEMO (om tid och om pot pre-kopplad):
+
+Pre-koppling (gör FÖRE passet — testa att det funkar):
+  Pot vänster ben → +5 V
+  Pot höger ben → GND
+  Pot mittben (wiper) → A0
+
+Sketch (kan vara igång på Arduinon redan):
+  void setup()  { Serial.begin(9600); }
+  void loop()   { Serial.println(analogRead(A0)); delay(50); }
+
+Öppna Serial Monitor + Serial Plotter (Verktyg → Serial Plotter) — 
+plottern är pedagogiskt starkare här, kurvan sveper visuellt.
+
+DEMO-PROTOKOLL (60–90 sekunder):
+
+1. [Vrid ratten åt vänster, hela vägen]
+   "Här är wipern i botten. A0 läser noll. Hela motståndsmaterialet 
+   ligger ovanför mätpunkten."
+
+2. [Vrid till mitten, peka på siffran]
+   "Mittläge — runt 512. Halva motståndet ovanför, halva nedanför. 
+   Detta är 2,5 V."
+
+3. [Vrid till topp]
+   "Wipern i topp. 1023. Inget motstånd ovanför, allt under. A0 ligger 
+   direkt mot 5 V."
+
+4. [Vrid långsamt fram och tillbaka]
+   "Det här är en spänningsdelare där wipern flyttas av handen. I er 
+   koppling om en stund flyttas wipern istället av LJUSET — fotocellens 
+   motstånd ändras med belysningen, och 'wipern' förskjuts i takt med 
+   det. Samma fysik, annan styrning."
+
+KOPPLA TILL NÄSTA SLIDE:
+"Och det är exakt det vi nu ska bygga med fotocell + 1 kΩ."
+
+OM POT INTE FINNS PRE-KOPPLAD:
+Säg ändå hela "wiper = mätpunkt"-resonemanget verbalt och peka på 
+bilden. Demon är förstärkning, inte förutsättning.
+
+PEDAGOGISK BAKGRUND:
+"Lååångt motstånd"-modellen tillför mekanism-lagret som vatten-metaforen 
+i nästa slide saknar: VARFÖR sjunker spänningen? Svar: linjärt fall 
+genom resistivt material. Två i serie är inte ett separat fenomen — 
+bara samma kontinuum delat på en specifik punkt. Pot:en konkretiserar 
+detta som fysisk komponent.
+
+VAR METAFOREN BRYTS (om någon frågar):
+- "Längd" är en proxy för "andel av total resistans". En kort tjock 
+  resistor och en lång tunn kan ha samma värde. Det som räknas är 
+  R-andelen, inte fysiska centimetrar.
+- Linjärt fall förutsätter att ström flyter. Tas lasten bort finns 
+  inget fall. (För vår A0 räcker det dock — A0 har hög ingångsimpedans.)
+-->
+
+---
+layout: two-cols-header
+class: px-12 pt-10
+---
+
+<div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
   Nytt koncept · från motstånd till mätvärde
 </div>
 
