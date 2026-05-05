@@ -2620,6 +2620,11 @@ class: px-14 pt-12
 <div class="big-code mt-4">
 
 ```cpp
+void setup() {
+  Serial.begin(9600);
+  pinMode(2, INPUT_PULLUP);   // tilten kopplas som knappen
+}
+
 void loop() {
   int ljus  = analogRead(A0);
   int tilt  = digitalRead(2);
@@ -2633,16 +2638,14 @@ void loop() {
 
 </div>
 
-<div class="mt-8 text-xl opacity-75 italic">
-  Full sketch med <code>setup()</code> i kompendiet, kapitel 4.
-</div>
-
 <!--
 Denna slide visas samtidigt som eleverna kör koden. Peka på 
 Serial.print-raderna — "det är dem ni tittar på i Serial Monitor".
 
-Påminnelse: Serial.begin(9600) måste ligga i setup() — finns i 
-kompendiets fullsketch.
+NOTERA: pinMode för tilten ÄR nödvändig (digital pin behöver pinMode), 
+till skillnad från A0 som är default INPUT. Tilten kopplas som knappen 
+i Modul 3 — INPUT_PULLUP, lutad ger LOW. Påminn om Modul 3-mönstret 
+om någon undrar varför inte INPUT.
 -->
 
 ---
