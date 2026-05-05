@@ -25,7 +25,7 @@ defineProps<{
     <div class="flex-1 min-h-0 flex items-center justify-center gap-6 my-1">
       <img
         :src="img"
-        class="max-h-full max-w-full object-contain rounded-lg shadow-2xl ring-1 ring-white/10"
+        class="max-h-full max-w-full object-contain rounded-lg shadow-md ring-1 ring-[var(--ak-border)]"
       />
       <div
         v-if="reference"

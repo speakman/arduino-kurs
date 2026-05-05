@@ -16,18 +16,34 @@
 
 /* 1. Design tokens --------------------------------------------------------- */
 :root {
-  --ak-bg: #0a0e14;
-  --ak-bg-raised: #111820;
-  --ak-border: #1f2933;
-  --ak-text: #eaeaea;
-  --ak-text-dim: #9aa5b1;
-  --ak-text-mute: #616e7c;
-  --ak-accent: #00ffd1;
-  --ak-accent-soft: rgba(0, 255, 209, 0.12);
-  --ak-warn: #ffd400;
-  --ak-danger: #ff3366;
-  --ak-glow-cyan: 0 0 24px rgba(0, 255, 209, 0.35);
-  --ak-glow-red: 0 0 24px rgba(255, 51, 102, 0.35);
+  /* Bakgrund och struktur */
+  --ak-bg:        #fafaf7;
+  --ak-bg-raised: #f0f1ed;
+  --ak-border:    #d4d6d0;
+
+  /* Text */
+  --ak-text:      #0a0e14;
+  --ak-text-dim:  #4a5568;
+  --ak-text-mute: #8a95a3;
+
+  /* Accent — Arduino-teal, AA-justerad */
+  --ak-accent:      #00747d;
+  --ak-accent-soft: rgba(0, 116, 125, 0.10);
+
+  /* Semantik */
+  --ak-warn:   #b45309;
+  --ak-danger: #be123c;
+
+  /* Glow — subtila accenter på framhävda kort */
+  --ak-glow-cyan: 0 0 24px rgba(0, 116, 125, 0.15);
+  --ak-glow-red:  0 0 24px rgba(190, 18, 60, 0.12);
+
+  /* Skuggor och cover-text. Cover-fg är vit i live-mode (text mot mörk
+     gradient över hero-foto). html.print overridar till mörk text på
+     off-white eftersom foto + gradient är killat i print-mode. */
+  --ak-code-shadow:  0 4px 14px rgba(15, 23, 42, 0.08);
+  --ak-cover-fg:     #fafaf7;
+  --ak-cover-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
 }
 
 /* 2. Body base ------------------------------------------------------------- */
@@ -109,7 +125,7 @@
 .slidev-layout .slidev-code-wrapper {
   border-radius: 12px;
   border: 1px solid var(--ak-border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--ak-code-shadow);
 }
 /* Konsistent kod-storlek över alla slides — balans mellan single-col och two-col.
    Default body är 1.6rem; pre vid 1.25em = 2.0rem ≈ text-xl i rebased scale.
@@ -141,7 +157,7 @@
 .sp.locked::before { content: "🔒"; font-size: 1rem; position: absolute; margin-top: -0.5rem; }
 .sp.unlocked {
   border-color: var(--ak-accent);
-  background: linear-gradient(180deg, var(--ak-bg-raised), rgba(0, 255, 209, 0.04));
+  background: linear-gradient(180deg, var(--ak-bg-raised), color-mix(in srgb, var(--ak-accent) 4%, transparent));
   box-shadow: var(--ak-glow-cyan);
 }
 .sp.current {
@@ -157,7 +173,7 @@
 
 .warn-box {
   border-left: 4px solid var(--ak-danger);
-  background: rgba(255, 51, 102, 0.08);
+  background: color-mix(in srgb, var(--ak-danger) 8%, transparent);
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
   box-shadow: var(--ak-glow-red);
@@ -180,7 +196,7 @@
 
 /* 8. Layout variants ------------------------------------------------------- */
 .slidev-layout.section {
-  background: radial-gradient(circle at 30% 30%, #141b26 0%, var(--ak-bg) 60%) !important;
+  background: radial-gradient(circle at 30% 30%, var(--ak-bg-raised) 0%, var(--ak-bg) 60%) !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -199,7 +215,10 @@
 .slidev-layout.cover {
   background-color: var(--ak-bg) !important;
   background-image:
-    linear-gradient(180deg, rgba(10, 14, 20, 0.35) 0%, rgba(10, 14, 20, 0.55) 55%, rgba(10, 14, 20, 0.95) 100%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--ak-text) 25%, transparent) 0%,
+      color-mix(in srgb, var(--ak-text) 45%, transparent) 55%,
+      color-mix(in srgb, var(--ak-text) 88%, transparent) 100%),
     url('/images/cover-arduino-hero.jpg') !important;
   background-size: cover !important;
   background-position: center center !important;
@@ -209,12 +228,12 @@
   font-size: 4.2rem;
   line-height: 1.05;
   max-width: 100%;
-  color: #ffffff;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+  color: var(--ak-cover-fg);
+  text-shadow: var(--ak-cover-shadow);
 }
 
 .slidev-layout.end {
-  background: radial-gradient(ellipse at center, #1a2435 0%, var(--ak-bg) 70%) !important;
+  background: radial-gradient(ellipse at center, var(--ak-bg-raised) 0%, var(--ak-bg) 70%) !important;
 }
 
 .slidev-layout.image-left > div:first-child,
@@ -238,23 +257,55 @@
 .rgb-red    { background-image: radial-gradient(circle closest-side, #ff1744 55%, rgba(255, 23, 68, 0.3) 70%, rgba(255, 23, 68, 0) 100%); }
 .rgb-green  { background-image: radial-gradient(circle closest-side, #00e676 55%, rgba(0, 230, 118, 0.3) 70%, rgba(0, 230, 118, 0) 100%); }
 .rgb-blue   { background-image: radial-gradient(circle closest-side, #2979ff 55%, rgba(41, 121, 255, 0.3) 70%, rgba(41, 121, 255, 0) 100%); }
-.rgb-white  { background-image: radial-gradient(circle closest-side, #ffffff 55%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0) 100%); }
+.rgb-white  { background-image: radial-gradient(circle closest-side, #d4d6d0 55%, rgba(212, 214, 208, 0.3) 70%, rgba(212, 214, 208, 0) 100%); }
 
 /* .big-code — extra-framträdande kodblock för "kärnrader"-slides (if/else, analogWrite).
    1.55em av den nya baselinen (1.25em × 1.55 ≈ 1.94em ≈ text-2xl). */
 .big-code pre { font-size: 1.55em !important; line-height: 1.55 !important; padding: 1.5rem !important; }
 
 .dots-bg {
-  background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--ak-accent) 8%, transparent) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
+.breadboard-diagram {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  border: 1px solid var(--ak-border);
+}
+
+/* .rgb-demo — svart frame är pedagogisk metafor: "RGB-LED i mörkt rum" /
+   "skärmdemo". Bildens egen svarta bg möter framens svarta bg utan söm.
+   #000 är medvetet litteralt (icke-tema-styrt) — utgör kontextuellt mörkrum. */
+.rgb-demo {
+  width: 26rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #000;
+  padding: 1rem;
+}
+
+.diagram-img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--ak-border);
+}
+
+.color-chip {
+  display: inline-block;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 0.1em 0.55em;
+  border-radius: 0.4em;
+  font-weight: 700;
+  border: 1px solid color-mix(in srgb, var(--bg) 70%, var(--ak-text) 30%);
+}
+
 /* 10. PDF-export-overrides -------------------------------------------------- */
-/* Slidev lägger klassen `print` på <html> när ?print=1 körs (se
-   @slidev/client/pages/print.vue). Chromium-rasteriseringen gör stora
-   box-shadow-blurs till hårda bandar — vi behåller dem på webben men
-   nollar dem i export. Cover-hero-fotot tas också bort eftersom
-   gradienten ovanpå blir en skarp ram runt texten i PDF. */
+/* Print-export: Chromium-rastering bandar tunga blur:s. Knocka shadows. */
 html.print .slidev-layout .slidev-code-wrapper { box-shadow: none; }
 html.print .sp.unlocked,
 html.print .sp.current { box-shadow: none; }
@@ -262,8 +313,11 @@ html.print .warn-box { box-shadow: none; }
 html.print .slidev-layout.cover {
   background-image: none !important;
 }
-html.print .slidev-layout.cover h1 {
-  text-shadow: none;
+/* Print-cover får mörk text på off-white (foto + gradient killad ovan).
+   Live-mode behåller vit text på mörk gradient över foto. */
+html.print {
+  --ak-cover-fg: #0a0e14;
+  --ak-cover-shadow: none;
 }
 html.print .shadow-2xl,
 html.print .shadow-xl,

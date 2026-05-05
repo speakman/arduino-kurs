@@ -18,11 +18,10 @@ fonts:
   mono: 'JetBrains Mono'
   provider: 'google'
 
-background: '#0a0e14'
 class: cover
 drawings:
   persist: false
-colorSchema: dark
+colorSchema: 'light'
 ---
 
 <div class="h-full flex flex-col items-center justify-center text-center">
@@ -412,13 +411,13 @@ class: px-14 pt-12
   <div class="flex flex-col items-center">
     <div class="relative" style="width:22rem;height:19rem">
       <svg viewBox="0 0 150 130" class="absolute inset-0" style="width:100%;height:100%">
-        <polygon points="75,10 10,120 140,120" fill="none" stroke="#00ffd1" stroke-width="2" opacity="0.85"/>
-        <line x1="40" y1="75" x2="110" y2="75" stroke="#00ffd1" stroke-width="1.5" opacity="0.6"/>
+        <polygon points="75,10 10,120 140,120" fill="none" stroke="var(--ak-accent)" stroke-width="2" opacity="0.85"/>
+        <line x1="40" y1="75" x2="110" y2="75" stroke="var(--ak-accent)" stroke-width="1.5" opacity="0.6"/>
       </svg>
-      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:#00ffd1;font-size:4.5rem;line-height:1">U</div>
-      <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">R</div>
-      <div class="absolute mono font-bold" style="left:50%;top:80%;transform:translate(-50%,-50%);color:#00ffd1;font-size:3rem;line-height:1;opacity:0.8">·</div>
-      <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:#e8ecf1;font-size:3.8rem;line-height:1">I</div>
+      <div class="absolute mono font-bold" style="left:50%;top:37%;transform:translate(-50%,-50%);color:var(--ak-accent);font-size:4.5rem;line-height:1">U</div>
+      <div class="absolute mono font-bold" style="left:30%;top:80%;transform:translate(-50%,-50%);color:var(--ak-text);font-size:3.8rem;line-height:1">R</div>
+      <div class="absolute mono font-bold" style="left:50%;top:80%;transform:translate(-50%,-50%);color:var(--ak-accent);font-size:3rem;line-height:1;opacity:0.8">·</div>
+      <div class="absolute mono font-bold" style="left:70%;top:80%;transform:translate(-50%,-50%);color:var(--ak-text);font-size:3.8rem;line-height:1">I</div>
     </div>
     <div class="text-sm opacity-60 mt-4 mono">täck variabeln ni söker</div>
   </div>
@@ -607,7 +606,7 @@ class: px-14
 
 # Fem hål = en nod.
 
-<img src="/images/breadboard-internals.png" style="width:100%;margin-top:12px;border-radius:8px;background:white;padding:10px" />
+<img src="/images/breadboard-internals.png" class="breadboard-diagram" />
 
 <div class="mt-8 grid grid-cols-2 gap-x-12 gap-y-5" style="font-size:32px;line-height:1.5">
 <div>· <strong>Fem hål i rad</strong> = en <span class="cyan">nod</span></div>
@@ -852,27 +851,30 @@ class: px-14
 
 # Hela Blink — på tre rader.
 
-<div class="space-y-7 mt-12">
+<div class="grid grid-cols-[max-content_1fr] gap-x-10 gap-y-6 items-center mt-12">
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">pinMode(LED_BUILTIN, OUTPUT);</code>
-  <div class="opacity-85 text-base">
-    "<span class="mono">LED_BUILTIN</span> är en <span class="cyan">utgång</span>." Arduinons alias för <span class="mono">pin 13</span> — där den inbyggda LED:en sitter. Körs i <span class="mono">setup()</span>.
-  </div>
+```cpp
+pinMode(LED_BUILTIN, OUTPUT);
+```
+
+<div class="opacity-85 text-base">
+  "<span class="mono">LED_BUILTIN</span> är en <span class="cyan">utgång</span>." Arduinons alias för <span class="mono">pin 13</span> — där den inbyggda LED:en sitter. Körs i <span class="mono">setup()</span>.
 </div>
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">digitalWrite(LED_BUILTIN, HIGH);</code>
-  <div class="opacity-85 text-base">
-    "Sätt pinnen till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
-  </div>
+```cpp
+digitalWrite(LED_BUILTIN, HIGH);
+```
+
+<div class="opacity-85 text-base">
+  "Sätt pinnen till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
 </div>
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">delay(1000);</code>
-  <div class="opacity-85 text-base">
-    "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
-  </div>
+```cpp
+delay(1000);
+```
+
+<div class="opacity-85 text-base">
+  "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
 </div>
 
 </div>
@@ -1148,7 +1150,7 @@ class: text-center
 # Alla färger, av bara tre.
 
 <div class="mt-4 flex justify-center">
-  <img src="/images/rgb-color-mixing.png" class="h-40 rounded-lg" style="mix-blend-mode: screen;" />
+  <img src="/images/rgb-color-mixing.png" class="rgb-demo" />
 </div>
 
 <div class="mt-4 text-base opacity-75 max-w-2xl mx-auto">
@@ -1308,7 +1310,7 @@ class: px-14
   <div><span class="mono cyan">255</span> → alltid HIGH → full styrka</div>
 </div>
 
-<img src="/images/pwm-waveform.png" class="h-96 rounded p-3" style="filter: invert(1) hue-rotate(180deg);" />
+<img src="/images/pwm-waveform.png" class="h-96 p-3 diagram-img" />
 
 </div>
 
@@ -1337,10 +1339,10 @@ class: px-14
 Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal. Ladda upp, titta, justera.
 
 <div class="space-y-2 text-base">
-<div>· <span class="font-bold" style="color:#b400dc">Lila</span> — röd + blå, ingen grön</div>
-<div>· <span class="font-bold" style="color:#ff8cb4">Gammelrosa</span> — mycket röd, lagom blå, lite grön</div>
-<div>· <span class="font-bold" style="color:#ffd400">Skolgul</span> — full röd, lagom grön, ingen blå</div>
-<div>· <span class="font-bold" style="color:#00e0ff">Cyan</span> — ingen röd, full grön + blå</div>
+<div>· <span class="color-chip" style="--bg:#b400dc;--fg:#fff">Lila</span> — röd + blå, ingen grön</div>
+<div>· <span class="color-chip" style="--bg:#ff8cb4;--fg:#000">Gammelrosa</span> — mycket röd, lagom blå, lite grön</div>
+<div>· <span class="color-chip" style="--bg:#ffd400;--fg:#000">Skolgul</span> — full röd, lagom grön, ingen blå</div>
+<div>· <span class="color-chip" style="--bg:#00e0ff;--fg:#000">Cyan</span> — ingen röd, full grön + blå</div>
 </div>
 
 <div class="tip-box mt-5">
@@ -1802,7 +1804,7 @@ class: px-14
 
 </div>
 
-<img src="/images/active-buzzer-sticker.jpg" class="max-h-[32rem] rounded-xl ring-2 ring-rose-500/50 shadow-2xl" />
+<img src="/images/active-buzzer-sticker.jpg" class="max-h-[32rem] rounded-xl ring-2 ring-[color-mix(in_srgb,var(--ak-danger)_50%,transparent)] shadow-md" />
 
 </div>
 
