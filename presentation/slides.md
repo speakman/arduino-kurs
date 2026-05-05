@@ -851,27 +851,30 @@ class: px-14
 
 # Hela Blink — på tre rader.
 
-<div class="space-y-7 mt-12">
+<div class="grid grid-cols-[max-content_1fr] gap-x-10 gap-y-6 items-center mt-12">
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">pinMode(LED_BUILTIN, OUTPUT);</code>
-  <div class="opacity-85 text-base">
-    "<span class="mono">LED_BUILTIN</span> är en <span class="cyan">utgång</span>." Arduinons alias för <span class="mono">pin 13</span> — där den inbyggda LED:en sitter. Körs i <span class="mono">setup()</span>.
-  </div>
+```cpp
+pinMode(LED_BUILTIN, OUTPUT);
+```
+
+<div class="opacity-85 text-base">
+  "<span class="mono">LED_BUILTIN</span> är en <span class="cyan">utgång</span>." Arduinons alias för <span class="mono">pin 13</span> — där den inbyggda LED:en sitter. Körs i <span class="mono">setup()</span>.
 </div>
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">digitalWrite(LED_BUILTIN, HIGH);</code>
-  <div class="opacity-85 text-base">
-    "Sätt pinnen till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
-  </div>
+```cpp
+digitalWrite(LED_BUILTIN, HIGH);
+```
+
+<div class="opacity-85 text-base">
+  "Sätt pinnen till <span class="cyan">5 V</span>." <span class="mono">HIGH</span> = tänd (5 V), <span class="mono">LOW</span> = släckt (0 V). Körs i <span class="mono">loop()</span>.
 </div>
 
-<div class="grid grid-cols-[360px_1fr] gap-8 items-start">
-  <code class="text-lg">delay(1000);</code>
-  <div class="opacity-85 text-base">
-    "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
-  </div>
+```cpp
+delay(1000);
+```
+
+<div class="opacity-85 text-base">
+  "Vänta <span class="cyan">1000 millisekunder</span>." 1000 ms = 1 sekund. Arduinon pausar allt annat under tiden.
 </div>
 
 </div>
