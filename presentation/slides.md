@@ -401,11 +401,20 @@ class: px-14 pt-12
   U = R · I
 </div>
 
-<div class="flex flex-col items-center">
-  <img src="/images/ohms-law.png" class="rounded-xl" style="width:34rem" />
-  <div class="text-base opacity-60 mt-4">
-    <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
+<div class="flex items-center justify-center gap-12">
+
+  <div class="flex flex-col items-center">
+    <img src="/images/ohms-law.png" class="rounded-xl" style="width:26rem" />
+    <div class="text-base opacity-60 mt-3">
+      <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
+    </div>
   </div>
+
+  <div class="flex flex-col items-center">
+    <img src="/images/ohms-triangle.png" style="width:18rem" />
+    <div class="text-base opacity-60 mt-3 mono">täck variabeln ni söker</div>
+  </div>
+
 </div>
 
 <div class="mt-8 text-center text-lg opacity-70">
@@ -530,13 +539,7 @@ class: px-14 pt-12
 </div>
 
 <div class="mt-6 flex items-center gap-4 p-4 rounded-xl border border-[var(--ak-border)] bg-[var(--ak-bg-raised)]">
-  <div class="flex-shrink-0 flex items-center gap-[3px] h-12 bg-[#d4a574] px-2 rounded">
-    <div class="w-[5px] h-10 bg-[#ff2222]"></div>
-    <div class="w-[5px] h-10 bg-[#ff2222]"></div>
-    <div class="w-[5px] h-10 bg-[#8b4513]"></div>
-    <div class="w-[10px]"></div>
-    <div class="w-[5px] h-10 bg-[#d4af37]"></div>
-  </div>
+  <img src="/images/resistor-220ohm.png" class="flex-shrink-0" style="width:200px;height:auto" />
   <div class="text-xs mono opacity-80 leading-tight">
     röd · röd · brun<br/>
     2 · 2 · ×10¹<br/>
@@ -590,7 +593,7 @@ class: px-14
 
 # Fem hål = en nod.
 
-<img src="/images/breadboard-internals.png" class="breadboard-diagram" />
+<img src="/images/breadboard-internals.png" class="breadboard-diagram" style="max-height:540px;width:auto;margin:0 auto;display:block" />
 
 <div class="mt-8 grid grid-cols-2 gap-x-12 gap-y-5" style="font-size:32px;line-height:1.5">
 <div>· <strong>Fem hål i rad</strong> = en <span class="cyan">nod</span></div>
@@ -1292,7 +1295,7 @@ class: px-14
   <div><span class="mono cyan">255</span> → alltid HIGH → full styrka</div>
 </div>
 
-<img src="/images/pwm-waveform.png" class="h-96" />
+<img src="/images/pwm-waveform.png" class="h-[34rem]" />
 
 </div>
 

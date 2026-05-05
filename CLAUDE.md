@@ -54,7 +54,7 @@ npm run export-notes                                           # presenter-notes
 
 | Konstanter | Var | Varför |
 |-----------|-----|--------|
-| `#d4a574` `#ff2222` `#8b4513` `#d4af37` | slide 10 (resistor-band) | Fysiska komponentfärger studenten ska identifiera |
+| `#d4a574` `#ff2222` `#8b4513` `#d4af37` | slide 10 (resistor-band) + AI-prompt för `resistor-220ohm.png` | Fysiska komponentfärger studenten ska identifiera. AI-rendrade resistorer MÅSTE följa 4-band 220 Ω: röd-röd-brun + (gap) + guld |
 | `#ff1744` `#00e676` `#2979ff` | slides 19, 26 (RGB-LED-cirklar) | Faktiska LED-färger |
 | `#b400dc` `#ff8cb4` `#ffd400` `#00e0ff` | slide 25 (RGB-färgexempel) | Övningens målfärger |
 | `#ffd400` (sun) | AI-prompt för `voltage-divider.png` | Sol-symbol — pedagogisk metafor (vid regeneration: behåll i prompt) |
@@ -109,6 +109,59 @@ npm run export-notes                                           # presenter-notes
 
 ---
 
+## AI-bildgenerering — modellval och workflow
+
+Empiriskt verifierat 2026-05-05 över ~30 bildgenerationer + användar-jämförelse på alla 18 deck-bilder:
+
+### Default: **Higgsfield `nano_banana_2`** för i princip allt
+
+Användar-A/B-test 2026-05-05: NB2 vann över gpt-image-2 på **17/18 bilder** (cartoonen, triangeln, fotocell-states, breadboard, PWM, voltage-divider, RGB-mixing, cover, Arduino-hero, buzzer-sticker, fotocell-macro, resistor-220Ω, alla Fritzings). Hero-shots och pedagogiska illustrationer är NB2 jämbördigt eller bättre. På Fritzing-style med tät text-labels är NB2 markant bättre.
+
+### Modellval per bildtyp
+
+| Bildtyp | Modell | Endpoint / verktyg | Anteckning |
+|---------|--------|---------------------|--------|
+| **DEFAULT — allt** | **Higgsfield `nano_banana_2`** | `higgsfield generate create nano_banana_2 --image <ref> --prompt "..." --wait` | Bra på cartoon, illustrationer, schema, fotorealism, AND Fritzing-labels |
+| Photo-fidelity-kritiska (exakt wiring i TinkerCAD-foton, Fritzings med specifika pin-anslutningar) | **Restore original** | n/a | Båda modeller hallucinerar pin-positioner. Originalets fidelity är pedagogiskt nödvändig |
+| Fallback om NB2 fail eller specifik sak inte funkar | OpenAI `gpt-image-2` | `/v1/images/edits` | Hade tidigare default-rollen, fungerar men är sämre på text-labels och småskaligt detalj |
+
+### Workflow för regen
+
+1. **Pre-flight:** Kontrollera `higgsfield account status` (CLI authed). Concurrent-jobs-limit på starter-plan = **4**, max 4 parallella i taget.
+2. **Originals först:** Backup till `tasks/image-gen/originals/` FÖRE delete-commit (omvänd ordning är data-loss-risk)
+3. **Prompt-fil per bild:** Spara i `tasks/image-gen/v[N]/<name>-prompt.txt` för reproducerbarhet
+4. **Strukturerad prompt:** Lista vad som BEVARAS exakt och vad som ÄNDRAS (en korrigering åt gången). Avslutas med "ABSOLUTE CONSTRAINTS — must NOT include..."
+5. **Higgsfield-anrop**: `URL=$(higgsfield generate create nano_banana_2 --image <path> --prompt "$(cat prompt.txt)" --wait | tail -1) && curl -sS "$URL" -o tasks/image-gen/v[N]/<name>.png`. Run i background med run_in_background:true för parallellisering.
+6. **Visuell review per bild**: Read tool på PNG, jämför mot original. Specifik check: pin-labels, kolumnsiffror på breadboard, +/− på rails, resistor-färgband.
+7. **Användarjämförelse** (för stora regen-runder): bygg HTML i `tasks/image-gen/v[N]/comparison.html` med radio-buttons + comment-fält så användaren kan välja bästa variant per bild. localStorage-persistens, JSON-export.
+8. **Integrera**: kopiera till `presentation/public/images/<same-name>` (samma path = ingen slides.md-edit). Vid ny bild (t.ex. ohms-triangle.png): edita slide-markdown.
+9. **Filnamn-extension**: NB2 returnerar PNG. Om slide-ref använder .jpg → konvertera via `magick <src>.png -quality 90 <dst>.jpg`. Annars cp direkt.
+10. **Build smoke**: `npm run build` (~6s)
+11. **Slide-render-test**: `npx slidev export --format png --range "<n>" --output /tmp/preview/` per ändrad slide
+12. **Atomic commit per logisk enhet** (en regen-runda = en commit, men distinkta refinements kan delas)
+
+### Crop / CSS scaling
+
+`/v1/images/edits` ger ofta omtolkade kompositioner (extra rader, omarrangerade element). Två räddningsverktyg:
+- `magick <src> -crop WxH+X+Y +repage <dst>` — pixel-exakt crop när AI lagt till oönskade element
+- Inline CSS `style="max-height:580px;width:auto;margin:0 auto;display:block"` på `<img>` — när AI-bilden är rätt men för stor i slide-layouten
+
+### Modeller att UNDVIKA för det här projektet
+
+- DALL-E 3 — saknar `/edits`-endpoint, ingen referensbevarande
+- gpt-image-1.5 / 1 / mini — föregångare, sämre på allt
+- Soul V2 / Soul Cinema — för stilfulla, NSFW-orienterade
+- Marketing Studio — för branded ad video (inte vår use case)
+
+### Kostnadsuppskattning
+
+- nano_banana_2 (Higgsfield) ≈ **4 credits / bild** i praktiken (verifierat över 30 anrop). Starter-plan ger 1000+ credits.
+- gpt-image-2 high 1024² ≈ $0.21 / bild
+- gpt-image-2 high 1536×1024 ≈ $0.165 / bild
+- gpt-image-2 medium 1024² ≈ $0.05 / bild
+
+---
+
 ## Workflow-regler
 
 - **Plan-mode för 3+ steg eller arkitektur-beslut.** Skriv plan i `tasks/<datum>-<topic>-plan.md` innan kodändringar.
@@ -128,7 +181,8 @@ npm run export-notes                                           # presenter-notes
 3. `npm run export -- --format png --output ../tasks/light-mode-rendered/` — 52 PNG:er
 4. `npm run export -- --output ../tasks/light-mode-rendered/slides-light.pdf` — PDF (kör EFTER PNG eftersom PNG-export overskriver)
 5. Spot-check Read tool på 5-10 PNG:er (ändrade slides + 1, 8, 21, 24, 25, 33, 41, 52)
-6. Vid substantive change: `multi-auditor-review` skill → fixes → re-render → ny review
+6. **Vid AI-bild-regen specifikt**: pedagogisk visuell review per ändrad slide — inte bara render-spot-check. `multi-auditor-review` (kod-strukturell) **fångar inte** pedagogiska/visuella regressioner. Kör `multi-ai-consultant:consult-gemini` för multimodal review om en bild är kritisk.
+7. Vid substantive change: `multi-auditor-review` skill → fixes → re-render → ny review
 
 ---
 
