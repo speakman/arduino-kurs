@@ -213,6 +213,8 @@
 }
 
 .slidev-layout.cover {
+  color: var(--ak-cover-fg);
+  text-shadow: var(--ak-cover-shadow);
   background-color: var(--ak-bg) !important;
   background-image:
     linear-gradient(180deg,
@@ -228,8 +230,6 @@
   font-size: 4.2rem;
   line-height: 1.05;
   max-width: 100%;
-  color: var(--ak-cover-fg);
-  text-shadow: var(--ak-cover-shadow);
 }
 
 .slidev-layout.end {
