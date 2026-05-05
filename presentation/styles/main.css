@@ -277,15 +277,12 @@
   border: 1px solid var(--ak-border);
 }
 
-/* .rgb-demo — svart frame är pedagogisk metafor: "RGB-LED i mörkt rum" /
-   "skärmdemo". Bildens egen svarta bg möter framens svarta bg utan söm.
-   #000 är medvetet litteralt (icke-tema-styrt) — utgör kontextuellt mörkrum. */
+/* .rgb-demo — sizing + soft shadow för RGB-color-mixing-bilden.
+   Bilden har egen mörk bakgrund som pedagogisk metafor (light in darkness). */
 .rgb-demo {
   width: 26rem;
   border-radius: 1rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  background: #000;
-  padding: 1rem;
 }
 
 .diagram-img {

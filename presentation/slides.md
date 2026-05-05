@@ -402,7 +402,7 @@ class: px-14 pt-12
 <div class="mt-6 flex items-center justify-center gap-16">
 
   <div class="flex flex-col items-center">
-    <img src="/images/ohms-law-cartoon.jpg" class="rounded-xl" style="width:28rem" />
+    <img src="/images/ohms-law.png" class="rounded-xl" style="width:28rem" />
     <div class="text-sm opacity-60 mt-4">
       <span class="cyan">Volt</span> trycker · <span class="cyan">Ohm</span> stryper · <span class="cyan">Amp</span> flödar
     </div>
@@ -1310,7 +1310,7 @@ class: px-14
   <div><span class="mono cyan">255</span> → alltid HIGH → full styrka</div>
 </div>
 
-<img src="/images/pwm-waveform.png" class="h-96 p-3 diagram-img" />
+<img src="/images/pwm-waveform.png" class="h-96" />
 
 </div>
 
@@ -2199,7 +2199,7 @@ Tänk dig ett **vattenrör som höjdskala**: `+5 V` är uppe, `GND` är nere. Tv
 
 <div style="display: flex; justify-content: center">
 
-<img src="/images/voltage-divider.svg" style="width: 800px; max-width: 100%" alt="Spänningsdelare-schema: +5V → fotocell → A0 → 1 kΩ → GND med typiska värden" />
+<img src="/images/voltage-divider.png" style="width: 600px; max-width: 100%" alt="Spänningsdelare-schema: +5V → fotocell → A0 → 1 kΩ → GND med typiska värden" />
 
 </div>
 
