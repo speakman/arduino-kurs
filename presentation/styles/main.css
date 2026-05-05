@@ -142,6 +142,21 @@
   font-size: 0.9em;
 }
 
+/* Line numbers — diskret, tydlig gutter mot koden.
+   Slidev-defaulten är w-4 mr-6 text-gray-400 vilket är för smalt och utan
+   visuell separator. Vi gör den bredare (2-siffriga rader får plats),
+   lägger till en vertikal gutter-linje, och tonar ner färgen rejält. */
+.slidev-code-line-numbers .slidev-code code .line::before {
+  width: 2rem !important;
+  padding-right: 0.9rem !important;
+  margin-right: 1.1rem !important;
+  border-right: 1px solid color-mix(in srgb, var(--ak-text) 9%, transparent) !important;
+  color: color-mix(in srgb, var(--ak-text) 30%, transparent) !important;
+  font-size: 0.82em;
+  font-weight: 400;
+  user-select: none;
+}
+
 /* 7. Domain components ----------------------------------------------------- */
 .sp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
 .sp {

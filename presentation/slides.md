@@ -7,7 +7,7 @@ info: |
   Baserad på ELEGOO UNO Project Basic Starter Kit.
 
 highlighter: shiki
-lineNumbers: false
+lineNumbers: true
 transition: fade
 mdc: true
 aspectRatio: 16/9
