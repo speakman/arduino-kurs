@@ -21,11 +21,11 @@ Ersätt 13 bilder i `presentation/public/images/` med konsekvent stil via Higgsf
 
 | # | Filnamn | AR | Slide | Status |
 |---|---------|-----|-------|--------|
-| 1 | `cover-arduino-hero.jpg` | 16:9 | 1 (cover) | pending |
-| 2 | `arduino-uno-hero.jpg` | 1:1 | 14 | ✅ test-arduino-soft3d-v1.png godkänd |
-| 3 | `active-buzzer-sticker.jpg` | 1:1 | 33 | pending |
-| 4 | `photoresistor-macro.jpg` | 1:1 | 39 | pending |
-| 5 | `photoresistors-three.jpg` | 4:3 | 41 | pending |
+| 1 | `cover-arduino-hero.jpg` | 16:9 | 1 (cover) | ✅ done (v2 vald) |
+| 2 | `arduino-uno-hero.jpg` | 1:1 | 14 | ✅ done |
+| 3 | `active-buzzer-sticker.jpg` | 1:1 | 33 | ✅ done |
+| 4 | `photoresistor-macro.jpg` | 1:1 | 39 | ✅ done |
+| 5 | `photoresistors-three.jpg` | 4:3 | 41 | ✅ done |
 
 **#1 cover-arduino-hero.jpg:** [prefix] Subject: An Arduino UNO Rev3 microcontroller board as the central subject, hero composition. Cinematic depth slightly more dramatic than catalog shot. Surrounded by complementary electronic elements at varying depths: a few resistors with color bands, one small LED diode, 2-3 elegantly draped jumper wires in classic teal/red/yellow. Mood: invites curiosity, beginning a journey into electronics. Wide cinematic 16:9 framing, generous breathing room.
 
@@ -39,11 +39,11 @@ Ersätt 13 bilder i `presentation/public/images/` med konsekvent stil via Higgsf
 
 | # | Filnamn | AR | Slide | Status |
 |---|---------|-----|-------|--------|
-| 6 | `voltage-divider.png` (replaces .svg) | 1:1 | 39-40 | pending |
-| 7 | `pwm-waveform.png` | 16:9 | 24 | pending |
-| 8 | `rgb-color-mixing.png` | 1:1 | 21 | pending (special: dark bg by design) |
-| 9 | `breadboard-internals.png` | 16:9 | 11 | pending |
-| 10 | `ohms-law.png` (replaces .jpg cartoon) | 1:1 | 8 | pending |
+| 6 | `voltage-divider.png` (replaces .svg) | 1:1 | 39-40 | ✅ done |
+| 7 | `pwm-waveform.png` | 16:9 | 24 | ✅ done (continuous square-wave) |
+| 8 | `rgb-color-mixing.png` | 1:1 | 21 | ✅ done (special: dark bg by design) |
+| 9 | `breadboard-internals.png` | 16:9 | 11 | ✅ done |
+| 10 | `ohms-law.png` (replaces .jpg cartoon) | 1:1 | 8 | ✅ done |
 
 **#6 voltage-divider.png:** [prefix] Subject: A 3D pedagogical schematic illustration of a voltage divider circuit — two stylized cylindrical resistors with color bands stacked vertically between a small battery icon at top and ground symbol at bottom. A probe arrow at the midpoint between the resistors points to a label "Vout". For the photoresistor variant: top resistor is a photoresistor (light-sensitive disc) with a small soft sun icon (#ffd400 yellow) gently illuminating it from above. Arduino-teal accent (#00747d) for active circuit highlights.
 
@@ -59,9 +59,9 @@ Ersätt 13 bilder i `presentation/public/images/` med konsekvent stil via Higgsf
 
 | # | Filnamn | AR | Slide | Status |
 |---|---------|-----|-------|--------|
-| 11 | `wiring/button-photo.png` | 4:3 | 28 | pending |
-| 12 | `wiring/buzzer-photo.png` | 4:3 | 33 | pending |
-| 13 | `wiring/tilt-photo.png` | 4:3 | 35-37 | pending |
+| 11 | `wiring/button-photo.png` | 4:3 | 28 | ✅ done |
+| 12 | `wiring/buzzer-photo.png` | 4:3 | 33 | ✅ done |
+| 13 | `wiring/tilt-photo.png` | 4:3 | 35-37 | ✅ done |
 
 **#11 button-photo.png:** [prefix] Subject: A solderless breadboard photographed from a slight three-quarter elevated angle, with a 4-pin tactile push button inserted near the middle straddling the center gap. Two jumper wires connect: a red wire from one side of the button up to the + power rail, a black wire from the other side down to the GND rail. One additional jumper goes to a digital pin position. Realistic component placement and wire routing. Clean educational composition.
 
@@ -88,6 +88,10 @@ Ersätt 13 bilder i `presentation/public/images/` med konsekvent stil via Higgsf
 - Fritzing-PNG:er (button/buzzer/led/rgb-fritzing.png, photocell-schematic.png) — bevaras intakt; bg-removal är scope B
 - 6 orphaned bilder (tilt-switch.jpg, breadboard-rails.png, resistor-color-chart.png, photocell-wiring.png, rgb-photo.png, tilt-schematic.png) — separat städ-task
 - Kompendium-bilder (kompendium/-mappen)
+
+## Post-merge follow-ups (skapade av multi-auditor-review 2026-05-05)
+- **Per-dag-PDF:er**: `kompendium/deliveries/slides-per-dag/slides-dag-{1..5}.pdf` (28 apr) är stale — slide-content ändrats (image-swaps på 8/11/14/21/24/28/33/35-37/39-40/41 + direktiv-cleanup på 12/25). Re-generera innan nästa kurs-leverans.
+- **Originals-backup-ordning**: nästa runda — gör `docs(tasks): backup originals` commit FÖRE `feat(images): regenerate` så original alltid finns i tracked tree innan delete.
 
 ## Credits-bedömning
 - 13 generations × ~5-15 credits/st = ~65-200 credits

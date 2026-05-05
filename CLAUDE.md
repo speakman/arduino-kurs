@@ -57,8 +57,7 @@ npm run export-notes                                           # presenter-notes
 | `#d4a574` `#ff2222` `#8b4513` `#d4af37` | slide 10 (resistor-band) | Fysiska komponentfärger studenten ska identifiera |
 | `#ff1744` `#00e676` `#2979ff` | slides 19, 26 (RGB-LED-cirklar) | Faktiska LED-färger |
 | `#b400dc` `#ff8cb4` `#ffd400` `#00e0ff` | slide 25 (RGB-färgexempel) | Övningens målfärger |
-| `#ffd400` (sun) | `voltage-divider.svg` | Sol-symbol — pedagogisk metafor |
-| `#000` (`.rgb-demo` bg) | `main.css:281` | "Mörkrum"-metafor för RGB-LED-demo |
+| `#ffd400` (sun) | AI-prompt för `voltage-divider.png` | Sol-symbol — pedagogisk metafor (vid regeneration: behåll i prompt) |
 
 ### Atomic commits
 
@@ -82,8 +81,7 @@ npm run export-notes                                           # presenter-notes
 | Klass | Slide(s) | Syfte |
 |-------|----------|-------|
 | `.color-chip` | 25 | Färgnamn på sin egen färg, kontrast-anpassad text via `--bg`/`--fg` inline |
-| `.rgb-demo` | 21 | Svart frame runt RGB-blandnings-bild ("mörkrum/skärmdemo") |
-| `.diagram-img` | 24 | Generic diagram-ram med token-border |
+| `.rgb-demo` | 21 | Sizing + soft shadow för RGB-blandnings-bild (bilden har egen mörk bg) |
 | `.breadboard-diagram` | 11 | Vit-bg ram (medvetet hardkodad vit, oavsett tema) |
 | `.sp-grid` / `.sp.locked/unlocked/current` | 2 | Modul-kort på kursöversikt |
 | `.warn-box` / `.tip-box` | flera | Pedagogiska varnings/tips-rutor |
