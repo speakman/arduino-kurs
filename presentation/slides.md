@@ -1345,7 +1345,7 @@ Experimentera med värden <span class="mono cyan">0–255</span> på varje kanal
 
 <div class="tip-box mt-5">
   <div class="tip-title">Strategi</div>
-  <div>Prova flera kombinationer — färgerna är ofta överraskande. Skriv ner värdena som gav färgen du gillade.</div>
+  <div>Prova flera kombinationer — färgerna är ofta överraskande.</div>
 </div>
 
 </div>
