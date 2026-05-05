@@ -1,0 +1,53 @@
+Clean educational technical illustration on a soft off-white background (color #fafaf7). The image is a stylized representation of an Arduino IDE "Serial Plotter" window — NOT a photo-realistic screenshot, but a textbook-clean diagram showing what students will see when they open the Plotter tool. Composition is centered, with generous margins.
+
+WINDOW FRAMING:
+A single rounded-rectangle window in the center of the canvas (corner radius ~12px), with a thin neutral-gray border (1.5px, color #d4d4d4) and a very subtle drop shadow underneath. No operating-system chrome, no Mac/Windows traffic-light buttons. At the very top of the window, a slim title bar strip in light gray (#f0f0f0) with the text "Serial Plotter" in dark slate monospace font (#0a0e14), left-aligned with small padding. Window aspect ratio is roughly 16:10 (wider than tall).
+
+PLOT AREA INSIDE THE WINDOW:
+A clean white background (#ffffff). Five faint horizontal gridlines (color #ececec, 1px stroke) evenly spaced across the plot height. NO vertical gridlines. NO axis-tick marks beyond the gridlines.
+
+Y-AXIS LABELS along the LEFT edge of the plot area, in monospace font, neutral gray color (#666666), small but legible:
+  - "1023" near the top
+  - "800" below that
+  - "500" in the middle
+  - "200" lower
+  - "0" near the bottom
+These are aligned vertically with the gridlines they label.
+
+X-AXIS at the bottom of the plot area is just a thin neutral line (no tick marks). Centered below it, a tiny subtle label "tid →" in monospace gray (#888888).
+
+THE WAVEFORM (THE CENTERPIECE OF THE IMAGE):
+ONE single continuous line, drawn in TEAL color #00747d, stroke-width approximately 3 pixels, with smooth rounded line-joins. The line traces a specific shape from LEFT to RIGHT across the plot:
+
+  - Phase 1 (left ~30% of plot width): line oscillates around the value 760 (corresponding to "room light, photocell exposed") with small natural sensor-noise jitter of ±20 units. The line is ABOVE the 500-line, near the 800-line.
+
+  - Phase 2 (transition over ~5% of width): line DROPS sharply but smoothly from ~760 down to ~170. Not perfectly vertical — looks like a rapid but real sensor transition over a few sample points.
+
+  - Phase 3 (middle ~25% of width): line oscillates around 170 (corresponding to "photocell covered by hand") with similar small jitter. The line is BELOW the 200-line, near the 0-line.
+
+  - Phase 4 (transition over ~5% of width): line RISES sharply but smoothly from ~170 back up to ~760.
+
+  - Phase 5 (right ~35% of width): line oscillates around 760 again, similar to Phase 1.
+
+The overall visual story: high - low - high, like a sensor recording of someone briefly covering and uncovering a light sensor.
+
+ANNOTATION:
+Below the dip (Phase 3), centered horizontally on the lowest part of the dip:
+  - A small downward-pointing arrow (filled triangle, color dark slate #0a0e14) sitting just below the line, pointing UP at the dip
+  - Below the arrow, in clean sans-serif text, color dark slate #0a0e14, the words: "hand över fotocellen"
+
+OVERALL PALETTE:
+- Background outside window: off-white #fafaf7
+- Window border: light gray #d4d4d4
+- Title bar background: very light gray #f0f0f0
+- Plot area background: pure white #ffffff
+- Gridlines: very light gray #ececec
+- Axis labels: medium gray #666666
+- Axis arrow label: lighter gray #888888
+- Waveform: teal #00747d (this is the only saturated color in the image — it should pop)
+- Annotation text and arrow: dark slate #0a0e14
+
+OVERALL AESTHETIC:
+Vector-flat illustration, NOT photo-realistic. Crisp clean lines. No 3D effects, no glowing/blurring on the waveform, no screen reflections, no OS chrome elements. This is a textbook-clean educational diagram that conveys the visual experience of viewing Arduino's Serial Plotter without imitating any specific OS or IDE branding.
+
+ABSOLUTE CONSTRAINTS — must NOT include: humans, hands, Arduino board, breadboard, photo-realistic screen reflections or pixels, OS chrome (no menu bars, no traffic-light buttons, no taskbar elements), brand markings or logos beyond the "Serial Plotter" title text, multiple windows, code or syntax highlighting, multiple waveforms (only ONE single line), vertical gridlines, color coding of waveform segments, decorative background elements, text labels other than those specified ("Serial Plotter", "1023", "800", "500", "200", "0", "tid →", "hand över fotocellen"). The waveform must be a single continuous line, not segmented or styled differently in different sections.
