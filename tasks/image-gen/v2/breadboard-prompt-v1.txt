@@ -1,0 +1,24 @@
+Recreate this exact pedagogical breadboard internal-connection diagram for an Arduino electronics course, modernized in soft 3D editorial style.
+
+REQUIRED STRUCTURE — top-down view of a solderless breadboard with internal metal strips visualized as colored highlights showing electrical connectivity:
+
+LAYOUT:
+- One full-size breadboard shown from directly above, slightly tilted three-quarters view.
+- TOP edge: red horizontal rail line running continuously along the top, indicating the + power rail (one connected node across the entire length).
+- BOTTOM edge: blue horizontal rail line, the GND rail (one connected node).
+- The middle section: the standard terminal-strip area with a center groove dividing it horizontally into TWO halves (top half + bottom half).
+
+KEY PEDAGOGICAL HIGHLIGHTING — internal metal clip-strips visible as colored ribbons UNDER the holes:
+- In the terminal-strip area, each VERTICAL column of 5 adjacent holes is connected by ONE green metal strip (5 holes = 1 node). Show ~12-15 distinct green vertical strips, each spanning exactly 5 holes.
+- The top half and bottom half of the terminal strip are SEPARATE (the center groove breaks the connection — strips do not cross).
+- The power rails along top/bottom are single LONG continuous strips (not segmented).
+
+VISUAL STYLE:
+- Soft 3D editorial render. Breadboard surface in clean off-white plastic with subtle shading. Metal strips visible as glowing accent-green ribbons (#00747d for the highlight color works well).
+- Power rail strip on top: glowing red. GND rail: glowing blue.
+- Background: solid off-white #fafaf7.
+- Wide 3:2 horizontal framing.
+
+PEDAGOGICAL POINT: viewer must immediately read: "5 holes in a column connect to one strip = one node. Power rails are continuous along the edges."
+
+ABSOLUTE CONSTRAINTS — must NOT include: components plugged in (no resistors/wires/LEDs), photorealistic textures, Arduino board, multiple breadboards, cluttered annotations. Just the breadboard + visualized internal connections.

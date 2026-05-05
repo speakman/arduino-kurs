@@ -1,0 +1,33 @@
+Create a pedagogical voltage-divider schematic diagram for an Arduino electronics course in soft 3D editorial style.
+
+REQUIRED STRUCTURE — vertical voltage-divider schematic, top to bottom:
+
+TOP: "+5 V" label in Arduino-teal (#00747d), bold, large. A horizontal teal line representing the +5V rail.
+
+UPPER COMPONENT — PHOTORESISTOR (LDR):
+- A vertical rectangular box outline containing the standard zigzag resistor symbol inside.
+- LEFT of the box: label "fotocell" with smaller "(LDR)" subtitle.
+- RIGHT of the box: a small soft yellow sun icon (#ffd400) with light rays radiating outward, AND two horizontal arrows pointing FROM the sun TOWARD the photoresistor (indicating light hitting it).
+
+MIDDLE — A0 TAP:
+- A glowing teal dot/junction on the vertical wire between the two components.
+- A horizontal teal wire branches RIGHT to a rounded rectangle labeled "A0" in monospace teal text.
+- Tiny italic "mätpunkt" label below the junction.
+
+LOWER COMPONENT — 1 kΩ RESISTOR:
+- Same rectangular box style with internal zigzag.
+- RIGHT of the box: label "1 kΩ" in monospace, with "(fast)" subtitle below.
+
+BOTTOM: GND symbol (three decreasing horizontal lines, classic ground symbol) in rose/red color (#be123c). Below it: "GND" label in monospace red.
+
+VERTICAL WIRES connect: +5V → photoresistor top → photoresistor bottom → A0 tap → 1kΩ top → 1kΩ bottom → GND. All wires dark, ~3px thick.
+
+VISUAL STYLE:
+- Soft 3D editorial render of a clean technical schematic. Components as 3D extruded shapes with gentle shading.
+- Background: solid off-white #fafaf7.
+- Square 1:1 framing, schematic centered.
+- Premium textbook aesthetic — refined and modern.
+
+PEDAGOGICAL POINT: viewer must immediately understand: "photoresistor on top + 1kΩ on bottom in series; we measure the midpoint at A0; light changes the photoresistor's resistance, shifting the A0 voltage".
+
+ABSOLUTE CONSTRAINTS — must NOT include: a values table (we only want the schematic), photorealistic resistor color bands, breadboard, Arduino board, cartoon characters, second column of content. ONLY the vertical schematic.

@@ -1,0 +1,20 @@
+Recreate this exact pedagogical tilt-switch wiring diagram for an Arduino electronics course, modernized in soft 3D editorial style.
+
+REQUIRED ELEMENTS:
+- An Arduino UNO board shown from a slightly tilted three-quarter elevated view, with all standard pin headers clearly visible (DIGITAL 0-13 row, POWER row, ANALOG IN row).
+- A tilt-switch component: small cylindrical metal body, two thin metal leads. Insert it directly into the Arduino headers (NO breadboard). One lead goes into a DIGITAL pin position (around D2), the other into a GND pin.
+- TWO jumper wires connecting the tilt switch to the Arduino:
+    * Yellow jumper wire from one lead → digital pin (e.g. D2)
+    * Black jumper wire from the other lead → GND
+- The wires should curve naturally with realistic slack, not be perfectly straight.
+- A USB type-B cable plugged into the Arduino's USB-B port on the left side.
+
+VISUAL STYLE:
+- Soft 3D editorial render. Arduino board in classic teal/turquoise PCB color with realistic component details (chip, capacitors, headers visible). Tilt-switch in metallic silver/grey.
+- Background: solid off-white #fafaf7.
+- 4:3 horizontal framing.
+- TinkerCAD-style clean simulation aesthetic — clear and educational, NOT photorealistic.
+
+PEDAGOGICAL POINT: viewer must read: "tilt-switch is a simple two-terminal component connected directly between digital pin and GND, no breadboard needed for this minimal wiring."
+
+ABSOLUTE CONSTRAINTS — must NOT include: breadboard (this circuit is breadboard-free), additional components (LEDs, resistors, buzzers), text labels on the wires, multiple Arduinos, cluttered background.

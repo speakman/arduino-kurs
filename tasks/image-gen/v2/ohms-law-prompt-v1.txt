@@ -1,0 +1,16 @@
+Recreate this exact pedagogical cartoon composition for an Arduino electronics course. PRESERVE the metaphor exactly:
+
+CHARACTERS (three rounded figures, each clearly labeled):
+- VOLT: yellow character on the LEFT, actively pushing into the pipe with both hands. Label "Volt" must be readable on its body.
+- AMP: green character in the MIDDLE, being squeezed/constricted as it tries to flow through the pipe. Label "Amp" must be readable on its body.
+- OHM: red character on TOP wearing a brown cowboy hat labeled "Ohm". OHM holds a rope/lasso that wraps around and constricts the middle of the pipe.
+
+PIPE: a horizontal striped tube/pipe runs left-to-right across the composition. The middle is visibly pinched/constricted by OHM's rope.
+
+PEDAGOGICAL POINT: Volt pushes (voltage) → drives Amp (current) → through Ohm's constriction (resistance). The viewer must immediately read this as "more Ohm constriction = less Amp flowing for same Volt push".
+
+STYLE: Soft 3D editorial render. Rounded forms with gentle gradient shading and soft drop shadows. Premium illustration aesthetic — refined and modern, NOT flat-cartoon, NOT toy-like, NOT childish. Limited palette in Arduino-friendly colors. Background: solid off-white #fafaf7 only, no scenery.
+
+COMPOSITION: centered with generous breathing room, square 1:1 framing. Labels in clean modern sans-serif, large and readable.
+
+ABSOLUTE CONSTRAINTS — must NOT include: circuit symbols, breadboard, resistor color bands, electrical schematic notation, photorealistic textures, multiple unlabeled characters.

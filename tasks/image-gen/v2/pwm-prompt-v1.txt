@@ -1,0 +1,33 @@
+Recreate this exact pedagogical PWM (Pulse-Width Modulation) diagram for an Arduino electronics course, modernized in soft 3D editorial style.
+
+REQUIRED STRUCTURE (three stacked rows, each showing a square-wave at a different duty cycle):
+
+Row 1 (TOP) — 5% duty cycle:
+- Narrow vertical pulses going from 0V baseline up to 5V peak, then back down. Pulses are very thin (5% of the period).
+- Three repeating pulses across the row.
+- Right side label: "1/20 (5%)"
+
+Row 2 (MIDDLE) — 50% duty cycle:
+- Classic square-wave: equal time HIGH (5V) and LOW (0V).
+- Three to four full cycles across the row.
+- Right side label: "10/20 (50%)"
+
+Row 3 (BOTTOM) — 90% duty cycle:
+- Wide HIGH plateaus (5V) with narrow drops to LOW (0V). The opposite of row 1.
+- Three repeating cycles.
+- Right side label: "18/20 (90%)"
+
+ANNOTATIONS (preserve exactly):
+- Each row has "5V" label at top of vertical axis, "0V" at bottom — on the LEFT side.
+- TOP of diagram: a horizontal time-arrow labeled "1/20 second" indicating the period of one cycle.
+
+VISUAL STYLE:
+- Soft 3D editorial render. Each waveform line drawn as a clean 3D extruded ribbon/tube with gentle shading.
+- Use the Arduino-teal accent color #00747d for the active signal lines (the square-wave traces themselves).
+- Labels in clean modern sans-serif, dark text on off-white #fafaf7 background.
+- Generous spacing between rows so each duty cycle is distinct.
+- 3:2 wide horizontal framing.
+
+PEDAGOGICAL POINT: the viewer must immediately read: "different duty cycles = different fraction of time HIGH = average voltage scales accordingly". The three rows side-by-side make the relationship visually obvious.
+
+ABSOLUTE CONSTRAINTS — must NOT include: a separate brightness/sine curve under the waves, photorealistic oscilloscope screens, circuit diagrams, cartoon characters, color bands, breadboards, multiple disconnected drawings. ONLY the three labeled square-wave rows with axes.
