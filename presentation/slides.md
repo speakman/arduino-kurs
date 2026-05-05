@@ -2428,6 +2428,9 @@ Vi låter den skriva ut dem till datorn över <span class="cyan">USB</span>.
 ```cpp
 void setup() {
   Serial.begin(9600);
+  // analoga pinnar är INPUT som default —
+  // följande är onödigt men inte fel:
+  // pinMode(A0, INPUT);
 }
 
 void loop() {

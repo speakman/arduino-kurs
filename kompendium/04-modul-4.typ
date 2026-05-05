@@ -148,6 +148,9 @@ Syntaxen är tre saker:
 ```cpp
 void setup() {
   Serial.begin(9600);     // starta kommunikationen, 9600 bit/s
+  // analoga pinnar är INPUT som default —
+  // följande är onödigt men inte fel:
+  // pinMode(A0, INPUT);
 }
 
 void loop() {
