@@ -179,6 +179,22 @@ En liten cylinder med en lös metallkula inuti. I upprätt läge rör kulan bara
   ([*Studs*], [Kulan bouncar. `delay(50)` efter läsningen räcker som debounce.]),
 )
 
+== Vridpotentiometer (10 kΩ) — demonstrationskomponent
+
+Kittet innehåller en *blå vridpotentiometer* på 10 kΩ. Ni kopplar den inte själva i kursen — men i Modul 4 visar läraren den som *fysisk modell av en spänningsdelare*, för att göra det konkret vad fotocellen sedan gör automatiskt.
+
+#quickref(
+  ([*Vad det är*], [Ett "långt motstånd" där en glidande arm (wiper) kan ställas var som helst längs det inre motståndsmaterialet.]),
+  ([*Pinnar*], [Tre ben. Två yttre = ändarna av motståndsspåret. Mittben = wipern.]),
+  ([*Demo-koppling*], [Yttre ben → +5 V och GND. Mittben → A0. Vrid → A0 sveper 0–1023 jämnt.]),
+  ([*Maxvärde*], [10 kΩ totalt mellan de två yttre benen. Wipern delar upp denna resistans i två andelar.]),
+  ([*Läses med*], [`analogRead(A0)`. Ger samma 0–1023 som fotocell-kopplingen.]),
+)
+
+Varför den ligger utanför hands-on-laben: en pot löser samma uppgift som en knapp i många nybörjarprojekt (välja ett värde) men introducerar mekanik som tar fokus från koden. Den är dock perfekt som *brygga* till spänningsdelar-konceptet — wipern är mätpunkten, ni kan se den flyttas med handen.
+
+*Vill ni leka mer:* prova att ersätta fotocellen i Modul 4 med pot:en och styra LED-ljusstyrkan med vridning istället för ljus. Allt i Modul 4-koden fungerar oförändrat.
+
 == Arduino Uno R3
 
 Själva styrkretsen. En mikrocontroller i ett "development board"-format med inbyggd USB-kontroller, spänningsreglering och stift-kontakter.
@@ -221,6 +237,6 @@ Det är en utmärkt första fördjupning efter kursen — prova att blinka åtta
 
 Kittet är medvetet minimalt — de komponenter ni byggt med under fem träffar är i princip precis de som ryms. Om ni vill gå vidare:
 
-- *Utökningskit* (Super Starter Kit, Most Complete Kit) innehåller saker som servomotor, LCD-display, potentiometer, IR-mottagare, temperatursensor, ultraljudsavståndsmätare, m.fl.
+- *Utökningskit* (Super Starter Kit, Most Complete Kit) innehåller saker som servomotor, LCD-display, IR-mottagare, temperatursensor, ultraljudsavståndsmätare, m.fl.
 - *Lösa komponenter* från Kjell & Company, Electrokit eller liknande när ni har ett specifikt projekt i åtanke. Ofta mer prisvärt än att köpa ett nytt kit.
 - *Online-tutorials* — Hackster.io och Instructables förklarar nästan alltid vad de använder och var man får tag på det.

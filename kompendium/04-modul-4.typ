@@ -49,6 +49,16 @@ Bara pinnarna *A0–A5* på Uno har ADC-hårdvara. `analogRead` på en digital p
 
 === Spänningsdelaren
 
+==== Bryggan: ett motstånd → två motstånd
+
+Tänk dig först ett *enda lååångt motstånd*. Det inre materialet — i kursens resistorer en tunn kolfilm runt en keramisk kärna — är jämnt fördelat. Att skicka ström genom det är som att låta vattnet kämpa sig genom en lång trång kanal: trycket sjunker *linjärt* längs vägen. `+5 V` i ena änden, `0 V` i andra. Vid mitten är spänningen exakt `2,5 V`. Vid en fjärdedel: `3,75 V`. Vid tre fjärdedelar: `1,25 V`.
+
+*Två motstånd i serie är samma sak — bara delat på en specifik punkt.* Skarven mellan dem är en mätpunkt, och det är där `A0` läser av. Värdet du får på `A0` är helt enkelt spänningen vid den brytpunkt du valde.
+
+En *vridpotentiometer* är denna idé i hårdvara: tre ben (yttre två = ändarna av motståndsmaterialet, mittben = wipern), och ratten flyttar wipern längs det inre motståndsspåret. Kopplar du yttre benen till `+5 V` och `GND` och mittbenet till `A0`, får du ett `analogRead`-värde som sveper jämnt 0–1023 när du vrider — exakt det fenomen vi nu utnyttjar med fotocellen, fast där är det ljuset som flyttar mätpunkten.
+
+==== Vatten-metaforen
+
 Tänk dig ett genomskinligt *vattenrör som höjdskala*: `+5 V` är uppe vid kranen, `GND` är nere vid utloppet. Två motstånd i serie är två rörsegment i rad, och skarven mellan dem är en *tapp* på skalan — det är där `A0` sitter och mäter.
 
 Regeln är enkel när man ser det så här:
