@@ -2471,6 +2471,91 @@ Vi sätter ihop allt till tjuvlarmet. Kom hungriga."
 -->
 
 ---
+layout: two-cols-header
+class: px-12 pt-10
+---
+
+<div class="text-xs font-mono uppercase tracking-[0.3em] opacity-50 mb-2">
+  Felsökning · variant
+</div>
+
+# Serial Plotter.
+
+::left::
+
+<div class="mt-4 space-y-5 text-lg leading-relaxed">
+
+Samma <span class="mono cyan">Serial.println(...)</span>-data — men ritad som **rörlig kurva** istället för rader av siffror.
+
+<v-click>
+
+Håll handen över fotocellen → **linjen dippar**. Vrid potentiometern → **linjen sveper**. Signalen blir synlig.
+
+</v-click>
+
+<v-click>
+
+<div class="tip-box mt-2">
+  <div class="tip-title">Öppna</div>
+  <div class="mt-1"><span class="mono cyan">Verktyg → Serial Plotter</span></div>
+</div>
+
+</v-click>
+
+<v-click>
+
+**Plotter** = se signalen. **Monitor** = läsa exakta tal + statusmeddelanden (<span class="mono">"LARM!"</span>).
+
+</v-click>
+
+</div>
+
+::right::
+
+<div class="mt-2 flex justify-center">
+  <img src="/images/serial-plotter.png" style="width:580px;max-width:100%" alt="Serial Plotter visar fotocell-värdet som rörlig kurva — kurvan ligger högt vid rumsljus, dippar skarpt när handen täcker cellen, stiger tillbaka när handen tas bort" />
+</div>
+
+<!--
+SERIAL PLOTTER — varför det är värdefullt här:
+
+Modul 4:s kärnpåstående är "knappen var digital, världen är analog". 
+Plotter gör analog-konceptet bokstavligt synligt — en rullande kurva 
+som dippar och toppar med ljuset. Inget annat verktyg i kursen visar 
+analoga signaler så viscerellt.
+
+GÖR DETTA NU (om Serial Monitor redan körs och deltagarna är med):
+1. Verktyg → Serial Plotter (eller Tools → Serial Plotter på engelsk IDE)
+2. En ny ruta öppnas med en rullande linjegraf
+3. Håll handen över fotocellen — kurvan dippar
+4. Ta bort handen — kurvan stiger
+5. Lys med ficklampa — kurvan toppar mot 1023
+
+VIKTIGT: Plotter och Monitor kan inte vara öppna SAMTIDIGT i samma 
+session — endast en lyssnar på serial-porten åt gången. Stäng den 
+ena innan du öppnar den andra.
+
+NÄR PLOTTER vs MONITOR:
+- Plotter: utforska sensorbeteende, se trender, visualisera pot/wiper-svep
+- Monitor: läsa exakta värden för tröskel-kalibrering, skriva 
+  statusmeddelanden ('LARM!', 'tröskel nådd'), debug if/else-flöde
+
+Plotter rendrar bara TAL. Om du blandar text och tal — t.ex. 
+Serial.print("ljus="); Serial.println(ljus); — får du parse-fel i 
+Plotter. Använd Monitor för det fallet.
+
+MULTI-SERIES (för den nyfikne):
+Modern IDE stödjer flera samtidiga linjer: 
+  Serial.print(ljus); Serial.print(' '); Serial.println(tilt);
+ger två separata kurvor i samma plot, automatiskt färgkodade.
+
+KOPPLA TILL POT-DEMON (slide 41):
+Om du körde pot-demon med Plotter där: deltagarna har redan sett 
+detta verktyg. Här bekräftar vi bara att samma sak fungerar för 
+fotocellen.
+-->
+
+---
 layout: default
 class: px-14
 ---
