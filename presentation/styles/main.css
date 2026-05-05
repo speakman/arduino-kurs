@@ -155,7 +155,7 @@
 .sp.locked::before { content: "🔒"; font-size: 1rem; position: absolute; margin-top: -0.5rem; }
 .sp.unlocked {
   border-color: var(--ak-accent);
-  background: linear-gradient(180deg, var(--ak-bg-raised), rgba(0, 255, 209, 0.04));
+  background: linear-gradient(180deg, var(--ak-bg-raised), color-mix(in srgb, var(--ak-accent) 4%, transparent));
   box-shadow: var(--ak-glow-cyan);
 }
 .sp.current {
@@ -171,7 +171,7 @@
 
 .warn-box {
   border-left: 4px solid var(--ak-danger);
-  background: rgba(255, 51, 102, 0.08);
+  background: color-mix(in srgb, var(--ak-danger) 8%, transparent);
   padding: 1.25rem 1.5rem;
   border-radius: 8px;
   box-shadow: var(--ak-glow-red);
@@ -262,7 +262,7 @@
 .big-code pre { font-size: 1.55em !important; line-height: 1.55 !important; padding: 1.5rem !important; }
 
 .dots-bg {
-  background-image: radial-gradient(circle, rgba(0, 255, 209, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--ak-accent) 8%, transparent) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -275,6 +275,9 @@
   border: 1px solid var(--ak-border);
 }
 
+/* .rgb-demo — svart frame är pedagogisk metafor: "RGB-LED i mörkt rum" /
+   "skärmdemo". Bildens egen svarta bg möter framens svarta bg utan söm.
+   #000 är medvetet litteralt (icke-tema-styrt) — utgör kontextuellt mörkrum. */
 .rgb-demo {
   width: 26rem;
   border-radius: 1rem;
@@ -296,7 +299,7 @@
   padding: 0.1em 0.55em;
   border-radius: 0.4em;
   font-weight: 700;
-  border: 1px solid color-mix(in srgb, var(--bg) 70%, #000 30%);
+  border: 1px solid color-mix(in srgb, var(--bg) 70%, var(--ak-text) 30%);
 }
 
 /* 10. PDF-export-overrides -------------------------------------------------- */

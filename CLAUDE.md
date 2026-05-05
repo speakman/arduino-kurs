@@ -61,7 +61,6 @@ Single-theme **light-only** (skrotad dark-mode 2026-05-05). Token-driven via `:r
 | `.breadboard-diagram` | Slide 11 — vit-bg ram för breadboard-internals |
 | `.sp-grid` / `.sp` | Section 7 — modul-kort på kursöversikt |
 | `.warn-box` / `.tip-box` | Pedagogiska varnings/tips-rutor |
-| `.hex-chip` | Inline kod-token |
 | `.rgb-circle` (.rgb-red/.rgb-green/.rgb-blue/.rgb-white) | RGB-LED visualisering |
 
 ## Slidev / Shiki

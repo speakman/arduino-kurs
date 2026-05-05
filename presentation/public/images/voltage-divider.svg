@@ -3,6 +3,15 @@
        Spänningsdelare-schema för slide 41 (Spänningsdelaren)
        Horisontell layout: schema vänster, värdetabell höger.
        Light theme, teal signal, rose ground, yellow sun (pedagogical).
+
+       Token-mirror (uppdatera om main.css:root flippar):
+         #00747d  ↔ --ak-accent       (signal/A0/+5V/text-värden)
+         #be123c  ↔ --ak-danger       (GND)
+         #0a0e14  ↔ --ak-text         (mörkast text)
+         #4a5568  ↔ --ak-text-dim     (sekundär text)
+         #8a95a3  ↔ --ak-text-mute    (etiketter, hint-text)
+         #d4d6d0  ↔ --ak-border       (motstånds-rektanglar, divider-linjer)
+         #ffd400  ↔ pedagogisk konstant (sol-symbol — RÖR EJ)
        ============================================================ -->
 
   <defs>
