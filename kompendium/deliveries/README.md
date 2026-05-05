@@ -45,8 +45,8 @@ Tre varianter finns:
 | `slides-dag-1.pdf` | 1–19 | Omslag + kursöversikt + Träff 1 (LED & krets) |
 | `slides-dag-2.pdf` | 20–26 | Träff 2 (PWM & RGB) |
 | `slides-dag-3.pdf` | 27–37 | Träff 3 (Digital input) |
-| `slides-dag-4.pdf` | 38–47 | Träff 4 (Analog input) |
-| `slides-dag-5.pdf` | 48–52 | Träff 5 (Hackathon) |
+| `slides-dag-4.pdf` | 38–48 | Träff 4 (Analog input) |
+| `slides-dag-5.pdf` | 49–53 | Träff 5 (Hackathon) |
 
 ## Varför inga slide-referenser i kompendiet?
 
