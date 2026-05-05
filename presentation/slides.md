@@ -2617,17 +2617,20 @@ class: px-14 pt-12
 
 # Koden att köra.
 
-<div class="big-code mt-4">
+<div class="mt-4">
 
 ```cpp
+const int ldrPin  = A0;
+const int tiltPin = 2;
+
 void setup() {
   Serial.begin(9600);
-  pinMode(2, INPUT_PULLUP);   // tilten kopplas som knappen
+  pinMode(tiltPin, INPUT_PULLUP);   // tilten kopplas som knappen
 }
 
 void loop() {
-  int ljus  = analogRead(A0);
-  int tilt  = digitalRead(2);
+  int ljus = analogRead(ldrPin);
+  int tilt = digitalRead(tiltPin);
   Serial.print("ljus=");
   Serial.print(ljus);
   Serial.print(" tilt=");
