@@ -1,0 +1,23 @@
+Re-render this breadboard image preserving the overall composition exactly, but with one critical correction.
+
+PRESERVE EXACTLY:
+- Off-white #fafaf7 background
+- Same breadboard size, position, and proportions as reference
+- Top section: red + blue power rail stripes
+- Center groove separating top and bottom halves
+- Bottom section: red + blue power rail stripes
+- Two terminal-strip halves with green vertical strips visible
+- Subtle 3D shading on the breadboard plastic body
+- Same overall TinkerCAD aesthetic
+
+CRITICAL CORRECTION:
+Each green vertical strip in BOTH the top and bottom terminal-strip halves MUST span EXACTLY 5 holes — count: ONE, TWO, THREE, FOUR, FIVE. Not four, not six, not seven. EXACTLY five small black holes per vertical column, evenly spaced. The total vertical extent of one green strip = the height of 5 holes.
+
+The top half and bottom half must be IDENTICAL MIRRORS of each other. Same number of vertical strips (~30 columns). Same hole count per strip (5). Same spacing. Same dimensions.
+
+ABSOLUTE CONSTRAINTS:
+- 5 holes per vertical column, no exceptions
+- Top half = bottom half (mirror symmetry across the center groove)
+- No components plugged in
+- No third terminal strip
+- Off-white background, NOT light-blue tint

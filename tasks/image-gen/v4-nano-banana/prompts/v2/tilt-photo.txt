@@ -1,0 +1,22 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + tilt switch plugged directly into headers, no breadboard) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Preserve component positions and apply EXPLICIT wiring corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, ALL pin labels readable (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), ARDUINO UNO logo readable, all chip and component positions.
+- Tilt switch: small cylindrical metal body with two thin metal leads, plugged directly into Arduino headers (NO breadboard). Same exact pin position area as the reference.
+
+CRITICAL WIRING — must follow this EXACTLY (the reference may have it wrong):
+- BLACK jumper wire: connects from one tilt-switch lead → Arduino GND pin (specifically a GND pin, NOT a digital pin).
+- YELLOW jumper wire: connects from the other tilt-switch lead → Arduino digital pin 2 (D2).
+- The wires curve naturally with realistic slack between tilt switch and the destination pins.
+
+STYLE CONSISTENCY (must match other Fritzing diagrams in this course):
+- TinkerCAD cartoon aesthetic with subtle 3D depth — same visual style as the LED, RGB, button, buzzer Fritzing diagrams.
+- Wires: clean rounded cables, slightly thicker for projector readability, smooth curves.
+- Background: solid off-white #fafaf7.
+
+REQUIRED CHANGES:
+1. WIRING — black to GND, yellow to D2 (EXPLICIT, override whatever the reference shows).
+2. BACKGROUND — solid off-white #fafaf7 (NOT light-blue TinkerCAD tint).
+3. NO USB CABLE — USB-B port empty.
+
+ABSOLUTE CONSTRAINTS — must NOT include: USB cable, breadboard (this circuit is breadboard-free), additional components (no LEDs, resistors, buzzers), wrong wire colors, wrong destination pins, photorealistic clutter, light-blue TinkerCAD background.

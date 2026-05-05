@@ -1,0 +1,26 @@
+Re-render this voltage-divider schematic preserving EVERYTHING EXACTLY as in the reference image, with ONE single change described below.
+
+PRESERVE EXACTLY (must match reference pixel-near-pixel):
+- Off-white #fafaf7 background
+- Photocell symbol on top (circle with zigzag inside, two diagonal arrows pointing inward representing light)
+- "fotocell (LDR)" label on the LEFT of the photocell symbol
+- Vertical wires connecting components
+- A0 junction (glowing teal dot) with horizontal wire branching right to "A0" rounded teal rectangle
+- "mätpunkt" italic label below the junction
+- Photo-realistic 1 kΩ resistor at the bottom (cylindrical, beige body, 4 bands: brown-black-red-gold)
+- "1 kΩ (fast)" label on the right of the resistor
+- GND symbol at the bottom (red ground triangle/lines)
+- "GND" label below in red
+- Vertical voltage scale on the right side (0 V to 5 V with tick marks and dashed up/down arrows at the A0 position)
+- Square 1:1 framing
+- Editorial schematic style with subtle 3D on the resistor only
+
+ONE SINGLE CHANGE:
+Move the "+5 V" label so it appears ABOVE the upward arrow ↑, not below it. New order from top to bottom should be:
+1. Label "+5 V" (in Arduino-teal, bold monospace)
+2. Upward arrow ↑ (in teal, large)
+3. Vertical wire going down to the photocell symbol
+
+ABSOLUTE CONSTRAINTS:
+- Do not change anything else about the layout, components, labels, colors, or composition
+- "+5 V" label must be ABOVE the arrow, arrow must be BELOW the label

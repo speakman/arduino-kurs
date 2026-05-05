@@ -1,0 +1,17 @@
+Re-render this exact pedagogical wiring diagram (Arduino board + active piezo buzzer plugged directly into headers) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Apply specific style + branding corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Board orientation, position, size — same as reference.
+- Active piezo buzzer: small blue cylindrical component with yellow paper sticker on top showing "+" polarity symbol (the typical "REMOVE SEAL AFTER WASHING" type sticker). Two thin metal pins extending from the bottom, plugged DIRECTLY into the Arduino headers — same exact pin positions as the reference (no breadboard).
+- Wire routing (if any): same as reference.
+
+REQUIRED CHANGES:
+1. BOARD BRANDING — replace the ELEGOO UNO R3 board with a standard ARDUINO UNO Rev3 board. The board is the classic Arduino UNO with the ARDUINO UNO logo printed on it (NOT the ELEGOO branding). All pin labels (DIGITAL, POWER, ANALOG IN, pin numbers 0-13, A0-A5) must be readable. Same teal/turquoise PCB color as a real Arduino UNO. Same chip layout.
+2. BACKGROUND — solid off-white #fafaf7 (NOT light-blue TinkerCAD tint).
+
+VISUAL STYLE:
+- TinkerCAD cartoon aesthetic with subtle 3D depth.
+- Wires: clean rounded cables, slightly thicker for projector readability.
+- 1:1 framing, comfortable spacing around the board and buzzer.
+
+ABSOLUTE CONSTRAINTS — must NOT include: ELEGOO branding (must be standard Arduino UNO), breadboard (this circuit is breadboard-free), additional components (no LEDs, resistors, switches), USB cable (USB-B port empty), light-blue TinkerCAD background, the yellow polarity sticker MUST remain on the buzzer.

@@ -1,0 +1,26 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + photocell + 1 kΩ resistor in voltage-divider configuration) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Preserve coupling EXACTLY and apply specific corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, ALL pin labels readable (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), ARDUINO UNO logo readable.
+- Breadboard: same position and orientation, column numbers (1-30), row letters (a-j), red+blue power-rail stripes with +/− markings.
+- Photocell (LDR): same position on breadboard, two leads in same holes, classic round 5mm sensor disc with serpentine cadmium-sulfide track on top.
+- 1 kΩ resistor: same position on breadboard, cylindrical horizontal with two leads, beige/khaki body, color bands brown-black-red (1 kΩ) + gold (±5%) (4-band: brown(1) + black(0) + red(×100) + gold).
+
+CRITICAL WIRING CORRECTION — must match the original schematic EXACTLY:
+- RED wire: connects directly from Arduino's 5V pin → top of the photocell on the breadboard, no breaks, no detours through the rail unless the original shows it.
+- WHITE wire (or grey): connects from the junction between photocell and 1 kΩ → Arduino's A0 pin.
+- BLACK wire: connects from bottom of 1 kΩ → Arduino's GND.
+
+The voltage divider is: 5V → photocell → A0 (junction) → 1 kΩ → GND. The wiring path must reflect this circuit clearly.
+
+STYLE CONSISTENCY (must match other Fritzing diagrams in this course):
+- TinkerCAD cartoon aesthetic with subtle 3D depth — same visual style as the LED, RGB, button, and buzzer Fritzing diagrams in the same series.
+- Wires: clean rounded cables, slightly thicker for projector readability, smooth curves.
+- Background: solid off-white #fafaf7.
+
+REQUIRED CHANGES:
+1. STYLE — match the other Fritzing diagrams (LED, RGB, button, buzzer) in this course. NOT the slightly different style the previous AI render used.
+2. BACKGROUND — solid off-white #fafaf7 (NOT light-blue TinkerCAD tint).
+3. NO USB CABLE — USB-B port empty.
+
+ABSOLUTE CONSTRAINTS — must NOT include: USB cable, additional components or wires, broken or interrupted wire paths (5V must go directly to photocell), photorealistic clutter, light-blue TinkerCAD background, schematic style (this is a Fritzing-style wiring diagram, not an electronic schematic).

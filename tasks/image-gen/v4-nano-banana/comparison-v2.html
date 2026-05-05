@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>v2-jämförelse — välj bästa NB2-version</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #fafaf7;
+    color: #0a0e14;
+    margin: 0;
+    padding: 32px 24px 200px;
+    line-height: 1.5;
+  }
+  .container { max-width: 1800px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+  .lead { color: #4a5568; margin: 0 0 2rem; max-width: 80ch; }
+  .legend { display: flex; gap: 1rem; margin: 1rem 0 2rem; font-size: 0.85rem; color: #4a5568; }
+  .legend span { padding: 0.2rem 0.6rem; border-radius: 0.4rem; background: #e6e7e2; }
+  h2 { font-size: 1.4rem; margin: 2.5rem 0 0.5rem; padding-top: 1rem; border-top: 1px solid #d4d6d0; }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+  .meta { color: #4a5568; font-size: 0.9rem; margin-bottom: 1rem; }
+  .feedback {
+    color: #4a5568; font-size: 0.85rem; font-style: italic;
+    background: #fef3c7; padding: 0.5rem 0.75rem; border-radius: 0.4rem;
+    margin: 0.5rem 0;
+    border-left: 3px solid #b45309;
+  }
+
+  .image-row { margin-bottom: 2rem; padding: 1rem; border-radius: 0.6rem; transition: background 0.15s; }
+  .image-row.has-pick { background: #ecfdf5; }
+  .image-row.no-pick { background: #fef2f2; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 0.75rem; }
+  .col { display: flex; flex-direction: column; }
+  .col label.variant-label {
+    cursor: pointer;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem;
+    font-family: "JetBrains Mono", "Menlo", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8a95a3;
+    margin-bottom: 0.4rem;
+    user-select: none;
+  }
+  .col label.variant-label.original { color: #4a5568; }
+  .col label.variant-label.nb2-v1 { color: #b45309; }
+  .col label.variant-label.nb2-v2 { color: #00747d; font-weight: 700; }
+
+  .img-wrap {
+    background: white;
+    border: 2px solid #d4d6d0;
+    border-radius: 0.5rem;
+    padding: 8px;
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+  .col input[type="radio"]:checked ~ .img-wrap {
+    border-color: #00747d;
+    box-shadow: 0 0 0 4px rgba(0, 116, 125, 0.18);
+  }
+  .img-wrap img { max-width: 100%; max-height: 500px; border-radius: 4px; }
+  .img-wrap.empty { color: #8a95a3; font-style: italic; font-size: 0.9rem; }
+  .col input[type="radio"] { display: none; }
+
+  .row-bottom {
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .row-bottom .none-option {
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    background: white;
+    border: 2px solid #d4d6d0;
+    border-radius: 0.4rem;
+    cursor: pointer; user-select: none;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+  .row-bottom .none-option input[type="radio"] { display: inline; }
+  .row-bottom .none-option:has(input:checked) {
+    border-color: #be123c;
+    background: #fef2f2;
+    color: #be123c;
+    font-weight: 600;
+  }
+  .row-bottom textarea {
+    flex: 1; min-height: 36px;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #d4d6d0;
+    border-radius: 0.4rem;
+    font-family: inherit; font-size: 0.9rem;
+    resize: vertical;
+    background: white;
+  }
+  .row-bottom textarea:focus { outline: 2px solid #00747d; outline-offset: -1px; }
+
+  .export-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #0a0e14; color: white;
+    padding: 1rem 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+    z-index: 100;
+  }
+  .export-bar .progress { font-size: 0.95rem; }
+  .export-bar .progress strong { color: #4ade80; font-size: 1.1rem; }
+  .export-bar button {
+    margin-left: auto;
+    padding: 0.6rem 1.2rem;
+    background: #00747d;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .export-bar button:hover { background: #00838c; }
+  .export-bar .json-output {
+    position: absolute;
+    bottom: 100%; left: 0; right: 0;
+    background: #0a0e14;
+    color: white;
+    padding: 1rem 2rem;
+    max-height: 400px;
+    overflow: auto;
+    display: none;
+    border-top: 1px solid #2a3441;
+  }
+  .export-bar .json-output.visible { display: block; }
+  .export-bar .json-output pre {
+    margin: 0;
+    font-family: "JetBrains Mono", "Menlo", monospace;
+    font-size: 0.85rem;
+    color: #d4ffe8;
+  }
+  .reset-btn {
+    background: transparent !important;
+    border: 1px solid #4a5568 !important;
+    color: #8a95a3 !important;
+  }
+  .reset-btn:hover { background: #2a3441 !important; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>v2-jämförelse — välj bästa NB2-version per bild</h1>
+<p class="lead">
+  De 8 bilderna med kvarstående problem har regenererats med skärpta prompts. Jämför nu
+  Original | v1 NB2 (första försök) | v2 NB2 (uppdaterad). Välj den bästa per bild — eller
+  "Ingen variant" om båda fortfarande har problem.
+</p>
+
+<div class="legend">
+  <span>Original</span>
+  <span style="background: #fef3c7;">v1 NB2 (första NB2-försök)</span>
+  <span style="background: #ccfbf1;">v2 NB2 (regen med uppdaterad prompt)</span>
+</div>
+
+<div id="content"></div>
+
+</div>
+
+<div class="export-bar">
+  <div class="json-output" id="json-output"><pre id="json-pre"></pre></div>
+  <div class="progress">
+    Valda: <strong id="picked-count">0</strong> / <span id="total-count">0</span>
+    &nbsp;·&nbsp; Avstådda: <strong id="none-count" style="color:#fca5a5">0</strong>
+    &nbsp;·&nbsp; Återstår: <strong id="remaining-count" style="color:#fcd34d">0</strong>
+  </div>
+  <button id="show-json-btn">Visa JSON</button>
+  <button id="export-btn">Exportera val (.json)</button>
+  <button class="reset-btn" id="reset-btn">Rensa alla val</button>
+</div>
+
+<script>
+const IMAGES = [
+  {
+    section: "Tekniska diagram",
+    items: [
+      { key: "breadboard-internals",
+        title: "Breadboard internals",
+        feedback: "v1: 6-7 hål per kolumn istället för 5. v2: striktare prompt + identiska top/bottom.",
+        original: "../originals/breadboard-internals.png",
+        v1: "breadboard.png",
+        v2: "breadboard-v2.png" },
+      { key: "voltage-divider",
+        title: "Spänningsdelaren",
+        feedback: "v1: för 3D, ej riktiga komponenter. v2: redesignat — fotocell-symbol + photo 1 kΩ + +5V↑ + skala på höger.",
+        original: "../originals/voltage-divider.svg",
+        v1: "voltage-divider.png",
+        v2: "voltage-divider-v2.png" },
+    ]
+  },
+  {
+    section: "Fritzing wiring-bilder",
+    items: [
+      { key: "led-fritzing",
+        title: "LED Fritzing",
+        feedback: "v1: fel resistor-färger, USB-kabel kvar. v2: 220Ω-band rätt, USB borta, off-white bg.",
+        original: "../originals/wiring/led-fritzing.png",
+        v1: "led-fritzing.png",
+        v2: "led-fritzing-v2.png" },
+      { key: "rgb-fritzing",
+        title: "RGB Fritzing",
+        feedback: "v1: USB-kabel kvar. v2: USB borta, off-white bg.",
+        original: "../originals/wiring/rgb-fritzing.png",
+        v1: "rgb-fritzing.png",
+        v2: "rgb-fritzing-v2.png" },
+      { key: "button-fritzing",
+        title: "Button Fritzing",
+        feedback: "v1: USB-kabel kvar. v2: USB borta, off-white bg.",
+        original: "../originals/wiring/button-fritzing.png",
+        v1: "button-fritzing.png",
+        v2: "button-fritzing-v2.png" },
+      { key: "buzzer-fritzing",
+        title: "Buzzer Fritzing",
+        feedback: "v1: ELEGOO-branded board. v2: standard Arduino UNO.",
+        original: "../originals/wiring/buzzer-fritzing.png",
+        v1: "buzzer-fritzing.png",
+        v2: "buzzer-fritzing-v2.png" },
+      { key: "photocell-schematic",
+        title: "Photocell schematic",
+        feedback: "v1: stil-mismatch + felaktig wiring (5V→fotocell hade avbrott). v2: enhetlig stil + striktare wiring-instruktioner.",
+        original: "../originals/wiring/photocell-schematic.png",
+        v1: "photocell-schematic.png",
+        v2: "photocell-schematic-v2.png" },
+      { key: "tilt-photo",
+        title: "Tilt-photo",
+        feedback: "v1: fel pin-anslutningar. v2: explicit svart→GND, gul→D2.",
+        original: "../originals/wiring/tilt-photo.png",
+        v1: "tilt-photo.png",
+        v2: "tilt-photo-v2.png" },
+    ]
+  },
+];
+
+const STORAGE_KEY = "arduino-kurs-image-selections-v2";
+
+function makeImgCol(item, variant) {
+  const src = item[variant];
+  const labels = { original: "ORIGINAL", v1: "NB2 v1", v2: "NB2 v2" };
+  const inputId = `${item.key}--${variant}`;
+  return `
+    <div class="col" data-variant="${variant}">
+      <input type="radio" name="${item.key}" value="${variant}" id="${inputId}">
+      <label class="variant-label ${variant === 'v1' ? 'nb2-v1' : variant === 'v2' ? 'nb2-v2' : 'original'}" for="${inputId}">${labels[variant]}</label>
+      <label class="img-wrap" for="${inputId}"><img src="${src}" alt="${variant}" loading="lazy"></label>
+    </div>
+  `;
+}
+
+function renderImageRow(item) {
+  return `
+    <div class="image-row no-pick" id="row-${item.key}" data-key="${item.key}">
+      <h3>${item.title}</h3>
+      ${item.feedback ? `<div class="feedback">${item.feedback}</div>` : ''}
+      <div class="grid">
+        ${makeImgCol(item, "original")}
+        ${makeImgCol(item, "v1")}
+        ${makeImgCol(item, "v2")}
+      </div>
+      <div class="row-bottom">
+        <label class="none-option">
+          <input type="radio" name="${item.key}" value="none" id="${item.key}--none">
+          Ingen variant
+        </label>
+        <textarea name="${item.key}--comment" placeholder="Valfri kommentar..."></textarea>
+      </div>
+    </div>
+  `;
+}
+
+function renderSection(section) {
+  return `
+    <h2>${section.section}</h2>
+    ${section.items.map(renderImageRow).join("")}
+  `;
+}
+
+document.getElementById("content").innerHTML = IMAGES.map(renderSection).join("");
+
+function readState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { return {}; }
+}
+function writeState(state) { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function loadState() {
+  const state = readState();
+  for (const key in state) {
+    const entry = state[key];
+    if (entry.winner) {
+      const radio = document.getElementById(`${key}--${entry.winner}`);
+      if (radio) radio.checked = true;
+    }
+    if (entry.comment) {
+      const textarea = document.querySelector(`textarea[name="${key}--comment"]`);
+      if (textarea) textarea.value = entry.comment;
+    }
+    updateRowVisual(key);
+  }
+  updateProgress();
+}
+function updateRowVisual(key) {
+  const row = document.getElementById(`row-${key}`);
+  if (!row) return;
+  const checked = row.querySelector('input[type="radio"]:checked');
+  row.classList.remove("has-pick", "no-pick");
+  if (!checked || checked.value === "none") row.classList.add("no-pick");
+  else row.classList.add("has-pick");
+}
+function getCurrentSelections() {
+  const out = {};
+  document.querySelectorAll(".image-row").forEach(row => {
+    const key = row.dataset.key;
+    const checked = row.querySelector('input[type="radio"]:checked');
+    const textarea = row.querySelector('textarea');
+    out[key] = {
+      winner: checked ? checked.value : null,
+      comment: textarea.value.trim() || null
+    };
+  });
+  return out;
+}
+function persist() {
+  writeState(getCurrentSelections());
+  updateProgress();
+}
+function updateProgress() {
+  const sels = getCurrentSelections();
+  const keys = Object.keys(sels);
+  const total = keys.length;
+  let picked = 0, none = 0, remaining = 0;
+  for (const k of keys) {
+    const w = sels[k].winner;
+    if (w === "none") none++;
+    else if (w) picked++;
+    else remaining++;
+  }
+  document.getElementById("picked-count").textContent = picked;
+  document.getElementById("none-count").textContent = none;
+  document.getElementById("remaining-count").textContent = remaining;
+  document.getElementById("total-count").textContent = total;
+}
+
+document.querySelectorAll('input[type="radio"], textarea').forEach(el => {
+  el.addEventListener("change", () => {
+    persist();
+    updateRowVisual(el.closest(".image-row").dataset.key);
+  });
+  if (el.tagName === "TEXTAREA") el.addEventListener("input", persist);
+});
+
+document.getElementById("export-btn").addEventListener("click", () => {
+  const data = getCurrentSelections();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "image-selections-v2.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+document.getElementById("show-json-btn").addEventListener("click", () => {
+  const data = getCurrentSelections();
+  document.getElementById("json-pre").textContent = JSON.stringify(data, null, 2);
+  document.getElementById("json-output").classList.toggle("visible");
+});
+document.getElementById("reset-btn").addEventListener("click", () => {
+  if (confirm("Rensa alla val? Detta går inte att ångra.")) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+});
+
+loadState();
+</script>
+</body>
+</html>

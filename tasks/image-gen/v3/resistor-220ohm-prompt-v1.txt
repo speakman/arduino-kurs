@@ -1,0 +1,26 @@
+Create a clean premium product render of a single 4-band 220-ohm through-hole resistor, soft 3D editorial style for an Arduino electronics course.
+
+REQUIRED EXACT BAND SEQUENCE (left to right) — these are pedagogically protected colors that students must recognize on real components:
+1. Body: warm beige / khaki color (#d4a574) — this is the resistor body color, MUST match exactly
+2. First color ring: red (#ff2222) — represents digit "2"
+3. Second color ring: red (#ff2222) — represents digit "2"
+4. Third color ring: brown (#8b4513) — represents multiplier "×10¹"
+5. (a clear gap between the third and fourth band)
+6. Fourth color ring: gold (#d4af37) — represents tolerance "±5%"
+
+Each colored band is a thin vertical stripe wrapping around the cylindrical body of the resistor. Bands 1-3 are clustered close together near the LEFT end of the body. Band 4 (gold) is separated by a visible gap and sits closer to the RIGHT end.
+
+PHYSICAL FORM:
+- Cylindrical body, slightly bulged in the middle, narrow at the ends — typical through-hole resistor shape.
+- Two thin straight metal leads (silver/tinned copper) extending horizontally from each end of the body.
+- Body proportions: ~3-4x as long as it is wide. Horizontal orientation.
+
+VISUAL STYLE:
+- Soft 3D editorial product render. Premium technical-textbook aesthetic.
+- Subtle gradient shading on the cylindrical surface to give 3D depth. Soft drop shadow underneath.
+- Lighting: studio-grade from above-left, gentle and natural.
+- Background: solid off-white #fafaf7, no scenery, no other components.
+- Centered with generous margins. 3:2 horizontal framing.
+- Sharp focus on the bands so colors are easily readable.
+
+ABSOLUTE CONSTRAINTS — must NOT include: multiple resistors, breadboard, leads bent into shapes, connecting wires, color bands in a different sequence or color than specified, photorealistic textures other than smooth ceramic-painted resistor body, text labels, schematic symbols, characters. ONE single resistor centered on plain background.

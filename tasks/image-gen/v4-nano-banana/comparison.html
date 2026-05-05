@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Bildjämförelse — välj bästa variant</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #fafaf7;
+    color: #0a0e14;
+    margin: 0;
+    padding: 32px 24px 200px;
+    line-height: 1.5;
+  }
+  .container { max-width: 1800px; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+  .lead { color: #4a5568; margin: 0 0 2rem; max-width: 80ch; }
+  .legend { display: flex; gap: 1rem; margin: 1rem 0 2rem; font-size: 0.85rem; color: #4a5568; }
+  .legend span { padding: 0.2rem 0.6rem; border-radius: 0.4rem; background: #e6e7e2; }
+  h2 { font-size: 1.4rem; margin: 2.5rem 0 0.5rem; padding-top: 1rem; border-top: 1px solid #d4d6d0; }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+  .meta { color: #4a5568; font-size: 0.9rem; margin-bottom: 1rem; }
+
+  .image-row { margin-bottom: 2rem; padding: 1rem; border-radius: 0.6rem; transition: background 0.15s; }
+  .image-row.has-pick { background: #ecfdf5; }
+  .image-row.no-pick { background: #fef2f2; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 0.75rem; }
+  .col { display: flex; flex-direction: column; }
+  .col label.variant-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-family: "JetBrains Mono", "Menlo", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8a95a3;
+    margin-bottom: 0.4rem;
+    user-select: none;
+  }
+  .col label.variant-label.original { color: #4a5568; }
+  .col label.variant-label.gpt { color: #b45309; }
+  .col label.variant-label.nb2 { color: #00747d; }
+
+  .img-wrap {
+    background: white;
+    border: 2px solid #d4d6d0;
+    border-radius: 0.5rem;
+    padding: 8px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+  .col input[type="radio"]:checked ~ .img-wrap {
+    border-color: #00747d;
+    box-shadow: 0 0 0 4px rgba(0, 116, 125, 0.18);
+  }
+  .img-wrap img { max-width: 100%; max-height: 500px; border-radius: 4px; }
+  .img-wrap.empty { color: #8a95a3; font-style: italic; font-size: 0.9rem; }
+
+  .col input[type="radio"] { display: none; }
+
+  .row-bottom {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .row-bottom .none-option {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.8rem;
+    background: white;
+    border: 2px solid #d4d6d0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+  .row-bottom .none-option input[type="radio"] { display: inline; }
+  .row-bottom .none-option:has(input:checked) {
+    border-color: #be123c;
+    background: #fef2f2;
+    color: #be123c;
+    font-weight: 600;
+  }
+  .row-bottom textarea {
+    flex: 1;
+    min-height: 36px;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #d4d6d0;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    background: white;
+  }
+  .row-bottom textarea:focus { outline: 2px solid #00747d; outline-offset: -1px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: #00747d20;
+    color: #00747d;
+    font-weight: 600;
+    margin-left: 0.5rem;
+  }
+
+  /* Export bar */
+  .export-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0a0e14;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+    z-index: 100;
+  }
+  .export-bar .progress { font-size: 0.95rem; }
+  .export-bar .progress strong { color: #4ade80; font-size: 1.1rem; }
+  .export-bar button {
+    margin-left: auto;
+    padding: 0.6rem 1.2rem;
+    background: #00747d;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .export-bar button:hover { background: #00838c; }
+  .export-bar button:disabled { background: #4a5568; cursor: not-allowed; }
+  .export-bar .json-output {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background: #0a0e14;
+    color: white;
+    padding: 1rem 2rem;
+    max-height: 400px;
+    overflow: auto;
+    display: none;
+    border-top: 1px solid #2a3441;
+  }
+  .export-bar .json-output.visible { display: block; }
+  .export-bar .json-output pre {
+    margin: 0;
+    font-family: "JetBrains Mono", "Menlo", monospace;
+    font-size: 0.85rem;
+    color: #d4ffe8;
+  }
+  .reset-btn {
+    background: transparent !important;
+    border: 1px solid #4a5568 !important;
+    color: #8a95a3 !important;
+  }
+  .reset-btn:hover { background: #2a3441 !important; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Bildjämförelse — välj bästa variant per bild</h1>
+<p class="lead">
+  Klicka på bilden eller etiketten för att välja den bästa varianten. Klicka "Ingen variant" om
+  ingen är användbar. Skriv valfri kommentar i fältet bredvid. När du är klar — klicka
+  <strong>"Exportera val"</strong> nedtill för att ladda ner ett JSON, eller klicka
+  <strong>"Visa JSON"</strong> för att kopiera/klistra in.
+</p>
+
+<div class="legend">
+  <span>Original</span>
+  <span style="background: #fef3c7;">gpt-image-2 (OpenAI/Higgsfield)</span>
+  <span style="background: #ccfbf1;">Nano Banana 2 (Higgsfield)</span>
+</div>
+
+<div id="content"></div>
+
+</div>
+
+<div class="export-bar">
+  <div class="json-output" id="json-output"><pre id="json-pre"></pre></div>
+  <div class="progress">
+    Valda: <strong id="picked-count">0</strong> / <span id="total-count">0</span>
+    &nbsp;·&nbsp; Avstådda: <strong id="none-count" style="color:#fca5a5">0</strong>
+    &nbsp;·&nbsp; Återstår: <strong id="remaining-count" style="color:#fcd34d">0</strong>
+  </div>
+  <button id="show-json-btn">Visa JSON</button>
+  <button id="export-btn">Exportera val (.json)</button>
+  <button class="reset-btn" id="reset-btn">Rensa alla val</button>
+</div>
+
+<script>
+const IMAGES = [
+  {
+    section: "Pedagogiska illustrationer",
+    sectionMeta: "Karaktärer, metaforer, soft 3D editorial",
+    items: [
+      { key: "ohms-law", title: "Ohms lag — cartoon (slide 8)",
+        original: "../originals/ohms-law-cartoon.jpg",
+        gpt: "../v2/ohms-law-attempt-2-wide.png",
+        nb2: "ohms-law.png" },
+      { key: "ohms-triangle", title: "Ohms-triangel (slide 8)",
+        original: null, originalNote: "n/a (var inline SVG)",
+        gpt: "../v3/ohms-triangle-attempt-3.png",
+        nb2: "ohms-triangle.png" },
+      { key: "photoresistor-states", title: "Fotocell-tillstånd (slide 39)",
+        original: "../originals/photoresistors-three.jpg",
+        gpt: "../v3/photoresistor-states-attempt-1.png",
+        nb2: "photoresistor-states.png" },
+    ]
+  },
+  {
+    section: "Tekniska diagram",
+    sectionMeta: "Schemata, vågformer, 5-håls-strips",
+    items: [
+      { key: "breadboard-internals", title: "Breadboard internals (slide 11)",
+        original: "../originals/breadboard-internals.png",
+        gpt: "../v3/breadboard-attempt-2.png",
+        nb2: "breadboard.png" },
+      { key: "pwm-waveform", title: "PWM duty cycle (slide 24)",
+        original: "../originals/pwm-waveform.png",
+        gpt: "../v3/pwm-attempt-2.png",
+        nb2: "pwm.png" },
+      { key: "voltage-divider", title: "Spänningsdelare-schema (slide 41)",
+        original: "../originals/voltage-divider.svg",
+        gpt: "../v3/voltage-divider-attempt-1.png",
+        nb2: "voltage-divider.png" },
+      { key: "rgb-color-mixing", title: "RGB color mixing (slide 21)",
+        original: "../originals/rgb-color-mixing.png",
+        gpt: "../v1/rgb-color-mixing.png",
+        nb2: "rgb-color-mixing.png" },
+    ]
+  },
+  {
+    section: "Komponent hero-shots",
+    sectionMeta: "Photorealistic close-ups, soft 3D editorial",
+    items: [
+      { key: "cover-arduino-hero", title: "Cover hero (slide 1)",
+        original: "../originals/cover-arduino-hero.jpg",
+        gpt: "../v1/cover-arduino-hero-v2.png",
+        nb2: "cover-arduino-hero.png" },
+      { key: "arduino-uno-hero", title: "Arduino UNO hero (slide 14 bg)",
+        original: "../originals/arduino-uno-hero.jpg",
+        gpt: "../../../presentation/public/images/arduino-uno-hero.jpg",
+        nb2: "arduino-uno-hero.png" },
+      { key: "active-buzzer-sticker", title: "Active buzzer sticker (slide 33)",
+        original: "../originals/active-buzzer-sticker.jpg",
+        gpt: "../v1/active-buzzer-sticker.png",
+        nb2: "active-buzzer-sticker.png" },
+      { key: "photoresistor-macro", title: "Photoresistor macro (orphan)",
+        original: "../originals/photoresistor-macro.jpg",
+        gpt: "../v1/photoresistor-macro.png",
+        nb2: "photoresistor-macro.png" },
+      { key: "resistor-220ohm", title: "220 Ω resistor (slide 10) — text-only generation",
+        original: null, originalNote: "n/a (var CSS-rektanglar)",
+        gpt: "../v3/resistor-220ohm-attempt-1.png",
+        nb2: "resistor-220ohm.png" },
+    ]
+  },
+  {
+    section: "Fritzing wiring-bilder",
+    sectionMeta: "TinkerCAD-style med Arduino + breadboard + komponenter + tät text-labels",
+    items: [
+      { key: "led-fritzing", title: "LED Fritzing (slide 14)",
+        original: "../originals/wiring/led-fritzing.png",
+        gpt: "../v3/led-fritzing-attempt-1.png",
+        nb2: "led-fritzing.png" },
+      { key: "rgb-fritzing", title: "RGB Fritzing",
+        original: "../originals/wiring/rgb-fritzing.png",
+        gpt: null, gptNote: "n/a (ej genererad med gpt-image-2)",
+        nb2: "rgb-fritzing.png" },
+      { key: "button-fritzing", title: "Button Fritzing (slide 28)",
+        original: "../originals/wiring/button-fritzing.png",
+        gpt: null, gptNote: "n/a (ej genererad med gpt-image-2)",
+        nb2: "button-fritzing.png" },
+      { key: "buzzer-fritzing", title: "Buzzer Fritzing (slide 33)",
+        original: "../originals/wiring/buzzer-fritzing.png",
+        gpt: null, gptNote: "n/a (ej genererad med gpt-image-2)",
+        nb2: "buzzer-fritzing.png" },
+      { key: "photocell-schematic", title: "Photocell schematic",
+        original: "../originals/wiring/photocell-schematic.png",
+        gpt: null, gptNote: "n/a (ej genererad med gpt-image-2)",
+        nb2: "photocell-schematic.png" },
+      { key: "tilt-photo", title: "Tilt-photo (slide 43)",
+        original: "../originals/wiring/tilt-photo.png",
+        gpt: "../v3/tilt-attempt-1.png",
+        nb2: "tilt-photo.png" },
+    ]
+  },
+];
+
+const STORAGE_KEY = "arduino-kurs-image-selections-v1";
+
+function makeImgCol(item, variant) {
+  const src = item[variant];
+  const note = item[variant + "Note"];
+  const labels = { original: "ORIGINAL", gpt: "GPT-IMAGE-2", nb2: "NANO BANANA 2" };
+  const labelClass = variant;
+  const inputId = `${item.key}--${variant}`;
+  return `
+    <div class="col" data-variant="${variant}">
+      <input type="radio" name="${item.key}" value="${variant}" id="${inputId}" ${src ? '' : 'disabled'}>
+      <label class="variant-label ${labelClass}" for="${inputId}">${labels[variant]}</label>
+      ${src
+        ? `<label class="img-wrap" for="${inputId}"><img src="${src}" alt="${variant}" loading="lazy"></label>`
+        : `<div class="img-wrap empty">${note || 'n/a'}</div>`}
+    </div>
+  `;
+}
+
+function renderImageRow(item) {
+  return `
+    <div class="image-row no-pick" id="row-${item.key}" data-key="${item.key}">
+      <h3>${item.title}</h3>
+      <div class="grid">
+        ${makeImgCol(item, "original")}
+        ${makeImgCol(item, "gpt")}
+        ${makeImgCol(item, "nb2")}
+      </div>
+      <div class="row-bottom">
+        <label class="none-option">
+          <input type="radio" name="${item.key}" value="none" id="${item.key}--none">
+          Ingen variant
+        </label>
+        <textarea name="${item.key}--comment" placeholder="Valfri kommentar (skäl, observationer, vad som behöver fixas...)"></textarea>
+      </div>
+    </div>
+  `;
+}
+
+function renderSection(section) {
+  return `
+    <h2>${section.section}</h2>
+    <div class="meta">${section.sectionMeta}</div>
+    ${section.items.map(renderImageRow).join("")}
+  `;
+}
+
+document.getElementById("content").innerHTML = IMAGES.map(renderSection).join("");
+
+// State management
+function readState() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch { return {}; }
+}
+
+function writeState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function loadState() {
+  const state = readState();
+  for (const key in state) {
+    const entry = state[key];
+    if (entry.winner) {
+      const radio = document.getElementById(`${key}--${entry.winner}`);
+      if (radio) radio.checked = true;
+    }
+    if (entry.comment) {
+      const textarea = document.querySelector(`textarea[name="${key}--comment"]`);
+      if (textarea) textarea.value = entry.comment;
+    }
+    updateRowVisual(key);
+  }
+  updateProgress();
+}
+
+function updateRowVisual(key) {
+  const row = document.getElementById(`row-${key}`);
+  if (!row) return;
+  const checked = row.querySelector('input[type="radio"]:checked');
+  row.classList.remove("has-pick", "no-pick");
+  if (!checked) row.classList.add("no-pick");
+  else if (checked.value === "none") row.classList.add("no-pick");
+  else row.classList.add("has-pick");
+}
+
+function getCurrentSelections() {
+  const out = {};
+  document.querySelectorAll(".image-row").forEach(row => {
+    const key = row.dataset.key;
+    const checked = row.querySelector('input[type="radio"]:checked');
+    const textarea = row.querySelector('textarea');
+    out[key] = {
+      winner: checked ? checked.value : null,
+      comment: textarea.value.trim() || null
+    };
+  });
+  return out;
+}
+
+function persist() {
+  writeState(getCurrentSelections());
+  updateProgress();
+}
+
+function updateProgress() {
+  const sels = getCurrentSelections();
+  const keys = Object.keys(sels);
+  const total = keys.length;
+  let picked = 0, none = 0, remaining = 0;
+  for (const k of keys) {
+    const w = sels[k].winner;
+    if (w === "none") none++;
+    else if (w) picked++;
+    else remaining++;
+  }
+  document.getElementById("picked-count").textContent = picked;
+  document.getElementById("none-count").textContent = none;
+  document.getElementById("remaining-count").textContent = remaining;
+  document.getElementById("total-count").textContent = total;
+}
+
+document.querySelectorAll('input[type="radio"], textarea').forEach(el => {
+  el.addEventListener("change", () => {
+    persist();
+    updateRowVisual(el.closest(".image-row").dataset.key);
+  });
+  if (el.tagName === "TEXTAREA") {
+    el.addEventListener("input", persist);
+  }
+});
+
+// Export
+document.getElementById("export-btn").addEventListener("click", () => {
+  const data = getCurrentSelections();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "image-selections.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("show-json-btn").addEventListener("click", () => {
+  const data = getCurrentSelections();
+  document.getElementById("json-pre").textContent = JSON.stringify(data, null, 2);
+  document.getElementById("json-output").classList.toggle("visible");
+});
+
+document.getElementById("reset-btn").addEventListener("click", () => {
+  if (confirm("Rensa alla val? Detta går inte att ångra.")) {
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+});
+
+// Init
+loadState();
+</script>
+</body>
+</html>

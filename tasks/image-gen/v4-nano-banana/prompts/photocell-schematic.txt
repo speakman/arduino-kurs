@@ -1,0 +1,21 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + photoresistor + 1 kΩ resistor in voltage-divider configuration) in TinkerCAD-style cartoon aesthetic. Preserve the layout and components EXACTLY as in the reference. The reference is pedagogically correct — your job is to preserve all details and clean up the rendering quality.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, same pin label printing (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), same chip and component placement, same USB-B and barrel-jack ports, ARDUINO UNO logo readable.
+- USB-B cable plugged into Arduino with the cable extending out of frame.
+- Breadboard: same position, same orientation, same rounded corners, same column numbers (1, 5, 10, 15, 20, 25, 30) printed at top and bottom, same row letters (a, b, c, d, e on top half; f, g, h, i, j on bottom half), same +/− markings on the power rails along the edges, same red and blue colored stripes along the power rails.
+- Photoresistor / LDR: same position on breadboard. Two leads inserted into breadboard holes — match the reference exactly. The classic round 5mm sensor disc with a serpentine cadmium-sulfide track on top.
+- 1 kΩ resistor: same position on breadboard. Cylindrical horizontal resistor with two leads. Color bands MUST be brown-black-red-gold (4-band 1 kΩ ±5%): brown(1) + black(0) + red(×100) + gold(±5%) = 1 kΩ. Body color beige/khaki.
+- Wire routing: same colors and same paths as in the reference. Typical: red wire from Arduino 5V to top of photoresistor on breadboard, white/black wire from junction (between photoresistor and 1 kΩ) to Arduino A0, black wire from bottom of 1 kΩ to Arduino GND.
+- Background: solid light-blue wash, matching the reference (TinkerCAD-style background).
+- Overall TinkerCAD/Fritzing simulator aesthetic.
+
+ABSOLUTE CONSTRAINTS — must NOT:
+- Change the position of any component, wire, or label
+- Remove or alter any text printing on the Arduino board (pin numbers, labels)
+- Remove or alter the breadboard column numbers, row letters, or +/− power-rail markings
+- Change wire colors or routing
+- Change the photoresistor or 1 kΩ resistor positions
+- Add new components or wires not present in the reference
+- Re-style the aesthetic to be more 3D/photorealistic
+- Add background scenery beyond the original light-blue wash

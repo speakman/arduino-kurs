@@ -1,0 +1,31 @@
+Create a clean, minimal Ohms-law mnemonic triangle for an Arduino electronics course. Editorial technical-textbook aesthetic — refined, elegant, line-art style.
+
+REQUIRED STRUCTURE — equilateral triangle outline with three letter-labels positioned for the "cover-the-variable" pedagogical trick:
+
+- TOP HALF: the letter "U" centered in the upper portion of the triangle interior. Large bold monospace, in Arduino-teal accent color (#00747d).
+- BOTTOM HALF: contains TWO elements side by side:
+    - the letter "R" on the LEFT side
+    - a SMALL multiplication dot (·) in the CENTER between R and I — this dot is part of the formula expression, NOT decoration
+    - the letter "I" on the RIGHT side
+  R and I are large bold monospace, dark color (#0a0e14). The · is dark, smaller, vertically centered.
+- The bottom half (with "R · I") is separated from the top half ("U") by a clean horizontal divider line crossing the triangle interior.
+
+CRITICAL — divider line: the horizontal line that separates U from R · I must be a SIMPLE clean stroke from triangle-edge to triangle-edge. NO decoration on the divider line itself. NO dot on the divider. The dot ONLY appears between R and I in the bottom half, never on the divider.
+
+VISUAL STYLE — STRICT REQUIREMENTS:
+- Thin clean strokes — NOT 3D extruded ribbons, NOT thick tubes. The triangle outline is a refined ~4-5px stroke in Arduino-teal (#00747d).
+- A very subtle drop shadow underneath the triangle for gentle depth — NO 3D extrusion, NO tube effect.
+- Letters: clean monospace (e.g. JetBrains Mono style), bold, large enough to read across a classroom.
+- Background: solid off-white #fafaf7, no scenery.
+- Square 1:1 framing, triangle centered with generous breathing room.
+- Premium textbook aesthetic — refined and minimalistic.
+
+ABSOLUTE CONSTRAINTS — must NOT include:
+- Any text, equation, or label OTHER than U, R, I, and the · between R and I.
+- A "U = R · I" subtitle anywhere — the triangle stands alone.
+- A multiplication dot or any decoration on the divider line in the middle of the triangle.
+- Thick 3D tube/ribbon effect on the triangle outline.
+- Photorealistic textures, metallic shading, neon glow.
+- Any other shapes, characters, components, or symbols.
+
+The output should be a clean elegant line-art triangle with U at top, "R · I" at bottom (with the dot between R and I), and a plain horizontal divider line between them.

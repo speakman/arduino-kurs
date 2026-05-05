@@ -1,0 +1,11 @@
+Pedagogical 3D illustration of additive RGB color mixing for an Arduino electronics course.
+
+Subject: Three luminous glowing spheres in pure red (#ff1744), pure green (#00e676), and pure blue (#2979ff), arranged in a classic Venn-diagram three-circle overlap composition. Where any two spheres overlap, the resulting color is correct: red + green = yellow, red + blue = magenta, green + blue = cyan. Where all three spheres overlap in the center, the result is pure white. Soft realistic bloom and light emission from each sphere.
+
+Visual style: premium 3D editorial render, with the spheres feeling like luminous orbs with gentle glow halos. NOT flat, NOT cartoon, NOT toy.
+
+Background: solid near-black #0a0e14 — pedagogical metaphor of light emerging in darkness. The dark background is intentional and important.
+
+Composition: square 1:1 framing, the three spheres overlapping in classic equilateral-triangle arrangement, generous margins around them so the bloom doesn't get clipped.
+
+Constraints: must NOT include text labels, axis lines, components, characters, additional shapes, photorealistic clutter, or off-white background. Just three glowing spheres in Venn-diagram overlap on near-black background.

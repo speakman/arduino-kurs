@@ -1,0 +1,18 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + 4-pin tactile push button in TinkerCAD-style cartoon aesthetic). Preserve the layout and components EXACTLY as in the reference. The reference is already pedagogically correct — your job is to preserve all details and clean up the rendering quality (sharper, crisper, more readable text).
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, same pin label printing (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), same chip and component placement, same USB-B and barrel-jack ports, ARDUINO UNO logo readable.
+- USB-B cable plugged into Arduino with the cable extending out of frame.
+- Breadboard: same position, same orientation, same rounded corners, same column numbers (1, 5, 10, 15, 20, 25, 30) printed at top and bottom, same row letters (a, b, c, d, e on top half; f, g, h, i, j on bottom half), same +/− markings on the power rails along the edges, same red and blue colored stripes along the power rails.
+- 4-pin tactile push button: same position on breadboard, straddling the center groove, four metal legs inserted into specific holes — match the reference exactly. Black square plastic body with a small round button-cap on top.
+- Wires: same number, same colors, same routing as the reference. Typical setup uses INPUT_PULLUP (no external pulldown resistor needed) — keep whatever the reference shows.
+- Background: solid light-blue wash, matching the reference (TinkerCAD-style background).
+- Overall TinkerCAD/Fritzing simulator aesthetic.
+
+ABSOLUTE CONSTRAINTS — must NOT:
+- Change the position of any component, wire, or label
+- Remove or alter any text printing on the Arduino board (pin numbers, labels)
+- Remove or alter the breadboard column numbers, row letters, or +/− power-rail markings
+- Add new components or wires not present in the reference
+- Re-style the aesthetic to be more 3D/photorealistic
+- Add background scenery beyond the original light-blue wash

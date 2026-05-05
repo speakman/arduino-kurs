@@ -1,0 +1,58 @@
+Create a clean pedagogical voltage-divider schematic illustration for an Arduino electronics course (Modul 4 — Sensorer & Serial Monitor). The course uses a "water pipe as height scale" metaphor: +5V is at the top (faucet), GND at the bottom (drain), and A0 measures the midpoint pressure. The illustration should anchor that abstract metaphor with REAL recognizable components.
+
+REQUIRED STRUCTURE — vertical voltage-divider, top to bottom:
+
+TOP — +5 V SUPPLY:
+- A clear UPWARD ARROW (↑) symbol pointing up at the very top, indicating the positive supply rail.
+- Label "+5 V" next to or below the arrow, in Arduino-teal color (#00747d), bold monospace.
+
+UPPER COMPONENT — PHOTOCELL (LDR) AS A REAL ELECTRONIC SYMBOL:
+- Draw the photocell as the standard textbook electrical schematic symbol:
+  - A CIRCLE outline (representing the LDR sensor disc body)
+  - Inside the circle: the classic resistor ZIGZAG line (5-6 zigzag turns)
+  - TWO ARROWS pointing diagonally INWARD toward the circle from the upper-right side (representing light rays hitting the photocell). The arrows are small, with arrowheads at the tips.
+- LEFT of the symbol: label "fotocell" in dark monospace, with smaller "(LDR)" subtitle below.
+- The photocell is the UPPER (variable) resistor in the divider.
+
+MIDDLE — A0 TAP (mätpunkt):
+- A glowing teal junction dot on the vertical wire between the two components.
+- A horizontal teal wire branches RIGHT from the junction, ending at a rounded rectangle labeled "A0" in monospace teal text (matching the deck's #00747d accent).
+- Tiny italic "mätpunkt" label below the junction.
+
+LOWER COMPONENT — REAL 1 kΩ RESISTOR (rendered photorealistically as a small inset 3D component):
+- A horizontal cylindrical resistor body in beige/khaki ceramic-painted color (#d4a574).
+- 4-band color code for 1 kΩ ±5%, EXACT left-to-right sequence on the body:
+  1. BROWN band (digit 1)
+  2. BLACK band (digit 0)
+  3. RED band (multiplier ×100, gives 10×100 = 1000 = 1 kΩ)
+  4. (small gap)
+  5. GOLD band (tolerance ±5%)
+- Two thin tinned-copper leads extending horizontally from each end of the body. The resistor sits in series — its leads connect to the surrounding vertical wires of the schematic.
+- RIGHT of the component: label "1 kΩ" in monospace, with smaller "(fast)" subtitle below.
+
+BOTTOM — GND:
+- Standard ground symbol (triangle pointing down, OR three decreasing horizontal lines stacked) in rose/red color (#be123c).
+- "GND" label below in monospace red.
+
+VERTICAL WIRES connect: +5V arrow → top lead of photocell symbol → bottom lead of photocell symbol → A0 junction → top lead of real 1 kΩ resistor → bottom lead of resistor → GND symbol. All wires dark grey/black, clean ~3px strokes.
+
+PEDAGOGICAL BONUS — subtle "midpoint position" cue:
+- On the RIGHT side of the schematic (parallel to the vertical wire), draw a small thin vertical scale labeled "0 V" at the bottom and "5 V" at the top.
+- A small horizontal tick line at the height of the A0 junction, indicating where A0 measures (default position around the middle).
+- Tiny dashed arrows above and below the tick (↑ ↓) suggesting the midpoint can move based on resistor ratio.
+- Keep this scale SMALL and SUBTLE — it complements but does not dominate the schematic.
+
+VISUAL STYLE — IMPORTANT:
+- Hybrid: the schematic SYMBOLS (photocell circle + zigzag, GND symbol, +5V arrow, wires) are clean 2D line-art with subtle gentle shading.
+- The 1 kΩ resistor is the ONE element rendered photorealistically (3D component with proper color bands), to anchor the abstract schematic in something the student will recognize physically when they pick it out of the kit.
+- Background: solid off-white #fafaf7.
+- Square 1:1 framing, schematic centered with comfortable margins.
+- Premium textbook aesthetic — refined, technical, restrained. NOT heavy 3D extrusion. NOT cartoon. NOT toy.
+
+PEDAGOGICAL POINT (so the viewer immediately reads the right thing):
+- "+5 V at top with up-arrow, GND at bottom" — the supply rails.
+- "Photocell on top (variable, light-sensitive) + 1 kΩ on bottom (fixed)" — the two-resistor series.
+- "A0 junction in the middle" — where Arduino measures.
+- "Midpoint can shift" — the tiny scale on the right shows A0's voltage moves with the resistor ratio.
+
+ABSOLUTE CONSTRAINTS — must NOT include: a values table, breadboard, Arduino board, photoresistor as 3D photoreal disc (must be the schematic symbol), heavy 3D extrusion on wires or symbols, cartoon characters, multiple resistors of the same type, water-pipe drawings (the metaphor lives in slide text, not in this image), labels in any language other than Swedish/English-tech (fotocell, mätpunkt, 1 kΩ, A0, +5 V, GND).

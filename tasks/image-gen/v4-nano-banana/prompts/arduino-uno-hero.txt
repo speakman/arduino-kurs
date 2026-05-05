@@ -1,0 +1,5 @@
+Premium photorealistic 3D product render. Three-quarter elevated angle. Refined modern aesthetic, NOT cartoon, NOT childish, NOT toy-like. Studio-grade lighting from above-left with soft ambient grounding shadow beneath the subject. Background: solid warm off-white #fafaf7 only, no other colors or scenery. Composition: centered with generous margins, clean editorial framing. Square 1:1 framing. Quality: ultra-high detail, sharp focus, premium product visualization for a technical electronics course.
+
+Subject: A single Arduino UNO Rev3 microcontroller board, isolated and centered. Realistic teal/turquoise PCB color, ATmega328P chip clearly visible, USB-B port on left side, barrel-jack power port, all pin headers (DIGITAL, POWER, ANALOG IN) with their printed labels readable. Power LED, TX/RX LEDs, reset button, and the small ON LED visible as small features on the board. The Arduino logo printed on the PCB. Two mounting holes visible.
+
+Constraints: must NOT include human hands, breadboard, jumper wires, other components plugged in, multiple Arduinos, soldering iron, code displayed, photorealistic dust or scratches, or busy background scenery.

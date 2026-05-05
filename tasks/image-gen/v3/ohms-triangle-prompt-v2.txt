@@ -1,0 +1,24 @@
+Create a clean, minimal Ohms-law mnemonic triangle for an Arduino electronics course. Editorial technical-textbook aesthetic — refined and elegant.
+
+REQUIRED STRUCTURE — equilateral triangle outline with three letter-labels positioned for the "cover-the-variable" pedagogical trick:
+
+- TOP vertex (apex): the letter "U" in large bold monospace, in Arduino-teal accent color (#00747d).
+- BOTTOM-LEFT corner: the letter "R" in large bold monospace, dark color (#0a0e14).
+- BOTTOM-RIGHT corner: the letter "I" in large bold monospace, dark color (#0a0e14).
+- A clean horizontal divider line crossing the middle of the triangle interior, separating U (top half) from R and I (bottom half). The divider line is a SIMPLE clean stroke — NO dot, NO multiplication symbol, NO decoration in the middle. Just a horizontal line.
+
+VISUAL STYLE — STRICT REQUIREMENTS:
+- Thin clean strokes — NOT 3D extruded ribbons, NOT thick tubes. The triangle outline should be a refined ~4-5px stroke in Arduino-teal (#00747d). Slight gentle drop shadow underneath the triangle for subtle depth, but NO 3D extrusion or tube effect.
+- Letters: clean monospace, bold, large enough to read from across a classroom.
+- Background: solid off-white #fafaf7, no scenery.
+- Square 1:1 framing, triangle centered with generous breathing room.
+- Premium textbook aesthetic — refined, elegant, modern. Think a high-end physics-book illustration — clean line-art with very subtle dimensional cues.
+
+ABSOLUTE CONSTRAINTS — must NOT include:
+- Any text, equation, or label OTHER than the letters U, R, and I (no "U = R · I" subtitle below or anywhere — JUST the three letters and the triangle).
+- A multiplication dot, decimal point, or any decoration in the middle of the divider line.
+- Thick 3D tube/ribbon effect on the triangle outline.
+- Photorealistic textures, metallic shading, neon glow.
+- Any other shapes, characters, components, or symbols.
+
+The output should look like a clean, elegant line-art triangle — refined and minimalistic — with U, R, I positioned for the cover-the-variable pedagogy.

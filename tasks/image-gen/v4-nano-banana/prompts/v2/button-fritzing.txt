@@ -1,0 +1,18 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + 4-pin tactile push button) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Preserve coupling and component positions EXACTLY as in the reference. Apply specific style + content corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, ALL pin labels readable, ARDUINO UNO logo readable.
+- Breadboard: same position and orientation, column numbers (1-30), row letters (a-j), red+blue power-rail stripes with +/− markings.
+- 4-pin tactile push button: same position straddling the center groove, four metal legs in same exact holes, black square plastic body with round button-cap on top.
+- Wires: same number, same colors, same routing as the reference (typically the button uses Arduino's INPUT_PULLUP — only 2 wires from button leads to digital pin and GND).
+
+REQUIRED CHANGES:
+1. REMOVE USB CABLE — Arduino board shown without USB cable plugged in. USB-B port empty.
+2. BACKGROUND — solid off-white #fafaf7 (NOT light-blue TinkerCAD tint).
+
+VISUAL STYLE:
+- TinkerCAD cartoon aesthetic with subtle 3D depth.
+- Wires: clean rounded cables, slightly thicker for projector readability.
+- 1:1 framing, comfortable spacing.
+
+ABSOLUTE CONSTRAINTS — must NOT include: USB cable, additional components or wires not present in reference, photorealistic clutter, light-blue TinkerCAD background, external pulldown resistor (the design uses INPUT_PULLUP).

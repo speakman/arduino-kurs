@@ -1,0 +1,24 @@
+Create a pedagogical Ohms-law mnemonic triangle for an Arduino electronics course in soft 3D editorial style.
+
+REQUIRED STRUCTURE — equilateral triangle with three letter-labels positioned for the "cover-the-variable" pedagogical trick:
+
+- TOP vertex (apex): the letter "U" in large bold monospace, in Arduino-teal accent color (#00747d). U represents Voltage (Spänning).
+- BOTTOM-LEFT corner: the letter "R" in large bold monospace, dark color (#0a0e14). R represents Resistance (Resistans).
+- BOTTOM-RIGHT corner: the letter "I" in large bold monospace, dark color (#0a0e14). I represents Current (Ström).
+- A horizontal divider line crossing the middle of the triangle, separating U (top) from R · I (bottom). The divider has a small subtle "·" multiplication dot in its center.
+- Subtle subtitle BELOW the triangle (outside): "U = R · I" in small monospace teal, light opacity.
+
+PEDAGOGICAL POINT: cover any one letter with your finger, and the formula tells you the answer:
+- Cover U → see "R · I" → multiply
+- Cover R → see U over I → divide U by I
+- Cover I → see U over R → divide U by R
+
+VISUAL STYLE:
+- Soft 3D editorial render. The triangle outline is a clean smooth 3D extruded ribbon/tube with gentle shading and soft shadow underneath the entire triangle.
+- Triangle outline: Arduino-teal (#00747d) tube/ribbon, ~1cm thick, smoothly rounded corners.
+- Letter-labels are 3D-extruded, monospace, large (so they are clearly readable from across a classroom). U slightly larger than R and I.
+- Background: solid off-white #fafaf7, no scenery.
+- Square 1:1 framing, triangle centered with generous breathing room.
+- Premium textbook aesthetic — refined, elegant, modern. NOT cartoon, NOT toy.
+
+ABSOLUTE CONSTRAINTS — must NOT include: equations or text other than U/R/I/·/U=R·I, multiple triangles, photorealistic textures, actual electronic components, characters, cluttered annotations, color other than teal accent + dark text on off-white. Just the elegant 3D triangle.

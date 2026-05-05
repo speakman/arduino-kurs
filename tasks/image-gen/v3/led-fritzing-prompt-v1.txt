@@ -1,0 +1,30 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + LED + resistor in TinkerCAD-style cartoon aesthetic). Preserve the layout and components EXACTLY as in the reference. Make ONE specific correction described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position (LEFT side), same teal/turquoise PCB color, same pin label printing (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), same chip and component placement, same USB-B and barrel-jack ports.
+- USB-B cable plugged into Arduino with the cable extending up-left.
+- Breadboard: same position (RIGHT side), same orientation, same rounded corners, same column numbers (1, 5, 10, 15, 20, 25, 30) printed at top and bottom, same row letters (a, b, c, d, e on top half; f, g, h, i, j on bottom half), same +/− markings on the power rails along the edges, same red and blue colored stripes along the power rails.
+- LED: same position on breadboard (around middle column area), same red color body, two pins inserted into specific breadboard holes — match the reference exactly.
+- Wire routing: green wire from Arduino digital pin to breadboard, black wire from Arduino GND to breadboard. Wire colors and exact routing path must match the reference.
+- Background: solid light-blue wash, matching the reference (TinkerCAD-style background).
+- Overall TinkerCAD/Fritzing simulator aesthetic: clean, slightly cartoony, technically accurate, soft shading.
+
+ONE SINGLE CORRECTION — RESISTOR COLOR BANDS:
+The cylindrical resistor in the reference has incorrect color bands. In the regenerated image, this resistor MUST display the 4-band 220-ohm color code, in this exact left-to-right sequence on its body:
+1. RED band (digit 2)
+2. RED band (digit 2)
+3. BROWN band (multiplier ×10¹)
+4. (small gap)
+5. GOLD band (tolerance ±5%)
+
+The resistor body color is the standard beige/khaki ceramic-painted color (approximately #d4a574). The resistor's position, orientation, and size on the breadboard must remain IDENTICAL to the reference. Only the band colors change.
+
+ABSOLUTE CONSTRAINTS — must NOT:
+- Change the position of any component, wire, or label
+- Remove or alter any text printing on the Arduino board (pin numbers, labels)
+- Remove or alter the breadboard column numbers, row letters, or +/− power-rail markings
+- Change wire colors or routing
+- Change the LED color or position
+- Add new components
+- Re-style the aesthetic to be more 3D/photorealistic — keep the TinkerCAD-cartoon style
+- Add background scenery beyond the original light-blue wash

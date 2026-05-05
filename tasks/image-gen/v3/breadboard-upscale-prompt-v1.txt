@@ -1,0 +1,19 @@
+Preserve and enhance this exact pedagogical breadboard internal-connection diagram. The original is a low-resolution top-down photograph of two breadboards with internal metal strips highlighted via colored tints (green vertical strips for the 5-hole columns, red horizontal rail at top, blue horizontal rail at bottom).
+
+CRITICAL — PRESERVE EXACTLY:
+- Same overall composition: two breadboards shown from above (or one with cutaway — match the original layout exactly).
+- Same electrical-connection visualization: green vertical strips covering each 5-hole column, with the center groove visibly breaking the strips between top and bottom halves.
+- Red rail along the top edge (continuous power rail).
+- Blue rail along the bottom edge (continuous GND rail).
+- Same physical proportions and breadboard structure.
+- Same color tints (red/green/blue) used as electrical-connection highlights — these are pedagogically critical, do not change them.
+
+ENHANCE ONLY:
+- Sharpness: higher resolution, crisper edges on the breadboard surface and metal strips.
+- Lighting: keep the existing top-down lighting but make it slightly more refined and clean.
+- Details: visible holes on the breadboard surface at higher resolution; metal strip highlights smoother and more saturated.
+- Background: solid off-white #fafaf7 if not already.
+
+VISUAL STYLE: clean educational diagram, refined editorial aesthetic, high-fidelity print-quality detail suitable for classroom projection. NOT a stylization or reinterpretation — just sharper and cleaner version of the same image.
+
+ABSOLUTE CONSTRAINTS — must NOT add: components plugged in, jumper wires, Arduino board, multiple breadboards beyond what's in the original, photorealistic 3D rendering, soft 3D editorial style. Match the original's flat top-down educational-diagram aesthetic. The output should be visually IDENTICAL to the original except sharper.

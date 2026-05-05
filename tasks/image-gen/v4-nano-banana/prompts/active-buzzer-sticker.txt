@@ -1,0 +1,5 @@
+Premium photorealistic 3D product render. Three-quarter elevated angle. Refined modern aesthetic, NOT cartoon, NOT childish, NOT toy-like. Studio-grade lighting from above-left with soft ambient grounding shadow beneath the subject. Background: solid warm off-white #fafaf7 only, no other colors or scenery. Composition: centered with generous margins, clean editorial framing. Square 1:1 framing. Quality: ultra-high detail, sharp focus, premium product visualization for a technical electronics course.
+
+Subject: A small blue cylindrical active piezo buzzer component, approximately 12mm in diameter and 9mm tall, with the typical small yellow paper sticker on top showing the "+" polarity symbol clearly visible (the standard "REMOVE SEAL AFTER WASHING" type sticker, with the + symbol printed on it). Two thin metal pins extending from the bottom. Standalone close-up product shot.
+
+Constraints: must NOT include other components, breadboard, Arduino board, multiple buzzers, jumper wires, photorealistic dust or scratches, or busy background scenery.

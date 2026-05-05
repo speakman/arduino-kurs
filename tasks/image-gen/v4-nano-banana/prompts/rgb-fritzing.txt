@@ -1,0 +1,31 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + RGB LED + 3 resistors in TinkerCAD-style cartoon aesthetic). Preserve the layout and components EXACTLY as in the reference. Make ONE specific correction described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, same pin label printing (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), same chip and component placement, same USB-B and barrel-jack ports, ARDUINO UNO logo readable.
+- USB-B cable plugged into Arduino with the cable extending out of frame.
+- Breadboard: same position, same orientation, same rounded corners, same column numbers (1, 5, 10, 15, 20, 25, 30) printed at top and bottom, same row letters (a, b, c, d, e on top half; f, g, h, i, j on bottom half), same +/− markings on the power rails along the edges, same red and blue colored stripes along the power rails.
+- RGB LED: same position on breadboard, same 4-pin orientation, same dome shape (clear/diffuse).
+- Three resistors: same positions on breadboard, same orientation. Each is a horizontal cylindrical resistor with two leads.
+- Wire routing: red, green, and blue jumper wires from Arduino digital PWM pins (typically pins 9, 10, 11) to breadboard, plus a black wire from Arduino GND to the common cathode pin of the RGB LED. Wire colors and exact routing path must match the reference.
+- Background: solid light-blue wash, matching the reference (TinkerCAD-style background).
+- Overall TinkerCAD/Fritzing simulator aesthetic.
+
+ONE SINGLE CORRECTION — ALL THREE RESISTOR COLOR BANDS:
+The cylindrical resistors in the reference may have incorrect color bands. In the regenerated image, ALL THREE resistors MUST display the 4-band 220-ohm color code, in this exact left-to-right sequence on each resistor body:
+1. RED band (digit 2)
+2. RED band (digit 2)
+3. BROWN band (multiplier ×10¹)
+4. (small gap)
+5. GOLD band (tolerance ±5%)
+
+The resistor body color is the standard beige/khaki ceramic-painted color (approximately #d4a574). All three resistors' positions, orientations, and sizes on the breadboard must remain IDENTICAL to the reference. Only the band colors change. All three resistors must show the SAME color sequence (220 Ω each).
+
+ABSOLUTE CONSTRAINTS — must NOT:
+- Change the position of any component, wire, or label
+- Remove or alter any text printing on the Arduino board (pin numbers, labels, ARDUINO UNO logo)
+- Remove or alter the breadboard column numbers, row letters, or +/− power-rail markings
+- Change wire colors or routing
+- Change the RGB LED position
+- Add new components or remove any
+- Re-style the aesthetic to be more 3D/photorealistic — keep the TinkerCAD-cartoon style
+- Add background scenery beyond the original light-blue wash

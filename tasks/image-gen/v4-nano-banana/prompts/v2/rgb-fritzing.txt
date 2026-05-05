@@ -1,0 +1,28 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + RGB LED + 3 resistors) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Preserve coupling and component positions EXACTLY as in the reference. Apply specific style + content corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position, same teal/turquoise PCB color, ALL pin labels readable (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), ARDUINO UNO logo readable.
+- Breadboard: same position and orientation, column numbers (1-30), row letters (a-j), red+blue power-rail stripes with +/− markings.
+- RGB LED: same position on breadboard, same 4-pin orientation, clear/diffuse dome.
+- Three resistors: same positions, same horizontal orientation. Each cylindrical with two leads.
+- Wire routing: red, green, and blue jumper wires from Arduino digital PWM pins (typically 9, 10, 11) to the breadboard, plus a black wire from GND to the common cathode of the RGB LED. SAME routing path as reference.
+
+REQUIRED CHANGES:
+1. ALL THREE RESISTOR COLOR BANDS — must show 4-band 220 Ω code on each resistor:
+   - red band (2)
+   - red band (2)
+   - brown band (×10¹)
+   - gap
+   - gold band (±5%)
+   Body color beige/khaki #d4a574.
+
+2. REMOVE USB CABLE — Arduino board shown without USB cable plugged in. USB-B port empty.
+
+3. BACKGROUND — solid off-white #fafaf7 (NOT light-blue TinkerCAD tint).
+
+VISUAL STYLE:
+- TinkerCAD cartoon aesthetic with subtle 3D depth.
+- Wires: clean rounded cables, slightly thicker for projector readability.
+- 1:1 framing, comfortable spacing.
+
+ABSOLUTE CONSTRAINTS — must NOT include: USB cable, additional components, photorealistic clutter, light-blue TinkerCAD background.

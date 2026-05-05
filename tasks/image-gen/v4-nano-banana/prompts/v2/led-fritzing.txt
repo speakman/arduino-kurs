@@ -1,0 +1,28 @@
+Re-render this exact pedagogical wiring diagram (Arduino UNO + breadboard + LED + resistor) in clean TinkerCAD-style cartoon aesthetic with subtle 3D depth. Preserve coupling and component positions EXACTLY as in the reference. Apply specific style + content corrections described below.
+
+CRITICAL — PRESERVE EXACTLY (must match reference image pixel-near-pixel):
+- Arduino UNO board: same position (LEFT side), same teal/turquoise PCB color, ALL pin label printing readable (DIGITAL/POWER/ANALOG/PWM, pin numbers 0-13, A0-A5, RESET, IOREF, 3.3V, 5V, GND, Vin), ATmega328 chip and components in correct positions, ARDUINO UNO logo readable, mounting holes visible.
+- Breadboard: same position (RIGHT side), same orientation, column numbers (1, 5, 10, 15, 20, 25, 30) printed at top and bottom, row letters (a-j), red and blue power-rail stripes with +/− markings.
+- LED: red, same exact position on breadboard, same orientation.
+- Resistor: same exact position on breadboard.
+- Wire routing: green wire from Arduino digital pin to LED's anode side, black wire from Arduino GND to LED's cathode side via the resistor. Same routing path as reference.
+
+REQUIRED CHANGES:
+1. RESISTOR COLOR BANDS — must show 4-band 220 Ω code, exact left-to-right sequence on the resistor body:
+   - red band (digit 2)
+   - red band (digit 2)
+   - brown band (multiplier ×10¹)
+   - small gap
+   - gold band (tolerance ±5%)
+   Body color: standard beige/khaki ceramic-painted (#d4a574).
+
+2. REMOVE USB CABLE — the Arduino board is shown WITHOUT any USB cable plugged in. The USB-B port is empty / unplugged.
+
+3. BACKGROUND — solid off-white #fafaf7 (NOT the light-blue TinkerCAD tint of the reference). Clean uniform background.
+
+VISUAL STYLE:
+- TinkerCAD cartoon aesthetic with subtle 3D depth — slight shading on components, gentle drop shadows, clean edges.
+- Wires: clean rounded cables, slightly thicker than typical Fritzing for projector readability, smooth curves with realistic slack.
+- Aspect ratio: roughly square 1:1, breadboard and Arduino at comfortable spacing.
+
+ABSOLUTE CONSTRAINTS — must NOT include: USB cable (must be removed entirely), additional components, photorealistic clutter, light-blue TinkerCAD background, light scenery, text labels other than what's printed on the Arduino and breadboard themselves.

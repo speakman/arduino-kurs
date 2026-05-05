@@ -1,0 +1,24 @@
+Re-render this educational breadboard diagram with strict structural correctness. The reference shows the rough composition we want, but the AI rendering must follow these EXACT specifications:
+
+REQUIRED STRUCTURE — EXACTLY 5 horizontal sections, top to bottom:
+
+1. TOP power rails: two long continuous horizontal stripes spanning full width — one blue, one red. Single connected line each.
+
+2. TOP terminal strip: a horizontal row of vertical 5-hole columns. CRITICAL: EXACTLY 5 holes per column, no more, no less. Each vertical column of 5 holes is electrically connected by ONE green metallic strip visible as a glowing accent. Approximately 30 columns across the row.
+
+3. CENTER GROOVE: a horizontal recessed gap that visually separates top from bottom. The green strips above DO NOT continue below — the groove physically breaks the connection.
+
+4. BOTTOM terminal strip: IDENTICAL mirror of section 2. EXACTLY 5 holes per column. Same number of columns. Same green vertical strips. The two halves are mirror images of each other.
+
+5. BOTTOM power rails: mirror of section 1 — two long continuous horizontal stripes, one red, one blue.
+
+KEY PEDAGOGICAL CONSTRAINT: The vertical 5-hole columns demonstrate "5 holes share one node". Top half and bottom half MUST be identical (mirror symmetry across the center groove). Each green strip MUST span exactly 5 holes — never 6, never 7, never 4.
+
+VISUAL STYLE:
+- Soft 3D editorial render with gentle depth — clean off-white plastic body, slight shading, subtle drop shadow.
+- Green strips: slightly glowing accent green inside each column.
+- Power rails: continuous saturated red and blue stripes.
+- Background: solid off-white #fafaf7.
+- 3:2 wide horizontal framing, breadboard centered with comfortable margins.
+
+ABSOLUTE CONSTRAINTS — must NOT include: components plugged in (no resistors, LEDs, wires), Arduino board, third terminal strip, more than 5 holes per column, asymmetry between top and bottom halves, photorealistic textures, light-blue TinkerCAD background.

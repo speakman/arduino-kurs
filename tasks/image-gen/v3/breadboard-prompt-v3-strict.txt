@@ -1,0 +1,38 @@
+Create a clean pedagogical breadboard internal-connection diagram for an Arduino electronics course in soft 3D editorial style. STRICT structure requirements — match exactly:
+
+THE BREADBOARD MUST CONTAIN EXACTLY 5 HORIZONTAL SECTIONS, top to bottom:
+
+Section 1 (TOP) — Power rails strip:
+- Two long continuous horizontal lines spanning the full width
+- Top line: blue (GND or power, your choice — use blue)
+- Below it: red line (the matching power rail color)
+- These two lines are the "power rails" along the top edge.
+
+Section 2 — Terminal strip A (top half):
+- The standard terminal-strip area with 5-hole columns
+- Each VERTICAL column of 5 adjacent holes is connected by ONE green metal strip (5 holes = 1 node)
+- Show ~12-15 distinct green vertical strips across the row, each spanning exactly 5 holes
+- The visible holes are arranged in a regular grid
+
+Section 3 (CENTER) — The center groove:
+- A horizontal groove/gap that visually separates the top terminal strip from the bottom one
+- This groove BREAKS the connection — the green strips above do NOT continue below
+
+Section 4 — Terminal strip B (bottom half):
+- Mirror image of Section 2 — same structure, same green vertical 5-hole strips
+- Identical to the top terminal strip but on the other side of the center groove
+
+Section 5 (BOTTOM) — Power rails strip:
+- Mirror of Section 1: another set of two long continuous lines (red + blue)
+
+THAT IS ALL. ONLY 5 SECTIONS. DO NOT add a third terminal strip. DO NOT stack multiple breadboards. DO NOT add another row at the bottom. The image contains ONE breadboard with the structure described above and NOTHING ELSE.
+
+VISUAL STYLE:
+- Soft 3D editorial render. Breadboard surface in clean off-white plastic with subtle shading and slight 3D depth.
+- Metal strips visible as glowing green ribbons.
+- Power rails: glowing red and blue.
+- Background: solid off-white #fafaf7.
+- 3:2 wide horizontal framing.
+- The breadboard takes up most of the image with comfortable margins on all sides.
+
+ABSOLUTE CONSTRAINTS — must NOT include: components plugged in, photorealistic textures, Arduino board, multiple breadboards, a third terminal strip below the bottom power rails, cluttered annotations. Strictly: ONE breadboard, FIVE sections (rails / strip / groove / strip / rails), NOTHING ELSE.

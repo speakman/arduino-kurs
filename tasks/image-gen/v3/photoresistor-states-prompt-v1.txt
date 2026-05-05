@@ -1,0 +1,32 @@
+Create a pedagogical illustration of photoresistor (LDR) light-response behavior for an Arduino electronics course in soft 3D editorial style.
+
+REQUIRED COMPOSITION — three identical photoresistors arranged in a horizontal row, each shown in a DIFFERENT lighting state to demonstrate that the SAME component produces DIFFERENT resistance values depending on incident light:
+
+LEFT — DARKNESS state:
+- Photoresistor in shadow / mostly covered (e.g. by a small dark form, or simply rendered in deep shade with minimal lighting on the sensor surface).
+- Below it, label: "I mörker"
+- Below that, resistance value in monospace teal: "≈ 50 kΩ"
+- Visual cue: dim, no light rays, sensor surface looks dark/inactive.
+
+CENTER — NORMAL ROOM LIGHT state:
+- Photoresistor in standard ambient light, sensor surface clearly visible (the distinctive serpentine cadmium-sulfide track on top).
+- Below it, label: "Rumsljus"
+- Below that, resistance value: "≈ 5 kΩ"
+- Visual cue: balanced, neutral lighting.
+
+RIGHT — STRONG LIGHT state:
+- Photoresistor strongly illuminated. Soft yellow light rays / glow emanating onto its sensor surface from above-right (matching #ffd400 sun-token used elsewhere in the deck). Surface looks bright and "active".
+- Below it, label: "Starkt ljus"
+- Below that, resistance value: "≈ 500 Ω"
+- Visual cue: warm bright glow, light rays visible.
+
+PEDAGOGICAL POINT: viewer must immediately read: "same component, three lighting states → resistance changes from high (50 kΩ in darkness) through mid-range (5 kΩ in normal light) to low (500 Ω in strong light)". This sets up the "analog vs digital" message on the slide.
+
+VISUAL STYLE:
+- Soft 3D editorial render. Premium photorealistic-ish 3D component visualization with realistic materials (white plastic body, two metal leads, distinctive serpentine track on sensor surface).
+- Three components arranged on the same horizontal baseline, evenly spaced, each clearly identifiable.
+- Background: solid off-white #fafaf7.
+- 4:3 horizontal framing.
+- Refined, modern, NOT cartoon, NOT toy.
+
+ABSOLUTE CONSTRAINTS — must NOT include: breadboard, Arduino board, jumper wires, circuit symbols, analogRead values (0-1023), oscilloscope, multiple unlabeled components, characters. ONLY the three labeled photoresistors with their three states + resistance values.

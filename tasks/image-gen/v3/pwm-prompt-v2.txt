@@ -1,0 +1,40 @@
+Create a pedagogical PWM (Pulse-Width Modulation) diagram for an Arduino electronics course, rendered as a clean 2D oscilloscope-style technical illustration.
+
+REQUIRED STRUCTURE — three stacked rows, each showing a square-wave at a different duty cycle, with GENEROUS vertical spacing between rows:
+
+Row 1 (TOP) — 5% duty cycle:
+- Narrow vertical pulses going from 0V baseline up to 5V peak, then back down. Pulses are very thin (5% of the period).
+- 3 repeating pulses across the row.
+- LEFT edge: "5V" label at the top of the y-axis, "0V" at the bottom — both in clean monospace, dark color.
+- RIGHT edge: "1/20 (5%)" label in clean monospace.
+
+Row 2 (MIDDLE) — 50% duty cycle:
+- Classic square-wave: equal time HIGH (5V) and LOW (0V).
+- 3-4 full cycles across the row.
+- LEFT edge: "5V" / "0V" labels.
+- RIGHT edge: "10/20 (50%)" label.
+
+Row 3 (BOTTOM) — 90% duty cycle:
+- Wide HIGH plateaus (5V) with narrow drops to LOW (0V).
+- 3 repeating cycles.
+- LEFT edge: "5V" / "0V" labels.
+- RIGHT edge: "18/20 (90%)" label.
+
+ANNOTATIONS:
+- TOP of diagram: a horizontal time-arrow labeled "1/20 second" indicating the period of one cycle.
+
+CRITICAL — VISUAL STYLE:
+- 2D FLAT line-art, NOT 3D extruded ribbons. The waveform lines are clean thin 2D vector strokes.
+- Wave-line color: Arduino-teal (#00747d), thin clean stroke (~3-4px), no shading, no glow, no extrusion, no tube/ribbon effect.
+- BACKGROUND: a subtle oscilloscope-style grid — light gray dotted/lined grid (like graph paper), spanning the entire image, behind the waveforms.
+- Grid color: very light gray (#e0e2dd or similar), thin lines, NOT competing with the waveforms.
+- Generous vertical spacing between the three rows so each duty cycle is clearly distinct and visually breathable.
+- Each row should occupy ~20-25% of the vertical space, with ~10% gaps between.
+- Y-axis labels (5V/0V) and right-edge labels in clean modern monospace, dark color (#0a0e14).
+- Background: subtle grid overlay on solid off-white #fafaf7.
+- 3:2 wide horizontal framing (1536x1024).
+- TALL composition — make the rows feel airy and well-spaced, not cramped.
+
+PEDAGOGICAL POINT: viewer must immediately read: "different duty cycles = different fraction of time HIGH = different effective average voltage". The oscilloscope-grid background gives technical authenticity.
+
+ABSOLUTE CONSTRAINTS — must NOT include: 3D rendering, ribbon/tube effects on the lines, extruded shapes, photorealistic oscilloscope screens, circuit diagrams, cartoon characters, color bands, breadboards, multiple disconnected drawings. Just three clean 2D square-waves over a subtle grid.
