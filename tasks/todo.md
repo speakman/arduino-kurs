@@ -127,3 +127,50 @@ Plus två mid-flight-justeringar:
 - `forslag-grundmaterial-20260418.md` — första pass, förstadium
 - `forslag-grundmaterial-slutgiltig-20260418.md` — slutgiltig granskning (arbetsdokumentet)
 - `fas3-review-20260414.md` — tidigare Slidev-idiomatisk-review (separat arbete)
+
+---
+
+# Pending TODO — diskuteras i ny session
+
+## Spänningsfall-pedagogik: "långt motstånd + potentiometer-demo" som broa till spänningsdelaren
+
+**Idé** (2026-05-05): Spänningsdelar-konceptet kan landa hårdare om vi först bygger intuitionen via en konkret "långt motstånd"-metafor och en fysisk vridpotentiometer.
+
+### Konceptet
+
+1. **Tänk dig ett lååångt motstånd.** Materialet i motståndet är jämnt fördelat. Det betyder att resistansen per cm är samma längs hela motståndet.
+2. **Spänningen sjunker linjärt** över motståndet: +5 V i ena änden, 0 V i andra änden.
+3. **Vid mitten är spänningen +2,5 V.** För att i mitten har bara halva motståndet "ätit upp" halva spänningen.
+4. **Två lika motstånd i serie "delar" på bördan** — varje motstånd ser samma ström (i serie) och äter en lika stor spänningsandel. Detta är samma fenomen som ett lååångt motstånd, bara delat i två delar.
+5. **Potentiometer-demonstrationen.** En vridpotentiometer ÄR ett långt motstånd med en glidande mätpunkt. Vrider du ratten flyttar du A0 längs det "långa motståndet". Konkret hands-on demo: koppla en pot mellan +5V och GND, mät A0 mitten, vrid och se A0 ändras 0–1023 jämnt.
+
+### Pedagogisk värde
+
+Detta bygger broa MELLAN:
+- **Ohms lag** (Modul 1, slide 8) — som handlar om en resistor.
+- **Spänningsdelaren** (Modul 4, slide 41) — som handlar om TVÅ resistorer i serie.
+
+Idag är det ett kvanthopp mellan dem: i Modul 1 är resistorn en "strypventil" (vatten-metafor), i Modul 4 plötsligt två i serie med en mätpunkt mitt emellan. "Lååångt motstånd"-tanken kan göra övergången naturligare.
+
+### Var det skulle kunna passa in
+
+Ej beslutat — ska diskuteras i ny session. Kandidater:
+
+1. **Slut på Modul 1 / början på Modul 4** — som direkt brygga.
+2. **Bilaga F (Ohms lag & spänningsdelare)** — som introduktion innan formeln presenteras.
+3. **En egen mini-modul "Före spänningsdelaren"** — med en eller två slides + en hands-on demo med vridpotentiometer.
+4. **Inom slide 41 (Spänningsdelaren) som intro-clip** — en visuell sequence: lååångt motstånd → bröts i två → spänningsdelare.
+
+### Om vridpotentiometern
+
+Per nuvarande Bilaga C: potentiometern är medvetet UTANFÖR kursens scope ("det ni inte använder i kursen"). Men för EN demo skulle det funka — det räcker att läraren har en pot tillgänglig att visa upp + koppla in på Arduinon vid demo.
+
+ELEGOO Basic Kit innehåller faktiskt en 10 kΩ-potentiometer. Den är medvetet exkluderad från kursinnehållet men finns att tillgå.
+
+### Action items när vi tar upp detta
+
+- [ ] Bestäm om vridpotentiometer-demo ska tilläggas (kräver att vi tar in pot i kursen — eller bara visning från läraren?)
+- [ ] Skiss på var pedagogiskt brott naturligt sker (Modul 1 slut? Modul 4 start? Bilaga F?)
+- [ ] Skissa illustration: lååångt motstånd med spänning-skala längs sidan + "tappar" vid 25%, 50%, 75%
+- [ ] Bedöm om det förlänger kursen för mycket eller om det ersätter befintligt material
+- [ ] Eventuellt en ny slide med "Två modeller av samma sak" — ett långt motstånd vs två i serie sida vid sida
