@@ -1,0 +1,178 @@
+TASK: Create a high-end editorial 3D render of a standard half-size
+solderless breadboard (the type bundled in Arduino beginner kits, ~85mm
+× 55mm × 9mm, 400 tie-points). Render in the style of a Wired-magazine
+"how it works" feature or Apple-style product render — clean, polished,
+slightly 3D-tilted perspective, semi-transparent plastic shell revealing
+the internal metal contact rods inside.
+
+The provided reference image shows TWO views of the same physical
+breadboard model: LEFT HALF shows the top-side (with all printed labels,
+holes, and external appearance). RIGHT HALF shows the underside with
+the plastic removed, revealing the actual cylindrical metal contact
+rods inside. The final render should depict ONE single breadboard,
+viewed from above in moderate 3/4 perspective, where the plastic is
+translucent enough that the metal rods (as seen in the right reference
+half) are clearly visible underneath the top surface (as seen in the
+left reference half).
+
+═══════════════════════════════════════════════════════════════════════
+CAMERA & PERSPECTIVE:
+═══════════════════════════════════════════════════════════════════════
+
+3/4 perspective view — camera tilted approximately 25 degrees forward
+from straight-down (so you see the top of the board clearly but also
+catch a hint of the front edge and side edge for depth). Light rotation
+around the vertical axis (~10 degrees) so one side is slightly closer
+than the other. The viewing angle should feel like an editorial 3D
+illustration. The entire breadboard fits in the frame with generous
+margins. Portrait orientation overall. Soft contact shadow under the
+board.
+
+═══════════════════════════════════════════════════════════════════════
+PLASTIC BODY (TRANSLUCENT SHELL, ~25-30% opacity):
+═══════════════════════════════════════════════════════════════════════
+
+White-tinted (#f8f8f5) frosted-acrylic translucent shell. Mostly
+see-through but still tactilely solid — like very lightly frosted glass
+or pearl-white acrylic. Soft edge highlights catching studio light.
+Subtle Fresnel effect at glancing angles.
+
+Render the plastic with visible thickness (~9mm) so it has volume.
+
+PRESERVE THESE PRINTED MARKINGS on the plastic top (rendered fully
+opaque, on top of the translucent body):
+- All 60 row numbers (1-30 on both the left side near columns a-e AND
+  the right side near columns f-j), dark gray sans-serif
+- Column letters at TOP and BOTTOM of the terminal area:
+       a   b   c   d   e   |gap|   f   g   h   i   j
+  EXACTLY 5 letters per half, NO duplicates
+- "+" and "−" symbols at both ends of EACH of the four power rails
+- Red printed line/stripe along each "+" rail
+- Blue printed line/stripe along each "−" rail
+- Vertical center groove between columns e and f
+
+═══════════════════════════════════════════════════════════════════════
+INTERNAL METAL CONTACT RODS (THE VISUAL HERO):
+═══════════════════════════════════════════════════════════════════════
+
+CRITICAL — the metal contact pieces inside this breadboard are
+CYLINDRICAL ROUND METAL RODS (look like small chrome-plated steel rods
+or tin-plated nickel rods), NOT flat plates and NOT thick rectangular
+blocks. Each rod has a circular cross-section, approximately 1.5mm
+diameter, with subtle metallic sheen.
+
+MATERIAL: Silvery polished metal — chrome / nickel-plated steel /
+tin-plated metal. Cool silver tone (#c8c8c8 to #909090 with metallic
+specular highlights). NOT warm bronze, NOT brass, NOT copper. Slight
+subtle patina or oxidation tint visible in some areas (tiny golden-brown
+stains where the metal has aged), giving it the look of a real
+mass-produced electronic component, not pristine chrome.
+
+LAYOUT — must be electrically and visually correct:
+
+1. POWER RAIL RODS — TWO parallel cylindrical rods on EACH SIDE:
+   - LEFT SIDE of the board: TWO long metal rods running vertically
+     (the full length of the board, ~70mm), arranged side-by-side and
+     parallel to each other. The rod nearer the outer edge corresponds
+     to the "+" rail (under the red printed line), and the rod nearer
+     the inner edge corresponds to the "−" rail (under the blue printed
+     line). They are parallel but PHYSICALLY SEPARATE — there is plastic
+     between them. They do not touch each other.
+   - RIGHT SIDE of the board: same — TWO long parallel metal rods, one
+     for "+" and one for "−". Same arrangement: outer rod = "+", inner
+     rod = "−".
+   - TOTAL: FOUR long vertical metal rods on the periphery (left "+",
+     left "−", right "+", right "−").
+   - The LEFT "+" rod is NOT connected to the RIGHT "+" rod (no metal
+     bridge between them). Likewise for "−" rods.
+   - The "+" rod and "−" rod on the same side are NOT connected to
+     each other (clear plastic gap between them).
+
+2. TERMINAL STRIP RODS — 30 PAIRS of short horizontal cylindrical rods
+   in the central area of the board:
+   - For EACH of the 30 numbered rows, TWO short cylindrical metal rods,
+     each approximately 12mm long × 1.5mm diameter:
+       (a) one positioned horizontally under columns a-b-c-d-e
+       (b) one positioned horizontally under columns f-g-h-i-j
+   - The rod for row N (a-e) is COMPLETELY SEPARATE from the rod for
+     row N (f-j) — clear plastic gap aligned with the center groove
+     between them.
+   - The rod for row N is COMPLETELY SEPARATE from the rod for row N+1
+     — small visible gap (~1mm) of plastic between adjacent rows where
+     no metal exists. Every row has its own independent pair of rods.
+   - TOTAL: 60 short horizontal rods (30 rows × 2 rods per row).
+
+3. ALL rods are visible THROUGH the translucent plastic — slightly
+   muted by the plastic translucency but clearly identifiable as the
+   metallic hero element of the image. They have realistic 3D form,
+   metallic specular highlights from the studio lighting, and soft
+   shadows.
+
+═══════════════════════════════════════════════════════════════════════
+LIGHTING:
+═══════════════════════════════════════════════════════════════════════
+
+- Studio three-point lighting: soft key from above-front-left, gentle
+  fill from right, subtle rim-light from upper-back catching edges of
+  the metal rods
+- Plastic catches light along its top edges (Fresnel)
+- Metal rods catch silvery specular highlights along their top surfaces
+- Subtle ambient occlusion in gaps between adjacent rods
+- Soft contact shadow on the background surface beneath the breadboard
+- Background: very subtle gradient from off-white #fafaf7 (top) to
+  slightly cooler #f0eee8 (bottom). NO texture, NO patterns.
+
+═══════════════════════════════════════════════════════════════════════
+ABSOLUTE CONSTRAINTS — must NOT include:
+═══════════════════════════════════════════════════════════════════════
+
+- TWO SEPARATE BREADBOARDS in the rendered image (the reference shows
+  two views of one breadboard — but the FINAL RENDER must show exactly
+  ONE intact breadboard)
+- Hands, fingers, human elements
+- Components, wires, LEDs, resistors, jumper cables, Arduino board, or
+  any hardware
+- Text labels, annotations, callouts, arrows, pedagogical overlays, or
+  selection highlights of any kind beyond the breadboard's printed
+  markings
+- Color highlights, glows, "selected" rows/rails — every row looks the
+  same; every rail looks the same
+- ONLY ONE rod per side of the power-rail area (must be TWO parallel
+  rods per side — one for +, one for −, four total)
+- Flat metal plates, thick rectangular blocks, or square cross-section
+  bars — the rods must be CYLINDRICAL (round cross-section)
+- A bridge connecting LEFT power rails to RIGHT power rails
+- A horizontal terminal-rod that crosses the center gap (no rod spans
+  both columns a-e AND columns f-j)
+- A vertical terminal-rod spanning multiple rows in the same column
+- Warm bronze / brass / copper coloring — must be silvery / chrome /
+  nickel-plated tone
+- Fully transparent / glass-like plastic — must still feel solid and
+  tactile, just translucent
+- Cartoon styling, hand-drawn lines, sketch effects
+- Multiple breadboards, exploded views beyond a single intact unit
+- Extreme perspective / fish-eye / orthographic — moderate editorial
+  3/4 view only
+- Background texture, patterns, strong gradient (subtle off-white only)
+- Brand logos, watermarks, text outside printed breadboard markings
+- Duplicated column letters (no "a b c c d e", no "f g h i i j")
+
+═══════════════════════════════════════════════════════════════════════
+THE PEDAGOGICAL POINT (which the structure communicates):
+═══════════════════════════════════════════════════════════════════════
+
+A student looking at this image immediately sees, through the
+translucent plastic, that:
+- Each terminal row has its own pair of separate metal rods (one under
+  a-e, one under f-j) — with plastic between rows preventing connection
+  to neighbors
+- The center groove physically separates the a-e rod from the f-j rod
+  in every row
+- Each power rail has its own continuous metal rod running the full
+  length — so all holes along that rail are one electrical node
+- Left "+" and right "+" are separate (no bridge by default)
+- Each side has TWO rails (a + and a −) with a clear gap between them
+
+The image tells this story through faithful rendering of the actual
+internal mechanics — no labels, no arrows, no overlays. The structure
+is the pedagogy.

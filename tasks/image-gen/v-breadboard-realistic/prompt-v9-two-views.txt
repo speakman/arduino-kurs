@@ -1,0 +1,195 @@
+TASK: Create a clean studio-quality 3D render that faithfully reproduces
+the EXACT layout shown in the provided reference photo — two views of
+the same physical breadboard model side-by-side, the LEFT showing the
+top side (external surface with all printed markings) and the RIGHT
+showing the underside with the plastic top removed, exposing the
+internal metal contact strips. The render should look like an editorial
+3D illustration in a Wired-magazine "how it works" feature or an
+Apple-style product diagram — not a photograph.
+
+═══════════════════════════════════════════════════════════════════════
+COMPOSITION (matches reference exactly):
+═══════════════════════════════════════════════════════════════════════
+
+Two breadboards (or rather: two views of the same breadboard) sitting
+side by side on a clean off-white background. Both in portrait
+orientation. Both perfectly upright (no tilt, no rotation, no
+perspective skew — strictly orthographic top-down view). Equal size,
+equal vertical alignment, with a moderate horizontal gap between them.
+Total image is landscape orientation.
+
+LEFT PANEL: top side of the breadboard (the side a user normally sees
+when using it).
+
+RIGHT PANEL: underside of the breadboard with the top plastic shell
+removed, exposing the internal metal contact strips lying in the lower
+plastic frame.
+
+Both panels show the SAME physical breadboard model, oriented identically
+(the top of the board is at the top of each panel; "+" and "−" symbols
+in the same vertical position in both).
+
+═══════════════════════════════════════════════════════════════════════
+LEFT PANEL — TOP SIDE:
+═══════════════════════════════════════════════════════════════════════
+
+A standard half-size solderless breadboard, 30 rows × 2×5 columns
+terminal area, plus 4 power rails. Render as clean white opaque ABS
+plastic (no translucency in this view — this is the standard exterior).
+
+PRESERVE EXACTLY (matching reference):
+- Off-white plastic body, faintly cool tone (#f8f8f5)
+- Layout: power rail on far-left edge → vertical groove → terminal
+  area columns a-e → wide center groove → terminal area columns f-j
+  → vertical groove → power rail on far-right edge
+- All 60 row numbers (1 through 30 on both sides of the terminal area,
+  near columns a-e on the left side and near columns f-j on the right
+  side), printed in dark gray sans-serif
+- Column letters at TOP and BOTTOM of the terminal area:
+       a   b   c   d   e   |gap|   f   g   h   i   j
+  EXACTLY 5 letters per half (a-b-c-d-e and f-g-h-i-j), NO duplicates
+- "+" symbols printed at TOP-LEFT, BOTTOM-LEFT, TOP-RIGHT, and
+  BOTTOM-RIGHT corners (one per rail end). Color: dark red
+- "−" symbols paired next to each "+", same positions, color: dark blue
+- Red printed line/stripe running vertically along each "+" rail
+- Blue printed line/stripe running vertically along each "−" rail
+- All 400+ holes as crisp small square cutouts in the plastic (5
+  columns × 30 rows in each terminal half, plus 50 holes per rail × 4
+  rails)
+- Subtle mounting tabs / clip notches at the edges (visible at top and
+  bottom edges of the board, as in the reference photo)
+
+The top panel should look like a clean, freshly-manufactured breadboard
+photographed in a studio — pristine but not artificially shiny. No
+dust, no scratches, no random photographic reflections, no hand-shadow
+artifacts.
+
+═══════════════════════════════════════════════════════════════════════
+RIGHT PANEL — UNDERSIDE WITH METAL STRIPS EXPOSED:
+═══════════════════════════════════════════════════════════════════════
+
+The same breadboard with the top plastic shell removed, exposing the
+internal metal contact strips. The lower plastic frame is still
+present (it's what holds the strips in place). Match the reference
+photo's exact layout of metal pieces.
+
+LOWER PLASTIC FRAME:
+- Same off-white plastic (#f8f8f5), now showing the underside / inside
+  surface
+- Visible features: a flat plastic backing plate with raised circular
+  bosses / pegs around the periphery (these are the molding pillars
+  visible in the reference). Light shadows around each circular boss.
+- The hole positions are visible as small dimples or markings on the
+  plastic where the holes pass through
+
+METAL CONTACT STRIPS — match reference layout exactly:
+- TWO long vertical metal contact strips on the LEFT EDGE of this
+  panel, running the full length of the board, side-by-side and
+  parallel — these are the LEFT "+" rail strip (outer) and LEFT "−"
+  rail strip (inner). Visible as long thin metal pieces.
+- TWO long vertical metal contact strips on the RIGHT EDGE of this
+  panel, same arrangement (RIGHT "+" outer, RIGHT "−" inner).
+- IN THE CENTRAL TERMINAL AREA: 30 PAIRS of short horizontal metal
+  contact strips:
+      For each numbered row (1 through 30), one short metal strip
+      running horizontally under columns a-e (about 1/5 of board
+      width), and a SEPARATE short metal strip running horizontally
+      under columns f-j.
+      Total: 60 short horizontal strips arranged in 30 rows × 2
+      columns.
+- The center groove between columns e and f is plastic-only (no metal
+  bridges across it).
+- Adjacent rows have visible plastic gaps between their metal strips
+  (each row's strips are physically separate from neighbors).
+
+METAL APPEARANCE (per the reference photo):
+- Silvery / nickel-plated steel / tin-plated steel — cool silver tone
+  with subtle metallic sheen
+- Each strip appears as a long thin rectangular shape with a slightly
+  raised central ridge/profile (the contact strips have visible
+  longitudinal ribbing or formed shape, not perfectly flat)
+- Allow LIGHT, subtle patina or oxidation tint in places — gentle
+  golden-brown or yellowish stains where the metal has aged. This
+  preserves the realistic mass-produced electronic component feel
+  shown in the reference. But the overall impression is cleaner and
+  more polished than the reference photo.
+
+═══════════════════════════════════════════════════════════════════════
+RENDERING STYLE (both panels):
+═══════════════════════════════════════════════════════════════════════
+
+- Editorial 3D illustration, NOT a photograph
+- Clean, polished, "prestige render" quality — Wired magazine or Apple
+  product diagram aesthetic
+- Strictly orthographic top-down camera (no 3D tilt, no perspective)
+  for both panels — viewed straight from above, perfectly upright
+- Soft even studio lighting with very gentle shadows around edges and
+  on the metal strips (subtle ambient occlusion)
+- Each panel has a soft contact shadow underneath suggesting it rests
+  on the background surface
+- Background: clean, even off-white #fafaf7 — NO texture, NO patterns,
+  NO gradient (or very minimal gradient if any)
+- Both panels equally lit, equally sharp, equally polished
+
+═══════════════════════════════════════════════════════════════════════
+CRITICAL DIFFERENCES FROM THE REFERENCE PHOTO:
+═══════════════════════════════════════════════════════════════════════
+
+The reference is an amateur photograph — the render must IMPROVE upon
+it in these specific ways:
+
+1. STRAIGHTEN: both breadboards are perfectly upright and parallel.
+   No rotation, no tilt. Edges are straight and aligned.
+2. CLEAN: no dust, no fingerprints, no random photographic artifacts.
+   No background clutter — pure off-white studio backdrop.
+3. EVEN LIGHTING: no shadow falloff across the image, no bright spots
+   from camera flash, no dim areas.
+4. CRISP: every line, hole, label, and metal edge is precisely
+   rendered. No motion blur, no focus issues.
+5. PROPER PROPORTIONS: both panels are exactly the same size and
+   exactly the same aspect ratio.
+
+In ALL OTHER respects, faithfully reproduce the reference layout —
+same positions of metal strips, same printed markings, same overall
+breadboard design.
+
+═══════════════════════════════════════════════════════════════════════
+ABSOLUTE CONSTRAINTS — must NOT include:
+═══════════════════════════════════════════════════════════════════════
+
+- 3D tilt, perspective view, or rotation of either panel — strictly
+  orthographic top-down
+- Translucency on the LEFT panel — its plastic is opaque white (only
+  the right panel's top shell is "removed", not made transparent)
+- Hands, fingers, or human elements
+- Components, wires, LEDs, resistors, jumper cables, Arduino board,
+  or any hardware
+- Text labels, annotations, callouts, arrows, captions, panel labels
+  ("front" / "back" / "top" / "bottom" labels) — NO text outside the
+  printed markings on the breadboard itself
+- Color highlights, glows, or pedagogical "selected" rows/rails
+- ONLY ONE metal strip per side of the power-rail area (must be TWO
+  parallel strips per side, four total)
+- A bridge or connecting strip between the LEFT power rails and the
+  RIGHT power rails (they are physically separate)
+- A horizontal terminal-strip that crosses the center gap (no strip
+  spans columns a-e AND columns f-j as one piece)
+- A vertical terminal-strip spanning multiple rows in the same column
+- Warm bronze / brass / copper coloring on metal strips — must be
+  silvery / chrome / nickel / tin
+- More than two breadboards / panels in the image (exactly two: one
+  top view, one underside view)
+- Cartoon styling, hand-drawn lines, sketch effects
+- Background texture, patterns, strong gradient
+- Brand logos or watermarks
+- Duplicated column letters (no "a b c c d e", no "f g h i i j")
+
+═══════════════════════════════════════════════════════════════════════
+THE GOAL:
+═══════════════════════════════════════════════════════════════════════
+
+The result should look like a professional textbook or museum-grade
+illustration that explains the breadboard's external appearance and
+its internal contact mechanism in one clean side-by-side comparison.
+Faithful to the reference's layout, but rendered with the polish of
+an editorial 3D illustration rather than an amateur photograph.

@@ -1,0 +1,129 @@
+TASK: Take the provided reference photo of a real solderless breadboard
+(white plastic, 30 rows numbered 1-30, columns labeled a-b-c-d-e | gap |
+f-g-h-i-j, with red "+" and blue "−" power rails on both left and right
+edges) and add a SUBTLE pedagogical overlay that shows the student which
+holes are electrically connected under the plastic.
+
+PRESERVE EXACTLY (do not alter, recolor, reposition, or remove):
+- The realistic photographic appearance of the white breadboard plastic
+- All 60 row numbers (1-30 on both the left side near columns a-e and
+  the right side near columns f-j)
+- All column letters at top AND bottom of the terminal area. The exact
+  sequence of column letters is, reading left to right:
+      a   b   c   d   e   |gap|   f   g   h   i   j
+  EXACTLY FIVE letters on the LEFT half (a, b, c, d, e — NO duplicate
+  letters, NO repeated "c", NO extra characters)
+  EXACTLY FIVE letters on the RIGHT half (f, g, h, i, j — NO duplicate
+  letters, NO repeated "i", NO extra characters)
+  Total: TEN distinct letters across the top, and the same TEN letters
+  repeated identically across the bottom.
+- All "+" and "−" symbols at the ends of the four power rails
+- The red and blue colored stripes printed along each power rail
+- The vertical center groove (the gap between columns e and f, where
+  DIP-ICs would straddle)
+- The exact positions of all 400+ holes
+- The aspect ratio and framing of the reference image
+- Soft off-white background (#fafaf7 or similar)
+
+ADD PEDAGOGICAL OVERLAY (all overlay graphics drawn ON TOP of the photo
+without obscuring any printed labels):
+
+LAYER 1 — TERMINAL STRIP "5 hål = 1 nod" (semi-transparent ~40% opacity,
+soft mint-green #4ade80):
+
+  THREE thin horizontal pill-shaped highlights on the LEFT half of the
+  terminal strip, each one tightly enclosing the 5 holes in ONE SINGLE
+  ROW from column a to column e. These three pills go on:
+    - Row 5, columns a-e
+    - Row 15, columns a-e
+    - Row 25, columns a-e
+
+  CRITICAL — each pill MUST cover EXACTLY ONE ROW (one set of 5 holes
+  side-by-side horizontally). The pill MUST be slim — its height equals
+  approximately ONE hole diameter (NOT two). The width-to-height ratio
+  of each pill is approximately 5:1 (very thin and wide).
+
+  If a single pill covers TWO rows of holes (e.g. rows 5+6 together
+  inside the same shape, totalling 10 holes), that is INCORRECT and
+  pedagogically wrong — those two rows are electrically SEPARATE nodes
+  and must NOT be highlighted as one. Each pill = one row only. Adjacent
+  rows immediately above and below the highlighted row remain completely
+  UNHIGHLIGHTED.
+
+  Verify before rendering: each pill should look like a thin horizontal
+  capsule that fits cleanly between the row above it and the row below
+  it, leaving visible gap of at least one row's worth of unhighlighted
+  white plastic on each side (top and bottom).
+
+  THREE matching slim horizontal pill highlights on the RIGHT half of
+  the terminal strip, on the SAME rows (5, 15, 25), each enclosing the
+  5 holes in columns f-g-h-i-j of that single row. Same single-row
+  constraint applies. Each pill is independent — there is a clear
+  visual gap (the center groove) between the left pill (a-e) and the
+  right pill (f-j) on the same row.
+
+  A small text label, sans-serif font, dark slate (#0a0e14), placed
+  to the right of the row-15 right pill (in the empty area between
+  the f-j pill and the right power rail), reading exactly:
+    "5 hål = 1 nod"
+
+LAYER 2 — POWER RAIL CONTINUITY (semi-transparent ~25% opacity stripes
+that emphasize each rail runs the full vertical length):
+
+  ON THE LEFT SIDE OF THE BOARD: a single soft red translucent vertical
+  stripe overlaying the LEFT "+" rail (the column of holes next to the
+  red printed line on the far-left edge), running the full length from
+  near row 1 to near row 30. The stripe is just wide enough to cover
+  that single column of rail holes, with rounded ends.
+
+  Just to its right: a similar soft blue translucent vertical stripe
+  overlaying the LEFT "−" rail.
+
+  A small sans-serif dark-slate label "Hela skenan = 1 nod" placed in
+  the off-white background to the LEFT of these two stripes (outside
+  the breadboard body), with a thin dark-slate line connecting it
+  visually to one of the stripes.
+
+  DO NOT add any line, wire, or stripe connecting the left rails to
+  the right rails — they are NOT electrically connected by default.
+
+LAYER 3 — GAP-BREAK INDICATOR:
+
+  Above the breadboard (in the off-white background just above row 1),
+  centered horizontally over the vertical center groove, a small
+  sans-serif dark-slate label reading exactly: "gapet bryter"
+  with a thin dark-slate arrow pointing down toward the center groove.
+
+ABSOLUTE CONSTRAINTS — must NOT include:
+- Any green pill that covers MORE THAN ONE ROW of holes. If you find
+  yourself drawing a pill that contains 10 holes (two rows of 5), STOP
+  and redraw it as a single-row pill containing only 5 holes.
+- VERTICAL capsules or stripes spanning multiple rows in the same column
+  WITHIN the terminal-strip area. The vertical stripes are ONLY allowed
+  on the power rails (left-edge + and −, where ALL holes on that rail
+  ARE one node).
+- Any pill that crosses the center gap (must NOT span from column a
+  to column j as one shape — the gap is an electrical break)
+- Any horizontal line or wire connecting the LEFT + rail to the RIGHT
+  + rail (they are not connected by default and showing them connected
+  would be false). Same for − rails.
+- Any overlay on the RIGHT-side power rails (only the LEFT side rails
+  get the demonstration stripes — to keep the overlay sparse and clear)
+- Color highlights other than the soft mint green (terminal pills),
+  soft red (left + rail stripe), soft blue (left − rail stripe)
+- Decorative elements, arrows, labels, callouts beyond the three
+  specified text labels: "5 hål = 1 nod", "Hela skenan = 1 nod",
+  "gapet bryter"
+- Duplicate column letters (no "a b c c d e", no "f g h i i j" — must
+  be exactly "a b c d e" and "f g h i j")
+- 3D effects, shadows added to the pills or stripes, glow, gradients
+- Any modification to the row numbers, column letters, or +/− symbols
+- Hands, components, wires, LEDs, resistors, Arduino board, or any
+  hardware on or near the breadboard
+- Background changes (must remain off-white #fafaf7)
+- Watermarks, brand markings, additional text
+
+The pedagogical message must be unambiguous: "rows in the terminal strip
+are 5-hole nodes (one node a-e, separate node f-j, separated by the
+center gap). Power rails run continuously the full length of the board
+as one long node each. Left + and right + are NOT connected by default."

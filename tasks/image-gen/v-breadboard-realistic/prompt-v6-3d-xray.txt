@@ -1,0 +1,181 @@
+TASK: Create a high-end editorial 3D render of a standard half-size
+solderless breadboard, presented in the style of a Wired-magazine
+"how it works" illustration or an Apple-style product render. This is
+NOT a photograph — it is a clean, polished, studio-quality 3D
+illustration where the upper plastic body is rendered as a
+semi-transparent translucent shell, and the internal phosphor-bronze
+metal contact strips are clearly the visual focal point.
+
+═══════════════════════════════════════════════════════════════════════
+CAMERA & PERSPECTIVE:
+═══════════════════════════════════════════════════════════════════════
+
+3/4 perspective view — the camera is positioned approximately 25 degrees
+tilted forward from straight-down (so you see the top of the board
+clearly but also catch a hint of the front edge and side edge giving
+depth). Slight rotation around the vertical axis (about 10 degrees) so
+one side of the board is slightly closer than the other, adding subtle
+isometric-like depth. The viewing angle should feel like an editorial
+3D illustration — clearly three-dimensional but not so steep that the
+row numbers and column letters become illegible.
+
+The entire breadboard fits in the frame with generous margins. Portrait
+orientation overall. The board appears to "float" slightly above the
+background surface with a soft contact shadow underneath.
+
+═══════════════════════════════════════════════════════════════════════
+PLASTIC BODY (TRANSPARENT SHELL):
+═══════════════════════════════════════════════════════════════════════
+
+The breadboard's outer plastic body is rendered as a TRANSLUCENT shell —
+approximately 25-30% opacity, glass-frosted-acrylic appearance. The
+plastic is white-tinted (#f8f8f5) but mostly see-through, like very
+lightly frosted glass or pearlescent acrylic. You can clearly see the
+metal contact strips inside, but the plastic still has tactile presence
+— soft edge highlights catching the studio light, gentle Fresnel effect
+around the edges where viewing angle is steep.
+
+Render the plastic with subtle thickness (~9mm) so you can see it has
+volume — particularly visible at the front and side edges due to the
+3/4 perspective angle.
+
+The 400+ holes are visible as crisp rectangular cutouts in the plastic
+top surface, each leading down to the metal contact strip beneath.
+
+PRESERVE THESE PRINTED MARKINGS on the plastic top surface (rendered
+opaque, on top of the translucent plastic, faithful to a real
+breadboard):
+- All 60 row numbers (1 through 30, printed in dark gray on both the
+  left side near columns a-e AND the right side near columns f-j)
+- Column letters at TOP and BOTTOM of the terminal area, exact
+  sequence: a b c d e (left half) | gap | f g h i j (right half).
+  EXACTLY FIVE letters per half, NO duplicates.
+- "+" and "−" symbols at both ends of each of the four power rails
+- Red printed line/stripe along each "+" rail
+- Blue printed line/stripe along each "−" rail
+- The vertical center groove between columns e and f
+
+═══════════════════════════════════════════════════════════════════════
+METAL CONTACT STRIPS (THE VISUAL FOCAL POINT):
+═══════════════════════════════════════════════════════════════════════
+
+The phosphor-bronze contact strips inside the breadboard are the HERO
+of this image. They should be clearly visible, prominently rendered,
+with full 3D form (not flat silhouettes).
+
+MATERIAL: Polished phosphor-bronze (warm golden-brown, #c08850 to
+#8b6940 gradient), with realistic metallic shading — subtle specular
+highlights catching the studio key light, soft fill shadows on the
+opposite side, hint of warm rim-light along edges. The metal looks
+real, freshly stamped, slightly oxidized but still gleaming.
+
+LAYOUT (electrically critical — must be correct):
+
+1. TERMINAL STRIPS (in the central 5-column area on each side of the
+   center groove):
+   - For EACH of the 30 numbered rows, TWO separate short horizontal
+     metal strips:
+       (a) one running under columns a-b-c-d-e (covers 5 holes)
+       (b) one running under columns f-g-h-i-j (covers 5 holes)
+   - Each strip is approximately 12mm long × 3mm wide × 0.4mm thick.
+   - Each strip has 5 visible "spring fingers" — small upward-curving
+     metal tabs, one under each hole, that grip an inserted component
+     leg. These spring fingers should be visible as small 3D bumps or
+     curved tabs along the top surface of each strip.
+   - The strip for row N (a-e) is COMPLETELY SEPARATE from the strip
+     for row N (f-j) — clear physical gap between them aligned with
+     the center groove.
+   - The strip for row N is COMPLETELY SEPARATE from the strip for row
+     N+1 — small visible gap (~1mm) of nothing between adjacent rows.
+   - Total: 60 terminal strips visible (30 rows × 2 strips per row).
+
+2. POWER RAIL STRIPS (along the four rail edges):
+   - Along EACH of the four power rails (left +, left −, right +,
+     right −): ONE long single continuous metal strip running the FULL
+     length of the board. Approximately 70mm long × 3mm wide × 0.4mm
+     thick, with 30 evenly-spaced spring fingers along its length
+     (one under each rail hole).
+   - Total: 4 long power rail strips.
+   - The left "+" rail strip is NOT connected to the right "+" rail
+     strip (no metal bridge between them).
+   - The "+" and "−" strips on the same side are also separate from
+     each other — visible gap between them.
+
+3. ALL strips have realistic dimensional 3D form — viewer should clearly
+   perceive their thickness, the curve of the spring fingers, and the
+   metallic specular response.
+
+═══════════════════════════════════════════════════════════════════════
+LIGHTING & MATERIAL:
+═══════════════════════════════════════════════════════════════════════
+
+- Studio three-point lighting: soft key light from above-front-left,
+  gentle fill from right, subtle rim-light from upper-back catching
+  edges of the metal strips
+- Plastic catches light along its top edges (Fresnel-like), interior
+  metal catches light on its top surfaces
+- Subtle ambient occlusion in the small gaps between adjacent strips
+  and where the plastic meets the metal
+- Soft contact shadow on the background surface beneath the breadboard
+- Background: very subtle gradient from off-white #fafaf7 (top) to a
+  slightly cooler/grayer off-white #f0eee8 (bottom), giving sense of
+  studio space without being distracting. NO texture, NO patterns.
+
+═══════════════════════════════════════════════════════════════════════
+RENDERING STYLE:
+═══════════════════════════════════════════════════════════════════════
+
+Editorial 3D illustration, in the spirit of a Wired-magazine "how it
+works" feature, an Apple product page render, or a high-end engineering
+visualization. The image is CLEAN, polished, and confident. Every
+element is intentional. No noise, no compression artifacts, no
+photographic imperfections — but also not cartoon-flat. It is the
+"prestige render" middle ground between a photograph and a vector
+illustration.
+
+═══════════════════════════════════════════════════════════════════════
+ABSOLUTE CONSTRAINTS — must NOT include:
+═══════════════════════════════════════════════════════════════════════
+
+- Hands, fingers, or any human element
+- Components, wires, LEDs, resistors, jumper cables, Arduino board, or
+  any hardware on or near the breadboard
+- Text labels, annotations, callouts, arrows, pedagogical overlays, or
+  selection highlights of any kind
+- Color highlights, glows, or "selected" rows/rails — every row looks
+  the same in this rendering
+- A bridge or connecting strip between the LEFT power rails and the
+  RIGHT power rails (they are physically separate)
+- Vertical metal strips inside the terminal-strip area spanning multiple
+  rows (every terminal row has its own SEPARATE horizontal strip)
+- Any horizontal metal strip in the terminal area that crosses the
+  center gap (no strip spans both columns a-e AND columns f-j)
+- Fully transparent / glass-like plastic with no presence — it must
+  still feel solid and tactile, just translucent
+- Cartoon styling, hand-drawn lines, sketch effects, halftone, comic
+  shading
+- Multiple breadboards, exploded views, or cutaway sections (single
+  intact breadboard, just rendered with translucent shell)
+- Extreme perspective / fish-eye / orthographic styling — the
+  perspective should be a moderate, editorial 3/4 view
+- Background texture, patterns, or strong gradient (must be very subtle
+  off-white gradient only)
+- Brand logos, watermarks, or text outside what is printed on the
+  breadboard itself
+- Duplicated column letters (no "a b c c d e", no "f g h i i j")
+- Any modification to the row numbers, column letters, or +/− symbols
+
+═══════════════════════════════════════════════════════════════════════
+THE VIEWER'S EXPERIENCE:
+═══════════════════════════════════════════════════════════════════════
+
+A person looking at this image should feel like they are seeing a
+high-end engineering illustration that reveals the breadboard's inner
+workings. The translucent plastic shell makes the metal contact strips
+the visual hero, and the gentle 3D perspective gives the image
+dimensional depth and editorial polish — like looking at a beautifully
+rendered Apple product diagram or a Wired magazine cutaway, but for a
+breadboard. The structure itself communicates the electrical pedagogy:
+each row has its own separate metal strip, and each power rail is one
+long continuous strip — the viewer sees this physical truth without any
+labels or arrows.

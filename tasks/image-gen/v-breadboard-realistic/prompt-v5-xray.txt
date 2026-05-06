@@ -1,0 +1,155 @@
+TASK: Create a high-end studio-quality "X-ray" technical illustration of
+a standard half-size solderless breadboard (the type bundled in Arduino
+beginner kits, ~85mm × 55mm × 9mm, 400 tie-points). The image must look
+like a Wired-magazine or science-museum-grade engineering rendering
+where the upper layer of white plastic has been rendered semi-transparent
+(approximately 40-50% transparency) so the viewer can clearly see the
+internal phosphor-bronze metal contact strips that lie underneath.
+
+Use the provided reference photograph for the EXTERNAL layout, dimensions,
+labeling, hole positions, and aspect ratio — but render the result as a
+clean studio illustration with the plastic made translucent.
+
+═══════════════════════════════════════════════════════════════════════
+EXTERNAL LAYER (the breadboard plastic, semi-transparent ~45% opacity):
+═══════════════════════════════════════════════════════════════════════
+
+The breadboard is shown from straight above, in portrait orientation.
+The plastic body is white (#f8f8f5) with a soft pearlescent translucency
+that lets the viewer see the internal metal strips beneath it. The plastic
+should still feel solid and physical — not glass, but like a high-quality
+white ABS plastic photographed under studio lighting where the lighting
+penetrates slightly into the surface.
+
+PRESERVE FROM THE REFERENCE PHOTO (these are PRINTED on top of the plastic
+and remain fully opaque, on top of the translucent plastic):
+- All 60 row numbers (1 through 30, printed in dark gray on both the
+  left side near columns a-e AND the right side near columns f-j).
+  Use sans-serif slightly condensed numerals.
+- All column letters at the top AND bottom of the terminal area.
+  EXACT sequence reading left to right:
+       a   b   c   d   e   |gap|   f   g   h   i   j
+  EXACTLY FIVE letters on the LEFT half (a, b, c, d, e — no duplicates).
+  EXACTLY FIVE letters on the RIGHT half (f, g, h, i, j — no duplicates).
+- The "+" and "−" symbols at both ends of EACH of the four power rails.
+- The red printed line/stripe running the length of each "+" rail.
+- The blue printed line/stripe running the length of each "−" rail.
+- The vertical center groove (the gap between columns e and f) where
+  DIP-ICs would straddle.
+- All 400+ holes in their precise positions (5 columns × 30 rows on
+  each terminal half = 300 holes, plus 50 holes per power rail × 4 rails
+  = 200 holes; minor variations OK).
+
+═══════════════════════════════════════════════════════════════════════
+INTERNAL LAYER (visible through the translucent plastic):
+═══════════════════════════════════════════════════════════════════════
+
+Beneath the plastic, the viewer sees the phosphor-bronze metal contact
+strips. These are the actual electrical conductors that make a
+breadboard work. Render them as if photographed under the translucent
+plastic — slightly muted by the plastic's translucency, but clearly
+visible and identifiable.
+
+METAL STRIP MATERIAL: warm phosphor-bronze color (#b8865d to #8b6940
+gradient), with subtle metallic sheen. Slightly darker where the plastic
+above is denser, slightly brighter where catching light. NOT shiny chrome,
+NOT pure copper — phosphor-bronze has a warm muted golden-brown tone.
+
+LAYOUT OF METAL STRIPS — this is electrically critical and must be
+correct:
+
+1. TERMINAL STRIPS (in the central part of the board):
+   - For EACH of the 30 numbered rows, there are TWO separate short
+     horizontal metal strips:
+       (a) one running under columns a-b-c-d-e (covers 5 holes)
+       (b) one running under columns f-g-h-i-j (covers 5 holes)
+   - Each strip is approximately 12mm long × 3-4mm wide as seen through
+     the plastic. Strip is positioned exactly under the 5 holes of that
+     row's column-bank.
+   - The strip for row N (a-e) is COMPLETELY SEPARATE from the strip
+     for row N (f-j) — there is a clear physical gap between them
+     aligned with the center groove.
+   - The strip for row N is COMPLETELY SEPARATE from the strip for row
+     N+1 — there is a small visible gap (~1mm) of plastic between
+     adjacent rows where no metal exists. EVERY row has its own
+     independent pair of strips.
+   - Total terminal strips visible: 60 (30 rows × 2 strips per row).
+
+2. POWER RAIL STRIPS (along the four rail edges):
+   - Along each "+" rail (left edge AND right edge of the board): ONE
+     long single continuous metal strip running the FULL length of the
+     board, from near row 1 to near row 30. Approximately 70mm long ×
+     3-4mm wide as seen through the plastic.
+   - Along each "−" rail: same — one long continuous metal strip.
+   - Total power rail strips visible: 4 (left +, left −, right +, right −).
+   - The left "+" rail strip is NOT connected to the right "+" rail
+     strip (no metal bridge between them).
+   - The "+" and "−" strips on the same side are also separate from
+     each other.
+
+3. CONTACT FINGERS (optional fine detail, if the rendering allows):
+   Each strip has small "spring fingers" or U-shaped tabs at each hole
+   position that grip the inserted component leg. Render these as
+   subtle horizontal indentations or brighter highlights at each hole
+   along the strip. If too detailed, simplify to just the strip outline.
+
+═══════════════════════════════════════════════════════════════════════
+LIGHTING & COMPOSITION:
+═══════════════════════════════════════════════════════════════════════
+
+- Top-down camera angle (straight above, no perspective distortion)
+- Soft even studio lighting from above-front
+- Subtle drop shadow beneath the breadboard suggesting it rests on the
+  background surface (NOT a hard contact shadow — a soft diffused one)
+- Background: clean off-white #fafaf7, NO texture, NO patterns
+- The image is ENTIRELY focused on the breadboard. No annotations, no
+  labels other than what is printed on the breadboard itself, no
+  pedagogical overlays, no callouts, no arrows, no text outside the
+  breadboard. The internal structure speaks for itself.
+
+═══════════════════════════════════════════════════════════════════════
+ABSOLUTE CONSTRAINTS — must NOT include:
+═══════════════════════════════════════════════════════════════════════
+
+- Hands, fingers, or any human element
+- Components, wires, LEDs, resistors, jumper cables, Arduino board, or
+  any hardware on or near the breadboard
+- Text labels, annotations, callouts, arrows, or pedagogical overlays
+  outside what is printed on the breadboard itself
+- Color highlights, glows, or pedagogical "selection" markers on any
+  specific row or rail (NO mint green, NO red highlight, NO selected
+  example row — every row looks the same in this rendering)
+- A bridge or connecting strip between the LEFT power rails and the
+  RIGHT power rails (they are separate by design)
+- Vertical metal strips inside the terminal-strip area spanning multiple
+  rows (e.g. NO vertical bar covering rows 5-10 in column a — every
+  terminal row has its own SEPARATE horizontal strip)
+- Any horizontal metal strip in the terminal area that crosses the
+  center gap (no strip spans both columns a-e AND columns f-j)
+- Glassy / fully transparent plastic — the plastic must still feel
+  solid white, just translucent enough to reveal the internals
+- Cartoon styling, hand-drawn lines, sketch effects
+- Multiple breadboards, exploded views, or cutaway sections
+- 3D perspective views — strictly straight-down camera
+- Any background texture or gradient (must be flat off-white #fafaf7)
+- Brand logos or watermarks
+- Duplicated column letters (no "a b c c d e", no "f g h i i j")
+- Any modification to the row numbers, column letters, or +/− symbols
+- Holes that are colored or filled — they should look like real
+  rectangular hole-cutouts in the plastic showing the metal beneath
+
+═══════════════════════════════════════════════════════════════════════
+THE PEDAGOGICAL POINT (which the structure itself communicates):
+═══════════════════════════════════════════════════════════════════════
+
+A student looking at this image should immediately see WHY 5 holes in a
+row are electrically connected: they share one continuous metal strip
+underneath. They should also see WHY adjacent rows are NOT connected:
+each row has its own separate strip. They should see WHY the center
+groove breaks the connection: the metal strips physically end at the
+groove. And they should see WHY power rails are one long node: there
+is one long continuous strip running the whole length.
+
+The image must convey this through faithful rendering of the actual
+internal mechanics — no labels, no arrows, no overlays. Just the
+physical truth, made visible.

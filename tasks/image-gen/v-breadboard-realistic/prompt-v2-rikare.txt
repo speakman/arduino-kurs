@@ -1,0 +1,106 @@
+TASK: Take the provided reference photo of a real solderless breadboard
+(white plastic, 30 rows numbered 1-30, columns labeled a-b-c-d-e | gap |
+f-g-h-i-j, with red "+" and blue "−" power rails on both left and right
+edges) and add a SUBTLE pedagogical overlay that shows the student which
+holes are electrically connected under the plastic.
+
+PRESERVE EXACTLY (do not alter, recolor, reposition, or remove):
+- The realistic photographic appearance of the white breadboard plastic
+- All 60 row numbers (1-30 on both the left side near columns a-e and
+  the right side near columns f-j)
+- All column letters (a, b, c, d, e on the left half; f, g, h, i, j on
+  the right half) printed at top and bottom of the terminal area
+- All "+" and "−" symbols at the ends of the four power rails
+- The red and blue colored stripes printed along each power rail
+- The vertical center groove (the gap between columns e and f, where
+  DIP-ICs would straddle)
+- The exact positions of all 400+ holes
+- The aspect ratio and framing of the reference image
+- Soft off-white background (#fafaf7 or similar)
+
+ADD PEDAGOGICAL OVERLAY (all overlay graphics drawn ON TOP of the photo
+without obscuring any printed labels):
+
+LAYER 1 — TERMINAL STRIP "5 hål = 1 nod" (semi-transparent ~40% opacity,
+soft mint-green #4ade80):
+
+  THREE horizontal capsule-shaped highlights on the LEFT half of the
+  terminal strip, each one tightly enclosing the 5 holes in a SINGLE
+  ROW from column a to column e. These three capsules go on:
+    - Row 5, columns a-e
+    - Row 15, columns a-e
+    - Row 25, columns a-e
+  Each capsule is a rounded-rectangle (pill shape) hugging just those
+  5 holes horizontally. The capsule does NOT extend into the gap, does
+  NOT extend into adjacent rows above or below, does NOT touch any
+  other row.
+
+  THREE matching horizontal capsule-shaped highlights on the RIGHT half
+  of the terminal strip, each enclosing the 5 holes in a SINGLE ROW
+  from column f to column j, on the SAME rows (5, 15, 25). Each capsule
+  is independent — there is a clear visual gap between the left
+  capsule (a-e) and the right capsule (f-j) on the same row, because
+  they are NOT electrically connected.
+
+  A small text label, sans-serif font, dark slate (#0a0e14), placed
+  to the right of the row-15 right capsule (in the empty area between
+  the f-j capsule and the right power rail), reading exactly:
+    "5 hål = 1 nod"
+
+LAYER 2 — POWER RAIL CONTINUITY (semi-transparent ~25% opacity stripes
+that emphasize each rail runs the full vertical length):
+
+  ON THE LEFT SIDE OF THE BOARD: a single soft red translucent vertical
+  stripe overlaying the LEFT "+" rail (the column of holes next to the
+  red printed line on the far-left edge), running the full length from
+  near row 1 to near row 30. The stripe is just wide enough to cover
+  that single column of rail holes, with rounded ends.
+
+  Just below it (or to its right, depending on layout): a similar soft
+  blue translucent vertical stripe overlaying the LEFT "−" rail.
+
+  A small sans-serif dark-slate label "Hela skenan = 1 nod" placed in
+  the off-white background to the LEFT of these two stripes (outside
+  the breadboard body), with a thin dark-slate line connecting it
+  visually to one of the stripes.
+
+  DO NOT add any line, wire, or stripe connecting the left rails to
+  the right rails — they are NOT electrically connected by default.
+
+LAYER 3 — GAP-BREAK INDICATOR:
+
+  Above the breadboard (in the off-white background just above row 1),
+  centered horizontally over the vertical center groove, a small
+  sans-serif dark-slate label reading exactly: "gapet bryter"
+  with a thin dark-slate arrow pointing down toward the center groove.
+
+ABSOLUTE CONSTRAINTS — must NOT include:
+- VERTICAL capsules or stripes spanning multiple rows in the same column
+  WITHIN the terminal-strip area (e.g. do NOT draw a vertical highlight
+  covering 5a + 6a + 7a + 8a + 9a — those holes are electrically
+  SEPARATE, drawing them as connected would teach the student something
+  physically false). The vertical stripes are ONLY allowed on the power
+  rails (left-edge + and −, where ALL holes on that rail ARE one node).
+- Any capsule that crosses the center gap (must NOT span from column a
+  to column j as one shape — the gap is an electrical break)
+- Any horizontal line or wire connecting the LEFT + rail to the RIGHT
+  + rail (they are not connected by default and showing them connected
+  would be false). Same for − rails.
+- Any overlay on the RIGHT-side power rails (only the LEFT side rails
+  get the demonstration stripes — to keep the overlay sparse and clear)
+- Color highlights other than the soft mint green (terminal capsules),
+  soft red (left + rail stripe), soft blue (left − rail stripe)
+- Decorative elements, arrows, labels, callouts beyond the three
+  specified text labels: "5 hål = 1 nod", "Hela skenan = 1 nod",
+  "gapet bryter"
+- 3D effects, shadows added to the capsules or stripes, glow, gradients
+- Any modification to the row numbers, column letters, or +/− symbols
+- Hands, components, wires, LEDs, resistors, Arduino board, or any
+  hardware on or near the breadboard
+- Background changes (must remain off-white #fafaf7)
+- Watermarks, brand markings, additional text
+
+The pedagogical message must be unambiguous: "rows in the terminal strip
+are 5-hole nodes (one node a-e, separate node f-j, separated by the
+center gap). Power rails run continuously the full length of the board
+as one long node each. Left + and right + are NOT connected by default."

@@ -1,0 +1,180 @@
+TASK: Create a high-end editorial 3D render of a standard half-size
+solderless breadboard (~85mm × 55mm × 9mm, 400 tie-points). Wired-magazine
+"how it works" feature style or Apple-style product render — clean,
+polished, slightly 3D-tilted perspective, semi-transparent translucent
+plastic shell revealing the internal U-channel sheet-metal contact strips
+inside.
+
+═══════════════════════════════════════════════════════════════════════
+CAMERA & PERSPECTIVE:
+═══════════════════════════════════════════════════════════════════════
+
+3/4 perspective — camera tilted approximately 25 degrees forward from
+straight-down. Light rotation around the vertical axis (~10 degrees) so
+one side is slightly closer than the other for editorial dimensionality.
+The entire breadboard fits in the frame with generous margins. Portrait
+orientation overall. Soft contact shadow under the board.
+
+═══════════════════════════════════════════════════════════════════════
+PLASTIC BODY (TRANSLUCENT SHELL, ~25-30% opacity):
+═══════════════════════════════════════════════════════════════════════
+
+White-tinted (#f8f8f5) frosted-acrylic translucent shell. Mostly
+see-through but still tactilely solid. Visible thickness (~9mm). Soft
+edge highlights, subtle Fresnel.
+
+PRESERVE THESE PRINTED MARKINGS on the plastic top (fully opaque, on
+top of the translucent body):
+- All 60 row numbers (1-30 on both sides, dark gray sans-serif)
+- Column letters at TOP and BOTTOM:
+       a   b   c   d   e   |gap|   f   g   h   i   j
+  EXACTLY 5 letters per half, NO duplicates
+- "+" and "−" symbols at both ends of each of the four power rails
+- Red line/stripe along each "+" rail, blue line/stripe along each "−" rail
+- Vertical center groove between columns e and f
+
+═══════════════════════════════════════════════════════════════════════
+INTERNAL METAL CONTACT STRIPS — CRITICAL GEOMETRY:
+═══════════════════════════════════════════════════════════════════════
+
+The metal contacts inside this breadboard are THIN SHEET-METAL U-CHANNELS
+(also called channel-shaped contact strips). Each contact strip is
+formed by taking a thin flat strip of silvery sheet metal (nickel-plated
+steel or tin-plated phosphor-bronze) and bending it into a long U-shape
+in cross-section, like a long narrow trough or gutter.
+
+CROSS-SECTION (looking at one strip end-on, like viewing a section cut):
+
+       │         │          ← two thin vertical walls (~0.4mm thick)
+       │         │
+       │         │            ← the channel interior is OPEN at the top
+       └─────────┘          ← thin flat base (closed bottom)
+
+       ←  3mm  →
+
+The U-channel has:
+- A flat thin base/bottom (~3mm wide, ~0.4mm thick sheet metal)
+- Two thin vertical side-walls rising from the base (~2mm tall, ~0.4mm
+  thick)
+- An OPEN TOP (no roof, no closure) — this is where component legs
+  slot down into the channel from above
+- Total cross-section: ~3mm wide × 2mm tall, with very thin walls
+
+NOT a solid cylindrical rod (that was my earlier error — round metal
+sticks are wrong)
+NOT a thick rectangular block (also wrong)
+NOT a flat metal plate (also wrong)
+
+YES, a thin metallic CHANNEL/TROUGH shape, hollow inside, opening
+upward, like a long narrow rain gutter.
+
+VIEWED FROM ABOVE through the translucent plastic, each U-channel
+strip appears as a thin rectangular outline with a visible open slot
+running its length — you see the two vertical wall edges and the base
+of the channel through the opening.
+
+MATERIAL: Silvery polished sheet metal — chrome / nickel-plated steel
+/ tin-plated metal. Cool silver tone (#c8c8c8 to #909090 with metallic
+specular highlights). NOT warm bronze, NOT brass, NOT copper. Subtle
+patina or very mild oxidation tint allowed (gentle golden-brown stains
+in places, suggesting mass-produced electronic component, not pristine
+chrome).
+
+LAYOUT — must be electrically and visually correct:
+
+1. POWER RAIL U-CHANNELS — TWO parallel U-channels on EACH SIDE:
+   - LEFT SIDE: TWO long U-channels running vertically the full length
+     of the board (~70mm), arranged side-by-side and parallel. Outer
+     channel = "+" rail (under red printed line); inner channel = "−"
+     rail (under blue printed line). They are PHYSICALLY SEPARATE —
+     plastic between them. Each channel opens upward.
+   - RIGHT SIDE: same — TWO long parallel U-channels, outer = "+",
+     inner = "−". Same upward openings.
+   - TOTAL: FOUR long U-channels on the periphery.
+   - LEFT "+" channel NOT connected to RIGHT "+" channel.
+   - "+" and "−" channels on the same side NOT connected to each other.
+
+2. TERMINAL STRIP U-CHANNELS — 30 PAIRS of short horizontal U-channels
+   in the central area:
+   - For EACH of the 30 numbered rows, TWO short U-channels:
+       (a) one running horizontally under columns a-b-c-d-e (~12mm long)
+       (b) one running horizontally under columns f-g-h-i-j (~12mm long)
+   - Each short U-channel has same cross-section as power rails (3mm
+     wide × 2mm tall, opening upward, walls ~0.4mm thick).
+   - Row N (a-e) channel COMPLETELY SEPARATE from row N (f-j) channel
+     — clear plastic gap aligned with center groove.
+   - Row N channel COMPLETELY SEPARATE from row N+1 channel — visible
+     ~1mm gap of plastic between adjacent rows.
+   - TOTAL: 60 short U-channels (30 rows × 2 channels per row).
+
+3. ALL U-channels visible THROUGH the translucent plastic — slightly
+   muted but clearly identifiable as the metallic hero element.
+   Realistic 3D form, metallic specular highlights from studio lighting,
+   subtle shadows in the channel interior (the inside of the U is
+   slightly darker because less light reaches the bottom of the channel).
+
+═══════════════════════════════════════════════════════════════════════
+LIGHTING:
+═══════════════════════════════════════════════════════════════════════
+
+- Studio three-point lighting: soft key from above-front-left, gentle
+  fill from right, subtle rim-light from upper-back catching edges of
+  the U-channel walls
+- Plastic catches Fresnel highlights along its top edges
+- U-channel walls catch silvery specular highlights along their top
+  edges (the rim of each wall)
+- Inside the channels: subtle ambient occlusion / soft shadow at the
+  base, suggesting the channel depth
+- Soft contact shadow on the background surface beneath the breadboard
+- Background: very subtle gradient from off-white #fafaf7 (top) to
+  slightly cooler #f0eee8 (bottom). NO texture, NO patterns.
+
+═══════════════════════════════════════════════════════════════════════
+ABSOLUTE CONSTRAINTS — must NOT include:
+═══════════════════════════════════════════════════════════════════════
+
+- Cylindrical / round / tube-shaped metal rods (they are U-channels,
+  rectangular cross-section, hollow with open top, NOT round tubes)
+- Solid flat plates (they are HOLLOW U-channels with open tops)
+- Thick rectangular blocks (they are THIN sheet-metal channels with
+  ~0.4mm walls)
+- Closed-top tubes or pipes (the top must be OPEN — it's a U-channel
+  shape, not a closed rectangular tube)
+- Two separate breadboards in the rendered image (final render shows
+  exactly ONE intact breadboard)
+- Hands, fingers, or human elements
+- Components, wires, LEDs, resistors, jumper cables, Arduino board, or
+  hardware on or near the breadboard
+- Text labels, annotations, callouts, arrows, pedagogical overlays, or
+  selection highlights of any kind beyond breadboard's printed markings
+- Color highlights, glows, "selected" rows or rails
+- ONLY ONE channel per side of the power-rail area (must be TWO
+  parallel channels per side, four total)
+- A bridge connecting LEFT power rails to RIGHT power rails
+- A horizontal terminal-channel that crosses the center gap (no channel
+  spans both columns a-e AND columns f-j)
+- A vertical terminal-channel spanning multiple rows in the same column
+- Warm bronze / brass / copper coloring — must be silvery / chrome
+- Fully transparent / glass-like plastic — must still feel solid and
+  tactile, just translucent
+- Cartoon styling, hand-drawn lines, sketch effects
+- Multiple breadboards, exploded views beyond a single intact unit
+- Extreme perspective / fish-eye / orthographic — moderate editorial
+  3/4 view only
+- Background texture, patterns, strong gradient
+- Brand logos, watermarks, text outside printed breadboard markings
+- Duplicated column letters
+
+═══════════════════════════════════════════════════════════════════════
+THE PEDAGOGICAL POINT:
+═══════════════════════════════════════════════════════════════════════
+
+A student looking at this image immediately sees, through the
+translucent plastic, the actual U-channel contact strips that make a
+breadboard work. Each terminal row has its own pair of short U-channels
+(one under a-e, one under f-j) — physically separated from neighbors
+and from each other across the center groove. Each power rail has its
+own long continuous U-channel running the full length. Each side has
+TWO rails (a + and a −) with clear plastic gap between them. The
+mechanics of the breadboard are revealed and self-explanatory through
+faithful rendering — no labels, no arrows, no overlays needed.
