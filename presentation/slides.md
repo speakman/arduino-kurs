@@ -2384,7 +2384,7 @@ class: "!p-0"
   eyebrow="Modul 4 · Koppling · Tilt-sensor"
   title="Koppla tilt-sensorn."
   img="/images/wiring/tilt-photo.png"
-  caption='Rakt in i Arduino-headerna med <span class="mono cyan">långa kablar</span> så du kan vicka på sensorn: <span class="mono cyan">ena benet → D2, andra benet → GND</span>. Kräver ingen breadboard. <span class="opacity-70">Digital sensor — öppen/sluten, precis som en knapp. Läses med <span class="mono">digitalRead</span>, inte <span class="mono">analogRead</span>. Tinkercad har ingen tilt-modell, så den ritas som en cylinder — i verkligheten är det en liten metallburk.</span>'
+  caption='Rakt in i Arduino-headerna med <span class="mono cyan">långa kablar</span> så du kan vicka på sensorn: <span class="mono cyan">ena benet → D2, andra benet → GND</span>. Kräver ingen breadboard. <span class="opacity-70">Digital sensor — öppen/sluten, precis som en knapp. Läses med <span class="mono">digitalRead</span>, inte <span class="mono">analogRead</span>.</span>'
 />
 
 <!--
