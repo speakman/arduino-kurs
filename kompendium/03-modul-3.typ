@@ -77,8 +77,8 @@ Konsekvensen är den inverterade logiken. *Tryckt knapp = LOW*, *släppt knapp =
 ]
 
 #fig(
-  "images/elegoo-057-073.png",
-  caption: [Knappkretsen på breadboard — två tactile switches och en LED som output. I kursen använder vi bara *en* knapp (A → D9) och Arduinons inbyggda LED på pin 13.],
+  "images/button-fritzing.png",
+  caption: [Knappkretsen på breadboard — knappen pluggas i mittspåret, ena benet via en kort kabel till `GND`-skenan, andra benet med en blå kabel till `D9`. Som output används Arduinons inbyggda LED på pin 13 — ingen extra LED behövs.],
   width: 70%,
 )
 
@@ -140,8 +140,8 @@ Uttrycket `state == LOW && lastState == HIGH` fångar *fallande flanken* — ög
 `delay(10)` är en enkel *debounce*. Knappens metallblad studsar fysiskt några millisekunder när de möts, vilket ger flera falska flanker i rad. Tio millisekunder räcker för att släta över det i den här kursen. I produktion används fler tekniker — se Bilaga A.
 
 #fig(
-  "images/elegoo-061-078.png",
-  caption: [Active buzzer direkt i Arduino-headers — långa benet (+) till D12, korta till GND. Ingen breadboard, ingen resistor.],
+  "images/buzzer-fritzing.png",
+  caption: [Buzzern läggs på samma breadboard som knappen — `+`-benet (höger, markerat med `+`) går via en orange kabel till `D12`, `−`-benet via `GND`-skenan tillbaka till Arduinon. Ingen resistor.],
   width: 65%,
 )
 

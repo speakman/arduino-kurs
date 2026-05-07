@@ -1815,10 +1815,10 @@ buzzer men är onödigt komplicerat. Håll det enkelt.
 
 UPPGIFT:
 Koppla in buzzern enligt kompendiets Modul 3.
-  - Buzzerns lång ben / + (markerat med +) → pin 12
-  - Buzzerns kort ben → GND
-(Använd F-M DuPont-kablarna — buzzern pluggas direkt i Arduino-headers, 
-inte breadboarden.)
+  - Buzzerns +-ben (höger, markerat med + på klisterlappen) → pin 12
+  - Buzzerns −-ben → GND-skenan på breadboarden
+(Buzzern hamnar på samma bräda som knappen — M-M jumpers från
+breadboarden till Arduino-headers.)
 
 Kod: först en kopplingstest med enkel If/Else (NOT larm-mönstret — 
 det kommer på sliden "Kärnan i `loop()`" med flank-detektion). Det 
@@ -1857,20 +1857,22 @@ class: "!p-0"
   eyebrow="Modul 3 · Koppling · Buzzer"
   title="Koppla buzzern."
   img="/images/wiring/buzzer-fritzing.png"
-  caption='Långt ben (<span class="warn">+</span>) → <span class="mono cyan">D12</span> · kort ben → <span class="mono cyan">GND</span>. Rakt in i Arduino-headerna. Ingen breadboard, ingen resistor.'
+  caption='<span class="warn">+</span>-ben (höger) → <span class="mono cyan">D12</span> · <span class="warn">−</span>-ben → <span class="mono cyan">GND</span>-skenan. Knappen står kvar — buzzern är tillägget. Ingen resistor.'
 />
 
 <!--
-Buzzer-kopplingen.
+Buzzer-kopplingen — bygger ovanpå knappkretsen.
 
-Active buzzer är plug-and-play: plusbenet (långt, markerat +) till 
-pin 12, minusbenet till GND. Ingen resistor behövs — buzzern har 
-inbyggd oscillator.
+Active buzzer är plug-and-play: plus-benet (markerat med + på 
+klisterlappen, höger sida) till pin 12, minus-benet till GND-skenan 
+på breadboarden. Ingen resistor behövs — buzzern har inbyggd 
+oscillator.
 
 Säg:
-"Två kablar. Pluggen sitter rakt i Arduinon. Ingen breadboard. 
-digitalWrite(buzzerPin, HIGH) = ljud. digitalWrite(buzzerPin, LOW) = 
-tyst. Det är hela grejen."
+"Två nya kablar — buzzern hamnar på samma bräda som knappen. 
++-benet (höger) går till pin 12, −-benet till GND-skenan. Knappen 
+står kvar. digitalWrite(buzzerPin, HIGH) = ljud. LOW = tyst. Det 
+är hela grejen."
 
 -->
 

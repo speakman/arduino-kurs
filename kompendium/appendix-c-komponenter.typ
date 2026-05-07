@@ -132,7 +132,7 @@ En liten svart cylinder som ger ifrån sig ljud när du skickar ström genom den
 
 #quickref(
   ([*Polaritet*], [Långa benet = plus (markerat med `+` på ovansidan). Kort ben = minus.]),
-  ([*Koppling i kurs*], [Plus → pin 12, minus → GND. Rakt i Arduino-headers med DuPont-kablar.]),
+  ([*Koppling i kurs*], [`+`-ben (höger, markerat) → `D12`, `−`-ben → `GND`-skenan på breadboarden tillsammans med knappen.]),
   ([*Resistor*], [Behövs inte. Buzzern är självreglerande.]),
   ([*Klisterlappen*], [Stannar på. "Remove after washing" är en dämpare från tillverkningsprocessen.]),
   ([*Frekvens*], [Fast (~2 kHz). Inte ställbar.]),
