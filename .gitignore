@@ -12,6 +12,15 @@ presentation/presentation-backup.pdf
 # Baseline PDFs (local verification artifacts)
 tasks/baseline-*.pdf
 
+# Stashed orphan images (off-repo, retrievable from git history if needed)
+tasks/orphan-images/
+
+# Image-gen workspaces (scripts/prompts/picks/backups för AI regen-pass)
+tasks/image-gen/
+
+# Local review webpages
+tasks/image-review/
+
 # Research assets (large binaries)
 research/elegoo-pdf-images/
 research/*.pdf
