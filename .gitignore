@@ -24,3 +24,9 @@ tasks/image-review/
 # Research assets (large binaries)
 research/elegoo-pdf-images/
 research/*.pdf
+
+# Playwright verification artifacts (Pages-site E2E)
+tasks/2026-05-13-e2e-verify/node_modules/
+tasks/2026-05-13-e2e-verify/test-results/
+tasks/2026-05-13-e2e-verify/results.json
+tasks/2026-05-13-e2e-verify/playwright-report/
