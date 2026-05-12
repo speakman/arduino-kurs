@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Träff 3 — Digital input · Arduino-kursen</title>
+  <meta name="description" content="Träff 3: tryckknapp, INPUT_PULLUP, if/else och buzzer. Arduinon börjar lyssna och fatta beslut." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/github.min.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="../">Start</a>
+      <a href="1.html" class="active">Träffarna</a>
+      <a href="../slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="../nedladdningar.html">Nedladdningar</a>
+      <a href="../resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Start</a> &nbsp;/&nbsp; Träff 03</div>
+    <h1>Digital input</h1>
+    <p class="lead">
+      Knapp, <code>INPUT_PULLUP</code>, if/else och en buzzer som tjuter på kommando. Arduinon
+      börjar lyssna på världen och fatta beslut.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="material-grid">
+    <a class="material-card" href="../slides/" target="_blank" rel="noopener">
+      <span class="icon">▶</span>
+      <span class="label">Live slides</span>
+      <span class="desc">Hela kursdeck:et i webbläsaren.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/slides-dag-3.pdf">
+      <span class="icon">📄</span>
+      <span class="label">Slides PDF (träff 3)</span>
+      <span class="desc">11 sidor · för utskrift eller offline-läsning.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/modul-3-digital-input.pdf">
+      <span class="icon">📘</span>
+      <span class="label">Kompendium — Modul 3</span>
+      <span class="desc">INPUT_PULLUP, edge-detection, if/else, datatyper.</span>
+    </a>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad du lärde dig</h2>
+    <p class="intro">Träff 3 i konkreta byggstenar:</p>
+    <div class="skills">
+      <div class="skill">
+        <strong>Input ≠ output</strong>
+        <span>Hittills har Arduinon bara skickat ut. Nu läser den in. Samma <code>pinMode</code>, annat argument: <code>INPUT_PULLUP</code>.</span>
+      </div>
+      <div class="skill">
+        <strong>Varför pullup behövs</strong>
+        <span>En "flytande" pin läser slumpmässigt. <code>INPUT_PULLUP</code> bygger in en mjuk dragning till HIGH inuti Arduinon. Tryckt = LOW.</span>
+      </div>
+      <div class="skill">
+        <strong>if / else</strong>
+        <span>Programmet fattar beslut: <em>OM</em> knappen är LOW, gör A. <em>ANNARS</em>, gör B. Två vägar — koden väljer.</span>
+      </div>
+      <div class="skill">
+        <strong><code>=</code> vs <code>==</code></strong>
+        <span>Ett likhetstecken <em>sätter</em> värdet. Två <em>jämför</em>. Glömt det andra = den klassiska nybörjar-buggen.</span>
+      </div>
+      <div class="skill">
+        <strong>Flankdetektion</strong>
+        <span>Reagera inte på att knappen "är" nere — på att den <em>just nu</em> gick från HIGH till LOW. Spara förra läget, jämför.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Knappkretsen</h2>
+    <p class="intro">
+      Två ben från knappen — ett till pin 9, ett till GND. Ingen extern pulldown-resistor behövs;
+      <code>pinMode(knappPin, INPUT_PULLUP)</code> bygger in en mjuk dragning till 5&nbsp;V inuti Arduinon.
+      När knappen trycks kortsluts pinnen till GND, läsningen blir LOW.
+    </p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/button-fritzing.png" alt="Fritzing-koppling: tryckknapp på breadboard, ena benet till D9, andra till GND." />
+        <figcaption>Tryckknapp: ben → D9, andra benet → GND.</figcaption>
+      </figure>
+    </div>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>button.ino</span>
+        <a href="../assets/code/button.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int knappPin = 9;
+
+void setup() {
+  pinMode(knappPin, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(knappPin) == LOW) {
+    // knappen tryckt (LOW eftersom INPUT_PULLUP — andra benet drar till GND)
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+}
+</code></pre>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Aktiv buzzer — Arduinons röst</h2>
+    <p class="intro">
+      En aktiv buzzer behöver ingen frekvens från koden — den tjuter när den får ström.
+      <code>digitalWrite(buzzerPin, HIGH)</code> = pip, <code>LOW</code> = tyst.
+    </p>
+
+    <div class="warn">
+      <strong>VARNING:</strong> Buzzern är från fabriken klistrad med en gul "REMOVE SEAL AFTER WASHING"-lapp.
+      Dra <em>inte</em> bort lappen. Den sitter där just för att skydda buzzerns inre membran från damm — och låter den ljuda fritt utan att vara helt blottad.
+    </div>
+
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/active-buzzer-sticker.png" alt="Foto av aktiv buzzer med gul lapp där det står REMOVE SEAL AFTER WASHING." />
+        <figcaption>Den gula lappen sitter där den ska — rör den inte.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/buzzer-fritzing.png" alt="Fritzing-koppling av aktiv buzzer: plusben till D12, minusben till GND." />
+        <figcaption>Buzzern: +ben (markerad <code>+</code>) → D12, −ben → GND.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Larm-mönstret — flank-detektion</h2>
+    <p class="intro">
+      Det här mönstret återanvänds direkt i hackathon-projektet. En knapptryckning ska
+      <em>växla</em> larmet — av/på, av/på — inte hålla det av så länge fingret är nere.
+      Lösningen: reagera bara på <em>flanken</em>, ögonblicket när knappen byter läge.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>larm-toggle.ino</span>
+        <a href="../assets/code/larm-toggle.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int knappPin  = 9;
+const int buzzerPin = 12;
+
+bool larmPaslaget = false;
+int  lastState    = HIGH;
+
+void setup() {
+  pinMode(knappPin, INPUT_PULLUP);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  int state = digitalRead(knappPin);
+
+  if (state == LOW &amp;&amp; lastState == HIGH) {
+    // fallande flank → toggla larmet
+    larmPaslaget = !larmPaslaget;
+  }
+
+  digitalWrite(buzzerPin,   larmPaslaget ? HIGH : LOW);
+  digitalWrite(LED_BUILTIN, larmPaslaget ? HIGH : LOW);
+
+  lastState = state;
+  delay(10);   // enkel debounce
+}
+</code></pre>
+    </div>
+
+    <p>Tre nyckelrader att förstå:</p>
+    <ul>
+      <li><code>if (state == LOW &amp;&amp; lastState == HIGH)</code> — bara sann i <em>ett</em> enda loop-varv per tryck. Det är flanken.</li>
+      <li><code>larmPaslaget = !larmPaslaget</code> — bool-toggle. Utropstecknet inverterar: <code>true</code> blir <code>false</code> och tvärtom.</li>
+      <li><code>buzzerPin, larmPaslaget ? HIGH : LOW</code> — kort if/else. "Om <code>larmPaslaget</code> är sant: HIGH. Annars: LOW."</li>
+    </ul>
+
+    <div class="tip">
+      <strong>Variabel-typer:</strong> <code>const int</code> = sätts en gång, ändras aldrig (pin-nummer).
+      <code>int</code> = vanligt heltal som kan ändras (lastState).
+      <code>bool</code> = sant eller falskt (larmPaslaget). Bilaga A i kompendiet har hela datatyp-tabellen.
+    </div>
+  </div>
+
+  <div class="next-dag">
+    <div>
+      <div class="label">Nästa</div>
+      <strong>Träff 4 — Analog input</strong>
+      <p style="margin:4px 0 0;color:var(--ak-text-dim);font-size:0.95rem;">Fotocell, spänningsdelare, tilt-sensor och Serial Monitor.</p>
+    </div>
+    <a class="btn" href="4.html">Träff 4 →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="3.html">Träff 3 — Digital input</a></li>
+        <li><a href="4.html">Träff 4 — Analog input</a></li>
+        <li><a href="5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="../slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="../nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="../resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>
