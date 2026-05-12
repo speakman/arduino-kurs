@@ -32,7 +32,7 @@
     </a>
     <nav>
       <a href="../">Start</a>
-      <a href="1.html" class="active">Träffarna</a>
+      <a href="1.html">Träffarna</a>
       <a href="../slides/" target="_blank" rel="noopener">Slides</a>
       <a href="../nedladdningar.html">Nedladdningar</a>
       <a href="../resurser.html">Resurser</a>
@@ -141,7 +141,7 @@
     <p>
       En vanlig 5&nbsp;mm röd LED tål ca <strong>20 mA</strong>. Den "äter" själv ca <strong>2&nbsp;V</strong>. Resistorn måste alltså sänka resten:
       Arduinons 5&nbsp;V minus LED:ens 2&nbsp;V = 3&nbsp;V kvar för resistorn. Med Ohms lag: R = U/I = 3 V / 0,02 A = <strong>150&nbsp;Ω</strong>.
-      Vi använder 220&nbsp;Ω för marginal — det lyser nästan lika starkt men LED:en lever längre. <a href="../assets/pdf/bilaga-f-framspanningsfall.pdf">Bilaga F</a> går igenom hela beräkningen.
+      Vi använder 220&nbsp;Ω för marginal — det lyser nästan lika starkt men LED:en lever längre. <a href="../assets/pdf/bilagor-a-f.pdf">Bilaga F</a> i kompendiet går igenom hela beräkningen.
     </p>
   </div>
 
@@ -254,7 +254,7 @@ void loop() {
 
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
-<script>hljs.highlightAll();</script>
+<script>if (window.hljs) hljs.highlightAll();</script>
 
 </body>
 </html>

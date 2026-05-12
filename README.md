@@ -25,6 +25,14 @@ Allt material — slides, kompendium, illustrationer, övningar — finns i det 
 │   ├── images/           Fritzings, ELEGOO-extrakt
 │   └── deliveries/       Distribution-färdiga PDF-paket per kursdag
 │
+├── docs/                 GitHub Pages-site för deltagare (vanilla HTML/CSS)
+│   ├── index.html        Landing + dag-kort
+│   ├── dag/{1..5}.html   Per-träff-sidor med kod, bilder, kompendium-länkar
+│   ├── nedladdningar.html · resurser.html · 404.html
+│   ├── slides/           Slidev-bygge (auto-genererad — se REFRESH.md)
+│   ├── assets/{css,img,pdf,code}/
+│   └── REFRESH.md        Sync-instruktioner när källmaterial ändras
+│
 ├── research/             ELEGOO-referensmaterial (PDF + extraherade bilder, gitignored)
 ├── tasks/                Designspecs, audits, reviews, render-artifakter
 └── CLAUDE.md             Projekt-specifika dev-konventioner (AI-assistant-config)

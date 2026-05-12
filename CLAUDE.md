@@ -1,13 +1,14 @@
 # Arduino-kurs — CLAUDE.md
 
-5-träffars Arduino-nybörjarkurs (FRO Ånge, ELEGOO UNO Basic Starter Kit). Detta repo har **två oberoende delsystem** som inte ska blandas ihop:
+5-träffars Arduino-nybörjarkurs (FRO Ånge, ELEGOO UNO Basic Starter Kit). Detta repo har **tre oberoende delsystem** som inte ska blandas ihop:
 
 - `presentation/` — Slidev-deck (52 slides, light-only-tema, projektor-prio)
 - `kompendium/` — Typst-baserade kurshandouts (separat ekosystem, separat pipeline)
+- `docs/` — GitHub Pages-site för kursdeltagare (vanilla HTML/CSS, ingen build-step; deployar `/docs` från `main`). Live på `https://speakman.github.io/arduino-kurs/`. **Refresh-kontrakt:** se `docs/REFRESH.md` — siten måste hand-syncas när slides/kompendium/bilder ändras.
 - `tasks/` — designspecs, audits, reviews, plan-dokument, renderade artifakter
 - `research/` — referensmaterial (ELEGOO PDF-bilder etc.)
 
-Slides är **det primära mediet** (klassrumsprojektor). Kompendium ges till studenten efter passet.
+Slides är **det primära mediet** (klassrumsprojektor). Kompendium ges till studenten efter passet. Docs är portalen som deltagare har kvar efter kursen.
 
 ---
 
@@ -183,6 +184,7 @@ Användar-A/B-test 2026-05-05: NB2 vann över gpt-image-2 på **17/18 bilder** (
 5. Spot-check Read tool på 5-10 PNG:er (ändrade slides + 1, 8, 21, 24, 25, 33, 41, 52)
 6. **Vid AI-bild-regen specifikt**: pedagogisk visuell review per ändrad slide — inte bara render-spot-check. `multi-auditor-review` (kod-strukturell) **fångar inte** pedagogiska/visuella regressioner. Kör `multi-ai-consultant:consult-gemini` för multimodal review om en bild är kritisk.
 7. Vid substantive change: `multi-auditor-review` skill → fixes → re-render → ny review
+8. **Om ändringen påverkar `docs/`-siten** (slides.md, kompendium-PDF:er, eller bilder som visas där): följ `docs/REFRESH.md`-stegen. Live-deploy verifieras via `gh api repos/speakman/arduino-kurs/pages` (`status: built`) och spot-check på `https://speakman.github.io/arduino-kurs/`.
 
 ---
 

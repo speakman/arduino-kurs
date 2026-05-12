@@ -50,7 +50,7 @@ void loop() {
   // 1. LÄS INPUTS
   int  knappState = digitalRead(knappPin);
   bool tiltLutad  = (digitalRead(tiltPin) == LOW);
-  delay(50);                  // debounce tilt — kulan bouncar i hylsan
+  delay(50);                  // ge tilt-bollen 50 ms att sluta studsa innan vi fortsätter
   int  ljus       = analogRead(ldrPin);
 
   // 2. EDGE-DETECTION för knappen (toggla larmläget)
@@ -63,7 +63,7 @@ void loop() {
 
   // 3. BESTÄM VAD SOM SKA HÄNDA
   if (larmPaslaget && tiltLutad) {
-    // LARM AKTIVT + RÖRT → tjut + rött blink
+    // LARM AKTIVT + LUTAD → tjut + rött blink
     digitalWrite(buzzerPin, HIGH);
     sattFarg(255, 0, 0);
     delay(100);

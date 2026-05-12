@@ -32,7 +32,7 @@
     </a>
     <nav>
       <a href="../">Start</a>
-      <a href="1.html" class="active">Träffarna</a>
+      <a href="1.html">Träffarna</a>
       <a href="../slides/" target="_blank" rel="noopener">Slides</a>
       <a href="../nedladdningar.html">Nedladdningar</a>
       <a href="../resurser.html">Resurser</a>
@@ -91,7 +91,7 @@
       </div>
       <div class="skill">
         <strong>Tilt-sensorn</strong>
-        <span>En liten boll inuti en hylsa. Stående: bollen sluter kretsen → LOW. Lutad: kretsen bryts → HIGH (med INPUT_PULLUP).</span>
+        <span>En liten boll inuti en hylsa. Upprätt: bollen är bort från stiften → kretsen öppen → HIGH (med INPUT_PULLUP). Lutad: bollen täcker stiften → kretsen sluten → LOW.</span>
       </div>
       <div class="skill">
         <strong>Serial Monitor &amp; Plotter</strong>
@@ -207,7 +207,7 @@ void loop() {
   <div class="dag-section">
     <h2>Tilt-sensorn</h2>
     <p class="intro">
-      Tilt-sensorn är digital, inte analog — den läses precis som knappen. Inuti sitter en liten metallboll i en hylsa. Står sensorn rätt upp ligger bollen mot två stift och sluter kretsen → <code>digitalRead</code> ger LOW (med INPUT_PULLUP). Lutar du sensorn rullar bollen iväg → kretsen bryts → HIGH.
+      Tilt-sensorn är digital, inte analog — den läses precis som knappen. Inuti sitter en liten metallboll i en hylsa. Står sensorn upprätt rullar bollen bort från stiften → kretsen är öppen → <code>digitalRead</code> ger HIGH (Arduinons interna pullup håller upp pinnen). Lutar du sensorn så bollen täcker båda stiften → kretsen sluts mot GND → LOW.
     </p>
     <div class="image-row">
       <figure>
@@ -296,7 +296,7 @@ void loop() {
 
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
-<script>hljs.highlightAll();</script>
+<script>if (window.hljs) hljs.highlightAll();</script>
 
 </body>
 </html>

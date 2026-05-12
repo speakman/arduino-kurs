@@ -1,6 +1,12 @@
 /* ============================================================================
    Arduino-kurs — GitHub Pages site
-   Återanvänder designtokens från presentation/styles/main.css.
+   ----------------------------------------------------------------------------
+   Återanvänder designtokens från presentation/styles/main.css MED MEDVETEN DRIFT
+   för tätare typografi och bättre WCAG AA-kontrast i sub-presentation-storlek:
+     • --ak-text-mute justerat #8a95a3 → #5b6577 (kontrast 2.91 → 5.62 mot bg)
+   Övriga tokens (--ak-accent, --ak-warn, --ak-bg-raised, --ak-border) speglar
+   presentationen. Vid ändring av token-värden där: uppdatera båda samtidigt
+   eller dokumentera divergensen här.
    ============================================================================ */
 
 /* 1. Design tokens --------------------------------------------------------- */
