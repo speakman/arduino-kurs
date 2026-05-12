@@ -2,6 +2,9 @@
 
 **5-träffars nybörjarkurs** byggd kring ELEGOO UNO Basic Starter Kit. Studenterna lär sig elektronik och C-programmering genom att stegvis bygga ett fungerande tjuvlarm — sense + act, en bit i taget.
 
+**🌐 Live kurssite för deltagare:** https://speakman.github.io/arduino-kurs/  
+&nbsp;&nbsp;&nbsp;&nbsp;Slides (live HTML + PDF), kompendium per modul, kodexempel och kuraterade resurser för fortsatt lärande.
+
 Allt material — slides, kompendium, illustrationer, övningar — finns i det här repot. Licensierat under CC BY-SA 4.0 så att andra föreningar och lärare fritt kan återanvända, anpassa och distribuera vidare.
 
 ---
