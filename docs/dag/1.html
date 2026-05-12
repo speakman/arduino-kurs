@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Träff 1 — LED &amp; krets · Arduino-kursen</title>
+  <meta name="description" content="Träff 1: från ström och spänning till första blinkande lampan. Slides, kompendium, Blink-sketch och kretsdiagram." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/github.min.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="../">Start</a>
+      <a href="1.html" class="active">Träffarna</a>
+      <a href="../slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="../nedladdningar.html">Nedladdningar</a>
+      <a href="../resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Start</a> &nbsp;/&nbsp; Träff 01</div>
+    <h1>LED &amp; krets</h1>
+    <p class="lead">
+      Från elektroner och spänning till första blinkande lampan på pin 13.
+      Ohms lag, breadboard-anatomi, polariserade komponenter — och Blink-sketchen.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="material-grid">
+    <a class="material-card" href="../slides/" target="_blank" rel="noopener">
+      <span class="icon">▶</span>
+      <span class="label">Live slides</span>
+      <span class="desc">Hela kursdeck:et i webbläsaren — tryck <code>P</code> för anteckningar.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/slides-dag-1.pdf">
+      <span class="icon">📄</span>
+      <span class="label">Slides PDF (träff 1)</span>
+      <span class="desc">19 sidor · för utskrift eller offline-läsning.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/modul-1-led-krets.pdf">
+      <span class="icon">📘</span>
+      <span class="label">Kompendium — Modul 1</span>
+      <span class="desc">Full text om LED, resistorer, Ohms lag och breadboard.</span>
+    </a>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad du lärde dig</h2>
+    <p class="intro">De fem konkreta sakerna du tog med dig från första träffen:</p>
+    <div class="skills">
+      <div class="skill">
+        <strong>Vad ström, spänning och resistans är</strong>
+        <span>Elektronflöde, tryck och strypning. Vatten-metaforen som funkar tillräckligt långt för det vi bygger.</span>
+      </div>
+      <div class="skill">
+        <strong>Ohms lag — U = R · I</strong>
+        <span>Triangelmnemonic: täck variabeln du söker, läs av de andra två. Räcker för all dimensionering i kursen.</span>
+      </div>
+      <div class="skill">
+        <strong>Breadboard-anatomin</strong>
+        <span>Fem hål i en rad = en nod. Power-rails längs sidorna. Gapet i mitten skiljer två sektioner.</span>
+      </div>
+      <div class="skill">
+        <strong>Polariserade komponenter</strong>
+        <span>LED:en har riktning — långt ben (anod) → plus, kort ben (katod) → minus. Vänd fel = ingenting händer.</span>
+      </div>
+      <div class="skill">
+        <strong>Din första Arduino-sketch</strong>
+        <span><code>setup()</code> körs en gång. <code>loop()</code> körs om och om igen. Hela Blink på tre kommandon.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Hur en LED kopplas</h2>
+    <p class="intro">
+      Från Arduinons pin 13, genom en 220&nbsp;Ω-resistor, in i LED:ens anod (långt ben), ut genom katoden, tillbaka till GND. Resistorn skyddar LED:en mot att brännas av Arduinons fulla 5&nbsp;V.
+    </p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/led-fritzing.png" alt="Fritzing-diagram: Arduino UNO med en röd LED kopplad via en 220-ohm-resistor från pin 13 till GND via en breadboard." />
+        <figcaption>Slutkopplingen: pin 13 → 220 Ω → LED-anod, LED-katod → GND.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/breadboard-internals.png" alt="Genomskärning av breadboard som visar hur fem hål i en kolumn är elektriskt sammankopplade." />
+        <figcaption>Breadboardens insida — fem hål per rad är samma nod.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/resistor-220ohm.png" alt="Närbild på en 220-ohm-resistor med 4-bands färgkod: röd, röd, brun, guld." />
+        <figcaption>220 Ω-resistorn: röd · röd · brun &nbsp;+&nbsp; guld (tolerans).</figcaption>
+      </figure>
+    </div>
+
+    <div class="tip">
+      <strong>Tips:</strong> Resistorn har <em>ingen</em> riktning — du kan vända den hur du vill. LED:en däremot har en strikt riktning. Vänd LED:en fel och kretsen blir helt korrekt elektriskt — men inget syns.
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Ohms lag i praktiken</h2>
+    <p class="intro">Varför just 220 Ω för en 5&nbsp;V-LED? Lite räknande:</p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/ohms-law.png" alt="Illustration: U = R · I med tre gubbar som visar tryck, strypning och flöde." />
+        <figcaption>Spänning är trycket. Resistans stryper. Ström är flödet som blir kvar.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/ohms-triangle.png" alt="U-R-I-triangel: täck variabeln du söker." />
+        <figcaption>Mnemonic-triangeln — täck variabeln du söker.</figcaption>
+      </figure>
+    </div>
+    <p>
+      En vanlig 5&nbsp;mm röd LED tål ca <strong>20 mA</strong>. Den "äter" själv ca <strong>2&nbsp;V</strong>. Resistorn måste alltså sänka resten:
+      Arduinons 5&nbsp;V minus LED:ens 2&nbsp;V = 3&nbsp;V kvar för resistorn. Med Ohms lag: R = U/I = 3 V / 0,02 A = <strong>150&nbsp;Ω</strong>.
+      Vi använder 220&nbsp;Ω för marginal — det lyser nästan lika starkt men LED:en lever längre. <a href="../assets/pdf/bilaga-f-framspanningsfall.pdf">Bilaga F</a> går igenom hela beräkningen.
+    </p>
+  </div>
+
+  <div class="dag-section">
+    <h2>Blink — koden bakom</h2>
+    <p class="intro">
+      Inbyggda LED:en på pin 13 (alias <code>LED_BUILTIN</code>) tänds och släcks en gång per sekund.
+      <code>setup()</code> kör en gång vid uppstart; <code>loop()</code> körs om och om igen.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>blink.ino</span>
+        <a href="../assets/code/blink.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);   // körs en gång vid uppstart
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);  // tänd
+  delay(1000);                      // vänta 1 sekund
+  digitalWrite(LED_BUILTIN, LOW);   // släck
+  delay(1000);                      // vänta 1 sekund
+}
+</code></pre>
+    </div>
+
+    <p>Tre kommandon räcker för att förstå hela skissen:</p>
+    <ul>
+      <li><code>pinMode(LED_BUILTIN, OUTPUT)</code> — säg till Arduinon att pin 13 är en <strong>utgång</strong>. Görs i <code>setup()</code>.</li>
+      <li><code>digitalWrite(LED_BUILTIN, HIGH)</code> — sätt pinnen till 5&nbsp;V. <code>HIGH</code> = tänd, <code>LOW</code> = släckt.</li>
+      <li><code>delay(1000)</code> — pausa allt i 1000 ms (= 1 sekund). Arduinon gör absolut ingenting under den tiden.</li>
+    </ul>
+
+    <p>När du kopplade en extern LED via pin 13 kunde du istället byta tempo:</p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>blink-extern-led.ino</span>
+        <a href="../assets/code/blink-extern-led.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ledPin = 13;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH);
+  delay(500);                       // halv sekund på
+  digitalWrite(ledPin, LOW);
+  delay(500);                       // halv sekund av
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Varför <code>const int</code>?</strong> Pin-nummer ändras aldrig — markera det med <code>const</code>. Då skyddar kompilatorn dig om du råkar skriva över värdet av misstag.
+    </div>
+  </div>
+
+  <div class="next-dag">
+    <div>
+      <div class="label">Nästa</div>
+      <strong>Träff 2 — PWM &amp; RGB</strong>
+      <p style="margin:4px 0 0;color:var(--ak-text-dim);font-size:0.95rem;">Mjuka övergångar och alla färger av tre. Från <code>digitalWrite</code> till <code>analogWrite</code>.</p>
+    </div>
+    <a class="btn" href="2.html">Träff 2 →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="3.html">Träff 3 — Digital input</a></li>
+        <li><a href="4.html">Träff 4 — Analog input</a></li>
+        <li><a href="5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="../slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="../nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="../resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>
