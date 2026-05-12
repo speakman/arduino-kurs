@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Träff 4 — Analog input · Arduino-kursen</title>
+  <meta name="description" content="Träff 4: analogRead, spänningsdelare, fotocell, tilt-sensor och Serial Monitor. Världen är analog." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/github.min.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="../">Start</a>
+      <a href="1.html" class="active">Träffarna</a>
+      <a href="../slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="../nedladdningar.html">Nedladdningar</a>
+      <a href="../resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Start</a> &nbsp;/&nbsp; Träff 04</div>
+    <h1>Analog input</h1>
+    <p class="lead">
+      Knappen var digital. Världen är analog. <code>analogRead</code>, spänningsdelare, fotocell,
+      tilt-sensor — och Serial Monitor som fönster in i vad Arduinon faktiskt mäter.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="material-grid">
+    <a class="material-card" href="../slides/" target="_blank" rel="noopener">
+      <span class="icon">▶</span>
+      <span class="label">Live slides</span>
+      <span class="desc">Hela kursdeck:et i webbläsaren.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/slides-dag-4.pdf">
+      <span class="icon">📄</span>
+      <span class="label">Slides PDF (träff 4)</span>
+      <span class="desc">12 sidor · för utskrift eller offline-läsning.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/modul-4-analog-input.pdf">
+      <span class="icon">📘</span>
+      <span class="label">Kompendium — Modul 4</span>
+      <span class="desc">Analog vs digital, spänningsdelare, fotocell, tilt, Serial.</span>
+    </a>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad du lärde dig</h2>
+    <p class="intro">Träff 4 i konkreta byggstenar:</p>
+    <div class="skills">
+      <div class="skill">
+        <strong><code>analogRead</code> — 0 till 1023</strong>
+        <span>Arduinons analog-till-digital-omvandlare. 0 V → 0, 5 V → 1023. Bara på pinnarna A0–A5.</span>
+      </div>
+      <div class="skill">
+        <strong>Spänningsdelaren</strong>
+        <span>Två motstånd i serie. Mätpunkten mellan dem ger en spänning som beror på förhållandet. Grunden för all analog sensoravläsning.</span>
+      </div>
+      <div class="skill">
+        <strong>Fotocellen (LDR)</strong>
+        <span>En resistor vars värde ändras med ljus: ≈50 kΩ i mörker, ≈500 Ω i starkt ljus. Inte en lampa — en variabel resistor.</span>
+      </div>
+      <div class="skill">
+        <strong>Tilt-sensorn</strong>
+        <span>En liten boll inuti en hylsa. Stående: bollen sluter kretsen → LOW. Lutad: kretsen bryts → HIGH (med INPUT_PULLUP).</span>
+      </div>
+      <div class="skill">
+        <strong>Serial Monitor &amp; Plotter</strong>
+        <span><code>Serial.begin(9600)</code> + <code>Serial.println(...)</code> = fönster in i vad koden tänker. Plotter ritar samma data som rörlig kurva.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Spänningsdelaren — kärnkonceptet</h2>
+    <p class="intro">
+      Tänk på två motstånd som ett <em>långt</em> motstånd, brutet i mitten. Strömmen kämpar sig igenom — och spänningen sjunker linjärt längs vägen. Mätpunkten mellan dem ger en spänning som beror på förhållandet mellan de två. Byter du den ena mot en fotocell, så ändras spänningen i takt med ljuset.
+    </p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/long-resistor.png" alt="Fyrdelad illustration: kolfilm med spänningsgradient, ett långt motstånd, två motstånd, vridpotentiometer." />
+        <figcaption>Ett långt motstånd, brutet i mitten — det är vad en spänningsdelare är.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/voltage-divider.png" alt="Spänningsdelare: 5V → fotocell → A0 → 1 kΩ → GND." />
+        <figcaption>Fotocellen som övre motstånd, 1 kΩ som nedre. A0 läser mätpunkten.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/photocell-schematic.png" alt="Fritzing-koppling av fotocell-spänningsdelaren på breadboard." />
+        <figcaption>Samma sak på breadboarden: +5V → fotocell → A0 → 1 kΩ → GND.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tip">
+      <strong>Riktningen:</strong> Med fotocellen <em>över</em> mätpunkten och 1 kΩ under: <strong>mer ljus → högre värde på A0</strong>. Det går att byta plats på dem och få motsatt logik — det är båda lika korrekt.
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Läs av fotocellen</h2>
+    <p class="intro">
+      Den första analog-read-sketchen. Öppna <strong>Verktyg → Serial Monitor</strong> (eller förstoringsglaset uppe till höger i IDE:n) — och håll handen över fotocellen. Siffrorna ändras i realtid.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>photocell-read.ino</span>
+        <a href="../assets/code/photocell-read.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ldrPin = A0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int ljus = analogRead(ldrPin);
+  Serial.println(ljus);
+  delay(100);
+}
+</code></pre>
+    </div>
+
+    <p>För att se signalen som kurva istället för rader av siffror: <strong>Verktyg → Serial Plotter</strong>. Samma data, annan visualisering.</p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/serial-plotter.png" alt="Skärmdump av Arduino IDE Serial Plotter med kurva 0-1023." />
+        <figcaption>Serial Plotter — kurvan dippar när handen täcker fotocellen.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/photoresistors-three.png" alt="Tre fotoresistorer side-by-side: i mörker, rumsljus och starkt ljus." />
+        <figcaption>Samma fotocell, olika ljus: 50 kΩ → 5 kΩ → 500 Ω.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Lampa som tänds när det blir mörkt</h2>
+    <p class="intro">
+      Första kombinationen av sensor + beslut + utgång. Läs ljuset, jämför med en tröskel, tänd LED:en om
+      det är mörkare än så. Tröskelvärdet beror på rummet — kör <code>photocell-read.ino</code> först och
+      hitta ditt eget värde.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>photocell-led.ino</span>
+        <a href="../assets/code/photocell-led.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ldrPin     = A0;
+const int morkTroskel = 300;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  int ljus = analogRead(ldrPin);
+  Serial.print("ljus=");
+  Serial.println(ljus);
+
+  if (ljus &lt; morkTroskel) {
+    digitalWrite(LED_BUILTIN, HIGH);   // mörkt → tänd
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  delay(100);
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Tröskelvärdet är en kalibrering:</strong> 300 är ett riktvärde. Vissa rum behöver 200, andra 500. Det är poängen — i nästa modul (hackathon) kalibrerar du tröskeln för det rum larmet faktiskt ska sitta i.
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Tilt-sensorn</h2>
+    <p class="intro">
+      Tilt-sensorn är digital, inte analog — den läses precis som knappen. Inuti sitter en liten metallboll i en hylsa. Står sensorn rätt upp ligger bollen mot två stift och sluter kretsen → <code>digitalRead</code> ger LOW (med INPUT_PULLUP). Lutar du sensorn rullar bollen iväg → kretsen bryts → HIGH.
+    </p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/tilt-photo.png" alt="Foto av tilt-sensor kopplad direkt i Arduino-headers via F-M DuPont-kablar." />
+        <figcaption>Tilt-sensor direkt i headers: D2 + GND, ingen breadboard.</figcaption>
+      </figure>
+    </div>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>tilt-photocell.ino</span>
+        <a href="../assets/code/tilt-photocell.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ldrPin  = A0;
+const int tiltPin = 2;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(tiltPin, INPUT_PULLUP);
+}
+
+void loop() {
+  int ljus = analogRead(ldrPin);
+  int tilt = digitalRead(tiltPin);   // HIGH = upprätt, LOW = lutad
+  Serial.print("ljus=");
+  Serial.print(ljus);
+  Serial.print("  tilt=");
+  Serial.println(tilt);
+  delay(100);
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Skriv ut båda samtidigt:</strong> När du printar flera värden på samma rad använder du <code>Serial.print(...)</code> för alla utom det sista, som blir <code>Serial.println(...)</code>. <code>print</code> = ingen radbrytning. <code>println</code> = radbrytning.
+    </div>
+  </div>
+
+  <div class="next-dag">
+    <div>
+      <div class="label">Nästa</div>
+      <strong>Träff 5 — Hackathon</strong>
+      <p style="margin:4px 0 0;color:var(--ak-text-dim);font-size:0.95rem;">Sätt ihop allt: knapp + tilt + fotocell + buzzer → ett fungerande larm.</p>
+    </div>
+    <a class="btn" href="5.html">Träff 5 →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="3.html">Träff 3 — Digital input</a></li>
+        <li><a href="4.html">Träff 4 — Analog input</a></li>
+        <li><a href="5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="../slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="../nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="../resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>
