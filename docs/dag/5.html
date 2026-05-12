@@ -97,18 +97,22 @@
 
   <div class="dag-section">
     <h2>Mönstret</h2>
-    <p class="intro">Tre block i <code>loop()</code> — samma struktur du kommer se i alla inbyggda system:</p>
+    <p class="intro">Fyra block i <code>loop()</code> — samma struktur du kommer se i alla inbyggda system:</p>
     <div class="skills">
       <div class="skill">
         <strong>1. Läs in</strong>
         <span>Hämta alla sensorvärden överst i loopen. Knapp, tilt, fotocell. Spara i lokala variabler.</span>
       </div>
       <div class="skill">
-        <strong>2. Fatta beslut</strong>
+        <strong>2. Uppdatera tillstånd</strong>
+        <span>Edge-detection på knappen — om den <em>just nu</em> gick från HIGH till LOW, toggla larmet. Mönstret från träff 3.</span>
+      </div>
+      <div class="skill">
+        <strong>3. Fatta beslut</strong>
         <span>If/else-kedja som bestämmer vilket av lägena som är aktivt: larm tjuter, stämningsljus, eller helt tyst.</span>
       </div>
       <div class="skill">
-        <strong>3. Agera ut</strong>
+        <strong>4. Agera ut</strong>
         <span>Skriv ut till buzzer, RGB-LED, ev. inbyggda LED:en. Sedan en kort <code>delay</code> och loopen börjar om.</span>
       </div>
     </div>

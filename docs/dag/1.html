@@ -116,7 +116,7 @@
       </figure>
       <figure>
         <img src="../assets/img/resistor-220ohm.webp" alt="Närbild på en 220-ohm-resistor med 4-bands färgkod: röd, röd, brun, guld." loading="lazy" />
-        <figcaption>220 Ω-resistorn: röd · röd · brun &nbsp;+&nbsp; guld (tolerans).</figcaption>
+        <figcaption>220 Ω-resistorn med 4-bands kod: röd · röd · brun &nbsp;+&nbsp; guld (tolerans). Kittet innehåller även 5-bands resistorer — då blir 220 Ω: röd · röd · svart · svart · brun.</figcaption>
       </figure>
     </div>
 
@@ -139,9 +139,9 @@
       </figure>
     </div>
     <p>
-      En vanlig 5&nbsp;mm röd LED tål ca <strong>20 mA</strong>. Den "äter" själv ca <strong>2&nbsp;V</strong>. Resistorn måste alltså sänka resten:
-      Arduinons 5&nbsp;V minus LED:ens 2&nbsp;V = 3&nbsp;V kvar för resistorn. Med Ohms lag: R = U/I = 3 V / 0,02 A = <strong>150&nbsp;Ω</strong>.
-      Vi använder 220&nbsp;Ω för marginal — det lyser nästan lika starkt men LED:en lever längre. <a href="../assets/pdf/bilagor-a-f.pdf">Bilaga F</a> i kompendiet går igenom hela beräkningen.
+      En vanlig 5&nbsp;mm röd LED tål <strong>upp till 20 mA</strong> som maxvärde. För att leva länge ska den köras under det — vi designar mot <strong>15 mA</strong> som komfortström. LED:en "äter" själv ca <strong>2&nbsp;V</strong>, så resistorn ska sänka resten:
+      Arduinons 5&nbsp;V minus LED:ens 2&nbsp;V = 3&nbsp;V kvar för resistorn. Med Ohms lag: R = U/I = 3 V / 0,015 A = <strong>200&nbsp;Ω</strong>.
+      Vi rundar upp till 220&nbsp;Ω (standard E12-serien) — det lyser nästan lika starkt men LED:en lever längre. <a href="../assets/pdf/bilagor-a-f.pdf">Bilaga F</a> i kompendiet går igenom hela beräkningen.
     </p>
   </div>
 
@@ -177,7 +177,7 @@ void loop() {
       <li><code>delay(1000)</code> — pausa allt i 1000 ms (= 1 sekund). Arduinon gör absolut ingenting under den tiden.</li>
     </ul>
 
-    <p>När du kopplade en extern LED via pin 13 kunde du istället byta tempo:</p>
+    <p>När du kopplade en extern LED via pin 13 kan du experimentera med tempot. Halv sekund på, halv sekund av blinkar dubbelt så fort — kortare delay = snabbare blink. Pröva 200, 50, 10 och se vad som händer:</p>
 
     <div class="code-block">
       <div class="filename">

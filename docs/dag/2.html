@@ -83,7 +83,7 @@
       </div>
       <div class="skill">
         <strong>Duty cycle &amp; PWM</strong>
-        <span>Arduinon kan inte göra "halv spänning" — den blinkar istället jättesnabbt (~490 Hz). Ögat ser ett medelvärde.</span>
+        <span>Arduinon kan inte göra "halv spänning" — den blinkar istället jättesnabbt (~490 Hz på de flesta pinnar, 980 Hz på 5 och 6). Ögat ser ett medelvärde.</span>
       </div>
       <div class="skill">
         <strong>RGB-LED:ens fyra ben</strong>
@@ -200,12 +200,18 @@ void loop() {
   analogWrite(ledG, 200);
   analogWrite(ledB, 200);
   delay(1000);
+
+  // Vit: alla tre på samma nivå
+  analogWrite(ledR, 150);
+  analogWrite(ledG, 150);
+  analogWrite(ledB, 150);
+  delay(1000);
 }
 </code></pre>
     </div>
 
     <div class="tip">
-      <strong>Experimentera:</strong> Värdena är pedagogiskt valda, inte heliga. Skruva på dem — höj röd lite, sänk blå — och se vad du får. Det är så du lär dig vad varje kanal gör.
+      <strong>Experimentera:</strong> Värdena är pedagogiskt valda, inte heliga. Skruva på dem — höj röd lite, sänk blå — och se vad du får. Det är så du lär dig vad varje kanal gör. Sista blocket (150/150/150) ger en mjukare vit än 255/255/255 — pröva båda och se skillnaden.
     </div>
   </div>
 
