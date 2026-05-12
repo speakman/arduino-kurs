@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Träff 2 — PWM &amp; RGB · Arduino-kursen</title>
+  <meta name="description" content="Träff 2: analogWrite, duty cycle och RGB-färgblandning. Från en lampa till alla färger av tre." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/github.min.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="../">Start</a>
+      <a href="1.html" class="active">Träffarna</a>
+      <a href="../slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="../nedladdningar.html">Nedladdningar</a>
+      <a href="../resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Start</a> &nbsp;/&nbsp; Träff 02</div>
+    <h1>PWM &amp; RGB</h1>
+    <p class="lead">
+      Från <code>HIGH</code>/<code>LOW</code> till mjuka övergångar. <code>analogWrite</code>, duty cycle
+      och RGB-färgblandning — alla färger av bara tre.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="material-grid">
+    <a class="material-card" href="../slides/" target="_blank" rel="noopener">
+      <span class="icon">▶</span>
+      <span class="label">Live slides</span>
+      <span class="desc">Hela kursdeck:et i webbläsaren.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/slides-dag-2.pdf">
+      <span class="icon">📄</span>
+      <span class="label">Slides PDF (träff 2)</span>
+      <span class="desc">7 sidor · för utskrift eller offline-läsning.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/modul-2-pwm-rgb.pdf">
+      <span class="icon">📘</span>
+      <span class="label">Kompendium — Modul 2</span>
+      <span class="desc">PWM, duty cycle, RGB-LED:ens pinout, fade-mönster.</span>
+    </a>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad du lärde dig</h2>
+    <p class="intro">Träff 2 i konkreta byggstenar:</p>
+    <div class="skills">
+      <div class="skill">
+        <strong><code>analogWrite</code> — talen mellan HIGH och LOW</strong>
+        <span>0–255 styr en pinne istället för bara av/på. Endast PWM-pinnarna (~ markerade: 3, 5, 6, 9, 10, 11).</span>
+      </div>
+      <div class="skill">
+        <strong>Duty cycle &amp; PWM</strong>
+        <span>Arduinon kan inte göra "halv spänning" — den blinkar istället jättesnabbt (~490 Hz). Ögat ser ett medelvärde.</span>
+      </div>
+      <div class="skill">
+        <strong>RGB-LED:ens fyra ben</strong>
+        <span>Tre färger + en gemensam katod. Tre 220 Ω-resistorer, tre PWM-pins, en GND.</span>
+      </div>
+      <div class="skill">
+        <strong>Additiv färgblandning</strong>
+        <span>Röd + grön = gul. Röd + blå = magenta. Alla tre = vit. Med 256 nivåer per kanal: 16 miljoner kombinationer.</span>
+      </div>
+      <div class="skill">
+        <strong>Fade-mönstret</strong>
+        <span>En <code>for</code>-loop som räknar 0–255 + en <code>delay</code> — och en LED som tonas in mjukt istället för att klicka av/på.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad är PWM?</h2>
+    <p class="intro">
+      <strong>Pulse Width Modulation</strong> — pinnen är fortfarande bara HIGH eller LOW, men Arduinon blinkar den så snabbt att ögat ser ett medelvärde.
+      <code>analogWrite(pin, 128)</code> betyder "vara HIGH halva tiden, LOW andra halvan" — och LED:en ser ut att lysa halvt.
+    </p>
+    <div class="image-row">
+      <figure>
+        <img src="../assets/img/pwm-waveform.png" alt="Tre oscilloskop-vågformer vid 5%, 50% och 90% duty cycle." />
+        <figcaption>Duty cycle: andelen tid pinnen är HIGH. 0% = släckt, 100% = full styrka.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/rgb-color-mixing.png" alt="Tre överlappande färgcirklar — röd, grön och blå — som bildar gul, cyan, magenta och vit där de möts." />
+        <figcaption>Additiv färgblandning: tre cirklar, alla färger.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/rgb-fritzing.png" alt="Fritzing-koppling av RGB-LED med tre 220-ohm-resistorer till PWM-pins D3, D5, D6." />
+        <figcaption>Kopplingen: R → D6, G → D5, B → D3, katod → GND.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Fade — mjuk övergång</h2>
+    <p class="intro">
+      Det första steget bortom <code>HIGH</code>/<code>LOW</code>: en <code>for</code>-loop som räknar upp värdet på pinnen
+      en grad i taget. Resultat: LED:en tonas in och ut istället för att klicka.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>pwm-fade.ino</span>
+        <a href="../assets/code/pwm-fade.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ledPin = 6;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Fade upp: 0 → 255
+  for (int v = 0; v &lt;= 255; v++) {
+    analogWrite(ledPin, v);
+    delay(5);
+  }
+  // Fade ner: 255 → 0
+  for (int v = 255; v &gt;= 0; v--) {
+    analogWrite(ledPin, v);
+    delay(5);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Varför pin 6 just här?</strong> Bara pinnar märkta med tilde (<code>~</code>) på Arduino-kortet stödjer <code>analogWrite</code>: 3, 5, 6, 9, 10 och 11. Skickar du <code>analogWrite</code> på pin 7 så får du bara HIGH (≥128) eller LOW (&lt;128).
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>RGB — alla färger av tre</h2>
+    <p class="intro">
+      Tre LED:er i samma paket: röd, grön och blå. Varje styrs av sin egen PWM-pin. Med 256 nivåer per kanal får du
+      256³ ≈ 16,7 miljoner kombinationer.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>rgb-cycle.ino</span>
+        <a href="../assets/code/rgb-cycle.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int ledR = 6;
+const int ledG = 5;
+const int ledB = 3;
+
+void setup() {
+  pinMode(ledR, OUTPUT);
+  pinMode(ledG, OUTPUT);
+  pinMode(ledB, OUTPUT);
+}
+
+void loop() {
+  // Lila: röd + blå
+  analogWrite(ledR, 200);
+  analogWrite(ledG,   0);
+  analogWrite(ledB, 200);
+  delay(1000);
+
+  // Gult: röd + grön
+  analogWrite(ledR, 255);
+  analogWrite(ledG, 180);
+  analogWrite(ledB,   0);
+  delay(1000);
+
+  // Cyan: grön + blå
+  analogWrite(ledR,   0);
+  analogWrite(ledG, 200);
+  analogWrite(ledB, 200);
+  delay(1000);
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Experimentera:</strong> Värdena är pedagogiskt valda, inte heliga. Skruva på dem — höj röd lite, sänk blå — och se vad du får. Det är så du lär dig vad varje kanal gör.
+    </div>
+  </div>
+
+  <div class="next-dag">
+    <div>
+      <div class="label">Nästa</div>
+      <strong>Träff 3 — Digital input</strong>
+      <p style="margin:4px 0 0;color:var(--ak-text-dim);font-size:0.95rem;">Knapp, buzzer och if/else. Arduinon börjar lyssna.</p>
+    </div>
+    <a class="btn" href="3.html">Träff 3 →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="3.html">Träff 3 — Digital input</a></li>
+        <li><a href="4.html">Träff 4 — Analog input</a></li>
+        <li><a href="5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="../slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="../nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="../resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>
