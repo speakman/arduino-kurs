@@ -1,7 +1,7 @@
 # Arduino-kurs — Presentation
 
 Slidev-baserad presentation för 5-veckors Arduino/elektronikkurs.
-Mörkt tema, stor typografi, fem moduler som bygger vidare på varandra.
+Ljus tema (light-mode-only, projektor-anpassat), stor typografi, fem moduler som bygger vidare på varandra.
 
 ## Snabbstart (för klassrummet)
 
@@ -78,11 +78,11 @@ presentation/
 ├── slides.md           ← all content + talarnotiser (redigera denna)
 ├── package.json        ← Slidev + deps
 ├── styles/
-│   ├── main.css        ← mörkt tema, superpower-grid, warn-box
+│   ├── main.css        ← light-mode tokens, modul-kort, warn-box
 │   └── index.js        ← laddar main.css
 ├── public/
 │   └── images/         ← produktfoton (Arduino, breadboard, LEDs...)
-├── components/         ← custom Vue-komponenter (t.ex. SuperpowerCard)
+├── components/         ← custom Vue-komponenter (WiringSlide m.fl.)
 ├── snippets/           ← återanvändbara kodbitar
 └── dist/               ← byggd statisk version (genereras av `npm run build`)
 ```
