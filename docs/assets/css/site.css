@@ -569,3 +569,7 @@ table.dl a.dl-link {
 .btn:focus-visible {
   outline-offset: 3px;
 }
+
+/* 16. Syntax-highlight contrast overrides (highlight.js github-theme) ---- */
+.hljs-built_in { color: #0a3069 !important; }      /* AA-pass for Arduino builtins like digitalWrite */
+.hljs-comment, .hljs-quote { color: #4a5568 !important; }  /* AA-pass for // comments */
