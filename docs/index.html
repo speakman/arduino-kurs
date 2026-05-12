@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elektronik &amp; Programmering med Arduino — kursdeltagar-portal</title>
+  <meta name="description" content="Allt material från Arduino-kursen: slides, kompendium, kodexempel och resurser för fortsatt lärande. FRO Ånge våren 2026." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="./" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="./" class="active">Start</a>
+      <a href="dag/1.html">Träffarna</a>
+      <a href="slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="nedladdningar.html">Nedladdningar</a>
+      <a href="resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">FRO Ånge · Våren 2026 · 5 träffar</div>
+    <h1>Allt du behöver från Arduino-kursen — på ett ställe</h1>
+    <p class="lead">
+      Slides, kompendium, kodexempel och fortsatta resurser. Allt material från
+      de fem träffarna finns här att läsa, ladda ner och bygga vidare på.
+    </p>
+    <div class="actions">
+      <a href="dag/1.html" class="btn">Gå till Träff 1 →</a>
+      <a href="slides/" class="btn ghost" target="_blank" rel="noopener">Öppna slides</a>
+      <a href="nedladdningar.html" class="btn ghost">Ladda ner allt</a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-eyebrow">Kursupplägg</div>
+    <h2>De fem träffarna</h2>
+    <p style="max-width:60ch;color:var(--ak-text-dim);margin:0;">
+      Varje träff har sin egen sida med slides, det aktuella kompendium-avsnittet
+      och de kodexempel vi körde tillsammans. Klicka in på en träff för att
+      repetera eller plocka upp den röda tråden.
+    </p>
+
+    <div class="dag-grid">
+      <a class="dag-card" href="dag/1.html">
+        <div class="num">Träff 01</div>
+        <h3>LED &amp; krets</h3>
+        <p>Från ström och spänning till första blinkande lampan på pin 13.</p>
+        <div class="topics">
+          <span class="tag">Ohms lag</span>
+          <span class="tag">Breadboard</span>
+          <span class="tag">digitalWrite</span>
+          <span class="tag">Blink</span>
+        </div>
+        <span class="arrow">Öppna träff 1 →</span>
+      </a>
+
+      <a class="dag-card" href="dag/2.html">
+        <div class="num">Träff 02</div>
+        <h3>PWM &amp; RGB</h3>
+        <p>Mjuka övergångar och alla färger av tre — analogWrite och duty cycle.</p>
+        <div class="topics">
+          <span class="tag">analogWrite</span>
+          <span class="tag">PWM</span>
+          <span class="tag">RGB-LED</span>
+          <span class="tag">Fade</span>
+        </div>
+        <span class="arrow">Öppna träff 2 →</span>
+      </a>
+
+      <a class="dag-card" href="dag/3.html">
+        <div class="num">Träff 03</div>
+        <h3>Digital input</h3>
+        <p>Tryckknapp, INPUT_PULLUP och buzzer — beslut i koden.</p>
+        <div class="topics">
+          <span class="tag">digitalRead</span>
+          <span class="tag">if / else</span>
+          <span class="tag">Knapp</span>
+          <span class="tag">Buzzer</span>
+        </div>
+        <span class="arrow">Öppna träff 3 →</span>
+      </a>
+
+      <a class="dag-card" href="dag/4.html">
+        <div class="num">Träff 04</div>
+        <h3>Analog input</h3>
+        <p>Fotocell, spänningsdelare, tilt-sensor och Serial Monitor.</p>
+        <div class="topics">
+          <span class="tag">analogRead</span>
+          <span class="tag">Spänningsdelare</span>
+          <span class="tag">Fotocell</span>
+          <span class="tag">Serial</span>
+        </div>
+        <span class="arrow">Öppna träff 4 →</span>
+      </a>
+
+      <a class="dag-card" href="dag/5.html">
+        <div class="num">Träff 05</div>
+        <h3>Hackathon</h3>
+        <p>Integration: sense + act = ett fungerande tjuvlarm.</p>
+        <div class="topics">
+          <span class="tag">Integration</span>
+          <span class="tag">Sense / Act</span>
+          <span class="tag">Larm-projekt</span>
+        </div>
+        <span class="arrow">Öppna träff 5 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="section-eyebrow">Vad du nu kan</div>
+    <h2>Från första LED:en till komplett larm</h2>
+    <p style="max-width:60ch;color:var(--ak-text-dim);margin:0 0 8px;">
+      Du har under kursen byggt upp en konkret verktygslåda — både i komponenter
+      och i koncept. Här är de fem viktigaste:
+    </p>
+
+    <div class="skills">
+      <div class="skill">
+        <strong>Du kan läsa en krets</strong>
+        <span>Breadboard-anatomi, polariserade komponenter, spänningsdelare. Vad som hänger ihop med vad och varför.</span>
+      </div>
+      <div class="skill">
+        <strong>Du kan dimensionera en resistor</strong>
+        <span>Ohms lag, framspänningsfall och varför 220 Ω är standard för 5V-LED-kretsar.</span>
+      </div>
+      <div class="skill">
+        <strong>Du kan skriva en Arduino-sketch</strong>
+        <span>setup() och loop(), digitalWrite/Read, analogWrite/Read, variabler, if/else, Serial-debugging.</span>
+      </div>
+      <div class="skill">
+        <strong>Du kan läsa sensorer</strong>
+        <span>Analog till digital. Hur en fotocell, en tilt-sensor och en spänningsdelare faktiskt fungerar.</span>
+      </div>
+      <div class="skill">
+        <strong>Du kan integrera sense + act</strong>
+        <span>Hackathon-larmet: input → beslut → output. Mönstret som finns i i princip alla inbyggda system.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="container">
+    <div class="cta-block">
+      <div>
+        <div class="section-eyebrow">Nästa steg</div>
+        <h3>Vad ska jag göra härnäst?</h3>
+        <p>Kuraterade resurser för nästa steg — kanaler, projekt, nästa hardware och svenska komponenthandlare.</p>
+      </div>
+      <a class="btn" href="resurser.html">Resurser &amp; nästa steg →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge (Frivilliga Radioorganisationen) våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="dag/1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="dag/2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="dag/3.html">Träff 3 — Digital input</a></li>
+        <li><a href="dag/4.html">Träff 4 — Analog input</a></li>
+        <li><a href="dag/5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

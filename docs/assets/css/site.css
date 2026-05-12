@@ -1,0 +1,571 @@
+/* ============================================================================
+   Arduino-kurs — GitHub Pages site
+   Återanvänder designtokens från presentation/styles/main.css.
+   ============================================================================ */
+
+/* 1. Design tokens --------------------------------------------------------- */
+:root {
+  --ak-bg:        #fafaf7;
+  --ak-bg-raised: #f0f1ed;
+  --ak-border:    #d4d6d0;
+
+  --ak-text:      #0a0e14;
+  --ak-text-dim:  #4a5568;
+  --ak-text-mute: #8a95a3;
+
+  --ak-accent:      #00747d;
+  --ak-accent-hover:#005c63;
+  --ak-accent-soft: rgba(0, 116, 125, 0.10);
+
+  --ak-warn:   #b45309;
+  --ak-danger: #be123c;
+  --ak-success:#2e7d32;
+
+  --ak-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+  --ak-shadow:    0 1px 3px rgba(15, 23, 42, 0.06), 0 6px 18px rgba(15, 23, 42, 0.06);
+  --ak-shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.10);
+  --ak-glow:      0 0 24px rgba(0, 116, 125, 0.15);
+
+  --ak-radius-sm: 6px;
+  --ak-radius:    12px;
+  --ak-radius-lg: 20px;
+
+  --ak-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --ak-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ak-container: 1100px;
+}
+
+/* 2. Reset + base --------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ak-bg);
+  color: var(--ak-text);
+  font: 17px/1.6 var(--ak-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { max-width: 100%; height: auto; display: block; }
+a {
+  color: var(--ak-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--ak-accent-hover); text-decoration: underline; }
+button { font: inherit; }
+
+h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.6em; color: var(--ak-text); }
+h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1.05rem; font-weight: 600; color: var(--ak-text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+p { margin: 0 0 1em; }
+
+code {
+  font-family: var(--ak-font-mono);
+  font-size: 0.92em;
+  background: var(--ak-accent-soft);
+  color: var(--ak-accent);
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+}
+pre {
+  font-family: var(--ak-font-mono);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  background: #ffffff;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius);
+  box-shadow: var(--ak-shadow-sm);
+  padding: 1.2rem 1.4rem;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+}
+pre code { background: none; color: var(--ak-text); padding: 0; font-size: inherit; }
+
+/* 3. Layout primitives ---------------------------------------------------- */
+.container {
+  max-width: var(--ak-container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container.wide { max-width: 1280px; }
+
+/* 4. Top navigation ------------------------------------------------------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  background: color-mix(in srgb, var(--ak-bg) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--ak-border);
+  z-index: 50;
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ak-text);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.site-nav .brand:hover { text-decoration: none; }
+.site-nav .brand .logo {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--ak-accent);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+.site-nav nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 0.94rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.site-nav nav a {
+  color: var(--ak-text-dim);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.site-nav nav a:hover,
+.site-nav nav a.active {
+  color: var(--ak-text);
+  text-decoration: none;
+}
+
+/* 5. Hero ----------------------------------------------------------------- */
+.hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--ak-border);
+  background:
+    radial-gradient(circle at 80% 20%, var(--ak-accent-soft) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--ak-warn) 6%, transparent) 0%, transparent 50%);
+}
+.hero .eyebrow {
+  font-family: var(--ak-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--ak-accent);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.hero h1 { max-width: 22ch; margin-bottom: 16px; }
+.hero p.lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  color: var(--ak-text-dim);
+  max-width: 60ch;
+  margin: 0 0 32px;
+}
+.hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* 6. Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--ak-radius-sm);
+  background: var(--ak-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--ak-accent);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--ak-accent-hover);
+  border-color: var(--ak-accent-hover);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--ak-shadow);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--ak-accent);
+}
+.btn.ghost:hover {
+  background: var(--ak-accent-soft);
+  color: var(--ak-accent-hover);
+  border-color: var(--ak-accent-hover);
+}
+.btn.small { padding: 7px 14px; font-size: 0.88rem; }
+
+/* 7. Section primitives --------------------------------------------------- */
+section.page-section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--ak-border);
+}
+section.page-section:last-of-type { border-bottom: 0; }
+.section-eyebrow {
+  font-family: var(--ak-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  color: var(--ak-accent);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* 8. Dag-grid (5 cards) --------------------------------------------------- */
+.dag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+.dag-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius);
+  box-shadow: var(--ak-shadow-sm);
+  color: var(--ak-text);
+  transition: all 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+.dag-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--ak-accent-soft) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+.dag-card:hover {
+  border-color: var(--ak-accent);
+  box-shadow: var(--ak-shadow), var(--ak-glow);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--ak-text);
+}
+.dag-card:hover::before { opacity: 1; }
+.dag-card .num {
+  font-family: var(--ak-font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  color: var(--ak-accent);
+  font-weight: 700;
+}
+.dag-card h3 { margin: 0; font-size: 1.2rem; }
+.dag-card p { margin: 0; color: var(--ak-text-dim); font-size: 0.95rem; }
+.dag-card .topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.dag-card .tag {
+  font-family: var(--ak-font-mono);
+  font-size: 0.74rem;
+  color: var(--ak-text-dim);
+  background: var(--ak-bg-raised);
+  border: 1px solid var(--ak-border);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.dag-card .arrow {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ak-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 9. Skill-list ----------------------------------------------------------- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  background: var(--ak-bg-raised);
+  border-radius: var(--ak-radius);
+  border-left: 3px solid var(--ak-accent);
+}
+.skill strong { color: var(--ak-text); font-weight: 700; font-size: 0.98rem; }
+.skill span { color: var(--ak-text-dim); font-size: 0.9rem; }
+
+/* 10. CTA-block ----------------------------------------------------------- */
+.cta-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, var(--ak-accent-soft), transparent);
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius-lg);
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.cta-block h3 { margin: 0 0 4px; }
+.cta-block p { margin: 0; color: var(--ak-text-dim); }
+
+/* 11. Footer -------------------------------------------------------------- */
+.site-footer {
+  padding: 48px 0 32px;
+  background: var(--ak-bg-raised);
+  border-top: 1px solid var(--ak-border);
+  color: var(--ak-text-dim);
+  font-size: 0.92rem;
+}
+.site-footer .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+}
+.site-footer h4 {
+  font-size: 0.78rem;
+  color: var(--ak-text);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.site-footer a { color: var(--ak-text-dim); }
+.site-footer a:hover { color: var(--ak-accent); }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin-bottom: 6px; }
+.site-footer .colophon {
+  grid-column: 1 / -1;
+  padding-top: 24px;
+  margin-top: 16px;
+  border-top: 1px solid var(--ak-border);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* 12. Dag-page-specific (used by dag/*.html) ------------------------------ */
+.dag-hero {
+  padding: 56px 0 40px;
+  background:
+    radial-gradient(circle at 70% 30%, var(--ak-accent-soft), transparent 60%);
+  border-bottom: 1px solid var(--ak-border);
+}
+.dag-hero .breadcrumb {
+  font-family: var(--ak-font-mono);
+  font-size: 0.82rem;
+  color: var(--ak-text-mute);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.dag-hero .breadcrumb a { color: var(--ak-text-mute); }
+.dag-hero h1 { margin-bottom: 12px; }
+.dag-hero p.lead { font-size: 1.15rem; color: var(--ak-text-dim); max-width: 60ch; margin: 0; }
+
+.material-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 24px 0 40px;
+}
+.material-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 22px;
+  background: #ffffff;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius);
+  text-decoration: none;
+  color: var(--ak-text);
+  transition: all 0.15s ease;
+}
+.material-card:hover {
+  border-color: var(--ak-accent);
+  box-shadow: var(--ak-shadow);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.material-card .icon { font-size: 1.6rem; color: var(--ak-accent); }
+.material-card .label { font-weight: 600; color: var(--ak-text); }
+.material-card .desc { font-size: 0.88rem; color: var(--ak-text-dim); }
+
+.dag-section { margin: 48px 0; }
+.dag-section h2 { margin-bottom: 8px; }
+.dag-section p.intro { color: var(--ak-text-dim); max-width: 65ch; margin: 0 0 24px; }
+
+.code-block {
+  position: relative;
+  margin: 1.4rem 0;
+}
+.code-block .filename {
+  font-family: var(--ak-font-mono);
+  font-size: 0.82rem;
+  color: var(--ak-text-mute);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.code-block .filename a {
+  color: var(--ak-accent);
+  font-weight: 500;
+}
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+.image-row figure {
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius);
+  overflow: hidden;
+  box-shadow: var(--ak-shadow-sm);
+}
+.image-row figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: var(--ak-bg);
+  padding: 12px;
+}
+.image-row figure figcaption {
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  color: var(--ak-text-dim);
+  border-top: 1px solid var(--ak-border);
+}
+
+.tip {
+  border-left: 3px solid var(--ak-accent);
+  background: var(--ak-accent-soft);
+  padding: 14px 18px;
+  border-radius: var(--ak-radius-sm);
+  margin: 20px 0;
+}
+.tip strong { color: var(--ak-accent); }
+
+.warn {
+  border-left: 3px solid var(--ak-danger);
+  background: color-mix(in srgb, var(--ak-danger) 6%, transparent);
+  padding: 14px 18px;
+  border-radius: var(--ak-radius-sm);
+  margin: 20px 0;
+}
+.warn strong { color: var(--ak-danger); }
+
+.next-dag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 32px;
+  background: var(--ak-bg-raised);
+  border-radius: var(--ak-radius);
+  margin-top: 48px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.next-dag .label {
+  font-family: var(--ak-font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ak-text-mute);
+  margin-bottom: 4px;
+}
+.next-dag strong { font-size: 1.1rem; color: var(--ak-text); }
+
+/* 13. Tables (used on nedladdningar) -------------------------------------- */
+table.dl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 16px 0 32px;
+  background: #ffffff;
+  border: 1px solid var(--ak-border);
+  border-radius: var(--ak-radius);
+  overflow: hidden;
+  box-shadow: var(--ak-shadow-sm);
+}
+table.dl th, table.dl td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--ak-border);
+}
+table.dl th {
+  background: var(--ak-bg-raised);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ak-text-dim);
+  font-weight: 600;
+}
+table.dl tr:last-child td { border-bottom: 0; }
+table.dl tr:hover td { background: var(--ak-bg); }
+table.dl .meta {
+  font-family: var(--ak-font-mono);
+  font-size: 0.82rem;
+  color: var(--ak-text-mute);
+  white-space: nowrap;
+}
+table.dl a.dl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+/* 14. Mobile -------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .site-nav .container { height: 56px; }
+  .site-nav nav { gap: 14px; font-size: 0.88rem; }
+  .hero { padding: 56px 0 48px; }
+  section.page-section { padding: 48px 0; }
+  .cta-block { padding: 24px; }
+  .cta-block .btn { width: 100%; justify-content: center; }
+  .site-footer .container { grid-template-columns: 1fr; }
+  .next-dag { flex-direction: column; align-items: stretch; }
+  .next-dag .btn { width: 100%; justify-content: center; }
+  .dag-hero { padding: 40px 0 32px; }
+}
+
+/* 15. Focus visibility (a11y) -------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--ak-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.btn:focus-visible {
+  outline-offset: 3px;
+}
