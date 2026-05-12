@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resurser &amp; nästa steg · Arduino-kursen</title>
+  <meta name="description" content="Kuraterade resurser för fortsatt Arduino-lärande: kanaler, forum, projekt, nästa hardware och svenska komponenthandlare. Verifierat maj 2026." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <style>
+    .resource-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .resource {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 18px 22px;
+      background: #ffffff;
+      border: 1px solid var(--ak-border);
+      border-radius: var(--ak-radius);
+      box-shadow: var(--ak-shadow-sm);
+      transition: all 0.15s ease;
+    }
+    .resource:hover {
+      border-color: var(--ak-accent);
+      box-shadow: var(--ak-shadow);
+    }
+    .resource .title {
+      font-weight: 700;
+      font-size: 1.04rem;
+      color: var(--ak-text);
+    }
+    .resource .title a { color: var(--ak-accent); }
+    .resource .desc { color: var(--ak-text-dim); font-size: 0.95rem; line-height: 1.55; margin: 0; }
+    .resource .why {
+      color: var(--ak-text);
+      font-size: 0.9rem;
+      font-style: italic;
+      padding-left: 12px;
+      border-left: 2px solid var(--ak-accent-soft);
+      margin: 6px 0 0;
+    }
+    .resource .url {
+      font-family: var(--ak-font-mono);
+      font-size: 0.82rem;
+      color: var(--ak-text-mute);
+      word-break: break-all;
+    }
+    .top3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .top3 .pick {
+      padding: 20px 22px;
+      background: linear-gradient(135deg, var(--ak-accent-soft), transparent);
+      border: 1px solid var(--ak-accent);
+      border-radius: var(--ak-radius);
+      box-shadow: var(--ak-glow);
+    }
+    .top3 .pick .rank {
+      font-family: var(--ak-font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ak-accent);
+      font-weight: 700;
+    }
+    .top3 .pick h3 { margin: 4px 0 6px; }
+    .top3 .pick p { margin: 0; font-size: 0.92rem; color: var(--ak-text-dim); }
+    .top3 .pick a.go {
+      display: inline-block;
+      margin-top: 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="./" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="./">Start</a>
+      <a href="dag/1.html">Träffarna</a>
+      <a href="slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="nedladdningar.html">Nedladdningar</a>
+      <a href="resurser.html" class="active">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="./">Start</a> &nbsp;/&nbsp; Resurser</div>
+    <h1>Resurser &amp; nästa steg</h1>
+    <p class="lead">
+      Kuraterade resurser för att fortsätta efter kursen — kanaler, forum, projekt, nästa hardware,
+      svenska komponenthandlare. Bara länkar som verifierats aktiva och relevanta i maj 2026.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="dag-section">
+    <h2>Topp 3 — om du bara har tid med tre</h2>
+    <p class="intro">Av allt nedan: dessa tre täcker det mesta för en självlärande nybörjare.</p>
+    <div class="top3">
+      <div class="pick">
+        <div class="rank">★ 1</div>
+        <h3>Paul McWhorter — Arduino-lektionerna</h3>
+        <p>Hundra+ lektioner i lugnt tempo, från noll till medelnivå. Den enda kanalen som faktiskt undervisar — inte snabb-genomgår projekt.</p>
+        <a class="go" href="https://toptechboy.com/arduino-lessons/" target="_blank" rel="noopener">toptechboy.com/arduino-lessons/ →</a>
+      </div>
+      <div class="pick">
+        <div class="rank">★ 2</div>
+        <h3>Arduino Language Reference</h3>
+        <p>Den officiella funktionsreferensen. Den enda dokumentationen du vill bookmarka — du kommer slå upp den dagligen när du kodar.</p>
+        <a class="go" href="https://docs.arduino.cc/language-reference/" target="_blank" rel="noopener">docs.arduino.cc/language-reference/ →</a>
+      </div>
+      <div class="pick">
+        <div class="rank">★ 3</div>
+        <h3>Electrokit</h3>
+        <p>Svensk komponenthandlare i Malmö med 14&nbsp;000+ produkter. Förstaval för att köpa fler komponenter, sensorer och nya kort.</p>
+        <a class="go" href="https://www.electrokit.com/" target="_blank" rel="noopener">electrokit.com →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Kom igång efter kursen</h2>
+    <p class="intro">Pedagogiskt strukturerade resurser för att fortsätta lära dig på egen hand.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://toptechboy.com/arduino-lessons/" target="_blank" rel="noopener">Paul McWhorter — Arduino Lessons</a></div>
+        <p class="desc">Hundra+ videolektioner i mycket lugnt tempo. Bygger upp koncepten stegvis — perfekt för vuxen självinlärning.</p>
+        <p class="why">Den enda Arduino-resursen som verkligen <em>undervisar</em> istället för att snabb-genomgå projekt.</p>
+        <div class="url">toptechboy.com/arduino-lessons/</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.programmingelectronics.com/" target="_blank" rel="noopener">Programming Electronics Academy</a></div>
+        <p class="desc">Förklarar <em>varför</em> Arduino-koden funkar som den gör. Pedagogiskt komplement till McWhorter, mer fokus på koncept än hands-on.</p>
+        <div class="url">programmingelectronics.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://dronebotworkshop.com/" target="_blank" rel="noopener">DroneBot Workshop</a></div>
+        <p class="desc">Långa djupgångar (30–60 min/video) i specifika ämnen. Aktiv 2025–2026 med UNO Q och Modulino-tutorials.</p>
+        <div class="url">dronebotworkshop.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://docs.arduino.cc/software/ide/" target="_blank" rel="noopener">Arduino IDE 2.x — officiell guide</a></div>
+        <p class="desc">Hur du installerar, konfigurerar och felsöker Arduino IDE 2.3.8 (versionen som kom feb 2026).</p>
+        <p class="why">Många "Arduino-tutorials" på nätet är fortfarande skrivna för gamla IDE 1.x — den ser annorlunda ut.</p>
+        <div class="url">docs.arduino.cc/software/ide/</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Slå upp medan du kodar</h2>
+    <p class="intro">När du sitter mitt i en sketch och behöver veta hur en funktion fungerar — eller söker svar på en specifik bugg.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://docs.arduino.cc/language-reference/" target="_blank" rel="noopener">Arduino Language Reference</a></div>
+        <p class="desc">Komplett funktionsreferens med kodexempel för varje API. <code>digitalWrite</code>, <code>analogRead</code>, <code>Serial.print</code>, alla operatorer, alla datatyper.</p>
+        <p class="why">Du kommer slå upp den dagligen när du kodar. Bookmarka.</p>
+        <div class="url">docs.arduino.cc/language-reference/</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://docs.arduino.cc/" target="_blank" rel="noopener">Arduino Documentation Hub</a></div>
+        <p class="desc">Centrala officiella dokumentationen — täcker UNO R3, UNO R4, Cloud, IDE 2.x. Aktivt uppdaterad 2026.</p>
+        <div class="url">docs.arduino.cc</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://forum.arduino.cc/" target="_blank" rel="noopener">Arduino Forum (officiellt)</a></div>
+        <p class="desc">Discourse-forum för konkreta felsökningsfrågor. Posta din kod och en bild av kopplingen för snabbast svar.</p>
+        <div class="url">forum.arduino.cc</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://arduino.stackexchange.com/" target="_blank" rel="noopener">Arduino Stack Exchange</a></div>
+        <p class="desc">Strikt Q&amp;A-format. Ofta bättre än forum för specifika tekniska frågor — sökbart för andra med samma problem.</p>
+        <div class="url">arduino.stackexchange.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.reddit.com/r/arduino/" target="_blank" rel="noopener">r/arduino (Reddit)</a></div>
+        <p class="desc">Aktivt subreddit. Snabbast svar på enkla nybörjarfrågor om du postar kod + foto av wiring.</p>
+        <div class="url">reddit.com/r/arduino</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://elektronikforumet.com/forum/" target="_blank" rel="noopener">Svenska ElektronikForumet</a></div>
+        <p class="desc">Enda svenska forumet med kritisk massa. Svar på svenska om du föredrar det. Verifierat aktivt 2026.</p>
+        <div class="url">elektronikforumet.com/forum/</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Hitta nästa projekt</h2>
+    <p class="intro">Inspirationsbankar med tusentals projekt — sortera efter komponenter du redan har eller efter komplexitetsnivå.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://projecthub.arduino.cc/" target="_blank" rel="noopener">Arduino Project Hub</a></div>
+        <p class="desc">Officiell community-katalog med 6&nbsp;100+ projekt. Filtrera på UNO för att se bara vad du kan bygga med kortet du har.</p>
+        <p class="why">Kvaliteten varierar — välj projekt med många vyer och kommentarer.</p>
+        <div class="url">projecthub.arduino.cc</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://learn.adafruit.com/" target="_blank" rel="noopener">Adafruit Learning System</a></div>
+        <p class="desc">3&nbsp;300+ tutorials med extremt hög standard. Den kvalitet andra tutorial-sajter jämförs mot.</p>
+        <div class="url">learn.adafruit.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.elegoo.com/blogs/arduino-projects" target="_blank" rel="noopener">ELEGOO Tutorials</a></div>
+        <p class="desc">Officiella tutorials från företaget som tillverkade just ditt kit. Använd som referens när du vill plocka upp en komponent från lådan du inte använt än.</p>
+        <div class="url">elegoo.com/blogs/arduino-projects</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.hackster.io/" target="_blank" rel="noopener">Hackster.io</a></div>
+        <p class="desc">Bredare maker-community än bara Arduino. Bra för att se vad andra bygger med kombinationer av Arduino + 3D-print + ML + andra plattformar.</p>
+        <div class="url">hackster.io</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://randomnerdtutorials.com/" target="_blank" rel="noopener">Random Nerd Tutorials</a></div>
+        <p class="desc">Mycket aktivt 2026. Topp-3 när du googlar "ESP32 + någon sensor" — när du har växt ur UNO och börjar med WiFi-kort.</p>
+        <div class="url">randomnerdtutorials.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://learn.sparkfun.com/" target="_blank" rel="noopener">SparkFun Learn</a></div>
+        <p class="desc">Hookup Guides per komponent — när du behöver kalibrera en specifik sensor eller modul du köpt.</p>
+        <div class="url">learn.sparkfun.com</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>När du har växt ur UNO</h2>
+    <p class="intro">Naturliga uppgraderingar — mer prestanda, WiFi, eller riktig C++.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title">ESP32 (DOIT DEVKIT V1 eller ESP32-S3 Feather)</div>
+        <p class="desc">240 MHz, WiFi + Bluetooth, ca 100–200 kr. Det självklara steget när du vill att Arduinon ska prata med nätet. Programmeras i Arduino IDE 2.x.</p>
+        <p class="why">Större marknad och fler tutorials än UNO R4 WiFi, billigare per kort.</p>
+        <div class="url"><a href="https://developer.espressif.com/blog/2025/10/arduino-get-started/" target="_blank" rel="noopener">developer.espressif.com — getting started 2026</a></div>
+      </div>
+      <div class="resource">
+        <div class="title">Raspberry Pi Pico 2 W</div>
+        <p class="desc">RP2350, WiFi/Bluetooth, ca 50 kr. Mer kraft än UNO, programmeras i Arduino IDE via earlephilhower/arduino-pico-tillägget. Bästa "behåll Arduino-känslan men få mer prestanda".</p>
+        <div class="url">raspberrypi.com/products/raspberry-pi-pico-2/</div>
+      </div>
+      <div class="resource">
+        <div class="title">Arduino UNO R4 WiFi</div>
+        <p class="desc">Officiell sequence-uppgradering inom Arduino-ekosystemet. WiFi, mer minne, samma form factor och pinnar som UNO R3. Electrokit har den för 299 kr.</p>
+        <div class="url">arduino.cc/UNOR4WiFi</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://platformio.org/" target="_blank" rel="noopener">PlatformIO (VSCode-extension)</a></div>
+        <p class="desc">Naturlig steg-upp från Arduino IDE. Riktig debugger, multi-platform-stöd (Arduino + ESP32 + Pico + STM32 från samma editor), library-management och unit tests.</p>
+        <div class="url">platformio.org</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://wokwi.com/" target="_blank" rel="noopener">Wokwi (Arduino-simulator i webbläsaren)</a></div>
+        <p class="desc">Simulera Arduino-kretsar utan hårdvara. Gratis för personligt bruk. När du vill testa en idé på lunchen utan att packa upp kittet.</p>
+        <p class="why">Begränsning: 3,3V/IOREF/AREF/RESET-pins ej tillgängliga i UNO-simuleringen, custom libraries kräver Pro-plan.</p>
+        <div class="url">wokwi.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.learncpp.com/" target="_blank" rel="noopener">learncpp.com — modern C++</a></div>
+        <p class="desc">De-facto standard för att lära sig C++ ordentligt. Gratis, stegvis, täcker C++11/14/17/20/23. Bästa resursen efter Arduino-basics när du vill ta steget till "riktig" C++.</p>
+        <div class="url">learncpp.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.digikey.com/en/maker/tutorials/2020/the-basics-of-c-on-an-arduino-part-1-variables" target="_blank" rel="noopener">DigiKey: "The Basics of C++ on an Arduino" (5 delar)</a></div>
+        <p class="desc">Mest direkta brygga från "Arduino C-stil" till "Detta är faktiskt C++". Perfekt mellanlandning innan learncpp.com.</p>
+        <div class="url">digikey.com/en/maker/tutorials/2020</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Köp komponenter i Sverige</h2>
+    <p class="intro">Verifierade svenska komponenthandlare 2026. Snabb leverans och svenska fakturor.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://www.electrokit.com/" target="_blank" rel="noopener">Electrokit (Malmö)</a></div>
+        <p class="desc">14&nbsp;000+ produkter, fackmässig support på svenska. Bredd från enskilda komponenter till färdiga kit och utvecklingskort.</p>
+        <p class="why">Förstaval för fortsatt köp. Bästa kombinationen pris/utbud/kvalitet i Sverige.</p>
+        <div class="url">electrokit.com</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.kjell.com/se/produkter/el-verktyg/elektronik" target="_blank" rel="noopener">Kjell &amp; Company</a></div>
+        <p class="desc">270 elektronik-artiklar online + fysiska butiker i de flesta större städer. Bra när du behöver en jumperkabel eller resistor <em>idag</em>.</p>
+        <div class="url">kjell.com — elektronik-sektionen</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.arduino.se/" target="_blank" rel="noopener">Arduino.se</a></div>
+        <p class="desc">Mindre svensk handlare specialiserad på Arduino. Bredare urval av Arduino-officiella kort och utbildningskit.</p>
+        <div class="url">arduino.se</div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <strong>OBS — Lawicel AB stängde januari 2025.</strong> Tidigare välkänd svensk Arduino-handlare som ofta dyker upp i äldre tutorials. Använd inte deras länkar — domänen kan ändra ägare och innehåll är inte längre underhållet.
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Träffa andra makers</h2>
+    <p class="intro">Communities och fysiska platser i Sverige där du kan visa det du byggt och få hjälp.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://www.makersofsweden.se/" target="_blank" rel="noopener">Makers of Sweden</a></div>
+        <p class="desc">Paraplyorganisation för 16 svenska makerspaces. Hitta närmaste verkstad via deras karta.</p>
+        <div class="url">makersofsweden.se</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.makerspace.se/" target="_blank" rel="noopener">Stockholm Makerspace</a></div>
+        <p class="desc">350 m² på KTH-campus. För dig som är Stockholms-baserad. Medlemskap krävs men öppna kvällar finns.</p>
+        <div class="url">makerspace.se</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://discord.com/invite/arduino" target="_blank" rel="noopener">Officiella Arduino Discord</a></div>
+        <p class="desc">~40&nbsp;000 medlemmar, realtidshjälp. Snabbare än forum när du sitter och kör fast.</p>
+        <div class="url">discord.com/invite/arduino</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Bra bibliotek att utforska</h2>
+    <p class="intro">När du tar nästa steg utöver det som kommer med Arduino IDE som standard.</p>
+    <div class="resource-list">
+      <div class="resource">
+        <div class="title"><a href="https://github.com/adafruit/Adafruit_NeoPixel" target="_blank" rel="noopener">Adafruit NeoPixel</a></div>
+        <p class="desc">Standardvalet för WS2812B-LED-strips ("magiska remsor" som var och en kan ha sin egen färg). En datapinne räcker för hundratals LED:er.</p>
+        <div class="url">github.com/adafruit/Adafruit_NeoPixel</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://fastled.io/" target="_blank" rel="noopener">FastLED</a></div>
+        <p class="desc">När du vill bygga något ambitiöst med många LED:er — animationer, gradienter, palette-effekter. #2 mest populära Arduino-biblioteket totalt.</p>
+        <div class="url">fastled.io</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://github.com/PaulStoffregen/OneWire" target="_blank" rel="noopener">OneWire + DallasTemperature</a></div>
+        <p class="desc">För DS18B20-temperatursensorer (de små vattentäta i metallhylsa). Mycket vanligt val för "övervaka kylskåp / akvarium / växthus".</p>
+        <div class="url">github.com/PaulStoffregen/OneWire</div>
+      </div>
+      <div class="resource">
+        <div class="title"><a href="https://www.arduinolibraries.info/" target="_blank" rel="noopener">Arduino Libraries-katalogen</a></div>
+        <p class="desc">De-facto centralregister över 8&nbsp;000+ bibliotek. Visar senaste uppdatering — bra för att se om ett bibliotek är aktivt underhållet.</p>
+        <div class="url">arduinolibraries.info</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div>
+      <div class="section-eyebrow">Repetera grunderna</div>
+      <h3>Saknar du något från kursen?</h3>
+      <p>Allt material — slides, kompendium, kodexempel — finns kvar här. Klicka in på en träff för att repetera.</p>
+    </div>
+    <a class="btn ghost" href="dag/1.html">Till träff 1 →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="dag/1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="dag/2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="dag/3.html">Träff 3 — Digital input</a></li>
+        <li><a href="dag/4.html">Träff 4 — Analog input</a></li>
+        <li><a href="dag/5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
