@@ -272,7 +272,7 @@ finns.
 
 ---
 layout: image-left
-image: /images/arduino-uno-hero.jpg
+image: /images/arduino-uno-hero.png
 class: pl-4
 ---
 
@@ -1789,7 +1789,7 @@ class: px-14
 
 </div>
 
-<img src="/images/active-buzzer-sticker.jpg" class="max-h-[32rem] rounded-xl ring-2 ring-[color-mix(in_srgb,var(--ak-danger)_50%,transparent)] shadow-md" />
+<img src="/images/active-buzzer-sticker.png" class="max-h-[32rem]" />
 
 </div>
 
@@ -2063,7 +2063,7 @@ class: px-14 pt-12
 
 <div style="margin-top:48px;display:flex;gap:64px;align-items:center">
 
-  <img src="/images/photoresistors-three.jpg" style="width:720px;height:540px;object-fit:contain;flex-shrink:0;border-radius:20px" />
+  <img src="/images/photoresistors-three.png" style="width:720px;height:540px;object-fit:contain;flex-shrink:0" />
 
   <div style="font-size:48px;line-height:1.5">
     <div style="margin-bottom:24px">Knappen: <strong>PÅ eller AV.</strong></div>
@@ -2280,7 +2280,7 @@ Tänk dig ett **vattenrör som höjdskala**: `+5 V` är uppe, `GND` är nere. Tv
 
 <div style="display: flex; justify-content: center">
 
-<img src="/images/voltage-divider.png" style="width: 600px; max-width: 100%" alt="Spänningsdelare-schema: +5V → fotocell → A0 → 1 kΩ → GND med typiska värden" />
+<img src="/images/voltage-divider.png" style="width: 600px; max-width: 100%; padding: 16px; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06); border: 1px solid var(--ak-border)" alt="Spänningsdelare-schema: +5V → fotocell → A0 → 1 kΩ → GND med typiska värden" />
 
 </div>
 

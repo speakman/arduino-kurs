@@ -236,7 +236,7 @@
       color-mix(in srgb, var(--ak-text) 25%, transparent) 0%,
       color-mix(in srgb, var(--ak-text) 45%, transparent) 55%,
       color-mix(in srgb, var(--ak-text) 88%, transparent) 100%),
-    url('/images/cover-arduino-hero.jpg') !important;
+    url('/images/cover-arduino-hero.png') !important;
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
