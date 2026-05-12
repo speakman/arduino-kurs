@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Träff 5 — Hackathon · Arduino-kursen</title>
+  <meta name="description" content="Träff 5: Hackathon. Sätt ihop knapp, tilt, fotocell, buzzer och RGB till ett komplett tjuvlarm." />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/styles/github.min.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="../" class="brand">
+      <span class="logo">A</span>
+      <span>Arduino-kursen</span>
+    </a>
+    <nav>
+      <a href="../">Start</a>
+      <a href="1.html" class="active">Träffarna</a>
+      <a href="../slides/" target="_blank" rel="noopener">Slides</a>
+      <a href="../nedladdningar.html">Nedladdningar</a>
+      <a href="../resurser.html">Resurser</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="dag-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../">Start</a> &nbsp;/&nbsp; Träff 05</div>
+    <h1>Hackathon — sense + act</h1>
+    <p class="lead">
+      Den röda tråden går ihop. Knapp, tilt, fotocell, buzzer och RGB —
+      från fem komponenter till ett fungerande tjuvlarm. Mönstret bakom
+      i princip allt inbyggt: läs in, fatta beslut, agera ut.
+    </p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="material-grid">
+    <a class="material-card" href="../slides/" target="_blank" rel="noopener">
+      <span class="icon">▶</span>
+      <span class="label">Live slides</span>
+      <span class="desc">Hela kursdeck:et i webbläsaren.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/slides-dag-5.pdf">
+      <span class="icon">📄</span>
+      <span class="label">Slides PDF (träff 5)</span>
+      <span class="desc">5 sidor · introduktion till hackathon-uppgiften.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/modul-5-hackathon.pdf">
+      <span class="icon">📘</span>
+      <span class="label">Kompendium — Modul 5</span>
+      <span class="desc">Uppgiftsbeskrivning, krav, valfria utökningar.</span>
+    </a>
+    <a class="material-card" href="../assets/pdf/bilaga-d-hackathon-losning.pdf">
+      <span class="icon">🔑</span>
+      <span class="label">Bilaga D — Lösning</span>
+      <span class="desc">Den kompletta sketchen rad-för-rad-förklarad.</span>
+    </a>
+  </div>
+
+  <div class="dag-section">
+    <h2>Uppgiften</h2>
+    <p class="intro">
+      Bygg ett tjuvlarm av kit-komponenterna du har:
+    </p>
+    <ul>
+      <li><strong>Knapp</strong> — slår på och av larmet.</li>
+      <li><strong>Tilt-sensor</strong> — utlöser larmet om någon flyttar på det.</li>
+      <li><strong>Fotocell</strong> — när rummet är mörkt (utan att larmet är på) tänds ett <em>stämningsljus</em>.</li>
+      <li><strong>Buzzer</strong> — tjuter när larmet utlöser.</li>
+      <li><strong>RGB-LED</strong> — blinkar rött vid larm, ger varmt sken som stämningsljus.</li>
+    </ul>
+
+    <p>Inget nytt API. Allt bygger på det du redan kan — det som är nytt är att <em>kombinera</em> det.</p>
+  </div>
+
+  <div class="dag-section">
+    <h2>Mönstret</h2>
+    <p class="intro">Tre block i <code>loop()</code> — samma struktur du kommer se i alla inbyggda system:</p>
+    <div class="skills">
+      <div class="skill">
+        <strong>1. Läs in</strong>
+        <span>Hämta alla sensorvärden överst i loopen. Knapp, tilt, fotocell. Spara i lokala variabler.</span>
+      </div>
+      <div class="skill">
+        <strong>2. Fatta beslut</strong>
+        <span>If/else-kedja som bestämmer vilket av lägena som är aktivt: larm tjuter, stämningsljus, eller helt tyst.</span>
+      </div>
+      <div class="skill">
+        <strong>3. Agera ut</strong>
+        <span>Skriv ut till buzzer, RGB-LED, ev. inbyggda LED:en. Sedan en kort <code>delay</code> och loopen börjar om.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Skelett att starta från</h2>
+    <p class="intro">
+      Strukturen är redan på plats — fyll i logiken i <code>loop()</code> själv.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>larm-skelett.ino</span>
+        <a href="../assets/code/larm-skelett.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">const int knappPin  = 9;
+const int tiltPin   = 2;
+const int ldrPin    = A0;
+const int buzzerPin = 12;
+const int ledR      = 6;
+const int ledG      = 5;
+const int ledB      = 3;
+
+const int morkTroskel = 300;
+
+bool larmPaslaget   = false;
+int  lastKnappState = HIGH;
+
+void sattFarg(int r, int g, int b) {
+  analogWrite(ledR, r);
+  analogWrite(ledG, g);
+  analogWrite(ledB, b);
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(knappPin,  INPUT_PULLUP);
+  pinMode(tiltPin,   INPUT_PULLUP);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledR, OUTPUT);
+  pinMode(ledG, OUTPUT);
+  pinMode(ledB, OUTPUT);
+}
+
+void loop() {
+  // 1. LÄS — knapp, tilt, fotocell
+  // TODO: läs alla tre och spara i variabler
+
+  // 2. BESLUT — knappen togglar larmet (flank-detektion)
+  // TODO: om knappen JUST tryckts (LOW men förra var HIGH),
+  //       invertera larmPaslaget
+
+  // 3. AGERA — välj vad som ska hända
+  //   - Om larm PÅ och tilt LUTAD: buzzer + rött blink
+  //   - Om larm AV och MÖRKT:      stämningsljus
+  //   - Annars:                    tyst, RGB släckt
+
+  delay(10);
+}
+</code></pre>
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Komplett lösning</h2>
+    <p class="intro">
+      En version som uppfyller hela kravspecen. <strong>Bilaga D</strong> i kompendiet går igenom varje
+      rad — varför den är där, vad den gör, och var den kommer ifrån.
+    </p>
+
+    <div class="code-block">
+      <div class="filename">
+        <span>larm-komplett.ino</span>
+        <a href="../assets/code/larm-komplett.ino" download>Ladda ner ↓</a>
+      </div>
+<pre><code class="language-cpp">// ─── Pin-tilldelning ────────────────────────────────────
+const int knappPin  = 9;
+const int tiltPin   = 2;
+const int ldrPin    = A0;
+const int buzzerPin = 12;
+const int ledR      = 6;
+const int ledG      = 5;
+const int ledB      = 3;
+
+const int morkTroskel = 300;
+
+bool larmPaslaget   = false;
+int  lastKnappState = HIGH;
+
+void sattFarg(int r, int g, int b) {
+  analogWrite(ledR, r);
+  analogWrite(ledG, g);
+  analogWrite(ledB, b);
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(knappPin,  INPUT_PULLUP);
+  pinMode(tiltPin,   INPUT_PULLUP);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(ledR, OUTPUT);
+  pinMode(ledG, OUTPUT);
+  pinMode(ledB, OUTPUT);
+
+  Serial.println("Larmet startat. Larm av som default.");
+}
+
+void loop() {
+  // 1. LÄS INPUTS
+  int  knappState = digitalRead(knappPin);
+  bool tiltLutad  = (digitalRead(tiltPin) == LOW);
+  delay(50);                  // debounce tilt — kulan bouncar i hylsan
+  int  ljus       = analogRead(ldrPin);
+
+  // 2. EDGE-DETECTION för knappen (toggla larmläget)
+  if (knappState == LOW &amp;&amp; lastKnappState == HIGH) {
+    larmPaslaget = !larmPaslaget;
+    Serial.print("Larm nu ");
+    Serial.println(larmPaslaget ? "PÅ" : "AV");
+  }
+  lastKnappState = knappState;
+
+  // 3. BESTÄM VAD SOM SKA HÄNDA
+  if (larmPaslaget &amp;&amp; tiltLutad) {
+    digitalWrite(buzzerPin, HIGH);
+    sattFarg(255, 0, 0);
+    delay(100);
+    digitalWrite(buzzerPin, LOW);
+    sattFarg(0, 0, 0);
+    delay(100);
+  } else if (!larmPaslaget &amp;&amp; ljus &lt; morkTroskel) {
+    digitalWrite(buzzerPin, LOW);
+    sattFarg(120, 60, 20);
+  } else {
+    digitalWrite(buzzerPin, LOW);
+    sattFarg(0, 0, 0);
+  }
+
+  delay(10);
+}
+</code></pre>
+    </div>
+
+    <div class="tip">
+      <strong>Hjälpfunktion <code>sattFarg(r, g, b)</code>:</strong> Tre <code>analogWrite</code>-rader paketerade till en funktion. När du senare vill sätta en färg räcker det med <code>sattFarg(255, 0, 0)</code> istället för tre separata rader. Det är så koden blir läsbar när den växer.
+    </div>
+  </div>
+
+  <div class="dag-section">
+    <h2>Vad du har lärt dig på fem träffar</h2>
+    <p class="intro">
+      Du började med en enda LED och en resistor. Du slutar med ett komplett inbyggt system som läser
+      flera sensorer samtidigt, fattar beslut och agerar.
+    </p>
+    <ul>
+      <li><strong>Träff 1:</strong> Krets &amp; Ohms lag &amp; LED &amp; Blink — sätta upp och styra utgångar.</li>
+      <li><strong>Träff 2:</strong> PWM &amp; RGB — utgångar med flera nivåer, inte bara av/på.</li>
+      <li><strong>Träff 3:</strong> Knapp &amp; if/else &amp; flank-detektion — ingångar och logik.</li>
+      <li><strong>Träff 4:</strong> Fotocell &amp; tilt &amp; Serial &amp; spänningsdelare — analog avläsning och felsökning.</li>
+      <li><strong>Träff 5:</strong> Integration — sense + act-loopen som är hjärtat i allt inbyggt.</li>
+    </ul>
+
+    <p>Det här är inte ett slut, utan en avstamp.</p>
+  </div>
+
+  <div class="cta-block">
+    <div>
+      <div class="section-eyebrow">Vägen framåt</div>
+      <h3>Vad kan jag göra härnäst?</h3>
+      <p>Kuraterade resurser — kanaler, projekt, nästa hardware, svenska komponenthandlare.</p>
+    </div>
+    <a class="btn" href="../resurser.html">Resurser &amp; nästa steg →</a>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <h4>Om kursen</h4>
+      <p>5-träffars Arduino-nybörjarkurs baserad på ELEGOO UNO Basic Starter Kit. Framtagen för FRO Ånge våren 2026.</p>
+      <p style="margin-top:12px;font-size:0.85rem;">
+        <a href="https://github.com/speakman/arduino-kurs" target="_blank" rel="noopener">Källkod på GitHub →</a>
+      </p>
+    </div>
+    <div>
+      <h4>Material</h4>
+      <ul>
+        <li><a href="1.html">Träff 1 — LED &amp; krets</a></li>
+        <li><a href="2.html">Träff 2 — PWM &amp; RGB</a></li>
+        <li><a href="3.html">Träff 3 — Digital input</a></li>
+        <li><a href="4.html">Träff 4 — Analog input</a></li>
+        <li><a href="5.html">Träff 5 — Hackathon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resurser</h4>
+      <ul>
+        <li><a href="../slides/" target="_blank" rel="noopener">Live slides</a></li>
+        <li><a href="../nedladdningar.html">Nedladdningar</a></li>
+        <li><a href="../resurser.html">Länkar &amp; nästa steg</a></li>
+        <li><a href="https://github.com/speakman/arduino-kurs/issues" target="_blank" rel="noopener">Frågor / förslag</a></li>
+      </ul>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Daniel Nyström · CC BY-SA 4.0</span>
+      <span>Arduino® och ELEGOO® är respektive företags varumärken.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.10.0/build/languages/cpp.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>
