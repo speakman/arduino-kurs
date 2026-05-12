@@ -11,7 +11,7 @@
 
   --ak-text:      #0a0e14;
   --ak-text-dim:  #4a5568;
-  --ak-text-mute: #8a95a3;
+  --ak-text-mute: #5b6577;
 
   --ak-accent:      #00747d;
   --ak-accent-hover:#005c63;
@@ -67,7 +67,7 @@ code {
   font-family: var(--ak-font-mono);
   font-size: 0.92em;
   background: var(--ak-accent-soft);
-  color: var(--ak-accent);
+  color: #00505a;             /* AA-pass mot accent-soft över raised + white */
   padding: 0.12em 0.4em;
   border-radius: 4px;
 }
